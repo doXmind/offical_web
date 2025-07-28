@@ -106,3 +106,15 @@ import { Disclosure, Transition } from '@headlessui/react'
    - Moving utility functions to dedicated modules
    - Separating concerns into logical units
 3. **Notify when limit is reached** - When implementing features that would exceed the 800-line limit, inform the user and suggest file splitting strategies before proceeding
+
+## Progress Tracking
+
+### Development Progress Updates
+1. **Update docs/PROGRESS.md** - After completing each phase or significant work session, update the progress tracking document
+2. **Include in updates**:
+   - Mark completed tasks with [x]
+   - Update completion percentages
+   - Add milestone records with date and description
+   - Note any risks or issues encountered
+   - Update the "最后更新" (last updated) date
+3. **Be specific** - Include what was accomplished, any changes made, and next steps
