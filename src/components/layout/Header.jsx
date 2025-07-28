@@ -1,16 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { navLinks, companyInfo } from '../../core/constants';
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X } from 'lucide-react';
+import { companyInfo } from '../../core/constants';
+import { navigationData, simpleNavItems, ctaButtons } from '../../constants/navigation';
 import { cn } from '../../core/utils';
 import Button from '../ui/Button';
+import MegaMenu from '../navigation/MegaMenu';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hideHeader, setHideHeader] = useState(false);
+  const prevScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentY = window.scrollY;
+      setIsScrolled(currentY > 20);
+
+      if (currentY > prevScrollY.current && currentY > 100) {
+        setHideHeader(true);
+      } else if (currentY < prevScrollY.current) {
+        setHideHeader(false);
+      }
+
+      prevScrollY.current = currentY;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -32,13 +45,12 @@ const Header = () => {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-black/90 backdrop-blur-primary'
-          : 'bg-transparent'
+        'fixed top-0 left-0 right-0 z-50 transform transition-all duration-300',
+        isScrolled ? 'bg-black/90 backdrop-blur-primary' : 'bg-transparent',
+        hideHeader ? '-translate-y-full' : 'translate-y-0'
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
@@ -48,31 +60,37 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {/* Main Navigation */}
-            <div className="flex items-center space-x-6">
-              {navLinks.main.map((link) => (
+          <div className="hidden md:flex items-center justify-end flex-1 gap-8">
+            {/* Mega Menu Navigation */}
+            <div className="flex items-center gap-1">
+              {Object.entries(navigationData).map(([key, data]) => (
+                <MegaMenu key={key} data={data} isScrolled={isScrolled} />
+              ))}
+              
+              {/* Simple Navigation Items */}
+              {simpleNavItems.map((item) => (
                 <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-gray-300 hover:text-white transition-colors font-medium"
+                  key={item.label}
+                  href={item.href}
+                  className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200"
                 >
-                  {link.name}
+                  {item.label}
                 </a>
               ))}
             </div>
 
-            {/* Secondary Navigation */}
-            <div className="flex items-center space-x-4">
-              <a
-                href={navLinks.secondary[0].href}
-                className="text-gray-300 hover:text-white transition-colors font-medium"
-              >
-                {navLinks.secondary[0].name}
-              </a>
-              <Button variant="primary" size="sm">
-                Try DocMindLLM
-              </Button>
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-4 ml-8">
+              {ctaButtons.map((button) => (
+                <Button
+                  key={button.label}
+                  variant={button.variant}
+                  size="sm"
+                  href={button.href}
+                >
+                  {button.label}
+                </Button>
+              ))}
             </div>
           </div>
 
@@ -103,31 +121,57 @@ const Header = () => {
         )}
       >
         <div className="px-4 py-4 space-y-1">
-          {navLinks.main.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.name}
-            </a>
+          {/* Mobile Dropdown Sections */}
+          {Object.entries(navigationData).map(([key, data]) => (
+            <div key={key} className="py-2">
+              <h3 className="px-3 text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                {data.label}
+              </h3>
+              <div className="mt-2 space-y-1">
+                {data.sections.map((section, idx) => (
+                  <div key={idx}>
+                    {section.items.map((item) => (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        className="block px-6 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
           
           <div className="border-t border-gray-800 my-4"></div>
           
-          <a
-            href={navLinks.secondary[0].href}
-            className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            {navLinks.secondary[0].name}
-          </a>
+          {/* Mobile Simple Nav Items */}
+          {simpleNavItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
           
           <div className="pt-4">
-            <Button variant="primary" size="sm" className="w-full">
-              Try DocMindLLM
-            </Button>
+            {ctaButtons.map((button) => (
+              <Button
+                key={button.label}
+                variant={button.variant}
+                size="sm"
+                className="w-full mb-2"
+                href={button.href}
+              >
+                {button.label}
+              </Button>
+            ))}
           </div>
         </div>
       </div>

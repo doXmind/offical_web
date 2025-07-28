@@ -22,6 +22,8 @@ npm run preview
 
 This is a React-based single-page application (SPA) for DocMindLLM, an AI-powered writing assistant.
 
+**IMPORTANT: This is an English-language website. All UI text, navigation labels, and content should be in English.**
+
 ### Technology Stack
 - **React 18** - UI framework
 - **Vite** - Build tool and dev server (configured on port 3000)
