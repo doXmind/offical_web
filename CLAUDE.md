@@ -96,3 +96,13 @@ import { Disclosure, Transition } from '@headlessui/react'
 - Use Tailwind's responsive utilities for mobile-first design
 - Leverage Tailwind's dark mode utilities if implementing dark theme
 - Combine Headless UI with Tailwind classes for consistent styling
+
+## Code Organization Guidelines
+
+### File Length Rules
+1. **Keep files under 800 lines** - All code files should aim to stay within 700-800 lines maximum
+2. **Split large components** - If a file approaches 800 lines, refactor by:
+   - Extracting sub-components into separate files
+   - Moving utility functions to dedicated modules
+   - Separating concerns into logical units
+3. **Notify when limit is reached** - When implementing features that would exceed the 800-line limit, inform the user and suggest file splitting strategies before proceeding
