@@ -1,10 +1,8 @@
 import React from 'react';
-import DocMindLLM from './components/DocMindLLM';
+import Home from './pages/Home';
 
 function App() {
-  return (
-    <DocMindLLM />
-  );
+  return <Home />;
 }
 
 export default App; 

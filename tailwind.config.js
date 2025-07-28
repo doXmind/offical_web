@@ -6,29 +6,71 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#11c4d4',
+          light: '#3dd4e2',
+          dark: '#0a99a8',
+        },
+        gray: {
+          50: '#f5f5f5',
+          100: '#e5e5e5',
+          200: '#cccccc',
+          300: '#aaaaaa',
+          400: '#8a8a8a',
+          500: '#6a6a6a',
+          600: '#4a4a4a',
+          700: '#2a2a2a',
+          800: '#1a1a1a',
+          900: '#0a0a0a',
+        },
+      },
+      fontFamily: {
+        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem', { lineHeight: '1.5rem' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '1' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
       animation: {
+        'fadeIn': 'fadeIn 0.5s ease-out forwards',
         'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
         'slideInRight': 'slideInRight 0.6s ease-out forwards',
         'pulse-slow': 'pulse 4s ease-in-out infinite',
-        'blink': 'blink 1s infinite',
       },
       keyframes: {
+        fadeIn: {
+          'from': { opacity: 0 },
+          'to': { opacity: 1 },
+        },
         fadeInUp: {
-          'from': { opacity: 0, transform: 'translateY(30px)' },
+          'from': { opacity: 0, transform: 'translateY(20px)' },
           'to': { opacity: 1, transform: 'translateY(0)' },
         },
         slideInRight: {
-          'from': { opacity: 0, transform: 'translateX(30px)' },
+          'from': { opacity: 0, transform: 'translateX(20px)' },
           'to': { opacity: 1, transform: 'translateX(0)' },
         },
         pulse: {
           '0%, 100%': { opacity: 0.3 },
           '50%': { opacity: 0.6 },
         },
-        blink: {
-          '0%, 50%': { opacity: 1 },
-          '51%, 100%': { opacity: 0 },
-        },
+      },
+      backdropBlur: {
+        xs: '2px',
       },
     },
   },
