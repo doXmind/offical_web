@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.6",
+    "clsx": "^2.1.1",
     "echarts": "^5.6.0",
+    "framer-motion": "^12.23.11",
     "lucide-react": "^0.303.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^7.7.1",
+    "tailwind-merge": "^3.3.1",
     "vue-echart": "^1.0.5"
   },
   "devDependencies": {

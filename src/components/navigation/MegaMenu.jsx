@@ -8,7 +8,7 @@ const MegaMenu = ({ data, isScrolled }) => {
 
   // Icon mapping for featured sections
   const iconMap = {
-    'Products': Sparkles,
+    'Features': Sparkles,
     'Developers': Code2,
     'Resources': BookOpen
   };

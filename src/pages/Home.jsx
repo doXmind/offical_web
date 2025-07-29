@@ -3,9 +3,9 @@ import {
   ChevronRight, Sparkles, ArrowRight, Check,
   Edit3, BarChart3, Wand2, RefreshCw, Image,
   Type, BookOpen, Target, FileText, Users,
-  Brain, Shield, Zap, Package
+  Brain, Shield, Zap, Package, Layers,
+  MessageSquare, Building, Database, PenTool
 } from 'lucide-react';
-import Layout from '../components/layout/Layout';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import { features, solutions, techAdvantages, comparisonData } from '../core/constants';
@@ -365,20 +365,17 @@ const CTASection = () => {
   );
 };
 
-// Missing imports for icons
-import { Layers, MessageSquare, Building, Database, PenTool } from 'lucide-react';
-
 // Main Home Component
 const Home = () => {
   return (
-    <Layout>
+    <>
       <HeroSection />
       <FeaturesSection />
       <ComparisonSection />
       <SolutionsSection />
       <TechAdvantagesSection />
       <CTASection />
-    </Layout>
+    </>
   );
 };
 

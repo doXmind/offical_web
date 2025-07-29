@@ -98,6 +98,7 @@ import { Disclosure, Transition } from '@headlessui/react'
 - Use Tailwind's responsive utilities for mobile-first design
 - Leverage Tailwind's dark mode utilities if implementing dark theme
 - Combine Headless UI with Tailwind classes for consistent styling
+- **IMPORTANT: DO NOT use any emoji in this project** - Keep all content professional without emoji
 
 ## Code Organization Guidelines
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ExternalLink, Sparkles, Code2, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, X, ExternalLink, BookOpen } from 'lucide-react';
 import { companyInfo } from '../../core/constants';
 import { navigationData, simpleNavItems, ctaButtons } from '../../constants/navigation';
 import { cn } from '../../core/utils';
@@ -19,9 +20,7 @@ const Header = () => {
 
   // Icon mapping for featured sections
   const iconMap = {
-    'products': Sparkles,
-    'developers': Code2,
-    'resources': BookOpen
+    'learn': BookOpen
   };
 
   useEffect(() => {
@@ -154,13 +153,23 @@ const Header = () => {
               
               {/* Simple Navigation Items */}
               {simpleNavItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  {item.label}
-                </a>
+                item.href.startsWith('/') ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
             </div>
 
@@ -235,14 +244,25 @@ const Header = () => {
           
           {/* Mobile Simple Nav Items */}
           {simpleNavItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.label}
-            </a>
+            item.href.startsWith('/') ? (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            )
           ))}
           
           <div className="pt-4">
