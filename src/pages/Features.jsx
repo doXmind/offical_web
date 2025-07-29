@@ -23,7 +23,7 @@ import { BentoGrid, BentoGridItem } from '../components/ui/BentoGrid';
 import { CardSpotlight } from '../components/ui/CardSpotlight';
 import { cn } from '../core/utils';
 
-const Product = () => {
+const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
 
@@ -176,14 +176,6 @@ const Product = () => {
   const scrollToFeature = (index) => {
     const element = document.getElementById(`feature-${index}`);
     if (element) {
-      // Hide header when using navbar navigation
-      const header = document.querySelector('nav.transition-transform');
-      if (header && !header.classList.contains('-translate-y-full')) {
-        header.classList.add('-translate-y-full');
-        // Update header height immediately
-        setTimeout(() => setHeaderHeight(0), 50);
-      }
-      
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActiveFeature(index);
     }
@@ -215,7 +207,7 @@ const Product = () => {
       {
         root: null,
         threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: `-${headerHeight + 90}px 0px -40% 0px`, // account for header and navbar
+        rootMargin: `-${headerHeight + 100}px 0px -40% 0px`, // account for header and navbar
       }
     );
 
@@ -291,7 +283,7 @@ const Product = () => {
               id={`feature-${index}`}
               /* IntersectionObserver handles active feature */
               className="relative"
-              style={{ scrollMarginTop: `${headerHeight + 80}px` }}
+              style={{ scrollMarginTop: `${headerHeight + 96}px` }}
             >
               {/* Content */}
               <div className="relative">
@@ -544,4 +536,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Features;
