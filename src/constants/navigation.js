@@ -181,5 +181,5 @@ export const simpleNavItems = [
 ];
 
 export const ctaButtons = [
-  { label: 'Get Started', href: '#get-started', variant: 'primary' }
+  { label: 'Try DocMind', href: '#get-started', variant: 'primary' }
 ];

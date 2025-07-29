@@ -63,7 +63,7 @@ const HeroSection = () => {
         {/* Live Demo Editor */}
         <div className="mt-16 animate-fadeInUp delay-500">
           <div className="relative max-w-4xl mx-auto">
-            <div className="gradient-border rounded-2xl p-1 hover-glow">
+            <div className="gradient-border rounded-2xl p-1 hover-glow bg-gray-900">
               <div className="bg-gray-900 rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-2">

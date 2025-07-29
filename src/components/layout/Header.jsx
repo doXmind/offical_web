@@ -1,16 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ExternalLink, Sparkles, Code2, BookOpen } from 'lucide-react';
 import { companyInfo } from '../../core/constants';
 import { navigationData, simpleNavItems, ctaButtons } from '../../constants/navigation';
 import { cn } from '../../core/utils';
 import Button from '../ui/Button';
-import MegaMenu from '../navigation/MegaMenu';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const prevScrollY = useRef(0);
+  const closeTimeoutRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const [dropdownHeight, setDropdownHeight] = useState('auto');
+  const contentRefs = useRef({});
+
+  // Icon mapping for featured sections
+  const iconMap = {
+    'products': Sparkles,
+    'developers': Code2,
+    'resources': BookOpen
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,11 +54,69 @@ const Header = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
 
+  // Handle menu interactions
+  const handleMenuEnter = (menuKey) => {
+    // Clear any pending close timeout
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+
+    // If switching between menus, do it immediately
+    if (isDropdownOpen && activeMenu !== menuKey) {
+      setActiveMenu(menuKey);
+    } else if (!isDropdownOpen) {
+      // Opening for the first time - small delay for smoothness
+      setIsDropdownOpen(true);
+      setTimeout(() => {
+        setActiveMenu(menuKey);
+      }, 10);
+    }
+  };
+
+  const handleMenuLeave = () => {
+    // Delay closing to allow mouse to move between elements
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+      setActiveMenu(null);
+    }, 200);
+  };
+
+  const handleDropdownEnter = () => {
+    // Cancel close when entering dropdown
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const handleDropdownLeave = () => {
+    // Close dropdown when leaving
+    handleMenuLeave();
+  };
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Calculate dropdown height based on active menu
+  useEffect(() => {
+    if (activeMenu && contentRefs.current[activeMenu]) {
+      const contentHeight = contentRefs.current[activeMenu].scrollHeight;
+      setDropdownHeight(`${contentHeight}px`);
+    }
+  }, [activeMenu]);
+
   return (
     <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transform transition-all duration-300',
-        isScrolled ? 'bg-black/90 backdrop-blur-primary' : 'bg-transparent',
+        isScrolled || isDropdownOpen ? 'bg-black' : 'bg-transparent',
         hideHeader ? '-translate-y-full' : 'translate-y-0'
       )}
     >
@@ -64,7 +134,22 @@ const Header = () => {
             {/* Mega Menu Navigation */}
             <div className="flex items-center gap-1">
               {Object.entries(navigationData).map(([key, data]) => (
-                <MegaMenu key={key} data={data} isScrolled={isScrolled} />
+                <div
+                  key={key}
+                  onMouseEnter={() => handleMenuEnter(key)}
+                  onMouseLeave={handleMenuLeave}
+                >
+                  <button
+                    className={cn(
+                      "px-3 py-2 text-sm font-medium transition-colors duration-200",
+                      activeMenu === key ? "text-white" : "text-gray-300 hover:text-white"
+                    )}
+                    aria-expanded={activeMenu === key}
+                    aria-haspopup="true"
+                  >
+                    {data.label}
+                  </button>
+                </div>
               ))}
               
               {/* Simple Navigation Items */}
@@ -171,6 +256,129 @@ const Header = () => {
               >
                 {button.label}
               </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Unified Mega Menu Dropdown Container */}
+      <div
+        className={cn(
+          "fixed left-0 right-0 top-16 transition-all duration-300 overflow-hidden",
+          isDropdownOpen ? "visible" : "invisible"
+        )}
+        onMouseEnter={handleDropdownEnter}
+        onMouseLeave={handleDropdownLeave}
+        ref={dropdownRef}
+      >
+        <div 
+          className={cn(
+            "transition-all duration-300 transform",
+            isDropdownOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
+            "bg-black"
+          )}
+          style={{
+            boxShadow: isDropdownOpen ? '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)' : 'none'
+          }}
+        >
+          <div 
+            className="relative overflow-hidden transition-all duration-300"
+            style={{ height: isDropdownOpen ? dropdownHeight : '0px' }}
+          >
+            {Object.entries(navigationData).map(([key, data]) => (
+              <div
+                key={key}
+                ref={el => contentRefs.current[key] = el}
+                className={cn(
+                  "transition-all duration-300",
+                  activeMenu === key ? "opacity-100 relative" : "opacity-0 pointer-events-none absolute inset-0"
+                )}
+              >
+                <div className="max-w-7xl mx-auto px-8 py-8">
+                  <div className="grid grid-cols-3 gap-12">
+                    {data.sections.map((section, idx) => (
+                      <div 
+                        key={idx}
+                        className={cn(
+                          "transition-all duration-300",
+                          activeMenu === key ? "opacity-100" : "opacity-0"
+                        )}
+                        style={{
+                          transitionDelay: activeMenu === key ? `${idx * 50}ms` : '0ms'
+                        }}
+                      >
+                        <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                          {section.title}
+                        </h3>
+                        <ul className="space-y-3">
+                          {section.items.map((item, itemIdx) => (
+                            <li key={itemIdx}>
+                              <a
+                                href={item.href}
+                                className="block text-sm text-gray-300 hover:text-primary transition-colors duration-150 group"
+                              >
+                                <span className="flex items-center gap-2">
+                                  {item.label}
+                                  {item.external && (
+                                    <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100" />
+                                  )}
+                                </span>
+                                {item.description && (
+                                  <span className="text-xs text-gray-500 mt-1 block">
+                                    {item.description}
+                                  </span>
+                                )}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+
+                    {/* Featured Section */}
+                    {data.featured && (
+                      <div 
+                        className={cn(
+                          "col-span-1 transition-all duration-300",
+                          activeMenu === key ? "opacity-100" : "opacity-0"
+                        )}
+                        style={{
+                          transitionDelay: activeMenu === key ? `${data.sections.length * 50}ms` : '0ms'
+                        }}
+                      >
+                        <div className="h-full">
+                          <a
+                            href={data.featured.href}
+                            className="block h-full rounded-lg p-6 bg-gray-800 hover:bg-gray-700 transition-all duration-200 group"
+                          >
+                            <div className="flex flex-col h-full">
+                              <div className="inline-flex p-3 rounded-lg bg-primary/10 self-start mb-4 text-primary">
+                                {iconMap[key] && React.createElement(iconMap[key], { className: "w-6 h-6" })}
+                              </div>
+                              <div>
+                                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                                  {data.featured.title}
+                                </p>
+                                <p className="text-base font-medium text-white mb-2 group-hover:text-primary transition-colors">
+                                  {data.featured.subtitle}
+                                </p>
+                                <p className="text-sm text-gray-400">
+                                  {data.featured.description}
+                                </p>
+                              </div>
+                              <div className="mt-auto pt-4">
+                                <span className="text-sm text-primary font-medium group-hover:text-primary-dark">
+                                  Learn more →
+                                </span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
