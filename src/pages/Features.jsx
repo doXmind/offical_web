@@ -22,6 +22,7 @@ import {
 import { BentoGrid, BentoGridItem } from '../components/ui/BentoGrid';
 import { CardSpotlight } from '../components/ui/CardSpotlight';
 import { cn } from '../core/utils';
+import CTASection from '../components/ui/cta-section';
 
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -521,6 +522,16 @@ const Features = () => {
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <CTASection 
+        title="Experience the Power of AI"
+        subtitle="Start building smarter documents today with our advanced features"
+        primaryButtonText="Start Free Trial"
+        secondaryButtonText="Request Demo"
+        footerText="No setup required • Start in seconds • Cancel anytime"
+        showBorder={false}
+      />
 
     </div>
   );

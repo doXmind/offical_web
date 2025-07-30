@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, ChevronDown, ChevronUp, Star } from 'lucide-react';
+import CTASection from '../components/ui/cta-section';
 
 const Pricing = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -386,6 +387,17 @@ const Pricing = () => {
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <CTASection 
+        title="Start Your Journey Today"
+        subtitle="Choose any plan and upgrade anytime as your needs grow"
+        primaryButtonText="Start Free Trial"
+        secondaryButtonText="Talk to Sales"
+        footerText="30-day money back guarantee • No hidden fees • Cancel anytime"
+        showBorder={false}
+        padding="p-16"
+      />
 
     </div>
   );

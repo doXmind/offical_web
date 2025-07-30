@@ -4,7 +4,6 @@ import { Menu, X, ExternalLink, BookOpen } from 'lucide-react';
 import { companyInfo } from '../../core/constants';
 import { navigationData, simpleNavItems, ctaButtons } from '../../constants/navigation';
 import { cn } from '../../core/utils';
-import Button from '../ui/Button';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,6 +11,7 @@ const Header = () => {
   const [hideHeader, setHideHeader] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [borderOpacity, setBorderOpacity] = useState(0);
   const prevScrollY = useRef(0);
   const closeTimeoutRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -30,6 +30,16 @@ const Header = () => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       setIsScrolled(currentY > 20);
+
+      // Calculate border opacity based on scroll
+      // 0-50px: 0 opacity
+      // 50-150px: 0 to 0.1 opacity
+      // 150px+: 0.1 opacity
+      let opacity = 0;
+      if (currentY > 50) {
+        opacity = Math.min((currentY - 50) / 100 * 0.1, 0.1);
+      }
+      setBorderOpacity(opacity);
 
       if (currentY > prevScrollY.current && currentY > 100) {
         setHideHeader(true);
@@ -155,10 +165,13 @@ const Header = () => {
     <nav
       ref={headerRef}
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transform transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 border-b',
         isScrolled || isDropdownOpen ? 'bg-black' : 'bg-transparent',
         hideHeader ? '-translate-y-full' : 'translate-y-0'
       )}
+      style={{
+        borderBottomColor: isDropdownOpen ? 'rgba(255, 255, 255, 0.1)' : `rgba(255, 255, 255, ${borderOpacity})`
+      }}
     >
       <div className="w-full px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="flex items-center justify-between h-16">
@@ -170,7 +183,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-end flex-1 gap-8">
+          <div className="hidden md:flex items-center justify-end flex-1">
             {/* Simple Navigation Items */}
             <div className="flex items-center gap-1">
               {simpleNavItems.map((item) => (
@@ -215,16 +228,20 @@ const Header = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex items-center gap-4 ml-8">
+            <div className="flex items-center gap-4 ml-12">
               {ctaButtons.map((button) => (
-                <Button
+                <Link
                   key={button.label}
-                  variant={button.variant}
-                  size="sm"
-                  href={button.href}
+                  to={button.href}
+                  className={cn(
+                    "px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
+                    button.variant === 'primary' 
+                      ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]" 
+                      : "text-gray-300 hover:text-white"
+                  )}
                 >
                   {button.label}
-                </Button>
+                </Link>
               ))}
             </div>
           </div>
@@ -308,15 +325,18 @@ const Header = () => {
           
           <div className="pt-4">
             {ctaButtons.map((button) => (
-              <Button
+              <Link
                 key={button.label}
-                variant={button.variant}
-                size="sm"
-                className="w-full mb-2"
-                href={button.href}
+                to={button.href}
+                className={cn(
+                  "block w-full px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300 text-center mb-2",
+                  button.variant === 'primary' 
+                    ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30" 
+                    : "text-gray-300 hover:text-white"
+                )}
               >
                 {button.label}
-              </Button>
+              </Link>
             ))}
           </div>
         </div>

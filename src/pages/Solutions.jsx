@@ -8,6 +8,7 @@ import {
   ArrowRight,
   Sparkles
 } from 'lucide-react';
+import CTASection from '../components/ui/cta-section';
 
 const Solutions = () => {
   const solutions = [
@@ -227,34 +228,14 @@ const Solutions = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="gradient-border rounded-3xl p-12 hover-glow">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Ready to Transform Your Workflow?
-            </h2>
-            <p className="text-xl text-gray-400 mb-8">
-              Join thousands of teams already using DocMindLLM to create better content faster
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-primary text-black font-semibold rounded-lg hover:bg-primary/90 transition-all"
-              >
-                Get Started Free
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border border-gray-700 rounded-lg hover:bg-gray-900 transition-all"
-              >
-                Schedule Demo
-              </motion.button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection 
+        title="Find Your Perfect Solution"
+        subtitle="Let our experts help you choose the right plan for your team's unique needs"
+        primaryButtonText="Contact Sales"
+        secondaryButtonText="Compare Plans"
+        footerText="Get personalized recommendations • Expert consultation included"
+        showBorder={false}
+      />
     </div>
   );
 };
