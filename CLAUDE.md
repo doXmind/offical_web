@@ -62,9 +62,21 @@ Local component state using React hooks:
 
 ## UI Development Guidelines
 
+### Design Language Compliance
+1. **IMPORTANT: Before editing or adding any pages/styles**, you MUST:
+   - Review the design language specification in `docs/DESIGN_LANGUAGE.md`
+   - Confirm with the user if any deviations are needed
+   - Prioritize user requirements while maintaining design consistency
+   - Ensure all new components follow the established design system
+
 ### Styling Rules
 1. **Always use Tailwind CSS** for styling - avoid inline styles or separate CSS files
-2. **Use Headless UI components** for interactive elements:
+2. **Follow the Design Language**: Refer to `docs/DESIGN_LANGUAGE.md` for:
+   - Color palette (primarily black/white with cyan accent)
+   - Typography scales and weights
+   - Spacing and layout patterns
+   - Animation specifications
+3. **Use Headless UI components** for interactive elements:
    - `Dialog` for modals
    - `Menu` for dropdowns
    - `Transition` for animations
@@ -78,6 +90,7 @@ Local component state using React hooks:
 ### Animation Guidelines
 - Use Headless UI's `Transition` component for enter/leave animations
 - Combine with Tailwind's transition utilities for smooth effects
+- Follow animation specs from design language (0.5-0.8s duration, y: 20px entry)
 - Prefer Headless UI transitions over custom CSS animations when possible
 
 ### Component Patterns
@@ -96,6 +109,8 @@ import { Disclosure, Transition } from '@headlessui/react'
 ### Best Practices
 - Ensure all interactive components are accessible (Headless UI handles this)
 - Use Tailwind's responsive utilities for mobile-first design
+- Maintain the minimalist aesthetic - avoid decorative elements
+- Use consistent spacing and typography from the design system
 - Leverage Tailwind's dark mode utilities if implementing dark theme
 - Combine Headless UI with Tailwind classes for consistent styling
 - **IMPORTANT: DO NOT use any emoji in this project** - Keep all content professional without emoji
