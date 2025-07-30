@@ -171,28 +171,8 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center justify-end flex-1 gap-8">
-            {/* Mega Menu Navigation */}
+            {/* Simple Navigation Items */}
             <div className="flex items-center gap-1">
-              {Object.entries(navigationData).map(([key, data]) => (
-                <div
-                  key={key}
-                  onMouseEnter={() => handleMenuEnter(key)}
-                  onMouseLeave={handleMenuLeave}
-                >
-                  <button
-                    className={cn(
-                      "px-3 py-2 text-sm font-medium transition-colors duration-200",
-                      activeMenu === key ? "text-white" : "text-gray-300 hover:text-white"
-                    )}
-                    aria-expanded={activeMenu === key}
-                    aria-haspopup="true"
-                  >
-                    {data.label}
-                  </button>
-                </div>
-              ))}
-              
-              {/* Simple Navigation Items */}
               {simpleNavItems.map((item) => (
                 item.href.startsWith('/') ? (
                   <Link
@@ -211,6 +191,26 @@ const Header = () => {
                     {item.label}
                   </a>
                 )
+              ))}
+              
+              {/* Mega Menu Navigation */}
+              {Object.entries(navigationData).map(([key, data]) => (
+                <div
+                  key={key}
+                  onMouseEnter={() => handleMenuEnter(key)}
+                  onMouseLeave={handleMenuLeave}
+                >
+                  <button
+                    className={cn(
+                      "px-3 py-2 text-sm font-medium transition-colors duration-200",
+                      activeMenu === key ? "text-white" : "text-gray-300 hover:text-white"
+                    )}
+                    aria-expanded={activeMenu === key}
+                    aria-haspopup="true"
+                  >
+                    {data.label}
+                  </button>
+                </div>
               ))}
             </div>
 
@@ -256,6 +256,31 @@ const Header = () => {
         )}
       >
         <div className="px-4 py-4 space-y-1">
+          {/* Mobile Simple Nav Items */}
+          {simpleNavItems.map((item) => (
+            item.href.startsWith('/') ? (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            )
+          ))}
+          
+          <div className="border-t border-gray-800 my-4"></div>
+          
           {/* Mobile Dropdown Sections */}
           {Object.entries(navigationData).map(([key, data]) => (
             <div key={key} className="py-2">
@@ -279,31 +304,6 @@ const Header = () => {
                 ))}
               </div>
             </div>
-          ))}
-          
-          <div className="border-t border-gray-800 my-4"></div>
-          
-          {/* Mobile Simple Nav Items */}
-          {simpleNavItems.map((item) => (
-            item.href.startsWith('/') ? (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <a
-                key={item.label}
-                href={item.href}
-                className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            )
           ))}
           
           <div className="pt-4">
