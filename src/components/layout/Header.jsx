@@ -18,6 +18,9 @@ const Header = () => {
   const [dropdownHeight, setDropdownHeight] = useState('auto');
   const contentRefs = useRef({});
 
+  // Ref for the root <nav> element so we can measure its size
+  const headerRef = useRef(null);
+
   // Icon mapping for featured sections
   const iconMap = {
     'learn': BookOpen
@@ -111,8 +114,46 @@ const Header = () => {
     }
   }, [activeMenu]);
 
+  // ------------------------------------------------------------
+  // Keep the global CSS variable --header-height up-to-date so
+  // other components (e.g. Features page) can react to header
+  // show/hide and size changes without bespoke JS calculations.
+  // ------------------------------------------------------------
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const updateCssVar = () => {
+      const height = header.classList.contains('-translate-y-full')
+        ? 0
+        : header.getBoundingClientRect().height;
+      document.documentElement.style.setProperty('--header-height', `${height}px`);
+    };
+
+    // Initial set
+    updateCssVar();
+
+    // Observe size changes
+    const resizeObserver = new ResizeObserver(updateCssVar);
+    resizeObserver.observe(header);
+
+    // Also update when hide/show state changes
+    const mutationObserver = new MutationObserver(updateCssVar);
+    mutationObserver.observe(header, { attributes: true, attributeFilter: ['class', 'style'] });
+
+    // Fallback in case of scroll-induced transforms we didn't capture
+    window.addEventListener('scroll', updateCssVar, { passive: true });
+
+    return () => {
+      resizeObserver.disconnect();
+      mutationObserver.disconnect();
+      window.removeEventListener('scroll', updateCssVar);
+    };
+  }, [hideHeader]);
+
   return (
     <nav
+      ref={headerRef}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transform transition-all duration-300',
         isScrolled || isDropdownOpen ? 'bg-black' : 'bg-transparent',

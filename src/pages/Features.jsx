@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FileText, 
@@ -26,6 +26,25 @@ import { cn } from '../core/utils';
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const navRef = React.useRef(null);
+  const [navHeight, setNavHeight] = useState(48); // default estimate to avoid initial overlap
+
+  // Measure nav height synchronously before paint for accuracy
+  useLayoutEffect(() => {
+    if (!navRef.current) return;
+
+    const updateNavHeight = () => {
+      const h = navRef.current.getBoundingClientRect().height;
+      setNavHeight(h);
+    };
+
+    updateNavHeight();
+
+    const ro = new ResizeObserver(updateNavHeight);
+    ro.observe(navRef.current);
+
+    return () => ro.disconnect();
+  }, []);
 
   const features = [
     {
@@ -139,38 +158,17 @@ const Features = () => {
     { name: 'Notion', icon: Layers, status: 'coming' }
   ];
 
-  const navRef = React.useRef(null);
-
+  // Read the current header height from the global CSS variable
   const getHeaderOffset = () => {
-    const header = document.querySelector('nav'); // global header element
-    if (!header) return 0;
-    const styles = window.getComputedStyle(header);
-    const transform = styles.transform || header.style.transform;
-    const isHidden = transform.includes('-translateY') || header.classList.contains('-translate-y-full');
-    return isHidden ? 0 : header.getBoundingClientRect().height;
+    const value = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-height')
+    );
+    return isNaN(value) ? 0 : value;
   };
 
-  // Monitor header visibility changes
-  useEffect(() => {
-    const updateHeaderHeight = () => {
-      setHeaderHeight(getHeaderOffset());
-    };
-
-    // Initial check
-    updateHeaderHeight();
-
-    // Check on scroll
-    const handleScroll = () => {
-      requestAnimationFrame(updateHeaderHeight);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', updateHeaderHeight);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', updateHeaderHeight);
-    };
+  // Read header height once (assume header is in default visible state)
+  useLayoutEffect(() => {
+    setHeaderHeight(getHeaderOffset());
   }, []);
 
   const scrollToFeature = (index) => {
@@ -207,7 +205,7 @@ const Features = () => {
       {
         root: null,
         threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: `-${headerHeight + 100}px 0px -40% 0px`, // account for header and navbar
+        rootMargin: `-${headerHeight + navHeight + 100}px 0px -40% 0px`, // account for header & navbar
       }
     );
 
@@ -220,14 +218,14 @@ const Features = () => {
     });
 
     return () => observer.disconnect();
-  }, [features.length, headerHeight, activeFeature]);
+  }, [features.length, headerHeight, navHeight, activeFeature]);
 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Feature Showcase (includes intro) */}
       <section id="features-section" className="px-4 py-24 scroll-mt-32">
         {/* Intro Title */}
-        <div className="relative z-10 text-center max-w-4xl mx-auto mb-16">
+        <div className="relative z-10 text-left max-w-7xl mx-auto mb-16">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -242,7 +240,7 @@ const Features = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-400 max-w-2xl"
           >
             Discover the tools that make DocMindLLM the most powerful AI document platform
           </motion.p>
@@ -250,8 +248,8 @@ const Features = () => {
 
         {/* Sticky navigation – visible only within the Feature Showcase section */}
         <div 
-          className="sticky z-40 px-4 flex justify-center mb-24 transition-all duration-300"
-          style={{ top: `${headerHeight + 16}px` }}
+          className="sticky z-40 max-w-7xl mx-auto flex justify-start mb-24 transition-all duration-300"
+          style={{ top: 'var(--nav-offset)', transition: 'top 0.3s ease-in-out' }}
         >
           <nav
             ref={navRef}
@@ -283,23 +281,15 @@ const Features = () => {
               id={`feature-${index}`}
               /* IntersectionObserver handles active feature */
               className="relative"
-              style={{ scrollMarginTop: `${headerHeight + 96}px` }}
+              style={{ scrollMarginTop: `${headerHeight + navHeight + 48}px` }}
             >
               {/* Content */}
               <div className="relative">
                 {/* Section Header */}
                 <div className="mb-12">
-                  <div className="flex items-center gap-6 mb-6">
-                    <div className={cn(
-                      "p-3 rounded-xl bg-gradient-to-br",
-                      feature.gradient
-                    )}>
-                      <feature.icon className="w-10 h-10 text-white" />
-                    </div>
-                    <div>
-                      <h2 className="text-3xl md:text-4xl font-bold mb-2">{feature.title}</h2>
-                      <p className="text-lg text-gray-400">{feature.subtitle}</p>
-                    </div>
+                  <div className="mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-2">{feature.title}</h2>
+                    <p className="text-lg text-gray-400">{feature.subtitle}</p>
                   </div>
                 </div>
                 

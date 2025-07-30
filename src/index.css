@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --header-height: 0px;
+  --nav-offset: calc(var(--header-height) + 16px);
+  --section-offset: calc(var(--header-height) + 96px);
+}
+
 @layer base {
   body {
     @apply bg-black text-white antialiased;
