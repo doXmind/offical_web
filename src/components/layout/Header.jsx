@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ExternalLink, BookOpen } from 'lucide-react';
+import { Menu, X, ExternalLink, BookOpen, ChevronDown } from 'lucide-react';
 import { companyInfo } from '../../core/constants';
 import { navigationData, simpleNavItems, ctaButtons } from '../../constants/navigation';
 import { cn } from '../../core/utils';
@@ -215,13 +215,17 @@ const Header = () => {
                 >
                   <button
                     className={cn(
-                      "px-3 py-2 text-sm font-medium transition-colors duration-200",
+                      "px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center gap-1",
                       activeMenu === key ? "text-white" : "text-gray-300 hover:text-white"
                     )}
                     aria-expanded={activeMenu === key}
                     aria-haspopup="true"
                   >
                     {data.label}
+                    <ChevronDown className={cn(
+                      "w-4 h-4 transition-transform duration-200",
+                      activeMenu === key ? "rotate-180" : ""
+                    )} />
                   </button>
                 </div>
               ))}
