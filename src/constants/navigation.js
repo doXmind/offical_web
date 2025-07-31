@@ -27,13 +27,15 @@ export const navigationData = {
         items: [
           { 
             label: 'Documentation', 
-            href: '/docs',
-            description: 'Complete product documentation'
+            href: 'https://docs.docmindllm.com',
+            description: 'Complete product documentation',
+            external: true
           },
           { 
             label: 'API Reference', 
-            href: '/docs/api',
-            description: 'For developers'
+            href: 'https://docs.docmindllm.com/api-reference/introduction',
+            description: 'For developers',
+            external: true
           },
           { 
             label: 'Help Center', 
