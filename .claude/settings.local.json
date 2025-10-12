@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(powershell:*)",
+      "Bash(for file in ARCHITECTURE.md DESIGN_LANGUAGE.md DEVELOPMENT.md PAGE_SPECS.md PROGRESS.md QUICK_REFERENCE.md README.md STYLE_GUIDE.md)",
+      "Bash(do echo \"$file:\")",
+      "Bash(done)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

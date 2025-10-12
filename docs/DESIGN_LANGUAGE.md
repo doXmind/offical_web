@@ -1,4 +1,4 @@
-# DocMindLLM Design Language Specification
+# doXmind Design Language Specification
 
 ## 1. Color System
 - **Primary Palette**: Black and white minimalism

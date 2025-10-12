@@ -177,7 +177,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="flex items-center">
+            <a href="/" className="flex items-center gap-3">
+              <img
+                src="/logo.svg"
+                alt="doXmind Logo"
+                className="h-8 w-8"
+              />
               <span className="text-xl font-semibold">{companyInfo.name}</span>
             </a>
           </div>

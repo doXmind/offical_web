@@ -1,4 +1,4 @@
-# DocMindLLM 快速参考手册
+# doXmind 快速参考手册
 
 ## 🎨 设计令牌快查
 

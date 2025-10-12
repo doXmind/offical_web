@@ -1,4 +1,4 @@
-# DocMindLLM 开发进度跟踪
+# doXmind 开发进度跟踪
 
 最后更新: 2025-07-30
 
@@ -113,12 +113,12 @@ Phase 8: ░░░░░░░░░░░░░░░░░░░░ 0%   待�
 
 #### 额外完成的工作
 - [x] 更新App.jsx使用新的Home页面
-- [x] 移除旧的DocMindLLM组件依赖
+- [x] 移除旧的doXmind组件依赖
 - [x] 调整主题颜色从亮青色#11c4d4到深蓝绿色#0F766E
 - [x] 优化Button组件支持图标和文字同行显示
 - [x] 更新Header组件：
   - 移除Sign In按钮
-  - 更改按钮文案为"Try DocMindLLM"
+  - 更改按钮文案为"Try doXmind"
   - 移除图标logo，保留纯文字logo
   - 调整按钮颜色搭配
 

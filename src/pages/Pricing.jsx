@@ -37,7 +37,7 @@ const Pricing = () => {
     {
       name: 'Free',
       price: 0,
-      description: 'Perfect for trying out DocMindLLM',
+      description: 'Perfect for trying out doXmind',
       features: [
         '10 documents per month',
         'Basic AI writing assistant',

@@ -1,0 +1,96 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 紫色渐变（浅色模式） -->
+    <linearGradient id="bracketGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.9" />
+    </linearGradient>
+
+    <!-- X标记渐变（浅色模式） -->
+    <linearGradient id="xGradientLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.95" />
+    </linearGradient>
+
+    <!-- AI指示点渐变（浅色模式） -->
+    <linearGradient id="aiDotGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- 阴影滤镜（浅色模式） -->
+    <filter id="shadowFilterLight" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="1" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.15"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- X光晕效果（浅色模式） -->
+    <filter id="glowLight">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 可选：浅色背景 -->
+  <!-- <rect width="200" height="200" fill="#ffffff" opacity="0"/> -->
+
+  <!-- 左括号 -->
+  <path d="M 60 40 L 40 40 Q 30 40 30 50 L 30 150 Q 30 160 40 160 L 60 160"
+        stroke="url(#bracketGradientLight)"
+        stroke-width="6"
+        fill="none"
+        stroke-linecap="round"
+        filter="url(#shadowFilterLight)"/>
+
+  <!-- 右括号 -->
+  <path d="M 140 40 L 160 40 Q 170 40 170 50 L 170 150 Q 170 160 160 160 L 140 160"
+        stroke="url(#bracketGradientLight)"
+        stroke-width="6"
+        fill="none"
+        stroke-linecap="round"
+        filter="url(#shadowFilterLight)"/>
+
+  <!-- X 标记 -->
+  <g filter="url(#glowLight)">
+    <!-- 第一条对角线 -->
+    <line x1="70" y1="70" x2="130" y2="130"
+          stroke="url(#xGradientLight)"
+          stroke-width="8"
+          stroke-linecap="round"/>
+
+    <!-- 第二条对角线 -->
+    <line x1="130" y1="70" x2="70" y2="130"
+          stroke="url(#xGradientLight)"
+          stroke-width="8"
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- AI 指示点 -->
+  <circle cx="150" cy="60" r="10" fill="url(#aiDotGradientLight)" filter="url(#shadowFilterLight)">
+    <animate attributeName="opacity"
+             values="1;0.7;1"
+             dur="2s"
+             repeatCount="indefinite"/>
+  </circle>
+
+  <!-- AI 点的外圈脉冲效果 -->
+  <circle cx="150" cy="60" r="10" fill="none" stroke="#10b981" stroke-width="2" opacity="0.3">
+    <animate attributeName="r"
+             values="10;15;10"
+             dur="2s"
+             repeatCount="indefinite"/>
+    <animate attributeName="opacity"
+             values="0.3;0.1;0.3"
+             dur="2s"
+             repeatCount="indefinite"/>
+  </circle>
+</svg>

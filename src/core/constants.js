@@ -1,4 +1,4 @@
-// Constants for DocMindLLM website
+// Constants for doXmind website
 
 // Navigation links
 export const navLinks = {
@@ -41,7 +41,7 @@ export const features = [
   {
     id: 'ai-assistant',
     icon: 'MessageSquare',
-    title: 'DocMindLLM Assistant',
+    title: 'doXmind Assistant',
     description: 'Context-aware intelligent conversation assistant that understands document content',
     highlight: '24/7 intelligent help',
   },
@@ -93,7 +93,7 @@ export const pricingPlans = [
     name: 'Free',
     price: '$0',
     period: '/month',
-    description: 'Perfect for trying out DocMindLLM',
+    description: 'Perfect for trying out doXmind',
     features: [
       '5 documents/month',
       'Basic AI features (100 uses/month)',
@@ -214,14 +214,14 @@ export const footerLinks = {
 
 // Company info
 export const companyInfo = {
-  name: 'DocMindLLM',
+  name: 'doXmind',
   tagline: 'AI-Powered Intelligent Document Creation Platform',
   description: 'Transform Every Idea into Professional Content',
-  copyright: `© ${new Date().getFullYear()} DocMindLLM. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} doXmind. All rights reserved.`,
   socialLinks: {
-    twitter: 'https://twitter.com/docmindllm',
-    github: 'https://github.com/docmindllm',
-    linkedin: 'https://linkedin.com/company/docmindllm',
+    twitter: 'https://twitter.com/doxmind',
+    github: 'https://github.com/doxmind',
+    linkedin: 'https://linkedin.com/company/doxmind',
   },
 };
 
@@ -238,7 +238,7 @@ export const comparisonData = {
     ],
   },
   after: {
-    title: 'Using DocMindLLM',
+    title: 'Using doXmind',
     time: '30 minutes',
     steps: [
       { task: 'Upload data', time: '30s' },

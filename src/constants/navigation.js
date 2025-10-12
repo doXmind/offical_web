@@ -27,13 +27,13 @@ export const navigationData = {
         items: [
           { 
             label: 'Documentation', 
-            href: 'https://docs.docmindllm.com',
+            href: 'https://docs.doxmind.com',
             description: 'Complete product documentation',
             external: true
           },
           { 
             label: 'API Reference', 
-            href: 'https://docs.docmindllm.com/api-reference/introduction',
+            href: 'https://docs.doxmind.com/api-reference/introduction',
             description: 'For developers',
             external: true
           },
@@ -48,7 +48,7 @@ export const navigationData = {
     featured: {
       title: 'What\'s New',
       subtitle: 'Latest Features & Updates',
-      description: 'Discover the newest capabilities and improvements in DocMindLLM',
+      description: 'Discover the newest capabilities and improvements in doXmind',
       href: '/changelog',
       bgColor: 'bg-green-50',
       iconColor: 'text-green-500'
@@ -63,5 +63,5 @@ export const simpleNavItems = [
 ];
 
 export const ctaButtons = [
-  { label: 'Try DocMindLLM', href: '/auth/signup', variant: 'primary' }
+  { label: 'Try doXmind', href: '/auth/signup', variant: 'primary' }
 ];

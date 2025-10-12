@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
+import {
   Sparkles, ArrowRight,
   Edit3, BarChart3, Wand2, RefreshCw,
   Type, Brain, Shield, Zap, Package, Layers,
   MessageSquare, Building, Database, PenTool,
-  Users, FileText
+  Users, FileText, Download, Monitor
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CTASection from '../components/ui/cta-section';
@@ -39,14 +39,14 @@ const HeroSection = () => {
           <span className="text-white">Professional Content</span>
         </motion.h1>
         
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-lg md:text-xl text-gray-500 mb-8 max-w-3xl mx-auto"
         >
-          AI-powered intelligent document creation platform that helps you analyze data, 
-          generate content, and collaborate efficiently—all in one powerful solution.
+          AI-powered desktop editor that helps you write, analyze data,
+          and create professional documents with ease.
         </motion.p>
 
         <motion.div 
@@ -88,7 +88,7 @@ const HeroSection = () => {
                     <div className="w-3 h-3 border border-white/20 rounded-full" />
                     <div className="w-3 h-3 border border-white/20 rounded-full" />
                   </div>
-                  <span className="text-xs text-gray-600">DocMindLLM Editor</span>
+                  <span className="text-xs text-gray-600">doXmind Editor</span>
                 </div>
                 
                 <div className="space-y-4">
@@ -142,33 +142,33 @@ const FeaturesSection = () => {
   const features = [
     {
       icon: Edit3,
-      title: 'Smart Editor',
-      description: 'AI-powered writing assistant with real-time suggestions',
-      highlight: 'Write 5x faster'
+      title: 'Smart Writing',
+      description: 'AI helps you write better with auto-complete and instant improvements',
+      highlight: 'Write faster & better'
     },
     {
       icon: BarChart3,
       title: 'Data Analysis',
-      description: 'Transform complex data into clear insights automatically',
-      highlight: 'Process in seconds'
+      description: 'Analyze your data files and generate insights automatically',
+      highlight: 'No coding needed'
     },
     {
       icon: Layers,
-      title: 'Multi-format',
-      description: 'Support for documents, spreadsheets, and presentations',
-      highlight: '20+ file types'
+      title: 'Rich Content',
+      description: 'Add charts, diagrams, tables, and formulas to your documents',
+      highlight: 'Professional results'
     },
     {
       icon: MessageSquare,
       title: 'AI Assistant',
-      description: 'Chat with your documents to extract information',
-      highlight: 'Context-aware'
+      description: 'Chat with AI to help you research, analyze, and create content',
+      highlight: 'Always ready to help'
     },
     {
       icon: Users,
-      title: 'Collaboration',
-      description: 'Real-time teamwork with version control',
-      highlight: 'Unlimited users'
+      title: 'Organized Workspace',
+      description: 'Keep different projects separate with dedicated workspaces',
+      highlight: 'Stay organized'
     }
   ];
 
@@ -218,10 +218,10 @@ const FeaturesSection = () => {
 // Comparison Section Component
 const ComparisonSection = () => {
   const comparisonData = [
-    { task: 'Document Creation', before: '2 hours', after: '15 minutes' },
-    { task: 'Data Analysis', before: '4 hours', after: '10 minutes' },
-    { task: 'Report Generation', before: '1 day', after: '30 minutes' },
-    { task: 'Content Review', before: '3 hours', after: '20 minutes' }
+    { task: 'AI Autocomplete', before: 'Manual typing', after: 'Context-aware suggestions' },
+    { task: 'Data Analysis', before: 'Python scripting', after: 'Natural language queries' },
+    { task: 'Chart Creation', before: 'Manual ECharts config', after: 'AI-generated JSON' },
+    { task: 'Document Editing', before: 'Full rewrites', after: 'Line-level precision edits' }
   ];
 
   return (
@@ -234,10 +234,10 @@ const ComparisonSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-extralight mb-4">
-            Save Time, Increase Efficiency
+            AI-Enhanced Workflow
           </h2>
           <p className="text-lg text-gray-500">
-            See how DocMindLLM transforms your workflow
+            See how doXmind enhances your document workflow
           </p>
         </motion.div>
 
@@ -250,9 +250,9 @@ const ComparisonSection = () => {
           <table className="w-full">
             <thead>
               <tr className="border-b border-white/10">
-                <th className="text-left py-4 px-6 font-normal text-gray-400">Task</th>
-                <th className="text-center py-4 px-6 font-normal text-gray-400">Traditional Method</th>
-                <th className="text-center py-4 px-6 font-normal text-gray-400">With DocMindLLM</th>
+                <th className="text-left py-4 px-6 font-normal text-gray-400">Feature</th>
+                <th className="text-center py-4 px-6 font-normal text-gray-400">Traditional Editors</th>
+                <th className="text-center py-4 px-6 font-normal text-gray-400">doXmind</th>
               </tr>
             </thead>
             <tbody>
@@ -284,7 +284,7 @@ const ComparisonSection = () => {
           className="mt-8 text-center"
         >
           <p className="text-2xl font-extralight">
-            Average time saved: <span className="text-primary">85%</span>
+            <span className="text-primary">Powerful • Fast • Secure</span>
           </p>
         </motion.div>
       </div>
@@ -372,23 +372,23 @@ const TechAdvantagesSection = () => {
   const advantages = [
     {
       icon: Brain,
-      title: 'Advanced AI Models',
-      description: 'Powered by state-of-the-art language models'
+      title: 'Intelligent AI',
+      description: 'Advanced AI that understands your content and helps you work smarter'
     },
     {
       icon: Shield,
-      title: 'Enterprise Security',
-      description: 'Bank-level encryption and data protection'
+      title: 'Privacy First',
+      description: 'Your data stays on your computer, giving you complete control'
     },
     {
       icon: Zap,
       title: 'Lightning Fast',
-      description: 'Optimized for speed and efficiency'
+      description: 'Native desktop app built for speed and performance'
     },
     {
       icon: Package,
-      title: 'Easy Integration',
-      description: 'Works with your existing tools'
+      title: 'Open Source',
+      description: 'Free and open source software you can trust'
     }
   ];
 
@@ -402,10 +402,10 @@ const TechAdvantagesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-extralight mb-4">
-            Built with Advanced Technology
+            Built with Modern Technology
           </h2>
           <p className="text-lg text-gray-500">
-            Enterprise-grade infrastructure for reliability and performance
+            Professional-grade architecture for desktop performance and flexibility
           </p>
         </motion.div>
 
@@ -433,11 +433,150 @@ const TechAdvantagesSection = () => {
 };
 
 
+// Download Section Component
+const DownloadSection = () => {
+  return (
+    <section className="py-24 px-6 border-t border-white/5">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-extralight mb-4">
+            Download doXmind Desktop
+          </h2>
+          <p className="text-lg text-gray-500">
+            Available for Windows • macOS and Linux coming soon
+          </p>
+        </motion.div>
+
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+          {/* MSI Installer */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="group"
+          >
+            <div className="h-full p-8 border border-white/10 rounded-lg hover:border-white/30 transition-all duration-300 bg-black">
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
+                  <Monitor className="w-7 h-7" />
+                </div>
+                <span className="text-xs text-gray-600 px-3 py-1 border border-white/10 rounded-full">
+                  Windows
+                </span>
+              </div>
+              <h3 className="text-xl font-light mb-2">MSI Installer</h3>
+              <p className="text-sm text-gray-500 mb-6">
+                Traditional Windows installer with system integration
+              </p>
+              <div className="space-y-2 mb-6 text-xs text-gray-600">
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-500">•</span>
+                  <span>Version 0.0.1</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-500">•</span>
+                  <span>Windows 10/11 (x64)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-500">•</span>
+                  <span>Auto-updates supported</span>
+                </div>
+              </div>
+              <a
+                href="https://github.com/DocMind-AI-Native-Editor/Desktop/releases/download/v0.0.1/doXmind_0.0.1_x64_en-US.msi"
+                className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
+              >
+                <Download className="w-4 h-4" />
+                Download MSI
+              </a>
+            </div>
+          </motion.div>
+
+          {/* NSIS Installer */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="group"
+          >
+            <div className="h-full p-8 border border-white/10 rounded-lg hover:border-white/30 transition-all duration-300 bg-black">
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
+                  <Monitor className="w-7 h-7" />
+                </div>
+                <span className="text-xs text-gray-600 px-3 py-1 border border-white/10 rounded-full">
+                  Windows
+                </span>
+              </div>
+              <h3 className="text-xl font-light mb-2">NSIS Installer</h3>
+              <p className="text-sm text-gray-500 mb-6">
+                Lightweight installer with portable options
+              </p>
+              <div className="space-y-2 mb-6 text-xs text-gray-600">
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-500">•</span>
+                  <span>Version 0.0.1</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-500">•</span>
+                  <span>Windows 10/11 (x64)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-500">•</span>
+                  <span>Fast installation</span>
+                </div>
+              </div>
+              <a
+                href="https://github.com/DocMind-AI-Native-Editor/Desktop/releases/download/v0.0.1/doXmind_0.0.1_x64-setup.exe"
+                className="flex items-center justify-center gap-2 w-full py-3 px-6 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
+              >
+                <Download className="w-4 h-4" />
+                Download EXE
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-sm text-gray-600">
+            System Requirements: Windows 10/11 (x64) • 4GB RAM • 500MB disk space
+          </p>
+          <p className="text-xs text-gray-700 mt-2">
+            View all releases on{' '}
+            <a
+              href="https://github.com/DocMind-AI-Native-Editor/Desktop/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              GitHub
+            </a>
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 // Main Home Component
 const Home = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <HeroSection />
+      <DownloadSection />
       <FeaturesSection />
       <ComparisonSection />
       <SolutionsSection />

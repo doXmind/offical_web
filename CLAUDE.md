@@ -20,7 +20,7 @@ npm run preview
 
 ## Project Architecture
 
-This is a React-based single-page application (SPA) for DocMindLLM, an AI-powered writing assistant.
+This is a React-based single-page application (SPA) for doXmind, an AI-powered writing assistant.
 
 **IMPORTANT: This is an English-language website. All UI text, navigation labels, and content should be in English.**
 
@@ -32,8 +32,8 @@ This is a React-based single-page application (SPA) for DocMindLLM, an AI-powere
 - **Lucide React** - Icon library
 
 ### Key Components
-- **App.jsx** - Root component that renders DocMindLLM
-- **DocMindLLM.jsx** - Main component containing the entire landing page (hero, features, pricing, etc.)
+- **App.jsx** - Root component that renders doXmind
+- **DoXmind.jsx** - Main component containing the entire landing page (hero, features, pricing, etc.)
 
 ### Styling Approach
 - Tailwind CSS for utility classes
@@ -42,7 +42,7 @@ This is a React-based single-page application (SPA) for DocMindLLM, an AI-powere
 - Dark theme with purple/blue gradient accents
 
 ### Component Structure
-The DocMindLLM component manages:
+The doXmind component manages:
 - Navigation with mobile responsiveness
 - Animated hero section with live demo editor
 - Features showcase with hover effects

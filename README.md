@@ -1,6 +1,6 @@
-# DocMindLLM - AI-Powered Writing Assistant
+# doXmind - AI-Powered Writing Assistant
 
-This is a web application for DocMindLLM, an AI-powered writing assistant. The application is built with React, Vite, and Tailwind CSS.
+This is a web application for doXmind, an AI-powered writing assistant. The application is built with React, Vite, and Tailwind CSS.
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ You need to have Node.js and npm installed on your machine.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/DocMindLLM-Web.git
+   git clone https://github.com/your_username_/doXmind-Web.git
    ```
 2. Install NPM packages
    ```sh

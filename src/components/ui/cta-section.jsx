@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const CTASection = ({
   title = "Ready to Transform Your Workflow?",
-  subtitle = "Join thousands of teams already using DocMindLLM to create better content faster",
+  subtitle = "Join thousands of teams already using doXmind to create better content faster",
   primaryButtonText = "Get Started Free",
   primaryButtonAction,
   secondaryButtonText = "Schedule Demo",

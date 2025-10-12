@@ -1,4 +1,4 @@
-// Theme configuration for DocMindLLM
+// Theme configuration for doXmind
 export const theme = {
   // Color system
   colors: {

@@ -1,4 +1,4 @@
-# DocMindLLM 页面详细规格说明
+# doXmind 页面详细规格说明
 
 ## 1. Home页面 (首页)
 
@@ -8,7 +8,7 @@
 ### 页面结构
 
 #### 1.1 Navigation (导航栏)
-- **Logo**: DocMindLLM (左侧)
+- **Logo**: doXmind (左侧)
 - **主导航**: Product | Solutions | Pricing | Developers | Company
 - **右侧按钮**: Sign In | Start Free (CTA按钮使用primary色)
 - **样式**: 
@@ -47,7 +47,7 @@
      - 描述: "Process text, tables, images in one platform"
      - 亮点: All-in-one solution
   
-  4. **DocMindLLM Assistant**
+  4. **doXmind Assistant**
      - 图标: AI助手图标
      - 描述: "24/7 intelligent assistant for your documents"
      - 亮点: Context-aware help
@@ -65,7 +65,7 @@
     - 图表制作: 1h
     - 报告撰写: 3h
     - 格式调整: 1h
-  - After: 使用DocMindLLM - 30分钟
+  - After: 使用doXmind - 30分钟
     - 上传数据: 30s
     - AI分析生成: 5min
     - 人工审核: 25min
@@ -90,7 +90,7 @@
 
 #### 1.7 CTA Section
 - **标题**: "Ready to Transform Your Document Workflow?"
-- **副标题**: "Join thousands of teams already using DocMindLLM"
+- **副标题**: "Join thousands of teams already using doXmind"
 - **CTA按钮**: "Start Free Trial" (大号primary按钮)
 - **补充文字**: "No credit card required • 14-day free trial"
 
@@ -114,7 +114,7 @@
 
 #### 2.1 Product Hero
 - **标题**: "The Complete AI Document Platform"
-- **描述**: "Deep dive into features that make DocMindLLM the choice for modern teams"
+- **描述**: "Deep dive into features that make doXmind the choice for modern teams"
 
 #### 2.2 Feature Details (详细功能介绍)
 每个核心功能独立区块，包含：
@@ -216,7 +216,7 @@
 ### 页面结构
 
 #### 5.1 Developer Hero
-- **标题**: "Build with DocMindLLM"
+- **标题**: "Build with doXmind"
 - **描述**: "Powerful APIs and SDKs for developers"
 
 #### 5.2 Quick Start

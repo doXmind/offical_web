@@ -7,7 +7,7 @@ import {
   Layers, Download, RefreshCw, Target
 } from 'lucide-react';
 
-const DocMindLLM = () => {
+const DoXmind = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState('autocomplete');
   const [scrolled, setScrolled] = useState(false);
@@ -204,7 +204,7 @@ const DocMindLLM = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
               <PenTool className="w-8 h-8 text-purple-500" />
-              <span className="text-xl font-bold">DocMindLLM</span>
+              <span className="text-xl font-bold">doXmind</span>
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -284,7 +284,7 @@ const DocMindLLM = () => {
                       <div className="w-3 h-3 bg-yellow-500 rounded-full" />
                       <div className="w-3 h-3 bg-green-500 rounded-full" />
                     </div>
-                    <span className="text-xs text-gray-500">DocMindLLM Editor</span>
+                    <span className="text-xs text-gray-500">doXmind Editor</span>
                   </div>
                   
                   <div className="space-y-4">
@@ -484,7 +484,7 @@ const DocMindLLM = () => {
               Perfect for Every Writer
             </h2>
             <p className="text-xl text-gray-400">
-              From students to professionals, DocMindLLM adapts to your needs
+              From students to professionals, doXmind adapts to your needs
             </p>
           </div>
 
@@ -516,7 +516,7 @@ const DocMindLLM = () => {
                   Works Where You Write
                 </h2>
                 <p className="text-xl text-gray-400 mb-6">
-                  Seamlessly integrate DocMindLLM with your favorite tools and platforms. 
+                  Seamlessly integrate doXmind with your favorite tools and platforms. 
                   Write better everywhere with our browser extension, desktop app, and API.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
@@ -617,10 +617,10 @@ const DocMindLLM = () => {
               Start Writing Better Today
             </h2>
             <p className="text-xl text-gray-400 mb-8">
-              Join 50,000+ writers who create amazing content with DocMindLLM
+              Join 50,000+ writers who create amazing content with doXmind
             </p>
             <button className="bg-white text-black px-8 py-4 rounded-full font-medium hover:bg-gray-200 transition-all transform hover:scale-105 inline-flex items-center">
-              Try DocMindLLM Free
+              Try doXmind Free
               <Sparkles className="ml-2 w-5 h-5" />
             </button>
             <p className="mt-4 text-gray-500">No credit card required • 7-day free trial</p>
@@ -635,7 +635,7 @@ const DocMindLLM = () => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <PenTool className="w-6 h-6 text-purple-500" />
-                <span className="text-lg font-bold">DocMindLLM</span>
+                <span className="text-lg font-bold">doXmind</span>
               </div>
               <p className="text-gray-400 text-sm">
                 AI-powered writing assistant for the modern creator.
@@ -670,7 +670,7 @@ const DocMindLLM = () => {
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2025 DocMindLLM. All rights reserved.</p>
+            <p>&copy; 2025 doXmind. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -678,4 +678,4 @@ const DocMindLLM = () => {
   );
 };
 
-export default DocMindLLM; 
+export default DoXmind; 

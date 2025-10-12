@@ -9,7 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="col-span-2 md:col-span-1">
-            <div className="mb-4">
+            <div className="mb-4 flex items-center gap-3">
+              <img
+                src="/logo.svg"
+                alt="doXmind Logo"
+                className="h-8 w-8"
+              />
               <span className="text-xl font-semibold text-black">{companyInfo.name}</span>
             </div>
             <p className="text-gray-600 text-sm">

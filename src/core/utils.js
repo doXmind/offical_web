@@ -1,4 +1,4 @@
-// Utility functions for DocMindLLM
+// Utility functions for doXmind
 
 // Class name helper - combines class names and filters out falsy values
 export const cn = (...classes) => {

@@ -51,112 +51,112 @@ const Features = () => {
     {
       id: 'smarteditor',
       icon: FileText,
-      title: 'SmartEditor Pro',
-      subtitle: 'AI-Powered Writing Experience',
-      description: 'Transform your writing with intelligent suggestions, real-time collaboration, and advanced formatting tools.',
+      title: 'AI-Native Editor',
+      subtitle: 'TipTap v3 with Intelligent Features',
+      description: 'Professional rich-text editor powered by TipTap 3.0 with GitHub Copilot-style autocomplete, quick edit commands, and Notion-like block manipulation.',
       gradient: 'from-blue-500 to-cyan-500',
       stats: [
-        { label: 'Response Time', value: '<200ms', width: '95%' },
-        { label: 'AI Commands', value: '20+', width: '75%' },
-        { label: 'File Support', value: '10+ formats', width: '85%' },
-        { label: 'Concurrent Users', value: '100+', width: '90%' }
+        { label: 'Autocomplete Model', value: 'Gemini 2.0 Flash', width: '95%' },
+        { label: 'Quick Edit Actions', value: '10+ presets', width: '85%' },
+        { label: 'File Formats', value: 'MD/PDF/DOCX', width: '90%' },
+        { label: 'Block Types', value: '15+ types', width: '80%' }
       ],
       keyFeatures: [
-        'Real-time AI completion with context awareness',
-        'Smart command system via "/" shortcuts',
-        'Rich media support including tables, code blocks, and charts',
-        'Block-level editing with drag-and-drop'
+        'Context-aware autocomplete with 150-300ms smart trigger detection',
+        'Quick edit: fix grammar, improve quality, change tone, translate',
+        'Drag handles for block reordering with type conversion menu',
+        'Collapsible headings, resizable images, LaTeX math rendering'
       ]
     },
     {
       id: 'datainsight',
       icon: BarChart3,
-      title: 'DataInsight Engine',
-      subtitle: 'Intelligent Data Analysis',
-      description: 'Automatically analyze data, generate insights, and create stunning visualizations with AI assistance.',
+      title: 'Data Analysis Sub-Agent',
+      subtitle: 'Python-Powered CSV/Excel Analysis',
+      description: 'Specialized sub-agent using pandas and numpy for automated data analysis. Execute Python code, generate statistical insights, and create visualizations from natural language queries.',
       gradient: 'from-purple-500 to-pink-500',
       stats: [
-        { label: 'Processing Speed', value: '1M rows/5s', width: '92%' },
-        { label: 'Chart Types', value: '20+', width: '80%' },
-        { label: 'Max File Size', value: '50MB', width: '70%' },
-        { label: 'Concurrent Tasks', value: '50+', width: '85%' }
+        { label: 'Python Runtime', value: 'pandas/numpy', width: '95%' },
+        { label: 'Execution Timeout', value: '30 seconds', width: '70%' },
+        { label: 'Supported Formats', value: 'CSV/XLSX', width: '85%' },
+        { label: 'Tools Available', value: '2 core tools', width: '80%' }
       ],
       keyFeatures: [
-        'Automatic data type detection and validation',
-        'AI-powered chart recommendations',
-        'Interactive data exploration tools',
-        'One-click report generation'
+        'Python code execution with pandas/numpy pre-imported',
+        'Statistical analysis: descriptive stats, correlations, distributions',
+        'Data aggregations, transformations, and pivot tables',
+        'Handles missing values and data cleaning automatically'
       ]
     },
     {
       id: 'multimodal',
       icon: Layers,
-      title: 'MultiModal Processor',
-      subtitle: 'Universal Content Handler',
-      description: 'Process any content type - documents, images, data files - with intelligent extraction and conversion.',
+      title: 'Interactive Visualizations',
+      subtitle: 'ECharts, Mermaid, Excel Tables & Math',
+      description: 'Rich content blocks beyond traditional markdown: interactive charts with ECharts, flow diagrams with Mermaid, Excel-style spreadsheets with jSpreadsheet, and LaTeX math with KaTeX.',
       gradient: 'from-green-500 to-emerald-500',
       stats: [
-        { label: 'PDF Speed', value: '10 pages/s', width: '88%' },
-        { label: 'OCR Accuracy', value: '95%+', width: '95%' },
-        { label: 'Batch Size', value: '100 files', width: '82%' },
-        { label: 'Storage', value: '10GB Pro', width: '75%' }
+        { label: 'Chart Library', value: 'ECharts 5.6', width: '95%' },
+        { label: 'Diagram Engine', value: 'Mermaid 11.8', width: '90%' },
+        { label: 'Spreadsheet', value: 'jSpreadsheet', width: '85%' },
+        { label: 'Math Rendering', value: 'KaTeX 0.16', width: '88%' }
       ],
       keyFeatures: [
-        'Smart format conversion with layout preservation',
-        'Batch processing with queue management',
-        'Content extraction and summarization',
-        'Version control with rollback support'
+        'ECharts: bar, line, pie, scatter plots with JSON configuration',
+        'Mermaid: flowcharts, sequence diagrams, class diagrams, Gantt charts',
+        'Excel-like tables: cell editing, row/column operations, copy/paste',
+        'LaTeX inline/block math with live rendering and click-to-edit'
       ]
     },
     {
       id: 'assistant',
       icon: MessageSquare,
-      title: 'AI Assistant',
-      subtitle: 'Your Intelligent Partner',
-      description: 'Context-aware AI assistant that understands your documents and helps with complex tasks.',
+      title: 'Multi-Agent System',
+      subtitle: 'Main Orchestrator with Sub-Agents',
+      description: 'Main agent powered by Grok-4 with 11 core tools, intelligently delegating to specialized data analysis and web research sub-agents. Supports 200K token working window with context compaction.',
       gradient: 'from-orange-500 to-red-500',
       stats: [
-        { label: 'Response Time', value: '<1s', width: '97%' },
-        { label: 'Context Window', value: '32K tokens', width: '90%' },
-        { label: 'Languages', value: '95+', width: '93%' },
-        { label: 'Concurrent Chats', value: '1000+', width: '87%' }
+        { label: 'Default Model', value: 'Grok-4-fast', width: '92%' },
+        { label: 'Max Model', value: 'Grok-4', width: '97%' },
+        { label: 'Context Window', value: '200K tokens', width: '95%' },
+        { label: 'Core Tools', value: '11 tools', width: '85%' }
       ],
       keyFeatures: [
-        'Context-aware responses based on your documents',
-        'Streaming responses for smooth interaction',
-        'Tool integration for file operations',
-        'Conversation history with search'
+        'Main agent: read_file, edit_file, glob, search, analyze_document_structure',
+        'Sub-agents: data analysis (Python), web research (DuckDuckGo/Serper)',
+        'Context compaction at 80% (160K tokens) with structured note-taking',
+        'Streaming responses with SSE, tool execution tracking, error recovery'
       ]
     },
     {
       id: 'teamspace',
       icon: Users,
-      title: 'TeamSpace',
-      subtitle: 'Collaborative Workspace',
-      description: 'Secure workspaces for teams with real-time collaboration, version control, and permission management.',
+      title: 'Workspace Management',
+      subtitle: 'Isolated Project Environments',
+      description: 'Create separate workspaces for different projects with independent file management, conversation history, and context memory. Built on Tauri for native desktop performance.',
       gradient: 'from-indigo-500 to-purple-500',
       stats: [
-        { label: 'Space Switch', value: '<1s', width: '98%' },
-        { label: 'File Indexing', value: '1000/s', width: '91%' },
-        { label: 'Search Speed', value: '<500ms', width: '96%' },
-        { label: 'Team Size', value: 'Unlimited', width: '100%' }
+        { label: 'Desktop Framework', value: 'Tauri 2.x', width: '95%' },
+        { label: 'Frontend', value: 'Vue 3.5 + TS', width: '98%' },
+        { label: 'Backend', value: 'Flask + SQLite', width: '92%' },
+        { label: 'Auto-save', value: '2s debounce', width: '88%' }
       ],
       keyFeatures: [
-        'Isolated workspaces with complete data separation',
-        'Real-time collaboration and presence',
-        'Role-based access control',
-        'Complete audit trail for compliance'
+        'Isolated workspaces: separate documents, files, chat history per workspace',
+        'File management: upload PDF/DOCX/PPTX/CSV/XLSX, organize in folders',
+        'Export: DOCX, PDF, Markdown with format preservation',
+        'Settings: theme (light/dark/system), i18n (EN/ZH), agent mode control'
       ]
     }
   ];
 
   const integrations = [
-    { name: 'OpenAI', icon: Brain, status: 'active' },
-    { name: 'Anthropic', icon: Sparkles, status: 'active' },
-    { name: 'Google AI', icon: Globe, status: 'active' },
-    { name: 'Slack', icon: MessageSquare, status: 'coming' },
-    { name: 'GitHub', icon: Code, status: 'coming' },
-    { name: 'Notion', icon: Layers, status: 'coming' }
+    { name: 'OpenRouter', icon: Brain, status: 'active' },
+    { name: 'x.ai (Grok)', icon: Sparkles, status: 'active' },
+    { name: 'Google Gemini', icon: Globe, status: 'active' },
+    { name: 'DuckDuckGo', icon: Globe, status: 'active' },
+    { name: 'Serper API', icon: Globe, status: 'active' },
+    { name: 'GitHub', icon: Code, status: 'coming' }
   ];
 
   // Read the current header height from the global CSS variable
@@ -243,7 +243,7 @@ const Features = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg md:text-xl text-gray-400 max-w-2xl"
           >
-            Discover the tools that make DocMindLLM the most powerful AI document platform
+            Discover the tools that make doXmind the most powerful AI document platform
           </motion.p>
         </div>
 
@@ -479,23 +479,23 @@ const Features = () => {
             {[
               {
                 icon: Lock,
-                title: 'End-to-End Encryption',
-                items: ['TLS 1.3 in transit', 'AES-256 at rest', 'Zero-knowledge architecture']
+                title: 'Local-First Architecture',
+                items: ['Desktop app with local data', 'SQLite database', 'Optional cloud sync']
               },
               {
                 icon: Shield,
-                title: 'Access Control',
-                items: ['RBAC system', 'SSO/SAML support', 'API key management']
+                title: 'Workspace Isolation',
+                items: ['Separate workspaces per project', 'Independent file systems', 'Path validation enforced']
               },
               {
                 icon: Database,
-                title: 'Data Protection',
-                items: ['Automated backups', 'Disaster recovery', 'Data residency options']
+                title: 'Data Management',
+                items: ['Local file storage', 'Execution history tracking', 'Version control support']
               },
               {
                 icon: Eye,
-                title: 'Compliance',
-                items: ['SOC2 (planned)', 'GDPR ready', 'HIPAA compliant']
+                title: 'Privacy Controls',
+                items: ['API key stored locally', 'No telemetry by default', 'Open source transparency']
               }
             ].map((item, index) => (
               <motion.div

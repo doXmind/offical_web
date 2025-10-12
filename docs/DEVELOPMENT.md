@@ -1,9 +1,9 @@
-# DocMindLLM 官网开发指南
+# doXmind 官网开发指南
 
 ## 项目概述
 
 ### 产品定位
-DocMindLLM是一个企业级AI智能文档管理和创作平台，深度集成多种AI模型，提供从文档创建、编辑到数据分析的一站式解决方案。
+doXmind是一个企业级AI智能文档管理和创作平台，深度集成多种AI模型，提供从文档创建、编辑到数据分析的一站式解决方案。
 
 ### 核心价值主张
 "AI-Powered Intelligent Document Creation Platform - Transform Every Idea into Professional Content"
@@ -26,7 +26,7 @@ DocMindLLM是一个企业级AI智能文档管理和创作平台，深度集成�
 
 ### 项目结构
 ```
-DocMindLLM/
+doXmind/
 ├── pages/               # 页面组件
 ├── components/          # 可复用组件
 │   ├── layout/         # 布局组件
