@@ -5,7 +5,14 @@
       "Bash(powershell:*)",
       "Bash(for file in ARCHITECTURE.md DESIGN_LANGUAGE.md DEVELOPMENT.md PAGE_SPECS.md PROGRESS.md QUICK_REFERENCE.md README.md STYLE_GUIDE.md)",
       "Bash(do echo \"$file:\")",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(aws s3 ls:*)",
+      "Bash(aws s3api get-bucket-location:*)",
+      "Bash(aws s3 presign:*)",
+      "Bash(aws s3api put-object-acl:*)",
+      "Bash(aws s3api get-bucket-policy:*)",
+      "Bash(aws s3api put-bucket-policy:*)",
+      "Bash(curl -I https://doxmind.s3.amazonaws.com/doXmind_0.0.1_x64-setup.exe)"
     ],
     "deny": [],
     "ask": []

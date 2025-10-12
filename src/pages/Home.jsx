@@ -452,8 +452,8 @@ const DownloadSection = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-          {/* MSI Installer */}
+        <div className="max-w-xl mx-auto">
+          {/* Windows x64 Installer */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -467,12 +467,12 @@ const DownloadSection = () => {
                   <Monitor className="w-7 h-7" />
                 </div>
                 <span className="text-xs text-gray-600 px-3 py-1 border border-white/10 rounded-full">
-                  Windows
+                  Windows-x64
                 </span>
               </div>
-              <h3 className="text-xl font-light mb-2">MSI Installer</h3>
+              <h3 className="text-xl font-light mb-2">Windows Installer</h3>
               <p className="text-sm text-gray-500 mb-6">
-                Traditional Windows installer with system integration
+                Fast and easy installation for Windows 64-bit systems
               </p>
               <div className="space-y-2 mb-6 text-xs text-gray-600">
                 <div className="flex items-center gap-2">
@@ -485,60 +485,15 @@ const DownloadSection = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-gray-500">•</span>
-                  <span>Auto-updates supported</span>
+                  <span>Quick installation</span>
                 </div>
               </div>
               <a
-                href="https://github.com/DocMind-AI-Native-Editor/Desktop/releases/download/v0.0.1/doXmind_0.0.1_x64_en-US.msi"
+                href="https://doxmind.s3.amazonaws.com/doXmind_0.0.1_x64-setup.exe"
                 className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
               >
                 <Download className="w-4 h-4" />
-                Download MSI
-              </a>
-            </div>
-          </motion.div>
-
-          {/* NSIS Installer */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="group"
-          >
-            <div className="h-full p-8 border border-white/10 rounded-lg hover:border-white/30 transition-all duration-300 bg-black">
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
-                  <Monitor className="w-7 h-7" />
-                </div>
-                <span className="text-xs text-gray-600 px-3 py-1 border border-white/10 rounded-full">
-                  Windows
-                </span>
-              </div>
-              <h3 className="text-xl font-light mb-2">NSIS Installer</h3>
-              <p className="text-sm text-gray-500 mb-6">
-                Lightweight installer with portable options
-              </p>
-              <div className="space-y-2 mb-6 text-xs text-gray-600">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">•</span>
-                  <span>Version 0.0.1</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">•</span>
-                  <span>Windows 10/11 (x64)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">•</span>
-                  <span>Fast installation</span>
-                </div>
-              </div>
-              <a
-                href="https://github.com/DocMind-AI-Native-Editor/Desktop/releases/download/v0.0.1/doXmind_0.0.1_x64-setup.exe"
-                className="flex items-center justify-center gap-2 w-full py-3 px-6 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
-              >
-                <Download className="w-4 h-4" />
-                Download EXE
+                Download Windows-x64
               </a>
             </div>
           </motion.div>
