@@ -20,13 +20,15 @@
 - **主标题**: "AI-Powered Intelligent Document Creation Platform"
   - 字体: text-6xl (60px) font-bold
   - 颜色: white
-- **副标题**: "Transform Every Idea into Professional Content"  
+- **副标题**: "Transform Every Idea into Professional Content"
   - 字体: text-2xl (24px)
   - 颜色: gray-400
+- **Beta Badge**: 脉动动画紫色徽章 (bg-purple-500/10)
 - **CTA按钮组**:
-  - Primary: "Start Free" (bg-primary text-black)
-  - Secondary: "View Demo" (border border-white)
-- **背景**: 纯黑，可考虑添加subtle的渐变或图案
+  - Primary: "Launch App" (bg-indigo-500 text-white) → https://beta.doxmind.com/
+  - Secondary: "View Demo" (border border-white/20)
+- **背景**: 纯黑，紫色渐变点缀
+- **演示视频**: 自动播放循环的打字动画演示
 
 #### 1.3 Features Section (核心功能展示)
 - **标题**: "Everything You Need for Intelligent Document Management"
@@ -88,20 +90,29 @@
   3. Real-time Processing (实时处理)
   4. Modular Architecture (模块化架构)
 
-#### 1.7 CTA Section
-- **标题**: "Ready to Transform Your Document Workflow?"
-- **副标题**: "Join thousands of teams already using doXmind"
-- **CTA按钮**: "Start Free Trial" (大号primary按钮)
-- **补充文字**: "No credit card required • 14-day free trial"
+#### 1.7 Demo Showcase Section (NEW)
+- **标题**: "See doXmind in Action"
+- **演示内容**:
+  - data-analysis.mp4 (2倍速播放)
+  - visualization.gif
+  - auto-complete.gif
+- **自动播放**: 循环播放，静音
 
-#### 1.8 Footer
+#### 1.8 CTA Section
+- **标题**: "Ready to Transform Your Document Workflow?"
+- **副标题**: "Join the beta testing program"
+- **CTA按钮**: "Launch App" (大号indigo-500按钮) → https://beta.doxmind.com/
+- **补充文字**: "Free beta access • No credit card required"
+
+#### 1.9 Footer
 - **公司信息**: Logo + 简短描述
-- **链接分组**:
-  - Product: Features, Pricing, Changelog
-  - Solutions: Enterprise, Education, Developers
-  - Company: About, Blog, Careers
-  - Support: Docs, Contact, Status
-- **底部**: 版权信息 + 法律链接
+- **链接分组** (已优化，移除虚假页面):
+  - Product: Features, Pricing, Guide, Changelog
+  - Resources: Documentation, API Reference, Community
+  - Community: GitHub, Twitter/X, Discord
+  - Legal: Privacy Policy, Terms of Service
+- **底部**: 版权信息 + Beta版本标识
+- **外部链接**: GitHub和社交媒体使用ExternalLink图标
 
 ---
 
@@ -208,7 +219,107 @@
 
 ---
 
-## 5. Developers页面
+## 5. Guide页面 (用户指南)
+
+### 页面目标
+提供完整的产品使用指南，帮助用户快速上手doXmind所有功能
+
+### 页面结构
+
+#### 5.1 Guide Hero
+- **标题**: "User Guide"
+- **副标题**: "Everything you need to know about doXmind"
+- **Beta Badge**: 脉动动画的Beta标识
+- **背景**: 纯黑背景，紫色渐变点缀
+
+#### 5.2 Table of Contents (目录)
+- **位置**: 页面顶部，固定或粘性定位
+- **功能**:
+  - 点击跳转到对应章节
+  - 平滑滚动效果
+  - 当前章节高亮显示
+- **样式**: 简洁的链接列表，紫色active状态
+
+#### 5.3 章节内容 (13个主要章节)
+
+所有章节采用统一格式：
+- 章节图标 + 标题 (可折叠)
+- 章节内容
+- 代码示例或功能说明
+- 相关提示和注意事项
+
+**章节列表**:
+1. **Creating and Managing Documents**
+   - 图标: FileText
+   - 内容: 创建、保存、组织文档
+
+2. **Smart Editor**
+   - 图标: Edit
+   - 内容: 智能编辑器功能，AI辅助写作
+
+3. **AI Chat Assistant**
+   - 图标: MessageSquare
+   - 内容: 对话助手使用方法
+
+4. **Data Analysis**
+   - 图标: Database
+   - 内容: 数据分析和可视化功能
+
+5. **File Management**
+   - 图标: FolderOpen
+   - 内容: 文件上传、管理、处理
+
+6. **Version Control**
+   - 图标: Clock
+   - 内容: 版本历史和恢复
+
+7. **Export Features**
+   - 图标: FileDown
+   - 内容: 导出为各种格式
+
+8. **Settings and Customization**
+   - 图标: Settings
+   - 内容: 个性化设置选项
+
+9. **Layout and Views**
+   - 图标: Layout
+   - 内容: 界面布局调整
+
+10. **Keyboard Shortcuts**
+    - 图标: Keyboard
+    - 内容: 快捷键列表
+
+11. **Collaboration Features**
+    - 图标: Sparkles
+    - 内容: 团队协作功能
+
+12. **FAQ**
+    - 图标: AlertCircle
+    - 内容: 常见问题解答
+
+13. **Advanced Tips**
+    - 图标: Zap
+    - 内容: 高级使用技巧
+
+#### 5.4 交互特性
+- **折叠/展开**: 一级章节可折叠，默认展开
+- **平滑滚动**: 点击目录链接平滑滚动到章节
+- **响应式**: 移动端优化阅读体验
+- **无Emoji**: 遵循设计规范，纯文字+图标
+
+#### 5.5 底部CTA
+- 引导用户启动应用体验功能
+- "Launch App" 按钮链接到 https://beta.doxmind.com/
+
+### 设计要求
+- **极简风格**: 黑白灰 + 紫色点缀
+- **易读性**: 清晰的排版层次
+- **导航便利**: 快速定位章节
+- **无干扰**: 专注内容，避免装饰元素
+
+---
+
+## 6. Developers页面
 
 ### 页面目标
 为开发者提供技术文档和资源

@@ -1,11 +1,12 @@
 # doXmind Design Language Specification
 
 ## 1. Color System
-- **Primary Palette**: Black and white minimalism
+- **Primary Palette**: Black and white minimalism with purple accents
   - Background: Pure black (`bg-black`)
   - Text: White primary, gray hierarchy
-  - Accent: Cyan (#11c4d4) - Only for emphasis and interactive elements
-  
+  - Primary Accent: Indigo Purple (#6366f1 / `bg-indigo-500`) - Main interactive elements
+  - Secondary Accent: Purple (#8b5cf6 / `bg-purple-500`) - Secondary emphasis
+
 - **Gray Scale Hierarchy**:
   - Text hierarchy: `text-white` → `text-gray-400` → `text-gray-500` → `text-gray-600`
   - Borders: `border-white/10` (10% opacity white)
@@ -44,11 +45,12 @@
   - Radius: `rounded-lg` or `rounded-2xl`
   - Hover: Subtle white glow, no colors
 - **Buttons**:
-  - Primary: `bg-primary text-black`
+  - Primary: `bg-indigo-500 text-white hover:bg-indigo-600`
   - Secondary: `border border-white/20 hover:bg-white/5`
 - **Badges/Tags**:
   - Style: `rounded-full border border-white/10`
   - Padding: `px-3 py-1.5`
+  - Beta Badge: `bg-purple-500/10 border-purple-500/20 text-purple-400` with pulse animation
 
 ## 6. Layout Principles
 - Responsive grid: `grid-cols-1 md:grid-cols-2` or `lg:grid-cols-4`
@@ -57,8 +59,9 @@
 
 ## 7. Special Effects
 - **No Background Patterns**: Avoid grids or other decorative backgrounds
-- **Glow Effects**: White only, 10-30% opacity
-- **Text Gradients**: Limited use, only for special emphasis
+- **Glow Effects**: Purple glow for primary elements, white for secondary (10-30% opacity)
+- **Text Gradients**: Limited use, purple gradient for special emphasis
+- **Pulse Animation**: Beta badges use `animate-pulse-slow` for subtle attention
 
 ## 8. Interactive Feedback
 - Transition animations: `transition-all duration-300` or `duration-500`
