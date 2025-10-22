@@ -27,15 +27,15 @@ export const navigationData = {
         items: [
           {
             label: 'Documentation',
-            href: 'https://docs.doxmind.com',
+            href: '/guide',
             description: 'Complete product documentation',
-            external: true
+            external: false
           },
           {
-            label: 'API Reference',
-            href: 'https://docs.doxmind.com/api-reference/introduction',
-            description: 'For developers',
-            external: true
+            label: 'Advanced Features',
+            href: '/guide#advanced',
+            description: 'Power user capabilities',
+            external: false
           },
           {
             label: 'Troubleshooting',

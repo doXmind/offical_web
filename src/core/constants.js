@@ -193,8 +193,8 @@ export const footerLinks = {
     { name: 'User Guide', href: '/guide' },
   ],
   resources: [
-    { name: 'Documentation', href: 'https://docs.doxmind.com', external: true },
-    { name: 'API Reference', href: 'https://docs.doxmind.com/api-reference/introduction', external: true },
+    { name: 'User Guide', href: '/guide', external: false },
+    { name: 'Documentation', href: '/guide', external: false },
   ],
   community: [
     { name: 'Launch Beta', href: 'https://beta.doxmind.com/', external: true },

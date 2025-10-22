@@ -121,10 +121,12 @@ const Solutions = () => {
             {solutions.map((solution, index) => (
               <motion.div
                 key={solution.id}
+                id={solution.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="scroll-mt-24"
               >
                 <div className="group relative h-full">
                   {/* Card */}

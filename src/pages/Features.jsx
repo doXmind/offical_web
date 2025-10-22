@@ -159,7 +159,7 @@ const Features = () => {
     { name: 'Google Gemini', icon: Globe, status: 'active' },
     { name: 'DuckDuckGo', icon: Globe, status: 'active' },
     { name: 'Serper API', icon: Globe, status: 'active' },
-    { name: 'GitHub', icon: Code, status: 'coming' }
+    { name: 'GitHub', icon: Code, status: 'planned' }
   ];
 
   // Read the current header height from the global CSS variable
@@ -372,7 +372,7 @@ const Features = () => {
                               <feature.icon className="w-10 h-10 text-white" />
                             </div>
                             <p className="text-sm text-gray-500">Interactive Demo</p>
-                            <p className="text-xs text-gray-600 mt-1">Coming Soon</p>
+                            <p className="text-xs text-gray-600 mt-1">Available in Beta</p>
                           </div>
                         </div>
                       )}
@@ -427,7 +427,7 @@ const Features = () => {
             <BentoGridItem
               className="bg-gray-900 border-gray-800"
               title="Native SDKs"
-              description="JavaScript, Python, and more coming soon"
+              description="JavaScript and Python SDKs in development"
               header={
                 <div className="flex items-center justify-center h-32 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg">
                   <Plug className="w-12 h-12 text-orange-400" />
@@ -474,8 +474,8 @@ const Features = () => {
                 )}>
                   {integration.name}
                 </p>
-                {integration.status === 'coming' && (
-                  <p className="text-xs text-gray-600 mt-1">Coming soon</p>
+                {integration.status === 'planned' && (
+                  <p className="text-xs text-gray-600 mt-1">Planned</p>
                 )}
               </motion.div>
             ))}
