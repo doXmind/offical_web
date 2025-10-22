@@ -12,7 +12,11 @@
       "Bash(aws s3api put-object-acl:*)",
       "Bash(aws s3api get-bucket-policy:*)",
       "Bash(aws s3api put-bucket-policy:*)",
-      "Bash(curl -I https://doxmind.s3.amazonaws.com/doXmind_0.0.1_x64-setup.exe)"
+      "Bash(curl -I https://doxmind.s3.amazonaws.com/doXmind_0.0.1_x64-setup.exe)",
+      "Bash(ffmpeg:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
