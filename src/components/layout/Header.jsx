@@ -239,18 +239,35 @@ const Header = () => {
             {/* CTA Buttons */}
             <div className="flex items-center gap-4 ml-12">
               {ctaButtons.map((button) => (
-                <Link
-                  key={button.label}
-                  to={button.href}
-                  className={cn(
-                    "px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
-                    button.variant === 'primary' 
-                      ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]" 
-                      : "text-gray-300 hover:text-white"
-                  )}
-                >
-                  {button.label}
-                </Link>
+                button.external ? (
+                  <a
+                    key={button.label}
+                    href={button.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
+                      button.variant === 'primary'
+                        ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                        : "text-gray-300 hover:text-white"
+                    )}
+                  >
+                    {button.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={button.label}
+                    to={button.href}
+                    className={cn(
+                      "px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
+                      button.variant === 'primary'
+                        ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                        : "text-gray-300 hover:text-white"
+                    )}
+                  >
+                    {button.label}
+                  </Link>
+                )
               ))}
             </div>
           </div>
@@ -334,18 +351,35 @@ const Header = () => {
           
           <div className="pt-4">
             {ctaButtons.map((button) => (
-              <Link
-                key={button.label}
-                to={button.href}
-                className={cn(
-                  "block w-full px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300 text-center mb-2",
-                  button.variant === 'primary' 
-                    ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30" 
-                    : "text-gray-300 hover:text-white"
-                )}
-              >
-                {button.label}
-              </Link>
+              button.external ? (
+                <a
+                  key={button.label}
+                  href={button.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "block w-full px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300 text-center mb-2",
+                    button.variant === 'primary'
+                      ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30"
+                      : "text-gray-300 hover:text-white"
+                  )}
+                >
+                  {button.label}
+                </a>
+              ) : (
+                <Link
+                  key={button.label}
+                  to={button.href}
+                  className={cn(
+                    "block w-full px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300 text-center mb-2",
+                    button.variant === 'primary'
+                      ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30"
+                      : "text-gray-300 hover:text-white"
+                  )}
+                >
+                  {button.label}
+                </Link>
+              )
             ))}
           </div>
         </div>

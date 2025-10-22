@@ -55,6 +55,7 @@ const Features = () => {
       subtitle: 'TipTap v3 with Intelligent Features',
       description: 'Professional rich-text editor powered by TipTap 3.0 with GitHub Copilot-style autocomplete, quick edit commands, and Notion-like block manipulation.',
       gradient: 'from-blue-500 to-cyan-500',
+      demoMedia: { type: 'gif', src: '/auto-complete.gif' },
       stats: [
         { label: 'Autocomplete Model', value: 'Gemini 2.0 Flash', width: '95%' },
         { label: 'Quick Edit Actions', value: '10+ presets', width: '85%' },
@@ -75,6 +76,7 @@ const Features = () => {
       subtitle: 'Python-Powered CSV/Excel Analysis',
       description: 'Specialized sub-agent using pandas and numpy for automated data analysis. Execute Python code, generate statistical insights, and create visualizations from natural language queries.',
       gradient: 'from-purple-500 to-pink-500',
+      demoMedia: { type: 'video', src: '/data-analysis.mp4' },
       stats: [
         { label: 'Python Runtime', value: 'pandas/numpy', width: '95%' },
         { label: 'Execution Timeout', value: '30 seconds', width: '70%' },
@@ -95,6 +97,7 @@ const Features = () => {
       subtitle: 'ECharts, Mermaid, Excel Tables & Math',
       description: 'Rich content blocks beyond traditional markdown: interactive charts with ECharts, flow diagrams with Mermaid, Excel-style spreadsheets with jSpreadsheet, and LaTeX math with KaTeX.',
       gradient: 'from-green-500 to-emerald-500',
+      demoMedia: { type: 'gif', src: '/visualization.gif' },
       stats: [
         { label: 'Chart Library', value: 'ECharts 5.6', width: '95%' },
         { label: 'Diagram Engine', value: 'Mermaid 11.8', width: '90%' },
@@ -339,17 +342,40 @@ const Features = () => {
                   
                   {/* Visual Demo Area */}
                   <div className="lg:col-span-4">
-                    <CardSpotlight className="h-full min-h-[300px] flex items-center justify-center">
-                      <div className="text-center">
-                        <div className={cn(
-                          "w-20 h-20 mx-auto mb-4 rounded-lg bg-gradient-to-br flex items-center justify-center",
-                          feature.gradient
-                        )}>
-                          <feature.icon className="w-10 h-10 text-white" />
+                    <CardSpotlight className="h-full min-h-[300px] overflow-hidden">
+                      {feature.demoMedia ? (
+                        <div className="w-full h-full">
+                          {feature.demoMedia.type === 'video' ? (
+                            <video
+                              src={feature.demoMedia.src}
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                              className="w-full h-full object-cover rounded-lg"
+                            />
+                          ) : (
+                            <img
+                              src={feature.demoMedia.src}
+                              alt={`${feature.title} demo`}
+                              className="w-full h-full object-cover rounded-lg"
+                            />
+                          )}
                         </div>
-                        <p className="text-sm text-gray-500">Interactive Demo</p>
-                        <p className="text-xs text-gray-600 mt-1">Coming Soon</p>
-                      </div>
+                      ) : (
+                        <div className="text-center flex items-center justify-center h-full">
+                          <div>
+                            <div className={cn(
+                              "w-20 h-20 mx-auto mb-4 rounded-lg bg-gradient-to-br flex items-center justify-center",
+                              feature.gradient
+                            )}>
+                              <feature.icon className="w-10 h-10 text-white" />
+                            </div>
+                            <p className="text-sm text-gray-500">Interactive Demo</p>
+                            <p className="text-xs text-gray-600 mt-1">Coming Soon</p>
+                          </div>
+                        </div>
+                      )}
                     </CardSpotlight>
                   </div>
                 </div>
@@ -495,7 +521,7 @@ const Features = () => {
               {
                 icon: Eye,
                 title: 'Privacy Controls',
-                items: ['API key stored locally', 'No telemetry by default', 'Open source transparency']
+                items: ['API key stored locally', 'No telemetry by default', 'Full data privacy control']
               }
             ].map((item, index) => (
               <motion.div
@@ -524,14 +550,7 @@ const Features = () => {
       </section>
 
       {/* CTA Section */}
-      <CTASection 
-        title="Experience the Power of AI"
-        subtitle="Start building smarter documents today with our advanced features"
-        primaryButtonText="Start Free Trial"
-        secondaryButtonText="Request Demo"
-        footerText="No setup required • Start in seconds • Cancel anytime"
-        showBorder={false}
-      />
+      <CTASection />
 
     </div>
   );

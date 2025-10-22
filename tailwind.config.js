@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#11c4d4',
-          light: '#3dd4e2',
-          dark: '#0a99a8',
+          DEFAULT: '#6366f1',      // Indigo 500 - 主品牌色
+          light: '#8b5cf6',        // Purple 500 - 次品牌色
+          dark: '#4f46e5',         // Indigo 600 - 深色
         },
         gray: {
           50: '#f5f5f5',

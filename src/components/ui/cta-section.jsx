@@ -1,14 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Sparkles, ExternalLink } from 'lucide-react';
 
 const CTASection = ({
-  title = "Ready to Transform Your Workflow?",
-  subtitle = "Join thousands of teams already using doXmind to create better content faster",
-  primaryButtonText = "Get Started Free",
-  primaryButtonAction,
-  secondaryButtonText = "Schedule Demo",
-  secondaryButtonAction,
-  footerText = "No credit card required • 14-day free trial • Cancel anytime",
+  title = "Join Our Beta Testing Program",
+  subtitle = "Be among the first to experience the future of AI-powered writing. Your feedback shapes our development!",
+  primaryButtonText = "Join Beta Testing",
+  primaryButtonHref = "https://beta.doxmind.com/",
+  primaryButtonExternal = true,
+  secondaryButtonText = "View User Guide",
+  secondaryButtonHref = "/guide",
+  secondaryButtonExternal = false,
+  footerText = "Free for all beta testers • No credit card required • Access immediately",
   showBorder = false,
   backgroundColor = "transparent",
   maxWidth = "max-w-4xl",
@@ -17,7 +20,7 @@ const CTASection = ({
   return (
     <section className="py-20 px-4">
       <div className={`${maxWidth} mx-auto text-center`}>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,24 +41,30 @@ const CTASection = ({
           )}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {primaryButtonText && (
-              <motion.button
+              <motion.a
+                href={primaryButtonHref}
+                target={primaryButtonExternal ? "_blank" : undefined}
+                rel={primaryButtonExternal ? "noopener noreferrer" : undefined}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={primaryButtonAction}
-                className="px-8 py-4 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
               >
+                <Sparkles className="w-5 h-5" />
                 {primaryButtonText}
-              </motion.button>
+                {primaryButtonExternal && <ExternalLink className="w-4 h-4" />}
+              </motion.a>
             )}
             {secondaryButtonText && (
-              <motion.button
+              <motion.a
+                href={secondaryButtonHref}
+                target={secondaryButtonExternal ? "_blank" : undefined}
+                rel={secondaryButtonExternal ? "noopener noreferrer" : undefined}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={secondaryButtonAction}
-                className="px-8 py-4 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
               >
                 {secondaryButtonText}
-              </motion.button>
+              </motion.a>
             )}
           </div>
           {footerText && (

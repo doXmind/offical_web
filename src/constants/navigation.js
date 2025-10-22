@@ -5,51 +5,51 @@ export const navigationData = {
       {
         title: 'Getting Started',
         items: [
-          { 
-            label: 'Quick Start Guide', 
-            href: '/learn/quickstart',
+          {
+            label: 'User Guide',
+            href: '/guide',
+            description: 'Complete guide to using doXmind'
+          },
+          {
+            label: 'Quick Start',
+            href: '/guide#getting-started',
             description: 'Get up and running in 5 minutes'
           },
-          { 
-            label: 'Video Tutorials', 
-            href: '/learn/tutorials',
-            description: 'Step-by-step video guides'
-          },
-          { 
-            label: 'Best Practices', 
-            href: '/learn/best-practices',
-            description: 'Tips from power users'
+          {
+            label: 'Keyboard Shortcuts',
+            href: '/guide#shortcuts',
+            description: 'Essential shortcuts and tips'
           }
         ]
       },
       {
         title: 'Resources',
         items: [
-          { 
-            label: 'Documentation', 
+          {
+            label: 'Documentation',
             href: 'https://docs.doxmind.com',
             description: 'Complete product documentation',
             external: true
           },
-          { 
-            label: 'API Reference', 
+          {
+            label: 'API Reference',
             href: 'https://docs.doxmind.com/api-reference/introduction',
             description: 'For developers',
             external: true
           },
-          { 
-            label: 'Help Center', 
-            href: '/help',
-            description: 'FAQs and support'
+          {
+            label: 'Troubleshooting',
+            href: '/guide#troubleshooting',
+            description: 'Common issues and solutions'
           }
         ]
       }
     ],
     featured: {
-      title: 'What\'s New',
-      subtitle: 'Latest Features & Updates',
-      description: 'Discover the newest capabilities and improvements in doXmind',
-      href: '/changelog',
+      title: 'User Guide',
+      subtitle: 'Complete doXmind Guide',
+      description: 'Everything you need to know about using doXmind - from basics to advanced features',
+      href: '/guide',
       bgColor: 'bg-green-50',
       iconColor: 'text-green-500'
     }
@@ -63,5 +63,5 @@ export const simpleNavItems = [
 ];
 
 export const ctaButtons = [
-  { label: 'Try doXmind', href: '/auth/signup', variant: 'primary' }
+  { label: 'Launch App', href: 'https://beta.doxmind.com/', variant: 'primary', external: true }
 ];

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Features from './pages/Features';
 import Solutions from './pages/Solutions';
 import Pricing from './pages/Pricing';
+import Guide from './pages/Guide';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/guide" element={<Guide />} />
         </Routes>
       </Layout>
     </Router>

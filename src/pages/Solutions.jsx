@@ -89,23 +89,26 @@ const Solutions = () => {
             transition={{ duration: 1 }}
             className="text-center"
           >
-            {/* Small Badge */}
+            {/* Beta Badge */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8"
             >
-              <Sparkles className="w-3 h-3" />
-              <span className="text-xs uppercase tracking-wider">Solutions</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span className="text-xs uppercase tracking-wider text-primary font-medium">Beta Testing Now Open</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-extralight tracking-tight mb-6">
               Transform your workflow
             </h1>
-            
+
             <p className="text-lg text-gray-500 font-light max-w-2xl mx-auto">
-              Four powerful solutions working together to revolutionize how you handle documents, research, and content creation.
+              Join our beta program and explore powerful solutions for documents, research, and content creation.
             </p>
           </motion.div>
         </div>
@@ -169,13 +172,15 @@ const Solutions = () => {
                       </div>
 
                       {/* CTA */}
-                      <motion.button
-                        whileHover={{ x: 5 }}
+                      <a
+                        href="https://beta.doxmind.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-white/60 hover:text-white transition-colors duration-300"
                       >
-                        <span className="text-sm">Learn more</span>
+                        <span className="text-sm">Try it now</span>
                         <ArrowRight className="w-4 h-4" />
-                      </motion.button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -185,57 +190,8 @@ const Solutions = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="relative px-6 py-32 border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-3xl md:text-4xl font-extralight mb-4">
-              Trusted by forward-thinking teams
-            </h2>
-            <p className="text-gray-600">
-              Measurable impact across every metric that matters
-            </p>
-          </motion.div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
-            {[
-              { value: '10M+', label: 'Documents Processed' },
-              { value: '50K+', label: 'Active Users' },
-              { value: '99.9%', label: 'Uptime SLA' },
-              { value: '4.9/5', label: 'User Rating' }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-extralight mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-600 uppercase tracking-wider">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <CTASection 
-        title="Find Your Perfect Solution"
-        subtitle="Let our experts help you choose the right plan for your team's unique needs"
-        primaryButtonText="Contact Sales"
-        secondaryButtonText="Compare Plans"
-        footerText="Get personalized recommendations • Expert consultation included"
-        showBorder={false}
-      />
+      <CTASection />
     </div>
   );
 };

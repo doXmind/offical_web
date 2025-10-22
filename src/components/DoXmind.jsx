@@ -670,7 +670,7 @@ const DoXmind = () => {
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2025 doXmind. All rights reserved.</p>
+            <p>&copy; 2025 W Aixs Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>

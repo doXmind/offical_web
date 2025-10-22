@@ -187,28 +187,18 @@ export const techAdvantages = [
 // Footer links
 export const footerLinks = {
   product: [
-    { name: 'Features', href: '/product#features' },
-    { name: 'Integrations', href: '/product#integrations' },
-    { name: 'Security', href: '/product#security' },
-    { name: 'Changelog', href: '/changelog' },
+    { name: 'Features', href: '/features' },
+    { name: 'Solutions', href: '/solutions' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'User Guide', href: '/guide' },
   ],
-  solutions: [
-    { name: 'Enterprise', href: '/solutions/enterprise' },
-    { name: 'Research', href: '/solutions/research' },
-    { name: 'Education', href: '/solutions/education' },
-    { name: 'Developers', href: '/solutions/developers' },
+  resources: [
+    { name: 'Documentation', href: 'https://docs.doxmind.com', external: true },
+    { name: 'API Reference', href: 'https://docs.doxmind.com/api-reference/introduction', external: true },
   ],
-  company: [
-    { name: 'About', href: '/company/about' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Careers', href: '/company/careers' },
-    { name: 'Contact', href: '/contact' },
-  ],
-  support: [
-    { name: 'Documentation', href: '/docs' },
-    { name: 'API Reference', href: '/docs/api' },
-    { name: 'Status', href: '/status' },
-    { name: 'Support', href: '/support' },
+  community: [
+    { name: 'Launch Beta', href: 'https://beta.doxmind.com/', external: true },
+    { name: 'Join Testing', href: 'https://beta.doxmind.com/', external: true },
   ],
 };
 
@@ -217,7 +207,7 @@ export const companyInfo = {
   name: 'doXmind',
   tagline: 'AI-Powered Intelligent Document Creation Platform',
   description: 'Transform Every Idea into Professional Content',
-  copyright: `© ${new Date().getFullYear()} doXmind. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} W Aixs Inc. All rights reserved.`,
   socialLinks: {
     twitter: 'https://twitter.com/doxmind',
     github: 'https://github.com/doxmind',

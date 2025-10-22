@@ -5,30 +5,47 @@ import {
   Edit3, BarChart3, Wand2, RefreshCw,
   Type, Brain, Shield, Zap, Package, Layers,
   MessageSquare, Building, Database, PenTool,
-  Users, FileText, Download, Monitor
+  Users, FileText
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CTASection from '../components/ui/cta-section';
 
 // Hero Section Component
 const HeroSection = () => {
-  const [isTyping, setIsTyping] = useState(false);
+  const [isTyping, setIsTyping] = useState(true);
   const [demoText, setDemoText] = useState('');
   const fullDemoText = "Transform your ideas into compelling content with AI-powered suggestions...";
 
   useEffect(() => {
-    if (isTyping && demoText.length < fullDemoText.length) {
+    if (demoText.length < fullDemoText.length) {
+      // Typing animation
       const timeout = setTimeout(() => {
         setDemoText(fullDemoText.slice(0, demoText.length + 1));
       }, 50);
       return () => clearTimeout(timeout);
+    } else {
+      // When typing is complete, wait 2 seconds then restart
+      const timeout = setTimeout(() => {
+        setDemoText('');
+      }, 2000);
+      return () => clearTimeout(timeout);
     }
-  }, [isTyping, demoText]);
+  }, [demoText, fullDemoText]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
       <div className="relative max-w-7xl mx-auto text-center">
-        <motion.h1 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/30 bg-primary/10 rounded-full mb-6"
+        >
+          <Sparkles className="w-4 h-4 text-primary" />
+          <span className="text-sm text-primary font-medium">Beta Now Live - Join as a Tester!</span>
+        </motion.div>
+
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -38,38 +55,40 @@ const HeroSection = () => {
           <br />
           <span className="text-white">Professional Content</span>
         </motion.h1>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-lg md:text-xl text-gray-500 mb-8 max-w-3xl mx-auto"
         >
-          AI-powered desktop editor that helps you write, analyze data,
-          and create professional documents with ease.
+          AI-powered editor that helps you write, analyze data,
+          and create professional documents with ease. Now in beta - everyone can join!
         </motion.p>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <motion.button
+          <motion.a
+            href="https://beta.doxmind.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onMouseEnter={() => setIsTyping(true)}
-            className="px-8 py-4 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
           >
-            Try It Free
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="px-8 py-4 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
+            <Sparkles className="w-5 h-5" />
+            Launch App
+          </motion.a>
+          <Link
+            to="/guide"
+            className="inline-flex items-center px-8 py-4 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
           >
-            Watch Demo
-          </motion.button>
+            View User Guide
+          </Link>
         </motion.div>
 
         {/* Simplified Demo Editor */}
@@ -99,8 +118,8 @@ const HeroSection = () => {
                         {demoText}
                         <span className="animate-pulse">|</span>
                       </p>
-                      {isTyping && demoText.length > 20 && (
-                        <motion.div 
+                      {demoText.length > 0 && demoText.length < fullDemoText.length && (
+                        <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.3 }}
@@ -210,6 +229,62 @@ const FeaturesSection = () => {
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
+
+// Demo Showcase Section Component
+const DemoShowcaseSection = () => {
+  const videoRef = React.useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 2.0;
+    }
+  }, []);
+
+  return (
+    <section className="py-24 px-6 border-t border-white/5">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-extralight mb-4">
+            See doXmind in Action
+          </h2>
+          <p className="text-lg text-gray-500">
+            AI-powered data analysis and visualization in seconds
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative max-w-5xl mx-auto"
+        >
+          <div className="border border-white/10 rounded-xl overflow-hidden bg-gradient-to-br from-white/5 to-transparent p-2">
+            <video
+              ref={videoRef}
+              src="/data-analysis.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg"
+            />
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500">
+              Analyze data and generate insights with natural language commands
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -383,12 +458,12 @@ const TechAdvantagesSection = () => {
     {
       icon: Zap,
       title: 'Lightning Fast',
-      description: 'Native desktop app built for speed and performance'
+      description: 'Fast and responsive interface built for productivity'
     },
     {
       icon: Package,
-      title: 'Open Source',
-      description: 'Free and open source software you can trust'
+      title: 'All-in-One',
+      description: 'Everything you need for AI-powered writing in one place'
     }
   ];
 
@@ -433,94 +508,59 @@ const TechAdvantagesSection = () => {
 };
 
 
-// Download Section Component
-const DownloadSection = () => {
+// Launch App Section Component
+const LaunchAppSection = () => {
   return (
     <section className="py-24 px-6 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-8"
         >
+          <div className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-full mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span className="text-sm text-gray-400">Beta Version Available Now</span>
+          </div>
+
           <h2 className="text-4xl md:text-5xl font-extralight mb-4">
-            Download doXmind Desktop
+            Become a Beta Tester
           </h2>
-          <p className="text-lg text-gray-500">
-            Available for Windows • macOS and Linux coming soon
+          <p className="text-lg text-gray-500 mb-8">
+            Join our beta testing program and help shape the future of AI-powered writing.
+            Everyone is welcome to test and provide feedback!
           </p>
         </motion.div>
 
-        <div className="max-w-xl mx-auto">
-          {/* Windows x64 Installer */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="group"
-          >
-            <div className="h-full p-8 border border-white/10 rounded-lg hover:border-white/30 transition-all duration-300 bg-black">
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
-                  <Monitor className="w-7 h-7" />
-                </div>
-                <span className="text-xs text-gray-600 px-3 py-1 border border-white/10 rounded-full">
-                  Windows-x64
-                </span>
-              </div>
-              <h3 className="text-xl font-light mb-2">Windows Installer</h3>
-              <p className="text-sm text-gray-500 mb-6">
-                Fast and easy installation for Windows 64-bit systems
-              </p>
-              <div className="space-y-2 mb-6 text-xs text-gray-600">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">•</span>
-                  <span>Version 0.0.1</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">•</span>
-                  <span>Windows 10/11 (x64)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">•</span>
-                  <span>Quick installation</span>
-                </div>
-              </div>
-              <a
-                href="https://doxmind.s3.amazonaws.com/doXmind_0.0.1_x64-setup.exe"
-                className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
-              >
-                <Download className="w-4 h-4" />
-                Download Windows-x64
-              </a>
-            </div>
-          </motion.div>
-        </div>
+        <motion.a
+          href="https://beta.doxmind.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="inline-flex items-center gap-3 px-12 py-5 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all text-lg"
+        >
+          <Sparkles className="w-6 h-6" />
+          Join Beta Testing
+          <ArrowRight className="w-5 h-5" />
+        </motion.a>
 
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-12 text-center"
+          transition={{ delay: 0.2 }}
+          className="mt-6 text-sm text-gray-600"
         >
-          <p className="text-sm text-gray-600">
-            System Requirements: Windows 10/11 (x64) • 4GB RAM • 500MB disk space
-          </p>
-          <p className="text-xs text-gray-700 mt-2">
-            View all releases on{' '}
-            <a
-              href="https://github.com/DocMind-AI-Native-Editor/Desktop/releases"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              GitHub
-            </a>
-          </p>
-        </motion.div>
+          Free for all beta testers • No installation required • Access immediately
+        </motion.p>
       </div>
     </section>
   );
@@ -531,8 +571,9 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <HeroSection />
-      <DownloadSection />
+      <LaunchAppSection />
       <FeaturesSection />
+      <DemoShowcaseSection />
       <ComparisonSection />
       <SolutionsSection />
       <TechAdvantagesSection />
