@@ -6,19 +6,15 @@ export const navigationData = {
         title: 'Getting Started',
         items: [
           {
+            label: 'Quick Start',
+            href: 'https://docs.doxmind.com/quickstart',
+            description: 'Get up and running in 5 minutes',
+            external: true
+          },
+          {
             label: 'User Guide',
             href: '/guide',
             description: 'Complete guide to using doXmind'
-          },
-          {
-            label: 'Quick Start',
-            href: '/guide#getting-started',
-            description: 'Get up and running in 5 minutes'
-          },
-          {
-            label: 'Keyboard Shortcuts',
-            href: '/guide#shortcuts',
-            description: 'Essential shortcuts and tips'
           }
         ]
       },
@@ -27,20 +23,14 @@ export const navigationData = {
         items: [
           {
             label: 'Documentation',
-            href: '/guide',
+            href: 'https://docs.doxmind.com',
             description: 'Complete product documentation',
-            external: false
+            external: true
           },
           {
             label: 'Advanced Features',
             href: '/guide#advanced',
-            description: 'Power user capabilities',
-            external: false
-          },
-          {
-            label: 'Troubleshooting',
-            href: '/guide#troubleshooting',
-            description: 'Common issues and solutions'
+            description: 'Power user capabilities'
           }
         ]
       }
