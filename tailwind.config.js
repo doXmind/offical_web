@@ -50,6 +50,8 @@ export default {
         'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
         'slideInRight': 'slideInRight 0.6s ease-out forwards',
         'pulse-slow': 'pulse 4s ease-in-out infinite',
+        'gradient-x': 'gradient-x 3s ease infinite',
+        'float': 'float 3s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -67,6 +69,14 @@ export default {
         pulse: {
           '0%, 100%': { opacity: 0.3 },
           '50%': { opacity: 0.6 },
+        },
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
       backdropBlur: {

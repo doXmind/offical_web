@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FileText, 
-  BarChart3, 
-  Layers, 
-  MessageSquare, 
+import {
+  FileText,
+  BarChart3,
+  Layers,
+  MessageSquare,
   Users,
   Shield,
   Lock,
@@ -17,10 +17,30 @@ import {
   Globe,
   Sparkles,
   Brain,
-  Eye
+  Eye,
+  Zap,
+  Wand2,
+  FileType,
+  Boxes,
+  Timer,
+  Package,
+  TrendingUp,
+  GitBranch,
+  Table2,
+  Sigma,
+  Bot,
+  Cpu,
+  HardDrive,
+  Wrench,
+  Monitor,
+  Palette,
+  FlaskConical,
+  Save
 } from 'lucide-react';
 import { BentoGrid, BentoGridItem } from '../components/ui/BentoGrid';
 import { CardSpotlight } from '../components/ui/CardSpotlight';
+import InteractiveDemoViewer from '../components/ui/InteractiveDemoViewer';
+import AnimatedCounter from '../components/ui/AnimatedCounter';
 import { cn } from '../core/utils';
 import CTASection from '../components/ui/cta-section';
 
@@ -28,9 +48,8 @@ const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   const navRef = React.useRef(null);
-  const [navHeight, setNavHeight] = useState(48); // default estimate to avoid initial overlap
+  const [navHeight, setNavHeight] = useState(48);
 
-  // Measure nav height synchronously before paint for accuracy
   useLayoutEffect(() => {
     if (!navRef.current) return;
 
@@ -57,10 +76,10 @@ const Features = () => {
       gradient: 'from-blue-500 to-cyan-500',
       demoMedia: { type: 'gif', src: '/auto-complete.gif' },
       stats: [
-        { label: 'Autocomplete Model', value: 'Gemini 2.0 Flash', width: '95%' },
-        { label: 'Quick Edit Actions', value: '10+ presets', width: '85%' },
-        { label: 'File Formats', value: 'MD/PDF/DOCX', width: '90%' },
-        { label: 'Block Types', value: '15+ types', width: '80%' }
+        { label: 'Autocomplete', value: 'Gemini 2.0', icon: Zap },
+        { label: 'Quick Edit', value: '10+ Actions', icon: Wand2 },
+        { label: 'Formats', value: 'MD/PDF/DOCX', icon: FileType },
+        { label: 'Blocks', value: '15+ Types', icon: Boxes }
       ],
       keyFeatures: [
         'Context-aware autocomplete with 150-300ms smart trigger detection',
@@ -78,10 +97,10 @@ const Features = () => {
       gradient: 'from-purple-500 to-pink-500',
       demoMedia: { type: 'video', src: '/data-analysis.mp4' },
       stats: [
-        { label: 'Python Runtime', value: 'pandas/numpy', width: '95%' },
-        { label: 'Execution Timeout', value: '30 seconds', width: '70%' },
-        { label: 'Supported Formats', value: 'CSV/XLSX', width: '85%' },
-        { label: 'Tools Available', value: '2 core tools', width: '80%' }
+        { label: 'Runtime', value: 'pandas/numpy', icon: Package },
+        { label: 'Timeout', value: '30 seconds', icon: Timer },
+        { label: 'Formats', value: 'CSV/XLSX', icon: TrendingUp },
+        { label: 'Tools', value: '2 Core', icon: Wrench }
       ],
       keyFeatures: [
         'Python code execution with pandas/numpy pre-imported',
@@ -99,10 +118,10 @@ const Features = () => {
       gradient: 'from-green-500 to-emerald-500',
       demoMedia: { type: 'gif', src: '/visualization.gif' },
       stats: [
-        { label: 'Chart Library', value: 'ECharts 5.6', width: '95%' },
-        { label: 'Diagram Engine', value: 'Mermaid 11.8', width: '90%' },
-        { label: 'Spreadsheet', value: 'jSpreadsheet', width: '85%' },
-        { label: 'Math Rendering', value: 'KaTeX 0.16', width: '88%' }
+        { label: 'Charts', value: 'ECharts 5.6', icon: TrendingUp },
+        { label: 'Diagrams', value: 'Mermaid', icon: GitBranch },
+        { label: 'Tables', value: 'jSpreadsheet', icon: Table2 },
+        { label: 'Math', value: 'KaTeX', icon: Sigma }
       ],
       keyFeatures: [
         'ECharts: bar, line, pie, scatter plots with JSON configuration',
@@ -118,11 +137,12 @@ const Features = () => {
       subtitle: 'Main Orchestrator with Sub-Agents',
       description: 'Main agent powered by Grok-4 with 11 core tools, intelligently delegating to specialized data analysis and web research sub-agents. Supports 200K token working window with context compaction.',
       gradient: 'from-orange-500 to-red-500',
+      demoMedia: { type: 'video', src: '/select-edit-quick-edit.mp4' },
       stats: [
-        { label: 'Default Model', value: 'Grok-4-fast', width: '92%' },
-        { label: 'Max Model', value: 'Grok-4', width: '97%' },
-        { label: 'Context Window', value: '200K tokens', width: '95%' },
-        { label: 'Core Tools', value: '11 tools', width: '85%' }
+        { label: 'Model', value: 'Grok-4-fast', icon: Bot },
+        { label: 'Premium', value: 'Grok-4', icon: Sparkles },
+        { label: 'Context', value: '200K tokens', icon: HardDrive },
+        { label: 'Tools', value: '11 Core', icon: Wrench }
       ],
       keyFeatures: [
         'Main agent: read_file, edit_file, glob, search, analyze_document_structure',
@@ -138,11 +158,12 @@ const Features = () => {
       subtitle: 'Isolated Project Environments',
       description: 'Create separate workspaces for different projects with independent file management, conversation history, and context memory. Built on Tauri for native desktop performance.',
       gradient: 'from-indigo-500 to-purple-500',
+      demoMedia: null,
       stats: [
-        { label: 'Desktop Framework', value: 'Tauri 2.x', width: '95%' },
-        { label: 'Frontend', value: 'Vue 3.5 + TS', width: '98%' },
-        { label: 'Backend', value: 'Flask + SQLite', width: '92%' },
-        { label: 'Auto-save', value: '2s debounce', width: '88%' }
+        { label: 'Framework', value: 'Tauri 2.x', icon: Monitor },
+        { label: 'Frontend', value: 'Vue 3.5', icon: Palette },
+        { label: 'Backend', value: 'Flask', icon: FlaskConical },
+        { label: 'Auto-save', value: '2s debounce', icon: Save }
       ],
       keyFeatures: [
         'Isolated workspaces: separate documents, files, chat history per workspace',
@@ -162,7 +183,6 @@ const Features = () => {
     { name: 'GitHub', icon: Code, status: 'planned' }
   ];
 
-  // Read the current header height from the global CSS variable
   const getHeaderOffset = () => {
     const value = parseInt(
       getComputedStyle(document.documentElement).getPropertyValue('--header-height')
@@ -170,7 +190,6 @@ const Features = () => {
     return isNaN(value) ? 0 : value;
   };
 
-  // Read header height once (assume header is in default visible state)
   useLayoutEffect(() => {
     setHeaderHeight(getHeaderOffset());
   }, []);
@@ -183,7 +202,6 @@ const Features = () => {
     }
   };
 
-  // IntersectionObserver to keep activeFeature in sync with viewport center
   useEffect(() => {
     const ratios = new Array(features.length).fill(0);
     const observer = new IntersectionObserver(
@@ -193,7 +211,6 @@ const Features = () => {
           if (idxAttr == null) return;
           ratios[Number(idxAttr)] = entry.intersectionRatio;
         });
-        // Determine index with highest ratio over threshold
         let maxIdx = activeFeature;
         let maxRatio = 0;
         ratios.forEach((r, i) => {
@@ -209,7 +226,7 @@ const Features = () => {
       {
         root: null,
         threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: `-${headerHeight + navHeight + 100}px 0px -40% 0px`, // account for header & navbar
+        rootMargin: `-${headerHeight + navHeight + 100}px 0px -40% 0px`,
       }
     );
 
@@ -226,7 +243,7 @@ const Features = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Feature Showcase (includes intro) */}
+      {/* Feature Showcase */}
       <section id="features-section" className="px-4 py-24 scroll-mt-32">
         {/* Intro Title */}
         <div className="relative z-10 text-left max-w-7xl mx-auto mb-16">
@@ -250,8 +267,8 @@ const Features = () => {
           </motion.p>
         </div>
 
-        {/* Sticky navigation – visible only within the Feature Showcase section */}
-        <div 
+        {/* Sticky navigation */}
+        <div
           className="sticky z-40 max-w-7xl mx-auto flex justify-start mb-24 transition-all duration-300"
           style={{ top: 'var(--nav-offset)', transition: 'top 0.3s ease-in-out' }}
         >
@@ -279,109 +296,163 @@ const Features = () => {
         </div>
 
         <div className="max-w-7xl mx-auto space-y-32">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.id}
-              id={`feature-${index}`}
-              /* IntersectionObserver handles active feature */
-              className="relative"
-              style={{ scrollMarginTop: `${headerHeight + navHeight + 48}px` }}
-            >
-              {/* Content */}
-              <div className="relative">
-                {/* Section Header */}
-                <div className="mb-12">
-                  <div className="mb-6">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-2">{feature.title}</h2>
-                    <p className="text-lg text-gray-400">{feature.subtitle}</p>
-                  </div>
-                </div>
-                
-                {/* Feature Grid */}
-                <div className="grid lg:grid-cols-12 gap-12">
-                  {/* Description Section */}
-                  <div className="lg:col-span-5">
-                    <h3 className="text-xl font-semibold mb-4">Overview</h3>
-                    <p className="text-base text-gray-300 mb-8 leading-relaxed">{feature.description}</p>
-                    
-                    <h4 className="text-lg font-semibold mb-4">Key Features</h4>
-                    <div className="space-y-3">
-                      {feature.keyFeatures.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-3">
-                          <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Stats Card */}
-                  <div className="lg:col-span-3">
-                    <CardSpotlight className="h-full">
-                      <h4 className="text-lg font-semibold mb-4">Performance</h4>
-                      <div className="space-y-4">
-                        {feature.stats.map((stat, idx) => (
-                          <div key={idx}>
-                            <div className="flex justify-between items-baseline mb-1">
-                              <span className="text-xs text-gray-400">{stat.label}</span>
-                              <span className="text-sm font-bold text-primary">{stat.value}</span>
-                            </div>
-                            <div className="w-full bg-gray-800 rounded-full h-1.5">
-                              <motion.div
-                                initial={{ width: 0 }}
-                                whileInView={{ width: stat.width }}
-                                transition={{ duration: 1, delay: 0.5 + idx * 0.1 }}
-                                className="bg-gradient-to-r from-primary to-emerald-400 h-1.5 rounded-full"
-                              />
-                            </div>
-                          </div>
+          {features.map((feature, index) => {
+            const isEven = index % 2 === 0;
+
+            return (
+              <motion.div
+                key={feature.id}
+                id={`feature-${index}`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="relative"
+                style={{ scrollMarginTop: `${headerHeight + navHeight + 48}px` }}
+              >
+                {/* Alternating Layout Grid */}
+                <div className={cn(
+                  "grid lg:grid-cols-2 gap-12 lg:gap-16 items-center",
+                  isEven ? "" : "lg:grid-flow-dense"
+                )}>
+
+                  {/* Content Section */}
+                  <div className={cn(
+                    "space-y-8",
+                    isEven ? "lg:order-1" : "lg:order-2"
+                  )}>
+                    {/* Header */}
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className={cn(
+                        "inline-flex items-center gap-3 p-3 rounded-2xl mb-4",
+                        "bg-gradient-to-br backdrop-blur-md border border-white/10",
+                        feature.gradient
+                      )}>
+                        <feature.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h2 className="text-3xl md:text-4xl font-bold mb-2">{feature.title}</h2>
+                      <p className="text-lg text-primary">{feature.subtitle}</p>
+                    </motion.div>
+
+                    {/* Overview */}
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      <h3 className="text-xl font-semibold mb-3">Overview</h3>
+                      <p className="text-base text-gray-300 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </motion.div>
+
+                    {/* Key Features */}
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      viewport={{ once: true }}
+                    >
+                      <h4 className="text-lg font-semibold mb-4">Key Features</h4>
+                      <div className="space-y-3">
+                        {feature.keyFeatures.map((item, idx) => (
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4, delay: 0.4 + idx * 0.1 }}
+                            viewport={{ once: true }}
+                            className="flex items-start gap-3 group"
+                          >
+                            <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                            <span className="text-gray-300 text-sm leading-relaxed group-hover:text-white transition-colors">
+                              {item}
+                            </span>
+                          </motion.div>
                         ))}
                       </div>
-                    </CardSpotlight>
-                  </div>
-                  
-                  {/* Visual Demo Area */}
-                  <div className="lg:col-span-4">
-                    <CardSpotlight className="h-full min-h-[300px] overflow-hidden">
-                      {feature.demoMedia ? (
-                        <div className="w-full h-full">
-                          {feature.demoMedia.type === 'video' ? (
-                            <video
-                              src={feature.demoMedia.src}
-                              autoPlay
-                              loop
-                              muted
-                              playsInline
-                              className="w-full h-full object-cover rounded-lg"
-                            />
-                          ) : (
-                            <img
-                              src={feature.demoMedia.src}
-                              alt={`${feature.title} demo`}
-                              className="w-full h-full object-cover rounded-lg"
-                            />
-                          )}
-                        </div>
-                      ) : (
-                        <div className="text-center flex items-center justify-center h-full">
-                          <div>
-                            <div className={cn(
-                              "w-20 h-20 mx-auto mb-4 rounded-lg bg-gradient-to-br flex items-center justify-center",
-                              feature.gradient
-                            )}>
-                              <feature.icon className="w-10 h-10 text-white" />
+                    </motion.div>
+
+                    {/* Stats - Horizontal mini cards */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                      viewport={{ once: true }}
+                      className="grid grid-cols-2 md:grid-cols-4 gap-4"
+                    >
+                      {feature.stats.map((stat, idx) => {
+                        const IconComponent = stat.icon;
+                        return (
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.5 + idx * 0.1 }}
+                            viewport={{ once: true }}
+                            whileHover={{
+                              scale: 1.05,
+                              borderColor: 'rgba(99, 102, 241, 0.3)',
+                              boxShadow: '0 0 20px rgba(99, 102, 241, 0.15)'
+                            }}
+                            className="relative p-4 bg-gradient-to-br from-gray-900/80 to-gray-800/50 border border-white/10 rounded-xl backdrop-blur-sm overflow-hidden group"
+                          >
+                            {/* Glow effect on hover */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                            <div className="relative z-10">
+                              {/* Icon */}
+                              <div className="flex items-center justify-between mb-3">
+                                <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                                  <IconComponent className="w-4 h-4 text-primary" />
+                                </div>
+                              </div>
+
+                              {/* Value */}
+                              <div className="text-base font-bold text-white mb-1 group-hover:text-primary transition-colors">
+                                {stat.value}
+                              </div>
+
+                              {/* Label */}
+                              <div className="text-xs text-gray-500 leading-tight">
+                                {stat.label}
+                              </div>
                             </div>
-                            <p className="text-sm text-gray-500">Interactive Demo</p>
-                            <p className="text-xs text-gray-600 mt-1">Available in Beta</p>
-                          </div>
-                        </div>
-                      )}
-                    </CardSpotlight>
+                          </motion.div>
+                        );
+                      })}
+                    </motion.div>
                   </div>
+
+                  {/* Demo Section */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className={cn(
+                      "relative",
+                      isEven ? "lg:order-2" : "lg:order-1"
+                    )}
+                  >
+                    <InteractiveDemoViewer
+                      media={feature.demoMedia}
+                      title={`${feature.title} Demo`}
+                      className="min-h-[400px] lg:min-h-[500px]"
+                      enableZoom={true}
+                      autoPlay={true}
+                    />
+                  </motion.div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
@@ -459,8 +530,8 @@ const Features = () => {
               >
                 <div className={cn(
                   "w-16 h-16 mx-auto mb-3 rounded-lg flex items-center justify-center",
-                  integration.status === 'active' 
-                    ? "bg-gray-800" 
+                  integration.status === 'active'
+                    ? "bg-gray-800"
                     : "bg-gray-900 border border-gray-800 border-dashed"
                 )}>
                   <integration.icon className={cn(
