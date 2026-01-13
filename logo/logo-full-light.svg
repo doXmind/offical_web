@@ -1,0 +1,11 @@
+<svg viewBox="0 0 360 80" width="360" height="80" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(0, 0)">
+    <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#000000"/>
+    <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#000000"/>
+    <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#000000"/>
+    <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#000000"/>
+  </g>
+  <text x="100" y="58" font-family="system-ui, -apple-system, 'Helvetica Neue', sans-serif" font-size="48" fill="#000000" letter-spacing="-1.5">
+    <tspan font-weight="300">do</tspan><tspan font-weight="900">X</tspan><tspan font-weight="300">mind</tspan>
+  </text>
+</svg>

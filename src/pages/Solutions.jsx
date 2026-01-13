@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  BarChart3, 
-  Microscope, 
-  Brain, 
+import {
+  FileText,
+  GraduationCap,
+  Briefcase,
   PenTool,
   ArrowRight,
   Sparkles
@@ -13,68 +13,52 @@ import CTASection from '../components/ui/cta-section';
 const Solutions = () => {
   const solutions = [
     {
-      id: 'enterprise-reporting',
-      title: 'Enterprise Reporting',
-      description: 'Transform data chaos into clarity with AI-powered reporting that delivers insights 800% faster',
-      icon: BarChart3,
+      id: 'professional-writing',
+      title: 'Professional Writing',
+      description: 'Create polished business documents, reports, and proposals with AI assistance that helps you maintain a professional tone.',
+      icon: Briefcase,
       features: [
-        'Real-time data processing',
-        'Automated insights generation',
-        'Custom dashboard creation',
-        'Predictive analytics'
-      ],
-      stats: {
-        primary: '800%',
-        label: 'Faster Reporting'
-      }
+        'Quick Edit to improve writing quality',
+        'Tone adjustment for professional context',
+        'Grammar and spelling correction',
+        'Real-time AI suggestions'
+      ]
     },
     {
-      id: 'research-management',
-      title: 'Research Management',
-      description: 'Navigate vast knowledge landscapes with AI that accelerates discovery by 10x',
-      icon: Microscope,
+      id: 'academic-research',
+      title: 'Academic Research',
+      description: 'Write research papers, literature reviews, and academic content with AI-powered assistance for clarity and structure.',
+      icon: GraduationCap,
       features: [
-        'Intelligent literature review',
-        'Citation network mapping',
-        'Automated summarization',
-        'Cross-reference analysis'
-      ],
-      stats: {
-        primary: '10x',
-        label: 'Faster Research'
-      }
-    },
-    {
-      id: 'knowledge-base',
-      title: 'Knowledge Base',
-      description: 'Build a living repository that learns, grows, and delivers instant answers',
-      icon: Brain,
-      features: [
-        'Semantic search engine',
-        'Auto-categorization',
-        'Version control system',
-        'Smart recommendations'
-      ],
-      stats: {
-        primary: '90%',
-        label: 'Faster Access'
-      }
+        'Expand ideas with more detail',
+        'Simplify complex explanations',
+        'Multi-language translation support',
+        'Version history for drafts'
+      ]
     },
     {
       id: 'content-creation',
       title: 'Content Creation',
-      description: 'Scale your content operations with AI that maintains your unique voice',
+      description: 'Produce blog posts, articles, and marketing content efficiently with AI that helps maintain your unique voice.',
       icon: PenTool,
       features: [
-        'Multi-format generation',
-        'Brand voice consistency',
-        'SEO optimization',
-        'Performance analytics'
-      ],
-      stats: {
-        primary: '5x',
-        label: 'Content Output'
-      }
+        'AI autocomplete while writing',
+        'Quick Edit for instant improvements',
+        'Change tone to match audience',
+        'Shorten or expand content as needed'
+      ]
+    },
+    {
+      id: 'documentation',
+      title: 'Technical Documentation',
+      description: 'Write clear technical documentation with Markdown support, code blocks, and AI assistance for technical writing.',
+      icon: FileText,
+      features: [
+        'Full Markdown editor support',
+        'Syntax-highlighted code blocks',
+        'Tables and structured content',
+        'Export to multiple formats'
+      ]
     }
   ];
 
@@ -94,21 +78,21 @@ const Solutions = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/10 mb-8"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
-              <span className="text-xs uppercase tracking-wider text-primary font-medium">Beta Testing Now Open</span>
+              <span className="text-xs uppercase tracking-wider text-white font-medium">Beta Testing Now Open</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-extralight tracking-tight mb-6">
-              Transform your workflow
+              Solutions for Every Writer
             </h1>
 
             <p className="text-lg text-gray-500 font-light max-w-2xl mx-auto">
-              Join our beta program and explore powerful solutions for documents, research, and content creation.
+              Whether you're writing for business, academia, or creative projects, doXmind helps you produce better content.
             </p>
           </motion.div>
         </div>
@@ -135,7 +119,7 @@ const Solutions = () => {
                     <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="absolute inset-[-1px] rounded-lg bg-gradient-to-r from-white/5 via-white/10 to-white/5" />
                     </div>
-                    
+
                     {/* Content */}
                     <div className="relative z-10">
                       {/* Icon */}
@@ -145,21 +129,11 @@ const Solutions = () => {
 
                       {/* Title */}
                       <h3 className="text-2xl font-light mb-3">{solution.title}</h3>
-                      
+
                       {/* Description */}
                       <p className="text-gray-400 mb-8 leading-relaxed">
                         {solution.description}
                       </p>
-
-                      {/* Stats */}
-                      <div className="mb-8">
-                        <div className="text-4xl font-extralight mb-1">
-                          {solution.stats.primary}
-                        </div>
-                        <div className="text-sm text-gray-600 uppercase tracking-wider">
-                          {solution.stats.label}
-                        </div>
-                      </div>
 
                       {/* Features */}
                       <div className="space-y-3 mb-8">

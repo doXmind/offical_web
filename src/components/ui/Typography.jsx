@@ -65,9 +65,9 @@ export const Link = ({
   ...props
 }) => {
   const variants = {
-    default: 'text-primary hover:text-primary-light transition-colors',
+    default: 'text-white hover:text-gray-300 transition-colors',
     subtle: 'text-gray-400 hover:text-white transition-colors',
-    underline: 'text-white hover:text-primary underline underline-offset-4 transition-colors',
+    underline: 'text-white hover:text-gray-300 underline underline-offset-4 transition-colors',
   };
 
   const externalProps = external
@@ -95,7 +95,7 @@ export const Badge = ({
 }) => {
   const variants = {
     default: 'bg-gray-800 text-gray-300',
-    primary: 'bg-primary/20 text-primary',
+    primary: 'bg-white/20 text-white',
     success: 'bg-green-500/20 text-green-400',
     warning: 'bg-yellow-500/20 text-yellow-400',
   };

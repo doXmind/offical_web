@@ -5,16 +5,16 @@ import CTASection from '../components/ui/cta-section';
 
 const Pricing = () => {
   const features = [
-    'Complete AI writing assistant',
+    'AI Chat Assistant powered by Claude',
+    'Quick Edit commands (Fix, Improve, Translate, etc.)',
+    'AI Autocomplete while writing',
+    'Full Markdown editor with code blocks',
+    'Version history with restore',
+    'RAG semantic search across documents',
+    'Dark and light theme support',
+    'Export to Markdown, PDF, DOCX',
     'Unlimited documents',
-    'All export formats (PDF, DOCX, HTML, etc.)',
-    'Advanced content features (charts, math, code)',
-    'Data analysis capabilities',
-    'Full version control and history',
-    'Local-first privacy',
-    'No usage limits',
-    'Regular updates and improvements',
-    'Community support'
+    'Regular updates and improvements'
   ];
 
   return (
@@ -27,12 +27,12 @@ const Pricing = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 border border-primary/30 bg-primary/10 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 border border-white/30 bg-white/10 rounded-full mb-6">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
-              <span className="text-sm text-primary font-medium">Beta Testing - Open to Everyone</span>
+              <span className="text-sm text-white font-medium">Beta Testing - Open to Everyone</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-extralight tracking-tight mb-6">
@@ -63,7 +63,7 @@ const Pricing = () => {
               <div className="relative z-10">
                 {/* Beta Badge */}
                 <div className="text-center mb-6">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium">
                     <Sparkles className="w-4 h-4" />
                     Beta Tester Access
                   </span>
@@ -87,7 +87,7 @@ const Pricing = () => {
                       transition={{ delay: idx * 0.05 }}
                       className="flex items-start gap-3 text-gray-400"
                     >
-                      <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
                       <span>{feature}</span>
                     </motion.div>
                   ))}
@@ -100,7 +100,7 @@ const Pricing = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 w-full py-4 px-6 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
+                  className="flex items-center justify-center gap-2 w-full py-4 px-6 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all"
                 >
                   <Sparkles className="w-5 h-5" />
                   Join Beta Testing Now

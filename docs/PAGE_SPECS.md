@@ -23,11 +23,11 @@
 - **副标题**: "Transform Every Idea into Professional Content"
   - 字体: text-2xl (24px)
   - 颜色: gray-400
-- **Beta Badge**: 脉动动画紫色徽章 (bg-purple-500/10)
+- **Beta Badge**: 脉动动画白色徽章 (bg-white/10)
 - **CTA按钮组**:
-  - Primary: "Launch App" (bg-indigo-500 text-white) → https://beta.doxmind.com/
-  - Secondary: "View Demo" (border border-white/20)
-- **背景**: 纯黑，紫色渐变点缀
+  - Primary: "Try doXmind" (bg-white text-black) → https://beta.doxmind.com/
+  - Secondary: "View User Guide" (border border-white/20)
+- **背景**: 纯黑
 - **演示视频**: 自动播放循环的打字动画演示
 
 #### 1.3 Features Section (核心功能展示)
@@ -99,10 +99,10 @@
 - **自动播放**: 循环播放，静音
 
 #### 1.8 CTA Section
-- **标题**: "Ready to Transform Your Document Workflow?"
-- **副标题**: "Join the beta testing program"
-- **CTA按钮**: "Launch App" (大号indigo-500按钮) → https://beta.doxmind.com/
-- **补充文字**: "Free beta access • No credit card required"
+- **标题**: "Try doXmind Today"
+- **副标题**: "Start writing with AI assistance. No installation required."
+- **CTA按钮**: "Launch App" (大号白色按钮 bg-white text-black) → https://beta.doxmind.com/
+- **补充文字**: "Beta Available Now"
 
 #### 1.9 Footer
 - **公司信息**: Logo + 简短描述
@@ -229,8 +229,8 @@
 #### 5.1 Guide Hero
 - **标题**: "User Guide"
 - **副标题**: "Everything you need to know about doXmind"
-- **Beta Badge**: 脉动动画的Beta标识
-- **背景**: 纯黑背景，紫色渐变点缀
+- **Beta Badge**: 脉动动画的Beta标识 (白色)
+- **背景**: 纯黑背景
 
 #### 5.2 Table of Contents (目录)
 - **位置**: 页面顶部，固定或粘性定位
@@ -238,7 +238,7 @@
   - 点击跳转到对应章节
   - 平滑滚动效果
   - 当前章节高亮显示
-- **样式**: 简洁的链接列表，紫色active状态
+- **样式**: 简洁的链接列表，白色active状态
 
 #### 5.3 章节内容 (13个主要章节)
 
@@ -312,7 +312,7 @@
 - "Launch App" 按钮链接到 https://beta.doxmind.com/
 
 ### 设计要求
-- **极简风格**: 黑白灰 + 紫色点缀
+- **极简风格**: 纯黑白配色，无彩色点缀
 - **易读性**: 清晰的排版层次
 - **导航便利**: 快速定位章节
 - **无干扰**: 专注内容，避免装饰元素

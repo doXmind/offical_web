@@ -47,7 +47,7 @@ const CTASection = ({
                 rel={primaryButtonExternal ? "noopener noreferrer" : undefined}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-black font-medium rounded-lg hover:bg-primary/90 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all"
               >
                 <Sparkles className="w-5 h-5" />
                 {primaryButtonText}

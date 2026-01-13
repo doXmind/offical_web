@@ -1,60 +1,92 @@
 # doXmind - AI-Powered Writing Assistant
 
-This is a web application for doXmind, an AI-powered writing assistant. The application is built with React, Vite, and Tailwind CSS.
+A minimalist marketing website for doXmind, an AI-powered writing assistant that helps you write better, faster.
+
+## About doXmind
+
+doXmind is a Markdown editor with:
+- **AI Autocomplete** - Smart suggestions as you type, press Tab to accept
+- **Quick Edit** - Select text and instantly fix grammar, improve, simplify, expand, or translate
+- **AI Chat Assistant** - Chat with Claude AI about your document
+- **Version History** - Track all changes with automatic snapshots
+- **Full Markdown Support** - Code blocks, tables, formatting toolbar
+
+## Tech Stack
+
+- **React 18** - UI framework
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Animations
+- **Headless UI** - Accessible UI components
+- **Lucide React** - Icon library
+
+## Design Language
+
+Minimalist black and white design with:
+- Pure monochrome color palette (no accent colors)
+- Brand typography: "do**X**mind" (light + black weight contrast)
+- X-shaped logo icon
 
 ## Getting Started
 
-To get a local copy up and running, follow these simple steps.
-
 ### Prerequisites
 
-You need to have Node.js and npm installed on your machine.
-
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/get-npm)
+- [Node.js](https://nodejs.org/) (v18+)
+- npm or yarn
 
 ### Installation
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/doXmind-Web.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+```sh
+git clone https://github.com/anthropics/doXmind-Web.git
+cd doXmind-Web
+npm install
+```
 
-### Running the Application
-
-To run the app in the development mode, use the following command:
+### Development
 
 ```sh
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser. The page will reload if you make edits.
+Open [http://localhost:3000](http://localhost:3000) to view in browser.
 
-### Building the Application
-
-To build the application for production, use the following command:
+### Production Build
 
 ```sh
 npm run build
+npm run preview
 ```
-
-This will build the app for production to the `dist` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
 
 ## Project Structure
 
-- `public/`: Contains the public assets.
-- `src/`: Contains the source code of the application.
-  - `components/`: Contains the React components.
-  - `App.jsx`: The main application component.
-  - `main.jsx`: The entry point of the application.
-  - `index.css`: The main stylesheet.
-- `index.html`: The main HTML file.
-- `vite.config.js`: The Vite configuration file.
-- `tailwind.config.js`: The Tailwind CSS configuration file.
-- `postcss.config.js`: The PostCSS configuration file.
-- `package.json`: Contains the project's metadata and dependencies.
-- `README.md`: This file.
+```
+src/
+  components/
+    layout/       # Header, Footer
+    ui/           # Reusable UI components
+    guide/        # User guide components
+  pages/          # Page components (Home, Features, Pricing, etc.)
+  core/           # Constants, utilities, theme
+  constants/      # Navigation data
+public/
+  logo.svg        # Main logo (white for dark backgrounds)
+  logo-light.svg  # Logo for light backgrounds
+  favicon.svg     # Browser favicon
+docs/
+  DESIGN_LANGUAGE.md  # Design system specification
+  PROGRESS.md         # Development progress tracking
+```
+
+## Pages
+
+- **Home** - Hero, features overview, Quick Edit commands, CTA
+- **Features** - Detailed feature descriptions
+- **Pricing** - Beta access information
+- **Solutions** - Use cases for different writers
+- **Guide** - User documentation
+
+## Links
+
+- Website: [doxmind.com](https://doxmind.com)
+- App: [beta.doxmind.com](https://beta.doxmind.com)
+- Documentation: [docs.doxmind.com](https://docs.doxmind.com)

@@ -183,7 +183,11 @@ const Header = () => {
                 alt="doXmind Logo"
                 className="h-8 w-8"
               />
-              <span className="text-xl font-semibold">{companyInfo.name}</span>
+              <span className="text-xl tracking-tight">
+                <span className="font-light">do</span>
+                <span className="font-black">X</span>
+                <span className="font-light">mind</span>
+              </span>
             </a>
           </div>
 
@@ -439,7 +443,7 @@ const Header = () => {
                             <li key={itemIdx}>
                               <a
                                 href={item.href}
-                                className="block text-sm text-gray-300 hover:text-primary transition-colors duration-150 group"
+                                className="block text-sm text-gray-300 hover:text-white transition-colors duration-150 group"
                               >
                                 <span className="flex items-center gap-2">
                                   {item.label}
@@ -476,14 +480,14 @@ const Header = () => {
                             className="block h-full rounded-lg p-6 bg-gray-800 hover:bg-gray-700 transition-all duration-200 group"
                           >
                             <div className="flex flex-col h-full">
-                              <div className="inline-flex p-3 rounded-lg bg-primary/10 self-start mb-4 text-primary">
+                              <div className="inline-flex p-3 rounded-lg bg-white/10 self-start mb-4 text-white">
                                 {iconMap[key] && React.createElement(iconMap[key], { className: "w-6 h-6" })}
                               </div>
                               <div>
                                 <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
                                   {data.featured.title}
                                 </p>
-                                <p className="text-base font-medium text-white mb-2 group-hover:text-primary transition-colors">
+                                <p className="text-base font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
                                   {data.featured.subtitle}
                                 </p>
                                 <p className="text-sm text-gray-400">
@@ -491,7 +495,7 @@ const Header = () => {
                                 </p>
                               </div>
                               <div className="mt-auto pt-4">
-                                <span className="text-sm text-primary font-medium group-hover:text-primary-dark">
+                                <span className="text-sm text-white font-medium group-hover:text-gray-300">
                                   Learn more →
                                 </span>
                               </div>

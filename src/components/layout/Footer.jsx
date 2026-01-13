@@ -11,11 +11,15 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <div className="mb-4 flex items-center gap-3">
               <img
-                src="/logo.svg"
+                src="/logo-light.svg"
                 alt="doXmind Logo"
                 className="h-8 w-8"
               />
-              <span className="text-xl font-semibold text-black">{companyInfo.name}</span>
+              <span className="text-xl tracking-tight text-black">
+                <span className="font-light">do</span>
+                <span className="font-black">X</span>
+                <span className="font-light">mind</span>
+              </span>
             </div>
             <p className="text-gray-600 text-sm">
               AI-powered writing assistant
