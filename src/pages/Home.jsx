@@ -22,23 +22,23 @@ import {
 // Hero Section Component
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
+    <section className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center px-4 md:px-6 pt-16 md:pt-20">
       <div className="relative max-w-7xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-white/30 bg-white/10 rounded-full mb-6"
+          className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 border border-white/30 bg-white/10 rounded-full mb-4 md:mb-6"
         >
-          <Sparkles className="w-4 h-4 text-white" />
-          <span className="text-sm text-white font-medium">Beta Now Live</span>
+          <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
+          <span className="text-xs md:text-sm text-white font-medium">Beta Now Live</span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold tracking-widest uppercase mb-6"
+          className="text-3xl sm:text-4xl md:text-7xl font-bold tracking-wider md:tracking-widest uppercase mb-3 md:mb-6"
         >
           <span className="text-white">Think. Write. Publish.</span>
         </motion.h1>
@@ -47,7 +47,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto tracking-wide"
+          className="text-base md:text-xl text-gray-400 mb-5 md:mb-8 max-w-3xl mx-auto tracking-wide"
         >
           The AI editor that reasons with you
         </motion.p>
@@ -56,7 +56,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-row items-center justify-center gap-2 md:gap-4"
         >
           <motion.a
             href="https://beta.doxmind.com/"
@@ -64,16 +64,16 @@ const HeroSection = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all"
+            className="inline-flex items-center gap-1.5 md:gap-2 px-4 md:px-8 py-2.5 md:py-4 bg-white text-black text-sm md:text-base font-medium rounded-lg hover:bg-gray-200 transition-all"
           >
-            <Sparkles className="w-5 h-5" />
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
             Try doXmind
           </motion.a>
           <Link
             to="/guide"
-            className="inline-flex items-center px-8 py-4 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
+            className="inline-flex items-center px-4 md:px-8 py-2.5 md:py-4 text-sm md:text-base border border-white/20 rounded-lg hover:bg-white/5 transition-all"
           >
-            View User Guide
+            User Guide
           </Link>
         </motion.div>
 
@@ -82,7 +82,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-20"
+          className="mt-10 md:mt-20"
         >
           <MockEditorShowcase />
         </motion.div>
@@ -178,26 +178,26 @@ const FeaturesSection = () => {
   const SceneComponent = featureSceneMap[currentFeature.id];
 
   return (
-    <section ref={sectionRef} className="py-24 px-6">
+    <section ref={sectionRef} className="py-12 md:py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extralight mb-4">
+          <h2 className="text-2xl md:text-5xl font-extralight mb-2 md:mb-4">
             Powerful AI Features
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Every tool you need for AI-assisted writing, from quick edits to deep document understanding
+          <p className="text-sm md:text-lg text-gray-500 max-w-2xl mx-auto">
+            Every tool you need for AI-assisted writing
           </p>
         </motion.div>
 
         {/* Two-column layout: Feature list + Mock video */}
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-8 items-start">
           {/* Left: Feature selector list */}
-          <div className="space-y-3">
+          <div className="space-y-2 md:space-y-3 order-2 lg:order-1">
             {features.map((feature, index) => (
               <motion.button
                 key={feature.id}
@@ -207,29 +207,29 @@ const FeaturesSection = () => {
                 transition={{ delay: index * 0.05 }}
                 onClick={() => setActiveFeature(index)}
                 className={`w-full text-left group relative transition-all duration-300 ${
-                  activeFeature === index ? 'scale-[1.02]' : ''
+                  activeFeature === index ? 'scale-[1.01] md:scale-[1.02]' : ''
                 }`}
               >
-                <div className={`absolute inset-0 bg-gradient-to-r ${feature.color} rounded-xl transition-opacity duration-500 ${
+                <div className={`absolute inset-0 bg-gradient-to-r ${feature.color} rounded-lg md:rounded-xl transition-opacity duration-500 ${
                   activeFeature === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
                 }`} />
-                <div className={`relative p-5 border rounded-xl transition-all duration-300 ${
+                <div className={`relative p-3 md:p-5 border rounded-lg md:rounded-xl transition-all duration-300 ${
                   activeFeature === index
                     ? 'border-white/30 bg-white/10'
                     : 'border-white/10 hover:border-white/20 bg-black/50'
                 }`}>
-                  <div className="flex items-start gap-4">
-                    <div className={`w-10 h-10 rounded-lg border flex items-center justify-center flex-shrink-0 transition-colors ${
+                  <div className="flex items-start gap-2.5 md:gap-4">
+                    <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg border flex items-center justify-center flex-shrink-0 transition-colors ${
                       activeFeature === index
                         ? 'border-white/40 bg-white/10'
                         : 'border-white/20 group-hover:border-white/30'
                     }`}>
-                      <feature.icon className="w-5 h-5" />
+                      <feature.icon className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-lg font-light">{feature.title}</h3>
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full transition-colors ${
+                      <div className="flex items-center gap-1.5 md:gap-2 mb-0.5 md:mb-1">
+                        <h3 className="text-sm md:text-lg font-light">{feature.title}</h3>
+                        <span className={`hidden sm:inline text-[10px] px-2 py-0.5 rounded-full transition-colors ${
                           activeFeature === index
                             ? 'bg-white/20 text-white'
                             : 'bg-white/5 text-gray-500'
@@ -237,12 +237,12 @@ const FeaturesSection = () => {
                           {feature.highlight}
                         </span>
                       </div>
-                      <p className="text-sm text-gray-400 leading-relaxed line-clamp-2">{feature.description}</p>
+                      <p className="text-xs md:text-sm text-gray-400 leading-relaxed line-clamp-1 md:line-clamp-2">{feature.description}</p>
                     </div>
                     {activeFeature === index && (
                       <motion.div
                         layoutId="activeIndicator"
-                        className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0 mt-3"
+                        className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-white flex-shrink-0 mt-2 md:mt-3"
                       />
                     )}
                   </div>
@@ -255,14 +255,14 @@ const FeaturesSection = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="pt-4"
+              className="pt-2 md:pt-4"
             >
               <Link
                 to="/features"
-                className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-xs md:text-sm text-gray-500 hover:text-white transition-colors"
               >
                 View all features
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
               </Link>
             </motion.div>
           </div>
@@ -272,7 +272,7 @@ const FeaturesSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:sticky lg:top-24"
+            className="lg:sticky lg:top-24 order-1 lg:order-2"
           >
             <MockEditorContainer>
               <AnimatePresence mode="wait">
@@ -290,15 +290,15 @@ const FeaturesSection = () => {
             </MockEditorContainer>
 
             {/* Feature indicator dots */}
-            <div className="flex justify-center gap-2 mt-4">
+            <div className="flex justify-center gap-1.5 md:gap-2 mt-3 md:mt-4">
               {features.map((feature, index) => (
                 <button
                   key={feature.id}
                   onClick={() => setActiveFeature(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${
                     activeFeature === index
-                      ? 'bg-white w-6'
-                      : 'bg-white/30 hover:bg-white/50'
+                      ? 'bg-white w-4 md:w-6'
+                      : 'bg-white/30 hover:bg-white/50 w-1.5 md:w-2'
                   }`}
                   aria-label={`View ${feature.title}`}
                 />
@@ -338,24 +338,24 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 border-t border-white/5">
+    <section className="py-12 md:py-24 px-4 md:px-6 border-t border-white/5">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extralight mb-4">
+          <h2 className="text-2xl md:text-5xl font-extralight mb-2 md:mb-4">
             How It Works
           </h2>
-          <p className="text-lg text-gray-500">
+          <p className="text-sm md:text-lg text-gray-500">
             Simple workflow, powerful results
           </p>
         </motion.div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-3 gap-3 md:gap-8 mb-8 md:mb-12">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -371,14 +371,14 @@ const HowItWorksSection = () => {
               )}
 
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-white/20 mb-4 relative">
-                  <step.icon className="w-7 h-7 text-white" />
-                  <span className="absolute -top-2 -right-2 w-6 h-6 bg-white text-black text-xs font-medium rounded-full flex items-center justify-center">
+                <div className="inline-flex items-center justify-center w-10 h-10 md:w-16 md:h-16 rounded-full border border-white/20 mb-2 md:mb-4 relative">
+                  <step.icon className="w-4 h-4 md:w-7 md:h-7 text-white" />
+                  <span className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-4 h-4 md:w-6 md:h-6 bg-white text-black text-[10px] md:text-xs font-medium rounded-full flex items-center justify-center">
                     {step.number}
                   </span>
                 </div>
-                <h3 className="text-lg font-medium mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
+                <h3 className="text-xs md:text-lg font-medium mb-1 md:mb-2">{step.title}</h3>
+                <p className="hidden md:block text-sm text-gray-500 leading-relaxed">{step.description}</p>
               </div>
             </motion.div>
           ))}
@@ -391,22 +391,22 @@ const HowItWorksSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 border border-white/10 rounded-2xl bg-gradient-to-r from-white/5 via-white/10 to-white/5">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center">
-                <BookOpen className="w-6 h-6 text-white" />
+          <div className="inline-flex flex-row items-center gap-3 md:gap-4 p-3 md:p-6 border border-white/10 rounded-xl md:rounded-2xl bg-gradient-to-r from-white/5 via-white/10 to-white/5">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-white/10 border border-white/20 flex items-center justify-center">
+                <BookOpen className="w-4 h-4 md:w-6 md:h-6 text-white" />
               </div>
-              <div className="text-left">
-                <p className="text-white font-medium">Want to learn more?</p>
-                <p className="text-sm text-gray-400">Explore our comprehensive User Guide</p>
+              <div className="text-left hidden sm:block">
+                <p className="text-white text-sm md:text-base font-medium">Want to learn more?</p>
+                <p className="text-xs md:text-sm text-gray-400">Explore our User Guide</p>
               </div>
             </div>
             <Link
               to="/guide"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all"
+              className="inline-flex items-center gap-1.5 md:gap-2 px-4 md:px-6 py-2 md:py-3 bg-white text-black text-xs md:text-base font-medium rounded-lg hover:bg-gray-200 transition-all"
             >
-              Read the Guide
-              <ArrowRight className="w-4 h-4" />
+              Read Guide
+              <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
             </Link>
           </div>
         </motion.div>
@@ -418,27 +418,27 @@ const HowItWorksSection = () => {
 // Beta CTA Section
 const BetaCTASection = () => {
   return (
-    <section className="py-24 px-6 border-t border-white/5">
+    <section className="py-12 md:py-24 px-4 md:px-6 border-t border-white/5">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-8"
+          className="mb-6 md:mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-full mb-6">
-            <span className="relative flex h-2 w-2">
+          <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 border border-white/10 rounded-full mb-4 md:mb-6">
+            <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 bg-white"></span>
             </span>
-            <span className="text-sm text-gray-400">Beta Available Now</span>
+            <span className="text-xs md:text-sm text-gray-400">Beta Available Now</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-extralight mb-4">
+          <h2 className="text-2xl md:text-5xl font-extralight mb-2 md:mb-4">
             Try doXmind Today
           </h2>
-          <p className="text-lg text-gray-500 mb-8">
-            Start writing with AI assistance. No installation required.
+          <p className="text-sm md:text-lg text-gray-500 mb-5 md:mb-8">
+            Start writing with AI. No installation required.
           </p>
         </motion.div>
 
@@ -451,11 +451,11 @@ const BetaCTASection = () => {
           viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="inline-flex items-center gap-3 px-12 py-5 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all text-lg"
+          className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-12 py-3 md:py-5 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all text-sm md:text-lg"
         >
-          <Sparkles className="w-6 h-6" />
+          <Sparkles className="w-4 h-4 md:w-6 md:h-6" />
           Launch App
-          <ArrowRight className="w-5 h-5" />
+          <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
         </motion.a>
       </div>
     </section>

@@ -18,9 +18,9 @@ const SceneIndicator = ({
   };
 
   return (
-    <div className="flex flex-col items-center gap-3 mt-6">
+    <div className="flex flex-col items-center gap-2 md:gap-3 mt-4 md:mt-6">
       {/* Scene dots */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-3">
         {scenes.map((scene, index) => (
           <button
             key={scene}
@@ -30,7 +30,7 @@ const SceneIndicator = ({
           >
             <div
               className={`
-                w-2 h-2 rounded-full transition-all duration-300
+                w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-300
                 ${index === activeIndex
                   ? 'bg-white scale-125'
                   : 'bg-white/30 hover:bg-white/50'
@@ -40,9 +40,18 @@ const SceneIndicator = ({
             {/* Progress ring for active scene */}
             {index === activeIndex && (
               <svg
-                className="absolute -inset-1 w-4 h-4"
+                className="absolute -inset-0.5 md:-inset-1 w-3 h-3 md:w-4 md:h-4"
                 style={{ transform: 'rotate(-90deg)' }}
               >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="5"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.2)"
+                  strokeWidth="1"
+                  className="md:hidden"
+                />
                 <circle
                   cx="8"
                   cy="8"
@@ -50,6 +59,18 @@ const SceneIndicator = ({
                   fill="none"
                   stroke="rgba(255,255,255,0.2)"
                   strokeWidth="1"
+                  className="hidden md:block"
+                />
+                <motion.circle
+                  cx="50%"
+                  cy="50%"
+                  r="5"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="1"
+                  strokeDasharray={`${(sceneProgress / 100) * 31.4} 31.4`}
+                  strokeLinecap="round"
+                  className="md:hidden"
                 />
                 <motion.circle
                   cx="8"
@@ -60,6 +81,7 @@ const SceneIndicator = ({
                   strokeWidth="1"
                   strokeDasharray={`${(sceneProgress / 100) * 37.7} 37.7`}
                   strokeLinecap="round"
+                  className="hidden md:block"
                 />
               </svg>
             )}
@@ -72,7 +94,7 @@ const SceneIndicator = ({
         key={activeIndex}
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-xs text-gray-500"
+        className="text-[10px] md:text-xs text-gray-500"
       >
         {sceneLabels[scenes[activeIndex]]}
       </motion.div>

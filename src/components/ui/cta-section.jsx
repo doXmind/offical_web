@@ -15,10 +15,10 @@ const CTASection = ({
   showBorder = false,
   backgroundColor = "transparent",
   maxWidth = "max-w-4xl",
-  padding = "p-12"
+  padding = "p-6 md:p-12"
 }) => {
   return (
-    <section className="py-20 px-4">
+    <section className="py-10 md:py-20 px-4">
       <div className={`${maxWidth} mx-auto text-center`}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,15 +31,15 @@ const CTASection = ({
             ${backgroundColor !== 'transparent' ? backgroundColor : ''}
           `}
         >
-          <h2 className="text-4xl md:text-5xl font-extralight mb-4">
+          <h2 className="text-2xl md:text-5xl font-extralight mb-2 md:mb-4">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-lg text-gray-500 mb-8">
+            <p className="text-sm md:text-lg text-gray-500 mb-5 md:mb-8">
               {subtitle}
             </p>
           )}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-row gap-2 md:gap-4 justify-center">
             {primaryButtonText && (
               <motion.a
                 href={primaryButtonHref}
@@ -47,11 +47,12 @@ const CTASection = ({
                 rel={primaryButtonExternal ? "noopener noreferrer" : undefined}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all"
+                className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-8 py-2.5 md:py-4 bg-white text-black text-sm md:text-base font-medium rounded-lg hover:bg-gray-200 transition-all"
               >
-                <Sparkles className="w-5 h-5" />
-                {primaryButtonText}
-                {primaryButtonExternal && <ExternalLink className="w-4 h-4" />}
+                <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="hidden sm:inline">{primaryButtonText}</span>
+                <span className="sm:hidden">Join Beta</span>
+                {primaryButtonExternal && <ExternalLink className="w-3 h-3 md:w-4 md:h-4" />}
               </motion.a>
             )}
             {secondaryButtonText && (
@@ -61,14 +62,15 @@ const CTASection = ({
                 rel={secondaryButtonExternal ? "noopener noreferrer" : undefined}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-4 md:px-8 py-2.5 md:py-4 text-sm md:text-base border border-white/20 rounded-lg hover:bg-white/5 transition-all"
               >
-                {secondaryButtonText}
+                <span className="hidden sm:inline">{secondaryButtonText}</span>
+                <span className="sm:hidden">Guide</span>
               </motion.a>
             )}
           </div>
           {footerText && (
-            <p className="mt-6 text-xs text-gray-600">
+            <p className="mt-4 md:mt-6 text-[10px] md:text-xs text-gray-600">
               {footerText}
             </p>
           )}
