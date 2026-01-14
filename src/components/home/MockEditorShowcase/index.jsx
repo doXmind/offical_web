@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { MockEditorContainer, SceneIndicator } from './components';
-import { AIChatScene, QuickEditScene, MindlinesScene, AutocompleteScene } from './scenes';
+import { AIChatScene, QuickEditScene, MindlinesScene, AutocompleteScene, KnowledgeBaseScene, DiffAcceptScene, TextReviewScene } from './scenes';
 
-const SCENES = ['ai-chat', 'quick-edit', 'mindlines', 'autocomplete'];
+const SCENES = ['ai-chat', 'quick-edit', 'diff-accept', 'text-review', 'knowledge-base', 'mindlines', 'autocomplete'];
 const SCENE_DURATION = 8000;
 
 const sceneComponents = {
@@ -11,6 +11,9 @@ const sceneComponents = {
   'quick-edit': QuickEditScene,
   'mindlines': MindlinesScene,
   'autocomplete': AutocompleteScene,
+  'knowledge-base': KnowledgeBaseScene,
+  'diff-accept': DiffAcceptScene,
+  'text-review': TextReviewScene,
 };
 
 const MockEditorShowcase = () => {

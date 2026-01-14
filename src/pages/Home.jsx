@@ -2,10 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Sparkles, ArrowRight,
-  Edit3, Wand2,
-  Type, Zap, MessageSquare,
-  Clock, CheckCircle,
-  Languages, FileText
+  MessageSquare, Zap, BookOpen,
+  GitCompare, SpellCheck, Map,
+  Type, Brain, FileText
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CTASection from '../components/ui/cta-section';
@@ -43,7 +42,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-lg md:text-xl text-gray-500 mb-8 max-w-3xl mx-auto"
         >
-          A Markdown editor with AI autocomplete, quick edit commands, and chat assistant.
+          A Markdown editor with AI autocomplete, intelligent editing, and chat assistant.
           Write better, faster.
         </motion.p>
 
@@ -86,39 +85,51 @@ const HeroSection = () => {
   );
 };
 
-// Features Section Component
+// Features Section Component - Updated with all features
 const FeaturesSection = () => {
   const features = [
     {
+      icon: MessageSquare,
+      title: 'AI Chat Assistant',
+      description: 'Chat with Claude AI to edit your document. AI reads, understands, and modifies your content directly.',
+      highlight: 'Powered by Claude',
+      color: 'from-blue-500/20 to-transparent'
+    },
+    {
       icon: Zap,
       title: 'Quick Edit',
-      description: 'Select text and instantly fix grammar, improve, simplify, expand, or translate',
-      highlight: 'One-click AI edits'
+      description: 'Select text and instantly improve, simplify, expand, translate, or fix grammar with one click.',
+      highlight: 'One-click transforms',
+      color: 'from-yellow-500/20 to-transparent'
     },
     {
-      icon: Sparkles,
+      icon: GitCompare,
+      title: 'Diff Review',
+      description: 'Review AI-suggested changes with inline diff view. Accept or reject each change individually.',
+      highlight: 'Granular control',
+      color: 'from-green-500/20 to-transparent'
+    },
+    {
+      icon: SpellCheck,
+      title: 'Text Review',
+      description: 'Grammarly-like analysis with color-coded suggestions for grammar, clarity, and style improvements.',
+      highlight: 'Writing quality',
+      color: 'from-purple-500/20 to-transparent'
+    },
+    {
+      icon: BookOpen,
+      title: 'Knowledge Base',
+      description: 'Upload PDFs, DOCX, or PPTX files. AI can search and reference your documents when answering.',
+      highlight: 'RAG-powered',
+      color: 'from-red-500/20 to-transparent'
+    },
+    {
+      icon: Type,
       title: 'AI Autocomplete',
-      description: 'Get smart suggestions as you type. Press Tab to accept.',
-      highlight: 'Like GitHub Copilot'
+      description: 'Get intelligent suggestions as you type. Press Tab to accept and keep writing seamlessly.',
+      highlight: 'Like GitHub Copilot',
+      color: 'from-cyan-500/20 to-transparent'
     },
-    {
-      icon: MessageSquare,
-      title: 'AI Chat',
-      description: 'Chat with Claude AI about your document. Ask questions or request edits.',
-      highlight: 'Powered by Claude'
-    },
-    {
-      icon: FileText,
-      title: 'Markdown Editor',
-      description: 'Full Markdown support with formatting toolbar, code blocks, and tables',
-      highlight: 'TipTap-based editor'
-    },
-    {
-      icon: Clock,
-      title: 'Version History',
-      description: 'Track all changes with automatic snapshots. Restore any previous version.',
-      highlight: 'Never lose work'
-    }
   ];
 
   return (
@@ -131,14 +142,14 @@ const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-extralight mb-4">
-            Core Features
+            Powerful AI Features
           </h2>
-          <p className="text-lg text-gray-500">
-            Everything you need for AI-assisted writing
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            Every tool you need for AI-assisted writing, from quick edits to deep document understanding
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -146,15 +157,18 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group"
+              className="group relative"
             >
-              <div className="h-full p-6 border border-white/10 rounded-lg hover:border-white/30 transition-all duration-300">
-                <div className="w-10 h-10 rounded border border-white/20 flex items-center justify-center mb-4 group-hover:border-white/40 transition-colors">
-                  <feature.icon className="w-5 h-5" />
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className="relative h-full p-6 border border-white/10 rounded-xl hover:border-white/20 transition-all duration-300 bg-black/50 backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-lg border border-white/20 flex items-center justify-center mb-4 group-hover:border-white/40 transition-colors">
+                  <feature.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-light mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-500 mb-3">{feature.description}</p>
-                <p className="text-xs text-gray-400">{feature.highlight}</p>
+                <h3 className="text-xl font-light mb-2">{feature.title}</h3>
+                <p className="text-sm text-gray-400 mb-4 leading-relaxed">{feature.description}</p>
+                <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 px-2 py-1 bg-white/5 rounded-full">
+                  {feature.highlight}
+                </span>
               </div>
             </motion.div>
           ))}
@@ -164,15 +178,27 @@ const FeaturesSection = () => {
   );
 };
 
-// Quick Edit Commands Section
-const QuickEditSection = () => {
-  const commands = [
-    { name: 'Fix Grammar', icon: CheckCircle, desc: 'Correct spelling and grammar errors' },
-    { name: 'Improve', icon: Sparkles, desc: 'Enhance writing quality and clarity' },
-    { name: 'Simplify', icon: Type, desc: 'Use simpler language' },
-    { name: 'Expand', icon: Edit3, desc: 'Add more detail' },
-    { name: 'Shorten', icon: Zap, desc: 'Make text concise' },
-    { name: 'Translate', icon: Languages, desc: 'English/Chinese translation' }
+// How It Works Section
+const HowItWorksSection = () => {
+  const steps = [
+    {
+      number: '01',
+      title: 'Write in Markdown',
+      description: 'Use our clean, distraction-free editor with full Markdown support including tables, code blocks, and LaTeX.',
+      icon: FileText
+    },
+    {
+      number: '02',
+      title: 'Get AI Assistance',
+      description: 'AI autocomplete suggests as you type. Select text for quick edits. Open chat for complex requests.',
+      icon: Brain
+    },
+    {
+      number: '03',
+      title: 'Review & Accept',
+      description: 'Review AI suggestions with diff view. Accept changes you like, reject ones you don\'t. Stay in control.',
+      icon: GitCompare
+    },
   ];
 
   return (
@@ -182,45 +208,44 @@ const QuickEditSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-extralight mb-4">
-            Quick Edit Commands
+            How It Works
           </h2>
           <p className="text-lg text-gray-500">
-            Select any text and transform it instantly with AI
+            Simple workflow, powerful results
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {commands.map((cmd, index) => (
+        <div className="grid md:grid-cols-3 gap-8">
+          {steps.map((step, index) => (
             <motion.div
-              key={cmd.name}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="p-4 border border-white/10 rounded-lg hover:border-white/20 transition-colors"
+              transition={{ delay: index * 0.15 }}
+              className="relative"
             >
-              <div className="flex items-center gap-3 mb-2">
-                <cmd.icon className="w-5 h-5 text-white" />
-                <span className="font-medium">{cmd.name}</span>
+              {/* Connector line */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-gradient-to-r from-white/20 to-white/5" />
+              )}
+
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-white/20 mb-4 relative">
+                  <step.icon className="w-7 h-7 text-white" />
+                  <span className="absolute -top-2 -right-2 w-6 h-6 bg-white text-black text-xs font-medium rounded-full flex items-center justify-center">
+                    {step.number}
+                  </span>
+                </div>
+                <h3 className="text-lg font-medium mb-2">{step.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
               </div>
-              <p className="text-sm text-gray-500">{cmd.desc}</p>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-8 text-center"
-        >
-          <p className="text-gray-500">
-            Also supports: Change Tone (Professional/Casual)
-          </p>
-        </motion.div>
       </div>
     </section>
   );
@@ -279,7 +304,7 @@ const Home = () => {
     <div className="min-h-screen bg-black text-white">
       <HeroSection />
       <FeaturesSection />
-      <QuickEditSection />
+      <HowItWorksSection />
       <BetaCTASection />
       <CTASection />
     </div>

@@ -18,6 +18,21 @@ import AIToolsList from '../components/guide/AIToolsList';
 import MobileGestureGuide from '../components/guide/MobileGestureGuide';
 import StepGuide from '../components/guide/StepGuide';
 
+// Import Mock components
+import {
+  InterfaceOverviewMock,
+  KnowledgeBaseMock,
+  ImageAnalysisMock,
+  FileImportMock,
+  EditorFeaturesMock,
+  QuickEditMock,
+  AIChatMock,
+  AutocompleteMock,
+  MobileExperienceMock,
+  VersionHistoryMock,
+  KeyboardShortcutsMock,
+} from '../components/guide/mocks';
+
 const GuideSection = ({ id, title, icon: Icon, children, level = 1 }) => {
   const [isOpen, setIsOpen] = useState(level === 1);
 
@@ -293,6 +308,11 @@ const Guide = () => {
 
             {/* Interface Overview */}
             <GuideSection id="interface" title="Interface Overview" icon={Layout}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <InterfaceOverviewMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <p className="text-gray-400 mb-6">
                   The doXmind interface is organized into three main areas for efficient writing:
@@ -349,6 +369,11 @@ const Guide = () => {
 
             {/* Knowledge Base (RAG) */}
             <GuideSection id="knowledge-base" title="Knowledge Base" icon={Database}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <KnowledgeBaseMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <div className="p-6 border border-white/30 bg-white/5 rounded-lg mb-6">
                   <h3 className="text-2xl font-light mb-3 flex items-center gap-2">
@@ -368,6 +393,11 @@ const Guide = () => {
 
             {/* Image Analysis (Multimodal) */}
             <GuideSection id="multimodal" title="Image Analysis" icon={ImageIcon}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <ImageAnalysisMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <div className="p-6 border border-white/30 bg-white/5 rounded-lg mb-6">
                   <h3 className="text-2xl font-light mb-3 flex items-center gap-2">
@@ -386,6 +416,11 @@ const Guide = () => {
 
             {/* File Import */}
             <GuideSection id="file-import" title="File Import" icon={FileUp}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <FileImportMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <p className="text-gray-400 mb-6">
                   Import external documents directly into your editor. Files are converted to editable
@@ -435,6 +470,11 @@ const Guide = () => {
 
             {/* Rich Markdown Editor */}
             <GuideSection id="editor" title="Rich Markdown Editor" icon={Edit}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <EditorFeaturesMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <p className="text-gray-400 mb-6">
                   doXmind provides a powerful editor with full Markdown support and real-time preview.
@@ -486,6 +526,11 @@ const Guide = () => {
 
             {/* Quick Edit - Core Feature */}
             <GuideSection id="quick-edit" title="Quick Edit" icon={Zap}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <QuickEditMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <div className="p-6 border border-white/30 bg-white/5 rounded-lg mb-6">
                   <h3 className="text-2xl font-light mb-3 flex items-center gap-2">
@@ -525,6 +570,11 @@ const Guide = () => {
 
             {/* AI Chat Assistant */}
             <GuideSection id="ai-chat" title="AI Chat Assistant" icon={MessageSquare}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <AIChatMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <p className="text-gray-400 mb-6">
                   Chat with AI about your document, ask questions, or request help with writing tasks.
@@ -581,6 +631,11 @@ const Guide = () => {
 
             {/* AI Autocomplete */}
             <GuideSection id="autocomplete" title="AI Autocomplete" icon={Sparkles}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <AutocompleteMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <p className="text-gray-400 mb-6">
                   Get intelligent text suggestions as you write, similar to GitHub Copilot for code.
@@ -616,6 +671,13 @@ const Guide = () => {
 
             {/* Mobile Experience */}
             <GuideSection id="mobile" title="Mobile Experience" icon={Smartphone}>
+              {/* Mock Demo */}
+              <div className="mb-8 flex justify-center">
+                <div className="w-48">
+                  <MobileExperienceMock />
+                </div>
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <div className="p-6 border border-white/30 bg-white/5 rounded-lg mb-6">
                   <h3 className="text-2xl font-light mb-3 flex items-center gap-2">
@@ -634,6 +696,11 @@ const Guide = () => {
 
             {/* Version History */}
             <GuideSection id="version-history" title="Version History" icon={Clock}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <VersionHistoryMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <p className="text-gray-400 mb-6">
                   Never lose your work. doXmind automatically saves versions of your document as you write.
@@ -679,6 +746,11 @@ const Guide = () => {
 
             {/* Keyboard Shortcuts */}
             <GuideSection id="shortcuts" title="Keyboard Shortcuts" icon={Keyboard}>
+              {/* Mock Demo */}
+              <div className="mb-8">
+                <KeyboardShortcutsMock />
+              </div>
+
               <div className="prose prose-invert max-w-none">
                 <p className="text-gray-400 mb-6">
                   Speed up your workflow with these essential keyboard shortcuts.

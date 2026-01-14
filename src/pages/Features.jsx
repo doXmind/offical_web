@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
-  FileText,
   MessageSquare,
   Zap,
   Clock,
@@ -11,21 +10,34 @@ import {
   Minimize2,
   Expand,
   Type,
-  Code,
-  Table,
-  List,
-  Search,
-  Sun,
   Database,
   CheckSquare,
-  Calculator,
-  Upload,
-  Image as ImageIcon
 } from 'lucide-react';
 import CTASection from '../components/ui/cta-section';
+import { MockEditorContainer } from '../components/home/MockEditorShowcase/components';
+import {
+  QuickEditScene,
+  AIChatScene,
+  AutocompleteScene,
+  KnowledgeBaseScene,
+  TextReviewScene,
+  DiffAcceptScene,
+} from '../components/home/MockEditorShowcase/scenes';
+
+// Map feature IDs to their corresponding scene components
+const featureSceneMap = {
+  'quick-edit': QuickEditScene,
+  'ai-chat': AIChatScene,
+  'autocomplete': AutocompleteScene,
+  'knowledge-base': KnowledgeBaseScene,
+  'text-review': TextReviewScene,
+  'version-history': DiffAcceptScene,
+};
 
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
+  const [visibleFeatures, setVisibleFeatures] = useState({});
+  const featureRefs = useRef({});
 
   const mainFeatures = [
     {
@@ -98,21 +110,6 @@ const Features = () => {
       ]
     },
     {
-      id: 'editor',
-      icon: FileText,
-      title: 'Rich Markdown Editor',
-      subtitle: 'Full-Featured Writing Environment',
-      description: 'A powerful TipTap-based editor with complete Markdown support, formatting toolbar, and real-time preview.',
-      editorFeatures: [
-        { name: 'Formatting', icon: Type, desc: 'Bold, italic, headings, lists' },
-        { name: 'Code Blocks', icon: Code, desc: 'Syntax highlighting for all languages' },
-        { name: 'Tables', icon: Table, desc: 'Easy table creation and editing' },
-        { name: 'Lists', icon: List, desc: 'Bullet, numbered, and task lists' },
-        { name: 'Math Equations', icon: Calculator, desc: 'KaTeX math formula support' },
-        { name: 'Import Files', icon: Upload, desc: 'Import PDF, DOCX, MD files' }
-      ]
-    },
-    {
       id: 'version-history',
       icon: Clock,
       title: 'Version History',
@@ -126,6 +123,33 @@ const Features = () => {
       ]
     }
   ];
+
+  // Set up IntersectionObserver to detect which features are visible
+  useEffect(() => {
+    const observers = {};
+
+    mainFeatures.forEach((feature) => {
+      const element = featureRefs.current[feature.id];
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setVisibleFeatures(prev => ({
+            ...prev,
+            [feature.id]: entry.isIntersecting
+          }));
+        },
+        { threshold: 0.3 }
+      );
+
+      observer.observe(element);
+      observers[feature.id] = observer;
+    });
+
+    return () => {
+      Object.values(observers).forEach(observer => observer.disconnect());
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -184,10 +208,13 @@ const Features = () => {
       {/* Features Detail */}
       <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto space-y-32">
-          {mainFeatures.map((feature, index) => (
+          {mainFeatures.map((feature, index) => {
+            const SceneComponent = featureSceneMap[feature.id];
+            return (
             <motion.div
               key={feature.id}
               id={feature.id}
+              ref={el => featureRefs.current[feature.id] = el}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -263,62 +290,182 @@ const Features = () => {
                     </div>
                   )}
 
-                  {/* Editor Features */}
-                  {feature.editorFeatures && (
-                    <div className="grid grid-cols-2 gap-3">
-                      {feature.editorFeatures.map((item) => (
-                        <div
-                          key={item.name}
-                          className="p-4 border border-white/10 rounded-lg hover:border-white/20 transition-colors"
-                        >
-                          <div className="flex items-center gap-2 mb-2">
-                            <item.icon className="w-4 h-4 text-white" />
-                            <span className="font-medium text-sm">{item.name}</span>
-                          </div>
-                          <p className="text-xs text-gray-500">{item.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
 
                 {/* Visual */}
                 <div className="relative">
-                  <div className="border border-white/10 rounded-lg bg-white/5 p-8 aspect-video flex items-center justify-center">
-                    <feature.icon className="w-24 h-24 text-white/10" />
-                  </div>
+                  {SceneComponent ? (
+                    <MockEditorContainer>
+                      <SceneComponent isActive={visibleFeatures[feature.id]} />
+                    </MockEditorContainer>
+                  ) : (
+                    <div className="border border-white/10 rounded-lg bg-white/5 p-8 aspect-video flex items-center justify-center">
+                      <feature.icon className="w-24 h-24 text-white/10" />
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
-          ))}
+          );
+          })}
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section className="px-6 py-16 border-t border-white/5">
+      {/* Architecture Section */}
+      <section className="px-6 py-24 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl font-light mb-4">Built with Modern Technology</h2>
-            <p className="text-gray-500">Powered by the latest in AI and web development</p>
+            <p className="text-gray-500">A thoughtfully designed architecture for seamless AI-powered writing</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { name: 'Claude AI', desc: 'Anthropic (200K Context)' },
-              { name: 'Next.js 15', desc: 'React 19 + Server Components' },
-              { name: 'TipTap 3', desc: 'WYSIWYG Markdown Editor' },
-              { name: 'FastAPI', desc: 'Async Python Backend' },
-              { name: 'Chroma', desc: 'Vector Database for RAG' },
-              { name: 'LangGraph', desc: 'AI Agent Framework' }
-            ].map((tech) => (
-              <div
-                key={tech.name}
-                className="p-6 border border-white/10 rounded-lg text-center hover:border-white/20 transition-colors"
-              >
-                <div className="font-medium mb-1">{tech.name}</div>
-                <div className="text-sm text-gray-500">{tech.desc}</div>
+          {/* Architecture Diagram */}
+          <div className="relative">
+            {/* Connection Lines - SVG */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+              <defs>
+                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.1)" />
+                  <stop offset="50%" stopColor="rgba(255,255,255,0.3)" />
+                  <stop offset="100%" stopColor="rgba(255,255,255,0.1)" />
+                </linearGradient>
+                <linearGradient id="verticalGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.3)" />
+                  <stop offset="100%" stopColor="rgba(255,255,255,0.1)" />
+                </linearGradient>
+              </defs>
+              {/* Horizontal line connecting frontend layer */}
+              <line x1="15%" y1="80" x2="85%" y2="80" stroke="url(#lineGradient)" strokeWidth="1" />
+              {/* Vertical lines to middle layer */}
+              <line x1="25%" y1="100" x2="25%" y2="180" stroke="url(#verticalGradient)" strokeWidth="1" strokeDasharray="4 4" />
+              <line x1="50%" y1="100" x2="50%" y2="180" stroke="url(#verticalGradient)" strokeWidth="1" strokeDasharray="4 4" />
+              <line x1="75%" y1="100" x2="75%" y2="180" stroke="url(#verticalGradient)" strokeWidth="1" strokeDasharray="4 4" />
+              {/* Horizontal line in API layer */}
+              <line x1="20%" y1="280" x2="80%" y2="280" stroke="url(#lineGradient)" strokeWidth="1" />
+              {/* Vertical lines to AI layer */}
+              <line x1="35%" y1="300" x2="35%" y2="380" stroke="url(#verticalGradient)" strokeWidth="1" strokeDasharray="4 4" />
+              <line x1="65%" y1="300" x2="65%" y2="380" stroke="url(#verticalGradient)" strokeWidth="1" strokeDasharray="4 4" />
+            </svg>
+
+            <div className="relative z-10 space-y-8">
+              {/* Layer 1: Frontend */}
+              <div>
+                <div className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 text-center">Frontend Layer</div>
+                <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto">
+                  <motion.div
+                    whileHover={{ scale: 1.02, borderColor: 'rgba(255,255,255,0.3)' }}
+                    className="p-5 border border-white/10 rounded-xl bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-sm"
+                  >
+                    <div className="text-xs text-blue-400 mb-1">React 19</div>
+                    <div className="font-medium text-sm">Next.js 15</div>
+                    <div className="text-[10px] text-gray-500 mt-1">Server Components</div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.02, borderColor: 'rgba(255,255,255,0.3)' }}
+                    className="p-5 border border-white/10 rounded-xl bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-sm"
+                  >
+                    <div className="text-xs text-purple-400 mb-1">Editor</div>
+                    <div className="font-medium text-sm">TipTap 3</div>
+                    <div className="text-[10px] text-gray-500 mt-1">WYSIWYG + Markdown</div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.02, borderColor: 'rgba(255,255,255,0.3)' }}
+                    className="p-5 border border-white/10 rounded-xl bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-sm"
+                  >
+                    <div className="text-xs text-green-400 mb-1">Animation</div>
+                    <div className="font-medium text-sm">Framer Motion</div>
+                    <div className="text-[10px] text-gray-500 mt-1">Fluid Interactions</div>
+                  </motion.div>
+                </div>
               </div>
-            ))}
+
+              {/* Layer 2: API Gateway */}
+              <div className="pt-8">
+                <div className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 text-center">API Layer</div>
+                <div className="flex justify-center">
+                  <motion.div
+                    whileHover={{ scale: 1.02, borderColor: 'rgba(255,255,255,0.3)' }}
+                    className="px-12 py-5 border border-white/10 rounded-xl bg-gradient-to-r from-transparent via-white/[0.05] to-transparent"
+                  >
+                    <div className="flex items-center gap-8">
+                      <div className="text-center">
+                        <div className="text-xs text-yellow-400 mb-1">Backend</div>
+                        <div className="font-medium text-sm">FastAPI</div>
+                        <div className="text-[10px] text-gray-500 mt-1">Async Python</div>
+                      </div>
+                      <div className="w-px h-12 bg-white/10" />
+                      <div className="text-center">
+                        <div className="text-xs text-orange-400 mb-1">Streaming</div>
+                        <div className="font-medium text-sm">SSE</div>
+                        <div className="text-[10px] text-gray-500 mt-1">Real-time Updates</div>
+                      </div>
+                      <div className="w-px h-12 bg-white/10" />
+                      <div className="text-center">
+                        <div className="text-xs text-cyan-400 mb-1">Storage</div>
+                        <div className="font-medium text-sm">PostgreSQL</div>
+                        <div className="text-[10px] text-gray-500 mt-1">Document Store</div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Layer 3: AI & Intelligence */}
+              <div className="pt-8">
+                <div className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 text-center">AI Layer</div>
+                <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+                  <motion.div
+                    whileHover={{ scale: 1.02, borderColor: 'rgba(139,92,246,0.5)' }}
+                    className="p-5 border border-purple-500/20 rounded-xl bg-gradient-to-br from-purple-500/10 via-transparent to-transparent relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl" />
+                    <div className="relative">
+                      <div className="text-xs text-purple-400 mb-1">LLM</div>
+                      <div className="font-medium">Claude AI</div>
+                      <div className="text-[10px] text-gray-500 mt-1">Anthropic · 200K Context</div>
+                      <div className="flex gap-2 mt-3">
+                        <span className="px-2 py-0.5 bg-purple-500/20 rounded text-[9px] text-purple-300">Extended Thinking</span>
+                        <span className="px-2 py-0.5 bg-purple-500/20 rounded text-[9px] text-purple-300">Tool Use</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.02, borderColor: 'rgba(34,197,94,0.5)' }}
+                    className="p-5 border border-green-500/20 rounded-xl bg-gradient-to-br from-green-500/10 via-transparent to-transparent relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-green-500/10 rounded-full blur-2xl" />
+                    <div className="relative">
+                      <div className="text-xs text-green-400 mb-1">RAG Pipeline</div>
+                      <div className="font-medium">Knowledge Base</div>
+                      <div className="text-[10px] text-gray-500 mt-1">Chroma · LangGraph</div>
+                      <div className="flex gap-2 mt-3">
+                        <span className="px-2 py-0.5 bg-green-500/20 rounded text-[9px] text-green-300">Vector Search</span>
+                        <span className="px-2 py-0.5 bg-green-500/20 rounded text-[9px] text-green-300">Semantic Index</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating particles/dots for visual effect */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <motion.div
+                animate={{ y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/4 left-1/4 w-1 h-1 bg-blue-400 rounded-full"
+              />
+              <motion.div
+                animate={{ y: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute top-1/2 right-1/3 w-1 h-1 bg-purple-400 rounded-full"
+              />
+              <motion.div
+                animate={{ y: [0, -8, 0], opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-green-400 rounded-full"
+              />
+            </div>
           </div>
         </div>
       </section>

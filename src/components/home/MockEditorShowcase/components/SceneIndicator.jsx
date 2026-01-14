@@ -12,6 +12,9 @@ const SceneIndicator = ({
     'quick-edit': 'Quick Edit',
     'mindlines': 'Mindmap',
     'autocomplete': 'Autocomplete',
+    'knowledge-base': 'Knowledge Base',
+    'diff-accept': 'Diff Review',
+    'text-review': 'Text Review',
   };
 
   return (
