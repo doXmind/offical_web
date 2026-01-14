@@ -1,14 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles, ArrowRight,
   MessageSquare, Zap, BookOpen,
   GitCompare, SpellCheck, Map,
-  Type, Brain, FileText
+  Type, Brain, FileText, Database, CheckSquare
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CTASection from '../components/ui/cta-section';
 import MockEditorShowcase from '../components/home/MockEditorShowcase';
+import { MockEditorContainer } from '../components/home/MockEditorShowcase/components';
+import {
+  QuickEditScene,
+  AIChatScene,
+  AutocompleteScene,
+  KnowledgeBaseScene,
+  TextReviewScene,
+  DiffAcceptScene,
+} from '../components/home/MockEditorShowcase/scenes';
 
 // Hero Section Component
 const HeroSection = () => {
@@ -29,21 +38,18 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-extralight tracking-tight mb-6"
+          className="text-5xl md:text-7xl font-bold tracking-widest uppercase mb-6"
         >
-          <span className="text-white">AI-Powered</span>
-          <br />
-          <span className="text-white">Writing Assistant</span>
+          <span className="text-white">Think. Write. Publish.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-lg md:text-xl text-gray-500 mb-8 max-w-3xl mx-auto"
+          className="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto tracking-wide"
         >
-          A Markdown editor with AI autocomplete, intelligent editing, and chat assistant.
-          Write better, faster.
+          The AI editor that reasons with you
         </motion.p>
 
         <motion.div
@@ -85,10 +91,25 @@ const HeroSection = () => {
   );
 };
 
-// Features Section Component - Updated with all features
+// Feature scene map
+const featureSceneMap = {
+  'ai-chat': AIChatScene,
+  'quick-edit': QuickEditScene,
+  'diff-review': DiffAcceptScene,
+  'text-review': TextReviewScene,
+  'knowledge-base': KnowledgeBaseScene,
+  'autocomplete': AutocompleteScene,
+};
+
+// Features Section Component - Interactive showcase with mock videos
 const FeaturesSection = () => {
+  const [activeFeature, setActiveFeature] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
   const features = [
     {
+      id: 'ai-chat',
       icon: MessageSquare,
       title: 'AI Chat Assistant',
       description: 'Chat with Claude AI to edit your document. AI reads, understands, and modifies your content directly.',
@@ -96,6 +117,7 @@ const FeaturesSection = () => {
       color: 'from-blue-500/20 to-transparent'
     },
     {
+      id: 'quick-edit',
       icon: Zap,
       title: 'Quick Edit',
       description: 'Select text and instantly improve, simplify, expand, translate, or fix grammar with one click.',
@@ -103,6 +125,7 @@ const FeaturesSection = () => {
       color: 'from-yellow-500/20 to-transparent'
     },
     {
+      id: 'diff-review',
       icon: GitCompare,
       title: 'Diff Review',
       description: 'Review AI-suggested changes with inline diff view. Accept or reject each change individually.',
@@ -110,20 +133,23 @@ const FeaturesSection = () => {
       color: 'from-green-500/20 to-transparent'
     },
     {
-      icon: SpellCheck,
+      id: 'text-review',
+      icon: CheckSquare,
       title: 'Text Review',
       description: 'Grammarly-like analysis with color-coded suggestions for grammar, clarity, and style improvements.',
       highlight: 'Writing quality',
       color: 'from-purple-500/20 to-transparent'
     },
     {
-      icon: BookOpen,
+      id: 'knowledge-base',
+      icon: Database,
       title: 'Knowledge Base',
       description: 'Upload PDFs, DOCX, or PPTX files. AI can search and reference your documents when answering.',
       highlight: 'RAG-powered',
       color: 'from-red-500/20 to-transparent'
     },
     {
+      id: 'autocomplete',
       icon: Type,
       title: 'AI Autocomplete',
       description: 'Get intelligent suggestions as you type. Press Tab to accept and keep writing seamlessly.',
@@ -132,8 +158,27 @@ const FeaturesSection = () => {
     },
   ];
 
+  // Intersection observer to detect visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const currentFeature = features[activeFeature];
+  const SceneComponent = featureSceneMap[currentFeature.id];
+
   return (
-    <section className="py-24 px-6">
+    <section ref={sectionRef} className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -149,55 +194,146 @@ const FeaturesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              <div className="relative h-full p-6 border border-white/10 rounded-xl hover:border-white/20 transition-all duration-300 bg-black/50 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-lg border border-white/20 flex items-center justify-center mb-4 group-hover:border-white/40 transition-colors">
-                  <feature.icon className="w-6 h-6" />
+        {/* Two-column layout: Feature list + Mock video */}
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          {/* Left: Feature selector list */}
+          <div className="space-y-3">
+            {features.map((feature, index) => (
+              <motion.button
+                key={feature.id}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                onClick={() => setActiveFeature(index)}
+                className={`w-full text-left group relative transition-all duration-300 ${
+                  activeFeature === index ? 'scale-[1.02]' : ''
+                }`}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-r ${feature.color} rounded-xl transition-opacity duration-500 ${
+                  activeFeature === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
+                }`} />
+                <div className={`relative p-5 border rounded-xl transition-all duration-300 ${
+                  activeFeature === index
+                    ? 'border-white/30 bg-white/10'
+                    : 'border-white/10 hover:border-white/20 bg-black/50'
+                }`}>
+                  <div className="flex items-start gap-4">
+                    <div className={`w-10 h-10 rounded-lg border flex items-center justify-center flex-shrink-0 transition-colors ${
+                      activeFeature === index
+                        ? 'border-white/40 bg-white/10'
+                        : 'border-white/20 group-hover:border-white/30'
+                    }`}>
+                      <feature.icon className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="text-lg font-light">{feature.title}</h3>
+                        <span className={`text-[10px] px-2 py-0.5 rounded-full transition-colors ${
+                          activeFeature === index
+                            ? 'bg-white/20 text-white'
+                            : 'bg-white/5 text-gray-500'
+                        }`}>
+                          {feature.highlight}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-400 leading-relaxed line-clamp-2">{feature.description}</p>
+                    </div>
+                    {activeFeature === index && (
+                      <motion.div
+                        layoutId="activeIndicator"
+                        className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0 mt-3"
+                      />
+                    )}
+                  </div>
                 </div>
-                <h3 className="text-xl font-light mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-400 mb-4 leading-relaxed">{feature.description}</p>
-                <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 px-2 py-1 bg-white/5 rounded-full">
-                  {feature.highlight}
-                </span>
-              </div>
+              </motion.button>
+            ))}
+
+            {/* View all features link */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="pt-4"
+            >
+              <Link
+                to="/features"
+                className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors"
+              >
+                View all features
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </motion.div>
-          ))}
+          </div>
+
+          {/* Right: Mock video showcase */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:sticky lg:top-24"
+          >
+            <MockEditorContainer>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentFeature.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-full"
+                >
+                  {SceneComponent && <SceneComponent isActive={isVisible} />}
+                </motion.div>
+              </AnimatePresence>
+            </MockEditorContainer>
+
+            {/* Feature indicator dots */}
+            <div className="flex justify-center gap-2 mt-4">
+              {features.map((feature, index) => (
+                <button
+                  key={feature.id}
+                  onClick={() => setActiveFeature(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    activeFeature === index
+                      ? 'bg-white w-6'
+                      : 'bg-white/30 hover:bg-white/50'
+                  }`}
+                  aria-label={`View ${feature.title}`}
+                />
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
 
-// How It Works Section
+// How It Works Section - Redesigned to guide users to User Guide
 const HowItWorksSection = () => {
   const steps = [
     {
       number: '01',
       title: 'Write in Markdown',
-      description: 'Use our clean, distraction-free editor with full Markdown support including tables, code blocks, and LaTeX.',
-      icon: FileText
+      description: 'Clean, distraction-free editor with full Markdown support.',
+      icon: FileText,
+      guideLink: '/guide#editor'
     },
     {
       number: '02',
       title: 'Get AI Assistance',
-      description: 'AI autocomplete suggests as you type. Select text for quick edits. Open chat for complex requests.',
-      icon: Brain
+      description: 'AI autocomplete, quick edits, and chat for complex requests.',
+      icon: Brain,
+      guideLink: '/guide#ai-features'
     },
     {
       number: '03',
       title: 'Review & Accept',
-      description: 'Review AI suggestions with diff view. Accept changes you like, reject ones you don\'t. Stay in control.',
-      icon: GitCompare
+      description: 'Review suggestions with diff view. Stay in control.',
+      icon: GitCompare,
+      guideLink: '/guide#diff-review'
     },
   ];
 
@@ -218,7 +354,8 @@ const HowItWorksSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Steps */}
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -246,6 +383,33 @@ const HowItWorksSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* User Guide CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 border border-white/10 rounded-2xl bg-gradient-to-r from-white/5 via-white/10 to-white/5">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center">
+                <BookOpen className="w-6 h-6 text-white" />
+              </div>
+              <div className="text-left">
+                <p className="text-white font-medium">Want to learn more?</p>
+                <p className="text-sm text-gray-400">Explore our comprehensive User Guide</p>
+              </div>
+            </div>
+            <Link
+              to="/guide"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all"
+            >
+              Read the Guide
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
