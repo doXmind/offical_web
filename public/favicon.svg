@@ -1,11 +1,14 @@
-<svg width="32" height="32" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-  <!-- doXmind Favicon - X-Icon -->
-  <!-- Top-left quadrant -->
-  <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#000000"/>
-  <!-- Top-right quadrant -->
-  <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#000000"/>
-  <!-- Bottom-left quadrant -->
-  <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#000000"/>
-  <!-- Bottom-right quadrant -->
-  <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#000000"/>
+<svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- doXmind Favicon - Black background with white X-Icon -->
+  <rect x="0" y="0" width="100" height="100" fill="#000000"/>
+  <g transform="translate(15, 15)">
+    <!-- Top-left quadrant -->
+    <path d="M5 0 Q0 0 0 5 L0 28 L35 35 L28 0 Z" fill="#FFFFFF"/>
+    <!-- Top-right quadrant -->
+    <path d="M42 0 L35 35 L70 28 L70 5 Q70 0 65 0 Z" fill="#FFFFFF"/>
+    <!-- Bottom-left quadrant -->
+    <path d="M0 42 L35 35 L28 70 L5 70 Q0 70 0 65 Z" fill="#FFFFFF"/>
+    <!-- Bottom-right quadrant -->
+    <path d="M35 35 L70 42 L70 65 Q70 70 65 70 L42 70 Z" fill="#FFFFFF"/>
+  </g>
 </svg>
