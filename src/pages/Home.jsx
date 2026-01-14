@@ -1,34 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Sparkles, ArrowRight,
   Edit3, Wand2,
   Type, Zap, MessageSquare,
-  Clock, Search, CheckCircle,
+  Clock, CheckCircle,
   Languages, FileText
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CTASection from '../components/ui/cta-section';
+import MockEditorShowcase from '../components/home/MockEditorShowcase';
 
 // Hero Section Component
 const HeroSection = () => {
-  const [demoText, setDemoText] = useState('');
-  const fullDemoText = "Transform your ideas into compelling content with AI-powered suggestions...";
-
-  useEffect(() => {
-    if (demoText.length < fullDemoText.length) {
-      const timeout = setTimeout(() => {
-        setDemoText(fullDemoText.slice(0, demoText.length + 1));
-      }, 50);
-      return () => clearTimeout(timeout);
-    } else {
-      const timeout = setTimeout(() => {
-        setDemoText('');
-      }, 2000);
-      return () => clearTimeout(timeout);
-    }
-  }, [demoText, fullDemoText]);
-
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
       <div className="relative max-w-7xl mx-auto text-center">
@@ -88,61 +72,14 @@ const HeroSection = () => {
           </Link>
         </motion.div>
 
-        {/* Demo Editor */}
+        {/* Mock Editor Showcase */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-20"
         >
-          <div className="relative max-w-4xl mx-auto">
-            <div className="border border-white/10 rounded-lg bg-black">
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 border border-white/20 rounded-full" />
-                    <div className="w-3 h-3 border border-white/20 rounded-full" />
-                    <div className="w-3 h-3 border border-white/20 rounded-full" />
-                  </div>
-                  <span className="text-xs text-gray-600">doXmind Editor</span>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <Type className="w-5 h-5 text-gray-600 mt-1" />
-                    <div className="flex-1">
-                      <p className="text-gray-400 text-left">
-                        {demoText}
-                        <span className="animate-pulse">|</span>
-                      </p>
-                      {demoText.length > 0 && demoText.length < fullDemoText.length && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                          className="mt-3 flex items-center space-x-2 text-sm text-gray-600"
-                        >
-                          <Sparkles className="w-4 h-4" />
-                          <span>AI autocomplete suggestion...</span>
-                        </motion.div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-6 pt-4 border-t border-white/5">
-                    <button className="flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-400 transition-colors">
-                      <Wand2 className="w-4 h-4" />
-                      <span>Quick Edit</span>
-                    </button>
-                    <button className="flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-400 transition-colors">
-                      <MessageSquare className="w-4 h-4" />
-                      <span>AI Chat</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <MockEditorShowcase />
         </motion.div>
       </div>
     </section>

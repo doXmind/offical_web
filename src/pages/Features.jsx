@@ -16,7 +16,11 @@ import {
   List,
   Search,
   Sun,
-  Moon
+  Database,
+  CheckSquare,
+  Calculator,
+  Upload,
+  Image as ImageIcon
 } from 'lucide-react';
 import CTASection from '../components/ui/cta-section';
 
@@ -29,26 +33,28 @@ const Features = () => {
       icon: Zap,
       title: 'Quick Edit',
       subtitle: 'AI-Powered Text Transformation',
-      description: 'Select any text and instantly transform it with AI. Fix grammar, improve quality, translate, change tone, and more with a single click.',
+      description: 'Select any text and instantly transform it with AI. Fix grammar, improve quality, translate to 6 languages, change tone, and more with a single click.',
       commands: [
         { name: 'Fix Grammar', icon: CheckCircle, desc: 'Correct spelling and grammar errors' },
         { name: 'Improve', icon: Sparkles, desc: 'Enhance writing quality and clarity' },
         { name: 'Simplify', icon: Type, desc: 'Make text easier to understand' },
         { name: 'Expand', icon: Expand, desc: 'Add more detail and depth' },
         { name: 'Shorten', icon: Minimize2, desc: 'Reduce length while keeping meaning' },
-        { name: 'Translate', icon: Languages, desc: 'Convert to English, Chinese, Japanese, and more' }
-      ]
+        { name: 'Translate', icon: Languages, desc: 'English, Chinese, Japanese, French, German, Spanish' }
+      ],
+      additionalInfo: '4 tone options: Professional, Casual, Friendly, Confident'
     },
     {
       id: 'ai-chat',
       icon: MessageSquare,
       title: 'AI Chat Assistant',
       subtitle: 'Conversational AI for Writing',
-      description: 'Chat with AI about your document. Ask questions, request edits, or get help with writing tasks. AI can view, edit, and insert content directly.',
+      description: 'Chat with Claude AI about your document. Ask questions, request edits, or get help with writing tasks. AI can view, edit, and insert content directly—like Cursor for writing.',
       highlights: [
         'Streaming responses in real-time',
         '@ mention files for context',
         'Extended Thinking shows AI reasoning',
+        'Image upload support (up to 10 images, 5MB each)',
         'Direct document editing capabilities'
       ]
     },
@@ -66,6 +72,32 @@ const Features = () => {
       ]
     },
     {
+      id: 'knowledge-base',
+      icon: Database,
+      title: 'Knowledge Base',
+      subtitle: 'AI-Powered Document Intelligence',
+      description: 'Upload PDF, Word, and PowerPoint files as reference materials. AI automatically indexes content for semantic search, making your writing well-informed.',
+      highlights: [
+        'Supports PDF, DOCX, PPTX formats',
+        'Up to 50MB per file',
+        'Automatic vectorization and semantic search',
+        'Reference knowledge base in AI chat'
+      ]
+    },
+    {
+      id: 'text-review',
+      icon: CheckSquare,
+      title: 'AI Text Review',
+      subtitle: 'Grammarly-Style Writing Analysis',
+      description: 'Intelligent text review that analyzes your writing across four dimensions: correctness, clarity, tone, and engagement. Real-time highlighting with replacement suggestions.',
+      reviewCategories: [
+        { name: 'Correctness', color: '#EF4444', desc: 'Grammar, spelling, punctuation' },
+        { name: 'Clarity', color: '#3B82F6', desc: 'Conciseness, readability' },
+        { name: 'Tone', color: '#8B5CF6', desc: 'Formality, politeness' },
+        { name: 'Engagement', color: '#22C55E', desc: 'Vocabulary variety, expressiveness' }
+      ]
+    },
+    {
       id: 'editor',
       icon: FileText,
       title: 'Rich Markdown Editor',
@@ -76,8 +108,8 @@ const Features = () => {
         { name: 'Code Blocks', icon: Code, desc: 'Syntax highlighting for all languages' },
         { name: 'Tables', icon: Table, desc: 'Easy table creation and editing' },
         { name: 'Lists', icon: List, desc: 'Bullet, numbered, and task lists' },
-        { name: 'Search', icon: Search, desc: 'Find and replace across document' },
-        { name: 'Theme', icon: Sun, desc: 'Light and dark mode support' }
+        { name: 'Math Equations', icon: Calculator, desc: 'KaTeX math formula support' },
+        { name: 'Import Files', icon: Upload, desc: 'Import PDF, DOCX, MD files' }
       ]
     },
     {
@@ -177,20 +209,25 @@ const Features = () => {
 
                   {/* Quick Edit Commands */}
                   {feature.commands && (
-                    <div className="grid grid-cols-2 gap-3">
-                      {feature.commands.map((cmd) => (
-                        <div
-                          key={cmd.name}
-                          className="p-4 border border-white/10 rounded-lg hover:border-white/20 transition-colors"
-                        >
-                          <div className="flex items-center gap-2 mb-2">
-                            <cmd.icon className="w-4 h-4 text-white" />
-                            <span className="font-medium text-sm">{cmd.name}</span>
+                    <>
+                      <div className="grid grid-cols-2 gap-3">
+                        {feature.commands.map((cmd) => (
+                          <div
+                            key={cmd.name}
+                            className="p-4 border border-white/10 rounded-lg hover:border-white/20 transition-colors"
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <cmd.icon className="w-4 h-4 text-white" />
+                              <span className="font-medium text-sm">{cmd.name}</span>
+                            </div>
+                            <p className="text-xs text-gray-500">{cmd.desc}</p>
                           </div>
-                          <p className="text-xs text-gray-500">{cmd.desc}</p>
-                        </div>
-                      ))}
-                    </div>
+                        ))}
+                      </div>
+                      {feature.additionalInfo && (
+                        <p className="mt-4 text-sm text-gray-500">{feature.additionalInfo}</p>
+                      )}
+                    </>
                   )}
 
                   {/* Highlights */}
@@ -203,6 +240,27 @@ const Features = () => {
                         </li>
                       ))}
                     </ul>
+                  )}
+
+                  {/* Review Categories */}
+                  {feature.reviewCategories && (
+                    <div className="grid grid-cols-2 gap-3">
+                      {feature.reviewCategories.map((category) => (
+                        <div
+                          key={category.name}
+                          className="p-4 border border-white/10 rounded-lg hover:border-white/20 transition-colors"
+                        >
+                          <div className="flex items-center gap-2 mb-2">
+                            <div
+                              className="w-3 h-3 rounded-full"
+                              style={{ backgroundColor: category.color }}
+                            />
+                            <span className="font-medium text-sm">{category.name}</span>
+                          </div>
+                          <p className="text-xs text-gray-500">{category.desc}</p>
+                        </div>
+                      ))}
+                    </div>
                   )}
 
                   {/* Editor Features */}
@@ -244,12 +302,14 @@ const Features = () => {
             <p className="text-gray-500">Powered by the latest in AI and web development</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
-              { name: 'Claude AI', desc: 'Anthropic' },
-              { name: 'Next.js 15', desc: 'React Framework' },
-              { name: 'TipTap', desc: 'Rich Text Editor' },
-              { name: 'FastAPI', desc: 'Python Backend' }
+              { name: 'Claude AI', desc: 'Anthropic (200K Context)' },
+              { name: 'Next.js 15', desc: 'React 19 + Server Components' },
+              { name: 'TipTap 3', desc: 'WYSIWYG Markdown Editor' },
+              { name: 'FastAPI', desc: 'Async Python Backend' },
+              { name: 'Chroma', desc: 'Vector Database for RAG' },
+              { name: 'LangGraph', desc: 'AI Agent Framework' }
             ].map((tech) => (
               <div
                 key={tech.name}

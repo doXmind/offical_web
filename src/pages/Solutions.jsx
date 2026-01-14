@@ -6,7 +6,9 @@ import {
   Briefcase,
   PenTool,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Library,
+  Smartphone
 } from 'lucide-react';
 import CTASection from '../components/ui/cta-section';
 
@@ -19,9 +21,9 @@ const Solutions = () => {
       icon: Briefcase,
       features: [
         'Quick Edit to improve writing quality',
-        'Tone adjustment for professional context',
-        'Grammar and spelling correction',
-        'Real-time AI suggestions'
+        'Tone adjustment (Professional/Confident)',
+        'AI Text Review with 4-dimension analysis',
+        'Grammar and spelling real-time correction'
       ]
     },
     {
@@ -32,8 +34,8 @@ const Solutions = () => {
       features: [
         'Expand ideas with more detail',
         'Simplify complex explanations',
-        'Multi-language translation support',
-        'Version history for drafts'
+        'Knowledge Base for reference management',
+        'Version history for tracking revisions'
       ]
     },
     {
@@ -44,8 +46,8 @@ const Solutions = () => {
       features: [
         'AI autocomplete while writing',
         'Quick Edit for instant improvements',
-        'Change tone to match audience',
-        'Shorten or expand content as needed'
+        'Translate to 6 languages with one click',
+        'Tone switching to match your audience'
       ]
     },
     {
@@ -56,8 +58,32 @@ const Solutions = () => {
       features: [
         'Full Markdown editor support',
         'Syntax-highlighted code blocks',
-        'Tables and structured content',
-        'Export to multiple formats'
+        'Tables and math equations support',
+        'Import PDF/DOCX files directly'
+      ]
+    },
+    {
+      id: 'knowledge-management',
+      title: 'Knowledge Management',
+      description: 'Transform your PDF and Word documents into a searchable knowledge base. AI helps you organize, connect, and reference existing materials.',
+      icon: Library,
+      features: [
+        'Auto-index uploaded documents (PDF/DOCX/PPTX)',
+        'AI semantic search finds relevant content',
+        'Reference knowledge base while writing',
+        'Up to 50MB per file supported'
+      ]
+    },
+    {
+      id: 'mobile-writing',
+      title: 'Mobile-First Writing',
+      description: 'Write anywhere, anytime. Full mobile experience with touch-friendly toolbar, bottom navigation, and dark mode support.',
+      icon: Smartphone,
+      features: [
+        'Complete AI features on mobile',
+        'Bottom navigation for quick access',
+        'Touch-optimized editing toolbar',
+        'Light/Dark theme switching'
       ]
     }
   ];

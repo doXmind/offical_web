@@ -5,12 +5,18 @@ import {
   Book, Edit, MessageSquare, Clock, Keyboard, Layout, Zap,
   ChevronRight, ExternalLink, ChevronDown, ChevronUp,
   Sparkles, Code, Type, List, Table, Image, Search,
-  PanelLeft, PanelRight, Sun, Moon, ArrowRight
+  PanelLeft, PanelRight, Sun, Moon, ArrowRight,
+  Database, Upload, Smartphone, FileUp, Rocket, ImageIcon
 } from 'lucide-react';
 import CTASection from '../components/ui/cta-section';
 import FeatureCard from '../components/guide/FeatureCard';
 import ShortcutTable from '../components/guide/ShortcutTable';
 import QuickEditCommands from '../components/guide/QuickEditCommands';
+import KnowledgeBaseFeatures from '../components/guide/KnowledgeBaseFeatures';
+import ImageUploadGuide from '../components/guide/ImageUploadGuide';
+import AIToolsList from '../components/guide/AIToolsList';
+import MobileGestureGuide from '../components/guide/MobileGestureGuide';
+import StepGuide from '../components/guide/StepGuide';
 
 const GuideSection = ({ id, title, icon: Icon, children, level = 1 }) => {
   const [isOpen, setIsOpen] = useState(level === 1);
@@ -74,40 +80,47 @@ const TableOfContents = ({ sections }) => {
   }, [sections]);
 
   return (
-    <nav className="sticky top-24 hidden lg:block">
-      <div className="border-l border-white/10 pl-6">
-        <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
-          Table of Contents
-        </h3>
-        <ul className="space-y-2">
-          {sections.map((section) => (
-            <li key={section.id}>
-              <a
-                href={`#${section.id}`}
-                className={`text-sm transition-colors block py-1 ${
-                  activeSection === section.id
-                    ? 'text-white font-medium'
-                    : 'text-gray-500 hover:text-gray-300'
-                }`}
-              >
-                {section.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+    <aside className="hidden lg:block w-64 flex-shrink-0">
+      <div className="sticky top-24">
+        <div className="border-l border-white/10 pl-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
+          <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+            Table of Contents
+          </h3>
+          <ul className="space-y-2">
+            {sections.map((section) => (
+              <li key={section.id}>
+                <a
+                  href={`#${section.id}`}
+                  className={`text-sm transition-colors block py-1 ${
+                    activeSection === section.id
+                      ? 'text-white font-medium'
+                      : 'text-gray-500 hover:text-gray-300'
+                  }`}
+                >
+                  {section.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </nav>
+    </aside>
   );
 };
 
 const Guide = () => {
   const sections = [
     { id: 'introduction', title: 'Introduction' },
+    { id: 'getting-started', title: 'Getting Started' },
     { id: 'interface', title: 'Interface Overview' },
+    { id: 'knowledge-base', title: 'Knowledge Base' },
+    { id: 'multimodal', title: 'Image Analysis' },
+    { id: 'file-import', title: 'File Import' },
     { id: 'editor', title: 'Rich Markdown Editor' },
     { id: 'quick-edit', title: 'Quick Edit' },
     { id: 'ai-chat', title: 'AI Chat Assistant' },
     { id: 'autocomplete', title: 'AI Autocomplete' },
+    { id: 'mobile', title: 'Mobile Experience' },
     { id: 'version-history', title: 'Version History' },
     { id: 'shortcuts', title: 'Keyboard Shortcuts' }
   ];
@@ -128,6 +141,34 @@ const Guide = () => {
     { action: 'Redo', keys: 'Ctrl+Y', description: 'Redo last action' },
     { action: 'Find', keys: 'Ctrl+F', description: 'Open search in document' },
     { action: 'Select All', keys: 'Ctrl+A', description: 'Select all content' }
+  ];
+
+  const quickStartSteps = [
+    {
+      title: 'Create Your First Document',
+      description: 'Click the "+" button in the sidebar to create a new document. Give it a name and start writing.',
+      tip: 'Your documents are saved automatically as you type.'
+    },
+    {
+      title: 'Try Quick Edit',
+      description: 'Select any text, then right-click or use the floating menu. Choose "Improve" to enhance your writing with AI.',
+      tip: 'Quick Edit works on any selected text - try "Simplify" or "Translate" too.'
+    },
+    {
+      title: 'Chat with AI',
+      description: 'Open the chat panel from the header. Ask the AI to help you write, edit, or analyze your document.',
+      tip: 'Use @ to mention other files and include their content as context.'
+    },
+    {
+      title: 'Upload Documents to Knowledge Base',
+      description: 'Drag a PDF or Word file into the chat panel. The AI can now search and reference your documents.',
+      tip: 'Upload research papers, reports, or notes for AI to reference.'
+    },
+    {
+      title: 'Accept AI Suggestions',
+      description: 'As you type, AI suggestions appear as faded text. Press Tab to accept the suggestion.',
+      tip: 'Keep typing to dismiss suggestions you don\'t want.'
+    }
   ];
 
   return (
@@ -166,10 +207,10 @@ const Guide = () => {
                 <ExternalLink className="w-4 h-4" />
               </a>
               <a
-                href="#introduction"
+                href="#getting-started"
                 className="px-8 py-4 border border-white/20 rounded-lg hover:bg-white/5 transition-all"
               >
-                Read Guide
+                Quick Start
               </a>
             </div>
           </motion.div>
@@ -178,8 +219,8 @@ const Guide = () => {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-[1fr_250px] gap-12">
-          <div className="max-w-4xl">
+        <div className="lg:flex lg:gap-12">
+          <div className="flex-1 max-w-4xl">
             {/* Introduction */}
             <GuideSection id="introduction" title="Introduction" icon={Book}>
               <div className="prose prose-invert max-w-none">
@@ -187,7 +228,8 @@ const Guide = () => {
                 <p className="text-gray-400 mb-6">
                   doXmind is an AI-powered writing assistant that helps you write better, faster.
                   It combines a powerful Markdown editor with intelligent AI features to enhance
-                  your writing workflow.
+                  your writing workflow. Think of it as "Cursor for Writing" - bringing the power
+                  of AI assistance to document creation.
                 </p>
 
                 <h4 className="text-xl font-light mb-3">Key Features</h4>
@@ -210,9 +252,42 @@ const Guide = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <ChevronRight className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
+                    <span><strong className="text-white">Knowledge Base (RAG):</strong> Upload PDF, Word, or PowerPoint files and chat with their content</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ChevronRight className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
+                    <span><strong className="text-white">Image Analysis:</strong> Upload images for AI to analyze using Claude Vision</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ChevronRight className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
+                    <span><strong className="text-white">File Import:</strong> Import PDF, Word, and Markdown files directly into the editor</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ChevronRight className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
+                    <span><strong className="text-white">Mobile Experience:</strong> Responsive design with gesture controls for phones and tablets</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ChevronRight className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
                     <span><strong className="text-white">Version History:</strong> Track changes and restore previous versions anytime</span>
                   </li>
                 </ul>
+              </div>
+            </GuideSection>
+
+            {/* Getting Started */}
+            <GuideSection id="getting-started" title="Getting Started" icon={Rocket}>
+              <div className="prose prose-invert max-w-none">
+                <div className="p-6 border border-white/30 bg-white/5 rounded-lg mb-6">
+                  <h3 className="text-2xl font-light mb-3 flex items-center gap-2">
+                    <Sparkles className="w-6 h-6 text-white" />
+                    5-Minute Quick Start
+                  </h3>
+                  <p className="text-gray-400">
+                    Get up and running with doXmind in just 5 minutes. Follow these steps to experience the core features.
+                  </p>
+                </div>
+
+                <StepGuide steps={quickStartSteps} />
               </div>
             </GuideSection>
 
@@ -223,6 +298,7 @@ const Guide = () => {
                   The doXmind interface is organized into three main areas for efficient writing:
                 </p>
 
+                <h4 className="text-xl font-light mb-4">Desktop Interface</h4>
                 <div className="grid md:grid-cols-3 gap-4 mb-8">
                   <FeatureCard icon={PanelLeft} title="Left Sidebar">
                     <p className="text-sm text-gray-400 mt-2">
@@ -243,6 +319,20 @@ const Guide = () => {
                   </FeatureCard>
                 </div>
 
+                <h4 className="text-xl font-light mb-4">Mobile Interface</h4>
+                <div className="p-6 border border-white/10 rounded-lg bg-white/5 mb-6">
+                  <div className="flex items-start gap-3">
+                    <Smartphone className="w-5 h-5 text-white mt-0.5" />
+                    <div>
+                      <h5 className="font-medium text-white mb-2">Responsive Design</h5>
+                      <p className="text-gray-400 text-sm">
+                        On mobile devices, the interface adapts with a bottom navigation bar and swipe gestures.
+                        See the <a href="#mobile" className="text-white underline">Mobile Experience</a> section for details.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="p-6 border border-white/10 rounded-lg bg-white/5">
                   <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
                     <Sun className="w-5 h-5 text-white" />
@@ -253,6 +343,92 @@ const Guide = () => {
                     Switch between light and dark mode using the theme toggle in the header.
                     Your preference is saved automatically.
                   </p>
+                </div>
+              </div>
+            </GuideSection>
+
+            {/* Knowledge Base (RAG) */}
+            <GuideSection id="knowledge-base" title="Knowledge Base" icon={Database}>
+              <div className="prose prose-invert max-w-none">
+                <div className="p-6 border border-white/30 bg-white/5 rounded-lg mb-6">
+                  <h3 className="text-2xl font-light mb-3 flex items-center gap-2">
+                    <Database className="w-6 h-6 text-white" />
+                    Chat with Your Documents
+                  </h3>
+                  <p className="text-gray-400">
+                    Upload PDF, Word, or PowerPoint files to your conversation. The AI can then search,
+                    read, and reference these documents when answering your questions - powered by
+                    semantic vector search (RAG).
+                  </p>
+                </div>
+
+                <KnowledgeBaseFeatures />
+              </div>
+            </GuideSection>
+
+            {/* Image Analysis (Multimodal) */}
+            <GuideSection id="multimodal" title="Image Analysis" icon={ImageIcon}>
+              <div className="prose prose-invert max-w-none">
+                <div className="p-6 border border-white/30 bg-white/5 rounded-lg mb-6">
+                  <h3 className="text-2xl font-light mb-3 flex items-center gap-2">
+                    <ImageIcon className="w-6 h-6 text-white" />
+                    Analyze Images with AI
+                  </h3>
+                  <p className="text-gray-400">
+                    Upload images in your chat and let Claude Vision analyze them. Get descriptions,
+                    extract text, understand charts, or get feedback on designs.
+                  </p>
+                </div>
+
+                <ImageUploadGuide />
+              </div>
+            </GuideSection>
+
+            {/* File Import */}
+            <GuideSection id="file-import" title="File Import" icon={FileUp}>
+              <div className="prose prose-invert max-w-none">
+                <p className="text-gray-400 mb-6">
+                  Import external documents directly into your editor. Files are converted to editable
+                  Markdown format and automatically indexed for AI search.
+                </p>
+
+                <h4 className="text-xl font-light mb-4">Supported Formats</h4>
+                <div className="grid md:grid-cols-3 gap-4 mb-8">
+                  <FeatureCard title="PDF">
+                    <p className="text-sm text-gray-400 mt-2">
+                      Extract text and convert to editable Markdown. Great for research papers and reports.
+                    </p>
+                  </FeatureCard>
+
+                  <FeatureCard title="Word (.docx)">
+                    <p className="text-sm text-gray-400 mt-2">
+                      Import Word documents with formatting preserved. Perfect for existing content.
+                    </p>
+                  </FeatureCard>
+
+                  <FeatureCard title="Markdown (.md)">
+                    <p className="text-sm text-gray-400 mt-2">
+                      Direct import of Markdown files. Ideal for technical documentation.
+                    </p>
+                  </FeatureCard>
+                </div>
+
+                <h4 className="text-xl font-light mb-4">How to Import</h4>
+                <div className="p-6 border border-white/10 rounded-lg bg-white/5">
+                  <ol className="space-y-3 text-gray-400">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-white text-sm flex items-center justify-center">1</span>
+                      <span>Click the Import button in the file menu, or drag a file into the editor</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-white text-sm flex items-center justify-center">2</span>
+                      <span>The file is converted to Markdown format automatically</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 text-white text-sm flex items-center justify-center">3</span>
+                      <span>Your document is now editable and indexed for AI search</span>
+                    </li>
+                  </ol>
                 </div>
               </div>
             </GuideSection>
@@ -382,31 +558,24 @@ const Guide = () => {
                       to see how the AI approached your question.
                     </p>
                   </FeatureCard>
+
+                  <FeatureCard title="Knowledge Base Integration">
+                    <p className="text-sm text-gray-400 mt-2">
+                      Upload documents to the chat and the AI can search, read, and reference them.
+                      See the <a href="#knowledge-base" className="text-white underline">Knowledge Base</a> section for details.
+                    </p>
+                  </FeatureCard>
+
+                  <FeatureCard title="Image Upload">
+                    <p className="text-sm text-gray-400 mt-2">
+                      Paste or upload images for the AI to analyze using Claude Vision.
+                      See the <a href="#multimodal" className="text-white underline">Image Analysis</a> section for details.
+                    </p>
+                  </FeatureCard>
                 </div>
 
-                <h4 className="text-xl font-light mb-3">What the AI Can Do</h4>
-                <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-white flex-shrink-0" />
-                    View and analyze your document content
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-white flex-shrink-0" />
-                    Make direct edits to your text
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-white flex-shrink-0" />
-                    Insert new content at specific locations
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-white flex-shrink-0" />
-                    Search and find content in your document
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-white flex-shrink-0" />
-                    Answer questions about your writing
-                  </li>
-                </ul>
+                <h4 className="text-xl font-light mb-4">AI Tools & Capabilities</h4>
+                <AIToolsList />
               </div>
             </GuideSection>
 
@@ -442,6 +611,24 @@ const Guide = () => {
                 <p className="text-sm text-gray-500">
                   Autocomplete suggestions are context-aware and adapt to your writing style and the content of your document.
                 </p>
+              </div>
+            </GuideSection>
+
+            {/* Mobile Experience */}
+            <GuideSection id="mobile" title="Mobile Experience" icon={Smartphone}>
+              <div className="prose prose-invert max-w-none">
+                <div className="p-6 border border-white/30 bg-white/5 rounded-lg mb-6">
+                  <h3 className="text-2xl font-light mb-3 flex items-center gap-2">
+                    <Smartphone className="w-6 h-6 text-white" />
+                    Write Anywhere
+                  </h3>
+                  <p className="text-gray-400">
+                    doXmind is fully responsive and optimized for mobile devices. Use gesture controls
+                    and a bottom navigation bar designed for touch interaction.
+                  </p>
+                </div>
+
+                <MobileGestureGuide />
               </div>
             </GuideSection>
 
