@@ -13,6 +13,7 @@ import {
   Database,
   CheckSquare,
 } from 'lucide-react';
+import SEO from '../components/seo/SEO';
 import CTASection from '../components/ui/cta-section';
 import { MockEditorContainer } from '../components/home/MockEditorShowcase/components';
 import {
@@ -153,6 +154,7 @@ const Features = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEO path="/features" />
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 px-6">
         <div className="max-w-6xl mx-auto text-center">

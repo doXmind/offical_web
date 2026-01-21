@@ -7,6 +7,7 @@ import {
   Type, Brain, FileText, Database, CheckSquare
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/seo/SEO';
 import CTASection from '../components/ui/cta-section';
 import MockEditorShowcase from '../components/home/MockEditorShowcase';
 import { MockEditorContainer } from '../components/home/MockEditorShowcase/components';
@@ -466,6 +467,7 @@ const BetaCTASection = () => {
 const Home = () => {
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEO path="/" />
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />

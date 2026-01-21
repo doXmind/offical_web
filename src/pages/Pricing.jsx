@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Sparkles, Users } from 'lucide-react';
+import SEO from '../components/seo/SEO';
 import CTASection from '../components/ui/cta-section';
 
 const Pricing = () => {
@@ -19,6 +20,7 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEO path="/pricing" />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">

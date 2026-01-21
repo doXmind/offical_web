@@ -8,6 +8,7 @@ import {
   PanelLeft, PanelRight, Sun, Moon, ArrowRight,
   Database, Upload, Smartphone, FileUp, Rocket, ImageIcon
 } from 'lucide-react';
+import SEO from '../components/seo/SEO';
 import CTASection from '../components/ui/cta-section';
 import FeatureCard from '../components/guide/FeatureCard';
 import ShortcutTable from '../components/guide/ShortcutTable';
@@ -188,6 +189,7 @@ const Guide = () => {
 
   return (
     <div className="min-h-screen bg-black text-white pt-24">
+      <SEO path="/guide" />
       {/* Hero Section */}
       <section className="px-6 py-16 border-b border-white/5">
         <div className="max-w-7xl mx-auto">

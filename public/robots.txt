@@ -1,0 +1,15 @@
+# robots.txt for doXmind
+# https://doxmind.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://doxmind.com/sitemap.xml
+
+# Crawl delay (optional, be gentle with the server)
+Crawl-delay: 1
+
+# Disallow admin or private areas (add as needed)
+# Disallow: /admin/
+# Disallow: /private/

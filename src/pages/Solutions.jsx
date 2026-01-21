@@ -10,6 +10,7 @@ import {
   Library,
   Smartphone
 } from 'lucide-react';
+import SEO from '../components/seo/SEO';
 import CTASection from '../components/ui/cta-section';
 
 const Solutions = () => {
@@ -90,6 +91,7 @@ const Solutions = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEO path="/solutions" />
       {/* Clean Hero Section */}
       <section className="relative pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
