@@ -40,7 +40,10 @@
       "Bash(node -e:*)",
       "Bash(npx vite build:*)",
       "Bash(where:*)",
-      "Bash(node scripts/generate-og-image.mjs:*)"
+      "Bash(node scripts/generate-og-image.mjs:*)",
+      "Bash(aws amplify list-jobs:*)",
+      "Bash(aws amplify get-job:*)",
+      "Bash(npm ls:*)"
     ],
     "deny": [],
     "ask": []
