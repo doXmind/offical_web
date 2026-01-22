@@ -43,7 +43,11 @@
       "Bash(node scripts/generate-og-image.mjs:*)",
       "Bash(aws amplify list-jobs:*)",
       "Bash(aws amplify get-job:*)",
-      "Bash(npm ls:*)"
+      "Bash(npm ls:*)",
+      "Bash(npm config get:*)",
+      "Bash(npm config:*)",
+      "Bash(npm i:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

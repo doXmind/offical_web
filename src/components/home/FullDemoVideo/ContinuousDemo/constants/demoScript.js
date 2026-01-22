@@ -3,7 +3,7 @@
  *
  * Story: Writing a complete academic essay on "AI in Healthcare"
  *
- * NEW FLOW - Full Essay Writing Experience:
+ * FLOW - Full Essay Writing Experience:
  * 1. User creates document, writes title and first sentence
  * 2. AI Autocomplete suggests completion (ghost text)
  * 3. User uploads multiple PDFs/PPTX to Knowledge Base
@@ -12,18 +12,18 @@
  * 6. AI confirms details with user
  * 7. User provides more context
  * 8. AI generates complete essay (long, professional content)
- * 9. User selects sections for Ask AI refinement
+ * 9. User uses Text Review for grammar/clarity suggestions
  * 10. User uses Quick Edit on specific text
  *
- * Timeline (100 seconds total for richer demo):
+ * Timeline (100 seconds total):
  * 0-6s:     Create document, type title
  * 6-14s:    Write first sentence + AI Autocomplete
  * 14-26s:   Upload multiple files to Knowledge Base
  * 26-50s:   Ask AI to write template → Skills + KB search + Web search → Outline
  * 50-58s:   AI asks for confirmation, user responds
  * 58-78s:   AI generates full essay (long content with diff review)
- * 78-90s:   User selects section, asks AI for refinement
- * 90-100s:  User uses Quick Edit on text
+ * 78-90s:   Text Review - analyze, show suggestions, accept fixes
+ * 90-100s:  Quick Edit on text
  */
 
 export const DEMO_SCRIPT = [
@@ -245,64 +245,78 @@ export const DEMO_SCRIPT = [
   { time: 77000, type: 'setPhase', value: 'Essay Generated' },
   { time: 77000, type: 'applyFullEssay', value: true },
 
-  // ==================== PHASE 7: Select Section for AI Refinement (78-90s) ====================
-  { time: 78000, type: 'setPhase', value: 'Refining with AI' },
+  // ==================== PHASE 7: Text Review (78-90s) ====================
+  // Like TextReviewScene: Review button → Analyzing → Suggestions with underlines → Accept
+  { time: 78000, type: 'setPhase', value: 'Text Review' },
 
-  // User selects a paragraph
-  { time: 79000, type: 'setSelection', value: { paragraphIndex: 'diagnostic-imaging', start: 0, end: 200 } },
-  { time: 79500, type: 'setSelectedContent', value: 'Deep learning models, particularly convolutional neural networks (CNNs), have achieved remarkable success in analyzing medical images across multiple modalities...' },
+  // Click Review button - show loading state
+  { time: 78500, type: 'showReview', value: true },
+  { time: 78500, type: 'reviewLoading', value: true },
 
-  // User asks AI to enhance
-  { time: 80000, type: 'setChatInput', value: 'Add more recent 2024 statistics and specific FDA-approved products in this section' },
-  { time: 80100, type: 'setChatTyping', value: true },
+  // Analysis complete - show issues with wavy underlines
+  // Paragraph 2: "The integration of artificial intelligence into healthcare represents a paradigm shift unprecedented..."
+  { time: 80500, type: 'reviewLoading', value: false },
+  { time: 80500, type: 'setReviewIssues', value: [
+    {
+      id: 1,
+      type: 'grammar',
+      text: 'paradigm shift unprecedented',
+      suggestion: 'unprecedented paradigm shift',
+      position: { start: 74, end: 102 },
+      color: '#EF4444',
+    },
+    {
+      id: 2,
+      type: 'clarity',
+      text: 'actively piloting',
+      suggestion: 'piloting',
+      position: { start: 270, end: 287 },
+      color: '#3B82F6',
+    },
+  ]},
+  { time: 81000, type: 'setPhase', value: '2 issues found' },
 
-  { time: 82000, type: 'sendChatMessage', value: 'Add more recent 2024 statistics and specific FDA-approved products in this section' },
-  { time: 82200, type: 'clearSelectedContent', value: true },
-  { time: 82200, type: 'setSelection', value: null },
+  // Click first issue - highlight it
+  { time: 83000, type: 'highlightReviewIssue', value: 0 },
 
-  // AI processes
-  { time: 82500, type: 'aiThinking', value: true },
-  { time: 83000, type: 'addChatTool', value: { name: 'search_knowledge_base', status: 'running' } },
-  { time: 84000, type: 'updateChatTool', index: 0, value: { status: 'completed' } },
-  { time: 84500, type: 'addChatTool', value: { name: 'web_search', status: 'running' } },
-  { time: 85500, type: 'updateChatTool', index: 1, value: { status: 'completed' } },
-  { time: 86000, type: 'addChatTool', value: { name: 'str_replace_editor', status: 'running' } },
-  { time: 87500, type: 'updateChatTool', index: 2, value: { status: 'completed' } },
+  // Accept first issue
+  { time: 85000, type: 'fixReviewIssue', index: 0 },
+  { time: 85000, type: 'setPhase', value: '1 issue remaining' },
 
-  { time: 88000, type: 'clearChatTools', value: true },
-  { time: 88000, type: 'aiThinking', value: false },
-  { time: 88500, type: 'addAIResponse', value: 'I\'ve enhanced the diagnostic imaging section with:\n\n• Updated 2024 FDA approval counts (743 devices)\n• Specific product names (Viz.ai, Aidoc, Paige AI)\n• Latest performance metrics\n• Recent landmark studies\n\nPlease review the changes.' },
+  // Click second issue
+  { time: 86500, type: 'highlightReviewIssue', value: 1 },
 
-  // Show diff for the section update
-  { time: 89000, type: 'showDiffMode', value: true },
-  { time: 89000, type: 'setPhase', value: 'Review Changes' },
-  { time: 89500, type: 'setDiffContent', value: {
-    type: 'replace',
-    original: 'The FDA has approved over 692 AI/ML-enabled medical devices as of January 2024',
-    new: 'The FDA has approved 743 AI/ML-enabled medical devices as of Q3 2024, including breakthrough products like Viz.ai for stroke detection, Aidoc for radiology workflow prioritization, and Paige AI for pathology diagnosis'
-  }},
+  // Accept second issue
+  { time: 88000, type: 'fixReviewIssue', index: 1 },
+  { time: 88000, type: 'setPhase', value: 'All issues reviewed' },
+
+  // Clear review state
+  { time: 89500, type: 'showReview', value: false },
+  { time: 89500, type: 'setReviewIssues', value: [] },
 
   // ==================== PHASE 8: Quick Edit (90-100s) ====================
   { time: 90000, type: 'setPhase', value: 'Quick Edit' },
-  { time: 90000, type: 'acceptDiffChange', index: 0 },
-  { time: 90500, type: 'showDiffMode', value: false },
-  { time: 90500, type: 'clearDiffContent', value: true },
 
-  // Select text for quick edit
-  { time: 91000, type: 'setSelection', value: { paragraphIndex: 'conclusion', start: 0, end: 150 } },
+  // Select text for quick edit - use paragraph 5 (FDA paragraph) which is higher up and visible
+  // Paragraph 5: "The U.S. Food and Drug Administration has authorized 692 AI/ML-enabled medical devices as of January 2024, with radiological applications comprising 75.8% of all approvals."
+  // Length: 171 chars
+  { time: 90500, type: 'setSelection', value: { paragraphIndex: 5, start: 0, end: 171 } },
 
-  // Show quick edit menu
-  { time: 92000, type: 'showQuickEdit', value: true },
-  { time: 92500, type: 'hoverQuickEdit', value: 'improve' },
+  // Show quick edit menu immediately after selection
+  { time: 91000, type: 'showQuickEdit', value: true },
 
-  // Click improve
-  { time: 94000, type: 'quickEditLoading', value: true },
+  // Hover over "Improve" option
+  { time: 92000, type: 'hoverQuickEdit', value: 'improve' },
 
-  // Show result
-  { time: 97000, type: 'quickEditResult', value: {
-    paragraphIndex: 'conclusion',
-    original: 'Artificial intelligence stands poised to transform healthcare in ways that would have seemed like science fiction just decades ago.',
-    improved: 'Artificial intelligence is fundamentally redefining the boundaries of what is possible in healthcare—a transformation so profound that it challenges us to reimagine the very nature of medical practice for the 21st century and beyond.'
+  // Click improve - hide menu and show loading
+  { time: 93500, type: 'showQuickEdit', value: false },
+  { time: 93500, type: 'quickEditLoading', value: true },
+
+  // Show improved result
+  { time: 96500, type: 'quickEditResult', value: {
+    paragraphIndex: 5,
+    original: "The U.S. Food and Drug Administration has authorized 692 AI/ML-enabled medical devices as of January 2024, with radiological applications comprising 75.8% of all approvals.",
+    text: "As of January 2024, the U.S. Food and Drug Administration has granted authorization to 692 AI/ML-enabled medical devices, with radiological applications accounting for an impressive 75.8% of total approvals—underscoring the technology's maturity in diagnostic imaging."
   }},
 
   { time: 99000, type: 'clearQuickEditResult', value: true },

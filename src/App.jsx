@@ -7,6 +7,7 @@ import Solutions from './pages/Solutions';
 import Pricing from './pages/Pricing';
 import Guide from './pages/Guide';
 import Demo from './pages/Demo';
+import VideoExport from './pages/VideoExport';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <Routes>
         {/* Demo page without Layout wrapper for full-screen experience */}
         <Route path="/demo" element={<Demo />} />
+        {/* Video export page for Puppeteer recording */}
+        <Route path="/video-export" element={<VideoExport />} />
 
         {/* Other pages with Layout */}
         <Route path="/" element={<Layout><Home /></Layout>} />

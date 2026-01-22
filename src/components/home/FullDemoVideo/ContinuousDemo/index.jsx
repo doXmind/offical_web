@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useAnimationControls } from 'framer-motion';
 import DemoContainer from './components/DemoContainer';
 import DemoToolbar from './components/DemoToolbar';
 import DemoSidebar from './components/DemoSidebar';
@@ -21,9 +21,14 @@ import { DEMO_SCRIPT } from './constants/demoScript';
  * - Uses Text Review for grammar
  * - Reviews AI-suggested changes (diff)
  * - Views document structure (mindlines)
+ *
+ * Timeline: 3s intro + 100s demo + 3s outro = 106s total
  */
 
-const TOTAL_DURATION = 100000; // 100 seconds
+const INTRO_DURATION = 3000; // 3 seconds for intro logo
+const DEMO_DURATION = 100000; // 100 seconds for demo
+const OUTRO_DURATION = 3000; // 3 seconds for outro logo
+const TOTAL_DURATION = INTRO_DURATION + DEMO_DURATION + OUTRO_DURATION; // 106 seconds
 
 const ContinuousDemo = () => {
   const [currentTime, setCurrentTime] = useState(0);
@@ -75,6 +80,7 @@ const ContinuousDemo = () => {
   const [showReview, setShowReview] = useState(false);
   const [reviewIssues, setReviewIssues] = useState([]);
   const [isReviewLoading, setIsReviewLoading] = useState(false);
+  const [highlightedReviewIssue, setHighlightedReviewIssue] = useState(null);
 
   // Diff Review
   const [showDiffMode, setShowDiffMode] = useState(false);
@@ -121,6 +127,7 @@ const ContinuousDemo = () => {
     setShowAttachMenu(false);
     setShowReview(false);
     setReviewIssues([]);
+    setHighlightedReviewIssue(null);
     setShowDiffMode(false);
     setDiffContent(null);
     setAcceptedChanges([]);
@@ -164,16 +171,25 @@ const ContinuousDemo = () => {
     };
   }, [isPlaying, resetDemo]);
 
-  // Execute script based on current time
+  // Calculate which phase we're in (intro/demo/outro)
+  const demoTime = currentTime - INTRO_DURATION; // Time within the demo portion
+  const isInIntro = currentTime < INTRO_DURATION;
+  const isInOutro = currentTime >= INTRO_DURATION + DEMO_DURATION;
+  const isInDemo = !isInIntro && !isInOutro;
+
+  // Execute script based on current time (offset by intro duration)
   useEffect(() => {
+    if (!isInDemo) return; // Don't execute demo script during intro/outro
+
     DEMO_SCRIPT.forEach(action => {
       const actionKey = `${action.time}-${action.type}`;
-      if (currentTime >= action.time && currentTime < action.time + 100 && !executedActionsRef.current.has(actionKey)) {
+      // Check against demoTime (time since intro ended)
+      if (demoTime >= action.time && demoTime < action.time + 100 && !executedActionsRef.current.has(actionKey)) {
         executedActionsRef.current.add(actionKey);
         executeAction(action);
       }
     });
-  }, [currentTime]);
+  }, [currentTime, demoTime, isInDemo]);
 
   const executeAction = (action) => {
     switch (action.type) {
@@ -398,6 +414,10 @@ const ContinuousDemo = () => {
         break;
       case 'fixReviewIssue':
         setReviewIssues(prev => prev.map((issue, i) => i === action.index ? { ...issue, fixed: true } : issue));
+        setHighlightedReviewIssue(null);
+        break;
+      case 'highlightReviewIssue':
+        setHighlightedReviewIssue(action.value);
         break;
       case 'showDiffMode':
         setShowDiffMode(action.value);
@@ -461,15 +481,34 @@ const ContinuousDemo = () => {
 
   const progress = (currentTime / TOTAL_DURATION) * 100;
 
+  // Display time (show demo time during demo, otherwise total time)
+  const displayTime = isInDemo ? Math.floor(demoTime / 1000) : (isInIntro ? 0 : 100);
+  const displayPhase = isInIntro ? 'Intro' : (isInOutro ? 'Outro' : currentPhase);
+
   return (
     <div className="relative w-full max-w-6xl mx-auto px-4">
       <DemoContainer
         isPlaying={isPlaying}
         onTogglePlay={togglePlay}
         progress={progress}
-        currentPhase={currentPhase}
+        currentPhase={displayPhase}
       >
-        <div className="flex h-full w-full bg-black">
+        <div className="flex h-full w-full bg-black relative">
+          {/* Logo Animation Overlay for Intro/Outro */}
+          <AnimatePresence>
+            {(isInIntro || isInOutro) && (
+              <motion.div
+                key={isInIntro ? 'intro' : 'outro'}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 z-50 flex items-center justify-center bg-black"
+              >
+                <DemoAnimatedLogo isOutro={isInOutro} />
+              </motion.div>
+            )}
+          </AnimatePresence>
           {/* Sidebar */}
           <DemoSidebar
             files={files}
@@ -508,6 +547,7 @@ const ContinuousDemo = () => {
                   isQuickEditLoading={isQuickEditLoading}
                   quickEditResult={quickEditResult}
                   reviewIssues={reviewIssues}
+                  highlightedReviewIssue={highlightedReviewIssue}
                   showDiffMode={showDiffMode}
                   diffContent={diffContent}
                   acceptedChanges={acceptedChanges}
@@ -516,29 +556,39 @@ const ContinuousDemo = () => {
             </div>
           </div>
 
-          {/* Chat Panel */}
-          <DemoChatPanel
-            messages={chatMessages}
-            inputValue={chatInput}
-            isTyping={isChatTyping}
-            isThinking={isAIThinking}
-            tools={chatTools}
-            kbFiles={kbFiles}
-            selectedContent={selectedContent}
-            webSearchEnabled={webSearchEnabled}
-            showAttachMenu={showAttachMenu}
-            isUploading={showKBUpload}
-            uploadProgress={kbUploadProgress}
-            currentUploadFile={currentUploadFile}
-          />
+          {/* Review Panel - shown during text review */}
+          {showReview && reviewIssues.length > 0 && (
+            <ReviewPanel
+              issues={reviewIssues}
+              highlightedIndex={highlightedReviewIssue}
+            />
+          )}
+
+          {/* Chat Panel - hidden during review */}
+          {!showReview && (
+            <DemoChatPanel
+              messages={chatMessages}
+              inputValue={chatInput}
+              isTyping={isChatTyping}
+              isThinking={isAIThinking}
+              tools={chatTools}
+              kbFiles={kbFiles}
+              selectedContent={selectedContent}
+              webSearchEnabled={webSearchEnabled}
+              showAttachMenu={showAttachMenu}
+              isUploading={showKBUpload}
+              uploadProgress={kbUploadProgress}
+              currentUploadFile={currentUploadFile}
+            />
+          )}
         </div>
       </DemoContainer>
 
       {/* Progress Bar - Clickable */}
       <div className="mt-4">
         <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
-          <span>{currentPhase}</span>
-          <span>{Math.floor(currentTime / 1000)}s / 100s</span>
+          <span>{displayPhase}</span>
+          <span>{Math.floor(currentTime / 1000)}s / {Math.floor(TOTAL_DURATION / 1000)}s</span>
         </div>
         <div
           className="w-full h-2 bg-white/10 rounded-full overflow-hidden cursor-pointer group"
@@ -572,6 +622,7 @@ const DocumentView = ({
   isQuickEditLoading,
   quickEditResult,
   reviewIssues,
+  highlightedReviewIssue,
   showDiffMode,
   diffContent,
   acceptedChanges,
@@ -621,41 +672,58 @@ const DocumentView = ({
     return diffContent.changes.filter(c => c.afterParagraph === paragraphIdx && c.type === 'insert');
   };
 
-  // Render an INSERT block
+  // Render an INSERT block - matches DiffAcceptScene style
   const renderInsertBlock = (change, changeIdx, totalChanges, isAccepted) => (
     <motion.div
       key={`insert-${changeIdx}`}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: changeIdx * 0.15 }}
-      className={`relative border rounded-lg overflow-hidden ${
-        isAccepted ? 'border-green-500/30' : 'border-green-500/50'
-      }`}
+      className="space-y-1"
     >
-      {/* Header with accept/reject inline */}
-      <div className="flex items-center gap-2 px-2 py-1 bg-white/5 border-b border-white/10">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="w-4 h-4 flex items-center justify-center rounded bg-green-500/20 hover:bg-green-500/30"
-        >
-          <span className="text-green-400 text-[10px]">✓</span>
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="w-4 h-4 flex items-center justify-center rounded bg-red-500/20 hover:bg-red-500/30"
-        >
-          <span className="text-red-400 text-[10px]">✕</span>
-        </motion.button>
-        <span className="text-[9px] text-gray-500 uppercase tracking-wide">INSERT</span>
-        <span className="text-[8px] text-gray-600 ml-auto">{changeIdx + 1}/{totalChanges}</span>
-      </div>
+      {!isAccepted ? (
+        <>
+          {/* Insert action buttons - inline like DiffAcceptScene */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex items-center gap-2"
+          >
+            <div className="flex items-center gap-1 px-1.5 py-0.5 bg-white/5 rounded">
+              <span className="text-[8px] text-gray-500 uppercase">Insert</span>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-4 h-4 bg-green-500/80 hover:bg-green-500 rounded flex items-center justify-center"
+              >
+                <span className="text-white text-[10px]">✓</span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-4 h-4 bg-red-500/80 hover:bg-red-500 rounded flex items-center justify-center"
+              >
+                <span className="text-white text-[10px]">✕</span>
+              </motion.button>
+            </div>
+            <span className="text-[8px] text-gray-600">{changeIdx + 1}/{totalChanges}</span>
+          </motion.div>
 
-      {/* Content - rendered as Markdown */}
-      <div className={`p-3 bg-green-500/5 ${isAccepted ? 'opacity-70' : ''}`}>
-        <RenderedMarkdown content={change.text} />
-      </div>
+          {/* Content - rendered as Markdown with green background */}
+          <div className="bg-green-500/15 border border-green-500/30 text-gray-300 px-2 py-1.5 rounded">
+            <RenderedMarkdown content={change.text} />
+          </div>
+        </>
+      ) : (
+        /* After acceptance - show the content normally */
+        <motion.div
+          initial={{ backgroundColor: 'rgba(34, 197, 94, 0.15)' }}
+          animate={{ backgroundColor: 'rgba(34, 197, 94, 0)' }}
+          transition={{ duration: 1 }}
+        >
+          <RenderedMarkdown content={change.text} />
+        </motion.div>
+      )}
     </motion.div>
   );
 
@@ -695,6 +763,7 @@ const DocumentView = ({
               selectionRange={selectionRange}
               quickEditResult={quickEditResult}
               reviewIssues={reviewIssues}
+              highlightedReviewIssue={highlightedReviewIssue}
               showDiffMode={showDiffMode}
               diffContent={diffContent}
               acceptedChanges={acceptedChanges}
@@ -768,6 +837,7 @@ const ParagraphRenderer = ({
   selectionRange,
   quickEditResult,
   reviewIssues,
+  highlightedReviewIssue,
   showDiffMode,
   diffContent,
   acceptedChanges,
@@ -793,53 +863,76 @@ const ParagraphRenderer = ({
 
   // Render diff mode - handle simple replace type (inline replacement)
   // Note: inline_inserts type is handled in DocumentView, not here
+  // Pattern from DiffAcceptScene: show original (strikethrough) + buttons + new text
   if (showDiffMode && diffContent && isLast && diffContent.type === 'replace') {
     const isAccepted = acceptedChanges.includes(0);
 
     return (
-      <div className="relative">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className={`relative border rounded-lg overflow-hidden ${
-            isAccepted ? 'border-green-500/30' : 'border-green-500/50'
-          }`}
-        >
-          {/* Header */}
-          <div className="flex items-center gap-2 px-2 py-1 bg-white/5 border-b border-white/10">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-4 h-4 flex items-center justify-center rounded bg-green-500/20 hover:bg-green-500/30"
-            >
-              <span className="text-green-400 text-[10px]">✓</span>
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-4 h-4 flex items-center justify-center rounded bg-red-500/20 hover:bg-red-500/30"
-            >
-              <span className="text-red-400 text-[10px]">✕</span>
-            </motion.button>
-            <span className="text-[9px] text-gray-500 uppercase tracking-wide">REPLACE</span>
-          </div>
+      <div className="relative space-y-1">
+        {!isAccepted ? (
+          <>
+            {/* Original text - deleted with strikethrough */}
+            <div className="bg-red-500/15 text-gray-500 line-through px-2 py-1 rounded text-xs">
+              {diffContent.original}
+            </div>
 
-          {/* Content */}
-          <div className={`p-3 bg-green-500/5 ${isAccepted ? 'opacity-70' : ''}`}>
-            <RenderedMarkdown content={diffContent.new} />
-          </div>
-        </motion.div>
+            {/* Replace action buttons */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex items-center gap-2 my-1.5"
+            >
+              <div className="flex items-center gap-1 px-1.5 py-0.5 bg-white/5 rounded">
+                <span className="text-[8px] text-gray-500 uppercase">Replace</span>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-4 h-4 bg-green-500/80 hover:bg-green-500 rounded flex items-center justify-center"
+                >
+                  <span className="text-white text-[10px]">✓</span>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-4 h-4 bg-red-500/80 hover:bg-red-500 rounded flex items-center justify-center"
+                >
+                  <span className="text-white text-[10px]">✕</span>
+                </motion.button>
+              </div>
+            </motion.div>
+
+            {/* New text - inserted with green background */}
+            <div className="bg-green-500/15 border border-green-500/30 text-gray-300 px-2 py-1 rounded text-xs">
+              {diffContent.new}
+            </div>
+          </>
+        ) : (
+          /* After acceptance - show the new text normally */
+          <motion.p
+            initial={{ backgroundColor: 'rgba(34, 197, 94, 0.2)' }}
+            animate={{ backgroundColor: 'rgba(34, 197, 94, 0)' }}
+            transition={{ duration: 1 }}
+            className="text-xs md:text-sm text-gray-300 leading-relaxed"
+          >
+            {diffContent.new}
+          </motion.p>
+        )}
       </div>
     );
   }
 
-  // Render with review issues
+  // Render with review issues - show on paragraph 2 (introduction text after section heading)
   const activeIssues = reviewIssues.filter(issue => !issue.fixed);
-  if (activeIssues.length > 0 && isLast) {
+  if (activeIssues.length > 0 && idx === 2) {
     return (
       <div className="relative">
         <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
-          <ReviewHighlightedText text={para} issues={activeIssues} />
+          <ReviewHighlightedText
+            text={para}
+            issues={activeIssues}
+            highlightedIndex={highlightedReviewIssue}
+            allIssues={reviewIssues}
+          />
         </p>
       </div>
     );
@@ -870,19 +963,19 @@ const ParagraphRenderer = ({
           <QuickEditMenu hovered={quickEditHovered} />
         )}
 
-        {/* Quick Edit Loading */}
+        {/* Quick Edit Loading - styled as a visible pill */}
         {isQuickEditLoading && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute -right-2 top-0 flex items-center gap-1 text-[10px] text-blue-400"
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute left-0 top-full mt-3 flex items-center gap-2 px-3 py-1.5 bg-blue-500/20 border border-blue-500/30 rounded-lg"
           >
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-              className="w-3 h-3 border border-blue-400 border-t-transparent rounded-full"
+              transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+              className="w-3.5 h-3.5 border-2 border-blue-400/30 border-t-blue-400 rounded-full"
             />
-            <span>Improving...</span>
+            <span className="text-xs text-blue-300 font-medium">Improving text...</span>
           </motion.div>
         )}
       </div>
@@ -973,11 +1066,17 @@ const ParagraphRenderer = ({
 };
 
 // Review highlighted text component
-const ReviewHighlightedText = ({ text, issues }) => {
+const ReviewHighlightedText = ({ text, issues, highlightedIndex, allIssues }) => {
   if (!issues || issues.length === 0) return text;
 
   // Sort issues by position
   const sortedIssues = [...issues].sort((a, b) => (a.position?.start || 0) - (b.position?.start || 0));
+
+  // Find original index of issue for highlighting comparison
+  const getOriginalIndex = (issue) => {
+    const sourceList = allIssues || issues;
+    return sourceList.findIndex(i => i.id === issue.id);
+  };
 
   const parts = [];
   let lastEnd = 0;
@@ -991,14 +1090,19 @@ const ReviewHighlightedText = ({ text, issues }) => {
       parts.push(<span key={`text-${idx}`}>{text.slice(lastEnd, start)}</span>);
     }
 
-    // Add highlighted issue
+    // Add highlighted issue - with background when selected
+    // Use original index for highlighting comparison
+    const originalIndex = getOriginalIndex(issue);
     const underlineColor = issue.type === 'grammar' ? 'decoration-red-500' : 'decoration-blue-500';
+    const bgColor = issue.type === 'grammar' ? 'bg-red-500/20' : 'bg-blue-500/20';
+    const isHighlighted = highlightedIndex === originalIndex;
+
     parts.push(
       <motion.span
         key={`issue-${idx}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`underline decoration-wavy ${underlineColor} cursor-pointer`}
+        className={`underline decoration-wavy ${underlineColor} cursor-pointer ${isHighlighted ? `${bgColor} rounded px-0.5` : ''}`}
         title={`Suggestion: ${issue.suggestion}`}
       >
         {issue.text}
@@ -1083,36 +1187,77 @@ const RenderedMarkdown = ({ content }) => {
   );
 };
 
-// Quick Edit Menu
+// Quick Edit Menu - matches MockEditorShowcase design
 const QuickEditMenu = ({ hovered }) => {
   const commands = [
-    { id: 'grammar', label: 'Fix Grammar', icon: '✓' },
-    { id: 'improve', label: 'Improve', icon: '✨' },
-    { id: 'simplify', label: 'Simplify', icon: '−' },
-    { id: 'expand', label: 'Expand', icon: '+' },
+    { id: 'grammar', label: 'Fix Grammar', icon: 'CheckCircle' },
+    { id: 'improve', label: 'Improve', icon: 'Sparkles' },
+    { id: 'simplify', label: 'Simplify', icon: 'Type' },
+    { id: 'expand', label: 'Expand', icon: 'Edit3' },
+    { id: 'shorten', label: 'Shorten', icon: 'Zap' },
+    { id: 'translate', label: 'Translate', icon: 'Languages' },
   ];
+
+  // Simple SVG icons
+  const icons = {
+    CheckCircle: (
+      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    Sparkles: (
+      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+      </svg>
+    ),
+    Type: (
+      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 7v10a2 2 0 002 2h12a2 2 0 002-2V7M9 12h6" />
+      </svg>
+    ),
+    Edit3: (
+      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+      </svg>
+    ),
+    Zap: (
+      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    Languages: (
+      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+      </svg>
+    ),
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 10, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      className="absolute left-0 mt-2 bg-gray-900 border border-white/10 rounded-lg p-1.5 z-10 shadow-xl"
+      transition={{ duration: 0.2 }}
+      className="absolute left-0 top-full mt-2 bg-black border border-white/20 rounded-lg p-1.5 shadow-xl z-10"
     >
-      <div className="flex gap-1">
-        {commands.map(cmd => (
-          <motion.div
-            key={cmd.id}
-            whileHover={{ scale: 1.05 }}
-            className={`px-2.5 py-1.5 rounded text-[10px] transition-colors flex items-center gap-1 ${
-              hovered === cmd.id
-                ? 'bg-blue-500/20 text-blue-400'
-                : 'text-gray-400 hover:bg-white/5'
-            }`}
-          >
-            <span>{cmd.icon}</span>
-            <span>{cmd.label}</span>
-          </motion.div>
-        ))}
+      <div className="grid grid-cols-3 gap-1">
+        {commands.map(cmd => {
+          const isHovered = hovered === cmd.id;
+          return (
+            <motion.div
+              key={cmd.id}
+              animate={isHovered ? { scale: [1, 0.95, 1] } : {}}
+              transition={{ duration: 0.15 }}
+              className={`flex items-center gap-1.5 px-2 py-1.5 rounded text-[10px] cursor-pointer ${
+                isHovered
+                  ? 'bg-white/20 text-white'
+                  : 'text-gray-400 hover:bg-white/10'
+              }`}
+            >
+              {icons[cmd.icon]}
+              <span>{cmd.label}</span>
+            </motion.div>
+          );
+        })}
       </div>
     </motion.div>
   );
@@ -1168,6 +1313,250 @@ const MindlinesView = ({ nodes }) => {
         </AnimatePresence>
       </div>
     </div>
+  );
+};
+
+// Review Panel - matches TextReviewScene design exactly
+const ReviewPanel = ({ issues, highlightedIndex }) => {
+  const activeIssues = issues.filter(issue => !issue.fixed);
+  const allFixed = activeIssues.length === 0;
+
+  // Find original index of each issue for highlighting comparison
+  const getOriginalIndex = (issue) => issues.findIndex(i => i.id === issue.id);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      className="w-44 border-l border-white/10 bg-white/[0.02] flex flex-col"
+    >
+      {/* Header */}
+      <div className="px-3 py-2 border-b border-white/10 flex items-center justify-between">
+        <span className="text-[10px] text-gray-400 font-medium">Review</span>
+        <span className="text-[9px] text-gray-500">
+          {activeIssues.length} issue{activeIssues.length !== 1 ? 's' : ''}
+        </span>
+      </div>
+
+      {/* Issues list */}
+      <div className="flex-1 p-2 space-y-2 overflow-hidden">
+        {activeIssues.map((issue, idx) => {
+          // Use original index for highlighting - issue.id - 1 matches the demoScript index
+          const originalIndex = getOriginalIndex(issue);
+          const isHighlighted = highlightedIndex === originalIndex;
+          const dotColor = issue.type === 'grammar' ? 'bg-red-500' : 'bg-blue-500';
+          const categoryLabel = issue.type === 'grammar' ? 'Correctness' : 'Clarity';
+          const textColor = issue.type === 'grammar' ? 'text-red-400' : 'text-blue-400';
+          const highlightBg = issue.type === 'grammar' ? 'bg-red-500/10 border-red-500/30' : 'bg-blue-500/10 border-blue-500/30';
+
+          return (
+            <motion.div
+              key={issue.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: idx * 0.1 }}
+              className={`
+                p-2 rounded border transition-colors cursor-pointer
+                ${isHighlighted ? highlightBg : 'bg-white/5 border-white/10 hover:border-white/20'}
+              `}
+            >
+              <div className="flex items-center gap-1.5 mb-1">
+                <div className={`w-1.5 h-1.5 ${dotColor} rounded-full`} />
+                <span className="text-[9px] text-gray-400 uppercase">{categoryLabel}</span>
+              </div>
+              <div className="text-[10px]">
+                <span className={`${textColor} line-through`}>{issue.text}</span>
+                <span className="text-gray-500 mx-1">→</span>
+                <span className="text-green-400">{issue.suggestion}</span>
+              </div>
+            </motion.div>
+          );
+        })}
+
+        {/* Empty state when all done */}
+        {allFixed && (
+          <div className="flex flex-col items-center justify-center h-full text-center">
+            <svg className="w-6 h-6 text-green-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span className="text-[10px] text-gray-500">All done!</span>
+          </div>
+        )}
+      </div>
+
+      {/* Panel actions */}
+      {activeIssues.length > 0 && (
+        <div className="px-2 py-2 border-t border-white/10 flex gap-1.5">
+          <button className="flex-1 px-2 py-1 text-[9px] text-green-400 bg-green-500/10 rounded hover:bg-green-500/20">
+            Accept All
+          </button>
+          <button className="flex-1 px-2 py-1 text-[9px] text-gray-400 bg-white/5 rounded hover:bg-white/10">
+            Dismiss All
+          </button>
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+// Animated Logo Component - based on doxmind-mini design
+// Icon paths for the 4 quadrants
+const iconPaths = [
+  "M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z", // top-left
+  "M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z", // top-right
+  "M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z", // bottom-left
+  "M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z", // bottom-right
+];
+
+// TikTok-style colors for glitch effect
+const CYAN = "#00f2ea";
+const RED = "#ff0050";
+
+const DemoAnimatedLogo = ({ isOutro = false }) => {
+  const mainControls = useAnimationControls();
+  const redControls = useAnimationControls();
+  const cyanControls = useAnimationControls();
+
+  // Trigger glitch effect
+  const triggerGlitch = useCallback(() => {
+    cyanControls.start({
+      x: [0, -4, -3, -4, 0],
+      opacity: [0, 0.8, 0.6, 0.7, 0],
+      transition: { duration: 0.2, ease: "easeInOut" },
+    });
+    redControls.start({
+      x: [0, 4, 3, 4, 0],
+      opacity: [0, 0.8, 0.6, 0.7, 0],
+      transition: { duration: 0.2, ease: "easeInOut" },
+    });
+    mainControls.start({
+      x: [0, -2, 2, -1, 1, 0],
+      transition: { duration: 0.2, ease: "easeInOut" },
+    });
+  }, [mainControls, redControls, cyanControls]);
+
+  // Run glitch animation periodically
+  useEffect(() => {
+    const glitchInterval = setInterval(() => {
+      triggerGlitch();
+    }, 1500);
+
+    // Trigger initial glitch after a short delay
+    const initialGlitch = setTimeout(() => triggerGlitch(), 800);
+
+    return () => {
+      clearInterval(glitchInterval);
+      clearTimeout(initialGlitch);
+    };
+  }, [triggerGlitch]);
+
+  const text = [
+    { char: "d", weight: "font-light" },
+    { char: "o", weight: "font-light" },
+    { char: "X", weight: "font-black" },
+    { char: "m", weight: "font-light" },
+    { char: "i", weight: "font-light" },
+    { char: "n", weight: "font-light" },
+    { char: "d", weight: "font-light" },
+  ];
+
+  return (
+    <motion.div
+      className="flex flex-col items-center justify-center gap-5"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Animated Icon */}
+      <div className="relative">
+        {/* Cyan ghost layer */}
+        <motion.svg
+          viewBox="0 0 80 80"
+          width={80}
+          height={80}
+          className="absolute inset-0 pointer-events-none"
+          animate={cyanControls}
+          initial={{ opacity: 0, x: 0 }}
+        >
+          {iconPaths.map((d, i) => (
+            <path key={i} d={d} fill={CYAN} />
+          ))}
+        </motion.svg>
+
+        {/* Red ghost layer */}
+        <motion.svg
+          viewBox="0 0 80 80"
+          width={80}
+          height={80}
+          className="absolute inset-0 pointer-events-none"
+          animate={redControls}
+          initial={{ opacity: 0, x: 0 }}
+        >
+          {iconPaths.map((d, i) => (
+            <path key={i} d={d} fill={RED} />
+          ))}
+        </motion.svg>
+
+        {/* Main layer */}
+        <motion.svg
+          viewBox="0 0 80 80"
+          width={80}
+          height={80}
+          className="relative z-10 text-white"
+          animate={mainControls}
+        >
+          {iconPaths.map((d, i) => (
+            <motion.path
+              key={i}
+              d={d}
+              fill="currentColor"
+              initial={{ opacity: 0, scale: 0.5, rotate: -90 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.1,
+                ease: [0.34, 1.56, 0.64, 1],
+              }}
+              style={{ transformOrigin: "40px 40px" }}
+            />
+          ))}
+        </motion.svg>
+      </div>
+
+      {/* Animated Text */}
+      <motion.div
+        className="flex items-center text-white"
+        style={{ fontSize: 36, letterSpacing: "-0.03em" }}
+      >
+        {text.map((item, i) => (
+          <motion.span
+            key={i}
+            className={item.weight}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: 0.5 + i * 0.05,
+              ease: [0.34, 1.56, 0.64, 1],
+            }}
+          >
+            {item.char}
+          </motion.span>
+        ))}
+      </motion.div>
+
+      {/* Tagline for outro */}
+      {isOutro && (
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="text-gray-400 text-sm"
+        >
+          AI-Powered Writing, Reimagined
+        </motion.p>
+      )}
+    </motion.div>
   );
 };
 
