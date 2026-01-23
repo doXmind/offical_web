@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, forwardRef, useImperativeHandle } from 'react';
 import { motion, AnimatePresence, useAnimationControls } from 'framer-motion';
 import DemoContainer from './components/DemoContainer';
 import DemoToolbar from './components/DemoToolbar';
@@ -22,17 +22,26 @@ import { DEMO_SCRIPT } from './constants/demoScript';
  * - Reviews AI-suggested changes (diff)
  * - Views document structure (mindlines)
  *
- * Timeline: 3s intro + 100s demo + 3s outro = 106s total
+ * Timeline: 3s intro + 86s demo + 3s outro = 92s total
  */
 
 const INTRO_DURATION = 3000; // 3 seconds for intro logo
-const DEMO_DURATION = 100000; // 100 seconds for demo
+const DEMO_DURATION = 86000; // 86 seconds for demo (last action at 85.5s + buffer)
 const OUTRO_DURATION = 3000; // 3 seconds for outro logo
-const TOTAL_DURATION = INTRO_DURATION + DEMO_DURATION + OUTRO_DURATION; // 106 seconds
+const TOTAL_DURATION = INTRO_DURATION + DEMO_DURATION + OUTRO_DURATION; // 92 seconds
 
-const ContinuousDemo = () => {
+/**
+ * ContinuousDemo Component
+ *
+ * @param {Object} props
+ * @param {function} props.onComplete - Callback when demo completes (for video export)
+ * @param {boolean} props.hideControls - Hide progress bar and controls (for video export)
+ * @param {boolean} props.autoPlay - Auto-start playing (default: true)
+ * @param {React.Ref} ref - Ref for external control (start, pause, getProgress, isComplete)
+ */
+const ContinuousDemo = forwardRef(({ onComplete, hideControls = false, autoPlay = true }, ref) => {
   const [currentTime, setCurrentTime] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(autoPlay);
 
   // Document state
   const [files, setFiles] = useState([{ id: 'welcome', name: 'Welcome.md' }]);
@@ -90,6 +99,15 @@ const ContinuousDemo = () => {
   // Mindlines
   const [showMindlines, setShowMindlines] = useState(false);
   const [mindlineNodes, setMindlineNodes] = useState([]);
+  const [mindlineHover, setMindlineHover] = useState(null);
+
+  // Outline (in sidebar)
+  const [outlineExpanded, setOutlineExpanded] = useState(false);
+  const [outlineItems, setOutlineItems] = useState([]);
+
+  // TODO Plan for agent execution
+  const [todoPlan, setTodoPlan] = useState([]);
+  const [showTodoPlan, setShowTodoPlanState] = useState(false);
 
   // Progress indicator
   const [currentPhase, setCurrentPhase] = useState('');
@@ -133,6 +151,11 @@ const ContinuousDemo = () => {
     setAcceptedChanges([]);
     setShowMindlines(false);
     setMindlineNodes([]);
+    setMindlineHover(null);
+    setOutlineExpanded(false);
+    setOutlineItems([]);
+    setTodoPlan([]);
+    setShowTodoPlanState(false);
     setIsAIThinking(false);
     setChatTools([]);
     setShowAutocomplete(false);
@@ -145,6 +168,29 @@ const ContinuousDemo = () => {
     executedActionsRef.current = new Set();
     resetAllState();
   }, [resetAllState]);
+
+  // Expose control API via ref (for video export)
+  useImperativeHandle(ref, () => ({
+    start: () => {
+      setCurrentTime(0);
+      setIsPlaying(true);
+      executedActionsRef.current = new Set();
+      resetAllState();
+    },
+    pause: () => setIsPlaying(false),
+    resume: () => setIsPlaying(true),
+    getProgress: () => currentTime / TOTAL_DURATION,
+    getCurrentTime: () => currentTime,
+    getTotalDuration: () => TOTAL_DURATION,
+    isComplete: () => currentTime >= TOTAL_DURATION,
+  }), [currentTime, resetAllState]);
+
+  // Call onComplete callback when demo ends
+  useEffect(() => {
+    if (currentTime >= TOTAL_DURATION && onComplete) {
+      onComplete();
+    }
+  }, [currentTime, onComplete]);
 
   // Reference for executeAction to be used in seekToTime
   const executeActionRef = useRef(null);
@@ -159,6 +205,12 @@ const ContinuousDemo = () => {
     timerRef.current = setInterval(() => {
       setCurrentTime(prev => {
         if (prev >= TOTAL_DURATION) {
+          // If onComplete is provided (video export mode), stop at the end
+          // Otherwise, loop the demo
+          if (onComplete) {
+            setIsPlaying(false);
+            return TOTAL_DURATION;
+          }
           resetDemo();
           return 0;
         }
@@ -169,7 +221,7 @@ const ContinuousDemo = () => {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPlaying, resetDemo]);
+  }, [isPlaying, resetDemo, onComplete]);
 
   // Calculate which phase we're in (intro/demo/outro)
   const demoTime = currentTime - INTRO_DURATION; // Time within the demo portion
@@ -286,6 +338,18 @@ const ContinuousDemo = () => {
         break;
       case 'clearQuickEditResult':
         setQuickEditResult(null);
+        break;
+      case 'applyQuickEditResult':
+        // Apply the quick edit result to the actual document content
+        if (action.value) {
+          setDocumentContent(prev => {
+            const newParagraphs = [...prev.paragraphs];
+            newParagraphs[action.value.paragraphIndex] = action.value.text;
+            return { ...prev, paragraphs: newParagraphs };
+          });
+        }
+        setQuickEditResult(null);
+        setSelectionRange(null);
         break;
       case 'showAutocomplete':
         setShowAutocomplete(action.value);
@@ -416,6 +480,11 @@ const ContinuousDemo = () => {
         setReviewIssues(prev => prev.map((issue, i) => i === action.index ? { ...issue, fixed: true } : issue));
         setHighlightedReviewIssue(null);
         break;
+      case 'acceptAllReviewIssues':
+        // Mark all remaining unfixed issues as fixed
+        setReviewIssues(prev => prev.map(issue => ({ ...issue, fixed: true })));
+        setHighlightedReviewIssue(null);
+        break;
       case 'highlightReviewIssue':
         setHighlightedReviewIssue(action.value);
         break;
@@ -441,6 +510,27 @@ const ContinuousDemo = () => {
         break;
       case 'addMindlineNode':
         setMindlineNodes(prev => [...prev, action.value]);
+        break;
+      case 'setMindlineHover':
+        setMindlineHover(action.value);
+        break;
+      case 'setOutlineExpanded':
+        setOutlineExpanded(action.value);
+        break;
+      case 'setOutlineItems':
+        setOutlineItems(action.value);
+        break;
+      case 'showTodoPlan':
+        setTodoPlan(action.value);
+        setShowTodoPlanState(true);
+        break;
+      case 'updateTodoStatus':
+        setTodoPlan(prev => prev.map(item =>
+          item.id === action.value.id ? { ...item, status: action.value.status } : item
+        ));
+        break;
+      case 'hideTodoPlan':
+        setShowTodoPlanState(false);
         break;
       case 'setList':
         setDocumentContent(prev => ({
@@ -468,13 +558,18 @@ const ContinuousDemo = () => {
     resetAllState();
     executedActionsRef.current = new Set();
 
-    // Execute all actions up to the target time
-    DEMO_SCRIPT.forEach(action => {
-      if (action.time <= targetTime) {
-        executedActionsRef.current.add(`${action.time}-${action.type}`);
-        executeActionRef.current(action);
-      }
-    });
+    // Calculate demo time (accounting for intro offset)
+    const targetDemoTime = targetTime - INTRO_DURATION;
+
+    // Only execute actions if we're past the intro
+    if (targetDemoTime > 0) {
+      DEMO_SCRIPT.forEach(action => {
+        if (action.time <= targetDemoTime) {
+          executedActionsRef.current.add(`${action.time}-${action.type}`);
+          executeActionRef.current(action);
+        }
+      });
+    }
 
     setCurrentTime(targetTime);
   };
@@ -516,6 +611,8 @@ const ContinuousDemo = () => {
             showCreateModal={showCreateModal}
             createModalInput={createModalInput}
             onCloseModal={() => setShowCreateModal(false)}
+            outlineExpanded={outlineExpanded}
+            outlineItems={outlineItems}
           />
 
           {/* Main Editor */}
@@ -534,7 +631,7 @@ const ContinuousDemo = () => {
             {/* Editor Content */}
             <div className="flex-1 p-4 md:p-6 overflow-hidden relative min-h-0">
               {showMindlines ? (
-                <MindlinesView nodes={mindlineNodes} />
+                <MindlinesView nodes={mindlineNodes} hoveredNode={mindlineHover} />
               ) : (
                 <DocumentView
                   content={documentContent}
@@ -564,8 +661,8 @@ const ContinuousDemo = () => {
             />
           )}
 
-          {/* Chat Panel - hidden during review */}
-          {!showReview && (
+          {/* Chat Panel - hidden during review and mindlines */}
+          {!showReview && !showMindlines && (
             <DemoChatPanel
               messages={chatMessages}
               inputValue={chatInput}
@@ -579,36 +676,40 @@ const ContinuousDemo = () => {
               isUploading={showKBUpload}
               uploadProgress={kbUploadProgress}
               currentUploadFile={currentUploadFile}
+              todoPlan={todoPlan}
+              showTodoPlan={showTodoPlan}
             />
           )}
         </div>
       </DemoContainer>
 
-      {/* Progress Bar - Clickable */}
-      <div className="mt-4">
-        <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
-          <span>{displayPhase}</span>
-          <span>{Math.floor(currentTime / 1000)}s / {Math.floor(TOTAL_DURATION / 1000)}s</span>
+      {/* Progress Bar - Clickable (hidden in video export mode) */}
+      {!hideControls && (
+        <div className="mt-4">
+          <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
+            <span>{displayPhase}</span>
+            <span>{Math.floor(currentTime / 1000)}s / {Math.floor(TOTAL_DURATION / 1000)}s</span>
+          </div>
+          <div
+            className="w-full h-2 bg-white/10 rounded-full overflow-hidden cursor-pointer group"
+            onClick={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const clickX = e.clientX - rect.left;
+              const percentage = clickX / rect.width;
+              const newTime = Math.floor(percentage * TOTAL_DURATION);
+              handleSeek(newTime);
+            }}
+          >
+            <motion.div
+              className="h-full bg-white/30 group-hover:bg-white/40 transition-colors"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
         </div>
-        <div
-          className="w-full h-2 bg-white/10 rounded-full overflow-hidden cursor-pointer group"
-          onClick={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-            const clickX = e.clientX - rect.left;
-            const percentage = clickX / rect.width;
-            const newTime = Math.floor(percentage * TOTAL_DURATION);
-            handleSeek(newTime);
-          }}
-        >
-          <motion.div
-            className="h-full bg-white/30 group-hover:bg-white/40 transition-colors"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-      </div>
+      )}
     </div>
   );
-};
+});
 
 // Document View Component
 const DocumentView = ({
@@ -738,7 +839,7 @@ const DocumentView = ({
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-xl md:text-2xl font-bold text-white max-w-lg"
+          className="text-xl md:text-2xl font-bold text-white "
         >
           {content.title}
           {content.paragraphs.length === 0 && cursorVisible && (
@@ -991,7 +1092,7 @@ const ParagraphRenderer = ({
       <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-sm font-semibold text-white mt-3 max-w-lg"
+        className="text-sm font-semibold text-white mt-3 "
       >
         {trimmed.slice(3)}
       </motion.h2>
@@ -1003,7 +1104,7 @@ const ParagraphRenderer = ({
       <motion.h3
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-xs font-medium text-gray-200 mt-2 max-w-lg"
+        className="text-xs font-medium text-gray-200 mt-2 "
       >
         {trimmed.slice(4)}
       </motion.h3>
@@ -1016,7 +1117,7 @@ const ParagraphRenderer = ({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="flex gap-2 text-xs text-gray-300 pl-2 max-w-lg"
+        className="flex gap-2 text-xs text-gray-300 pl-2 "
       >
         <span className="text-blue-400">•</span>
         <span>{renderInlineMarkdown(trimmed.slice(2))}</span>
@@ -1025,7 +1126,7 @@ const ParagraphRenderer = ({
   }
 
   return (
-    <div className="relative max-w-lg">
+    <div className="relative ">
       <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
         {renderInlineMarkdown(para)}
         {/* Ghost text */}
@@ -1263,54 +1364,93 @@ const QuickEditMenu = ({ hovered }) => {
   );
 };
 
-// Mindlines View
-const MindlinesView = ({ nodes }) => {
+// Mindlines View - Shows mindmap visualization (outline is in sidebar)
+const MindlinesView = ({ nodes, hoveredNode }) => {
   return (
-    <div className="h-full flex items-center justify-center">
-      <div className="relative w-full" style={{ height: '180px' }}>
-        {/* Connections */}
-        <svg className="absolute inset-0 w-full h-full" style={{ overflow: 'visible' }}>
-          {nodes.filter(n => n.parent).map(node => {
-            const parent = nodes.find(p => p.id === node.parent);
-            if (!parent) return null;
-            return (
-              <motion.path
-                key={`${parent.id}-${node.id}`}
-                d={`M ${parent.x} ${parent.y + 20} Q ${parent.x} ${(parent.y + node.y) / 2} ${node.x} ${node.y - 15}`}
-                stroke="rgba(59, 130, 246, 0.3)"
-                strokeWidth="2"
-                fill="none"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              />
-            );
-          })}
-        </svg>
+    <div className="h-full flex flex-col">
+      {/* Header */}
+      <div className="px-3 py-2 border-b border-white/10 flex items-center gap-2">
+        <span className="text-[11px] font-medium text-gray-400">Mindlines View</span>
+      </div>
 
-        {/* Nodes */}
-        <AnimatePresence>
-          {nodes.map((node, idx) => (
-            <motion.div
-              key={node.id}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20, delay: idx * 0.1 }}
-              className={`absolute px-3 py-1.5 rounded-lg border text-xs font-medium shadow-lg ${
-                node.level === 0
-                  ? 'bg-blue-500/20 border-blue-500/40 text-blue-300'
-                  : 'bg-white/5 border-white/10 text-gray-300'
-              }`}
-              style={{
-                left: node.x,
-                top: node.y,
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              {node.label}
-            </motion.div>
-          ))}
-        </AnimatePresence>
+      {/* Mindmap */}
+      <div className="flex-1 relative overflow-hidden">
+          {/* SVG Connections - horizontal tree layout */}
+          <svg className="absolute inset-0 w-full h-full" style={{ overflow: 'visible' }}>
+            {nodes.filter(n => n.parent).map(node => {
+              const parent = nodes.find(p => p.id === node.parent);
+              if (!parent) return null;
+              const isHighlighted = hoveredNode === node.id || hoveredNode === parent.id;
+              // Draw curved path from right side of parent to left side of child
+              const startX = parent.x + 40; // Right edge of parent
+              const startY = parent.y;
+              const endX = node.x - 25; // Left edge of child
+              const endY = node.y;
+              const midX = (startX + endX) / 2;
+              // Curved path using quadratic bezier
+              const path = `M ${startX} ${startY} Q ${midX} ${startY}, ${midX} ${(startY + endY) / 2} Q ${midX} ${endY}, ${endX} ${endY}`;
+              return (
+                <motion.path
+                  key={`${parent.id}-${node.id}`}
+                  d={path}
+                  stroke={isHighlighted ? "rgba(59, 130, 246, 0.5)" : "rgba(255,255,255,0.15)"}
+                  strokeWidth={isHighlighted ? "2" : "1"}
+                  fill="none"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                />
+              );
+            })}
+          </svg>
+
+          {/* Nodes */}
+          <AnimatePresence>
+            {nodes.map((node, idx) => {
+              const isHovered = hoveredNode === node.id;
+              const sizeByLevel = {
+                0: 'px-3 py-1.5 text-xs font-medium',
+                1: 'px-2.5 py-1 text-[10px]',
+                2: 'px-2 py-0.5 text-[9px]',
+              };
+
+              return (
+                <motion.div
+                  key={node.id}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{
+                    scale: 1,
+                    opacity: 1,
+                    boxShadow: isHovered ? '0 0 20px rgba(59, 130, 246, 0.5)' : 'none',
+                  }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20, delay: idx * 0.1 }}
+                  className={`absolute rounded-lg border transition-colors ${sizeByLevel[node.level]} ${
+                    isHovered
+                      ? 'bg-blue-500/20 border-blue-500/50 text-blue-300'
+                      : node.level === 0
+                      ? 'bg-blue-500/10 border-blue-500/30 text-white'
+                      : node.level === 1
+                      ? 'bg-white/5 border-white/15 text-gray-300'
+                      : 'bg-white/[0.02] border-white/10 text-gray-400'
+                  }`}
+                  style={{
+                    left: node.x,
+                    top: node.y,
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                >
+                  {node.label}
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+
+        {/* Minimap indicator */}
+        <div className="absolute bottom-3 right-3 w-16 h-12 bg-white/5 border border-white/10 rounded">
+          <div className="absolute inset-1 flex items-center justify-center">
+            <div className="w-2 h-2 bg-blue-500/50 rounded-sm" />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,12 @@
  * Export Demo Video Script
  *
  * Uses Puppeteer's native screencast to record the demo in real-time.
+ * Records the same ContinuousDemo component as shown on the /demo page.
+ *
+ * Timeline (106 seconds total):
+ * - 0-3s: Logo intro animation
+ * - 3-103s: Demo content (100 seconds)
+ * - 103-106s: Logo outro animation
  *
  * Prerequisites:
  * 1. FFmpeg must be installed and available in PATH
@@ -101,6 +107,14 @@ async function recordVideo() {
 
   // Wait for the API to be ready
   await page.waitForFunction(() => window.__VIDEO_EXPORT__ !== undefined, { timeout: 10000 });
+  console.log('   API ready');
+
+  // Wait for page to be fully ready
+  await page.waitForFunction(() => window.__VIDEO_EXPORT__.isReady(), { timeout: 10000 });
+  console.log('   Page ready');
+
+  // Small delay to ensure everything is initialized
+  await new Promise(r => setTimeout(r, 500));
 
   const outputPath = path.join(outputDir, `${CONFIG.outputName}.webm`);
   const mp4OutputPath = path.join(outputDir, `${CONFIG.outputName}.mp4`);
@@ -113,9 +127,15 @@ async function recordVideo() {
     speed: 1,
   });
 
+  // Small delay before starting to ensure recorder is ready
+  await new Promise(r => setTimeout(r, 200));
+
   // Signal the page to start
+  console.log('   Calling start()...');
   await page.evaluate(() => window.__VIDEO_EXPORT__.start());
 
+  // Wait for playback to actually begin
+  await new Promise(r => setTimeout(r, 300));
   console.log('   Recording started...');
 
   // Get duration from page

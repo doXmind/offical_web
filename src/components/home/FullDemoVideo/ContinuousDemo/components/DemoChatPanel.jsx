@@ -18,6 +18,10 @@ import {
   Presentation,
   Upload,
   X,
+  ListTodo,
+  Circle,
+  CheckCircle2,
+  PlayCircle,
 } from 'lucide-react';
 
 // Simple markdown renderer for AI messages
@@ -141,6 +145,87 @@ const getKBFileIcon = (type) => {
   }
 };
 
+// TODO Plan Component - shows agent execution plan
+const TodoPlan = ({ items }) => {
+  if (!items || items.length === 0) return null;
+
+  const getStatusIcon = (status) => {
+    switch (status) {
+      case 'completed':
+        return <CheckCircle2 className="w-3 h-3 text-green-400" />;
+      case 'in_progress':
+        return <Loader2 className="w-3 h-3 text-blue-400 animate-spin" />;
+      default:
+        return <Circle className="w-3 h-3 text-gray-500" />;
+    }
+  };
+
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'completed':
+        return 'text-gray-500 line-through';
+      case 'in_progress':
+        return 'text-blue-300';
+      default:
+        return 'text-gray-400';
+    }
+  };
+
+  const completedCount = items.filter(item => item.status === 'completed').length;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      className="p-2 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg"
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-1.5">
+          <ListTodo className="w-3 h-3 text-blue-400" />
+          <span className="text-[9px] font-medium text-blue-300">Execution Plan</span>
+        </div>
+        <span className="text-[8px] text-gray-500">
+          {completedCount}/{items.length}
+        </span>
+      </div>
+
+      {/* Progress bar */}
+      <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden mb-2">
+        <motion.div
+          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: `${(completedCount / items.length) * 100}%` }}
+          transition={{ duration: 0.3 }}
+        />
+      </div>
+
+      {/* Todo items */}
+      <div className="space-y-1">
+        {items.map((item, idx) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, x: -5 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: idx * 0.05 }}
+            className={`flex items-start gap-1.5 text-[8px] ${
+              item.status === 'in_progress' ? 'bg-blue-500/10 rounded px-1 py-0.5 -mx-1' : ''
+            }`}
+          >
+            <div className="flex-shrink-0 mt-0.5">
+              {getStatusIcon(item.status)}
+            </div>
+            <span className={getStatusColor(item.status)}>
+              {item.text}
+            </span>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 const DemoChatPanel = ({
   messages = [],
   inputValue = '',
@@ -154,6 +239,8 @@ const DemoChatPanel = ({
   isUploading = false,
   uploadProgress = 0,
   currentUploadFile = null,
+  todoPlan = [],
+  showTodoPlan = false,
 }) => {
   const containerRef = useRef(null);
 
@@ -162,7 +249,7 @@ const DemoChatPanel = ({
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
-  }, [messages, tools, isThinking, kbFiles]);
+  }, [messages, tools, isThinking, kbFiles, todoPlan]);
 
   // Calculate total sections from all KB files
   const totalSections = kbFiles.reduce((sum, file) => sum + (file.sections || 0), 0);
@@ -299,7 +386,7 @@ const DemoChatPanel = ({
         </AnimatePresence>
 
         {/* Thinking indicator */}
-        {isThinking && (
+        {isThinking && !showTodoPlan && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -311,6 +398,13 @@ const DemoChatPanel = ({
             <span>Thinking...</span>
           </motion.div>
         )}
+
+        {/* TODO Plan - shows agent execution plan */}
+        <AnimatePresence>
+          {showTodoPlan && todoPlan.length > 0 && (
+            <TodoPlan items={todoPlan} />
+          )}
+        </AnimatePresence>
 
         {/* Tool indicators */}
         <AnimatePresence>

@@ -3,27 +3,26 @@
  *
  * Story: Writing a complete academic essay on "AI in Healthcare"
  *
- * FLOW - Full Essay Writing Experience:
+ * NEW FLOW - Full Essay Writing Experience with Agent TODO:
  * 1. User creates document, writes title and first sentence
  * 2. AI Autocomplete suggests completion (ghost text)
- * 3. User uploads multiple PDFs/PPTX to Knowledge Base
- * 4. User asks AI to write a template/outline
- * 5. AI activates essay-writing skill → searches KB → web search → writes outline
- * 6. AI confirms details with user
- * 7. User provides more context
- * 8. AI generates complete essay (long, professional content)
- * 9. User uses Text Review for grammar/clarity suggestions
- * 10. User uses Quick Edit on specific text
+ * 3. Quick Edit - improve the first paragraph
+ * 4. User uploads multiple PDFs/PPTX to Knowledge Base
+ * 5. User asks AI to write complete essay
+ *    - AI shows TODO plan first
+ *    - Executes step by step: read skills → search KB (multiple) → web search → write
+ *    - Shows diff review
+ * 6. Text Review for grammar/clarity
+ * 7. Show Mindmap/Outline view of the essay structure
  *
- * Timeline (100 seconds total):
+ * Timeline (~85 seconds total):
  * 0-6s:     Create document, type title
  * 6-14s:    Write first sentence + AI Autocomplete
- * 14-26s:   Upload multiple files to Knowledge Base
- * 26-50s:   Ask AI to write template → Skills + KB search + Web search → Outline
- * 50-58s:   AI asks for confirmation, user responds
- * 58-78s:   AI generates full essay (long content with diff review)
- * 78-90s:   Text Review - analyze, show suggestions, accept fixes
- * 90-100s:  Quick Edit on text
+ * 14-22s:   Quick Edit on the paragraph
+ * 22-30s:   Upload multiple files to Knowledge Base (1.5x speed)
+ * 30-58s:   AI writes complete essay with TODO plan execution (1.5x speed)
+ * 61-72s:   Text Review - analyze, show 6 suggestions, accept first + accept all
+ * 74-85s:   Mindmap/Outline view
  */
 
 export const DEMO_SCRIPT = [
@@ -56,7 +55,7 @@ export const DEMO_SCRIPT = [
 
   // ==================== PHASE 2: First Sentence + Autocomplete (6-14s) ====================
   { time: 6000, type: 'setPhase', value: 'Writing...' },
-  { time: 6000, type: 'activateToolbar', value: [] }, // Clear H1 active state when moving to paragraph
+  { time: 6000, type: 'activateToolbar', value: [] },
   { time: 6500, type: 'addParagraph', value: '' },
   { time: 7000, type: 'typeParagraph', value: 'Artificial intelligence represents one of the most significant technological' },
 
@@ -70,255 +69,308 @@ export const DEMO_SCRIPT = [
   { time: 13000, type: 'acceptGhostText', value: true },
   { time: 13500, type: 'showAutocomplete', value: false },
 
-  // ==================== PHASE 3: Upload to Knowledge Base (14-26s) ====================
-  { time: 14000, type: 'setPhase', value: 'Knowledge Base' },
+  // ==================== PHASE 3: Quick Edit (14-22s) ====================
+  { time: 14000, type: 'setPhase', value: 'Quick Edit' },
 
-  // Click + button to show attach menu
-  { time: 14500, type: 'showAttachMenu', value: true },
-  { time: 15500, type: 'showAttachMenu', value: false },
+  // Select the ENTIRE first paragraph for quick edit
+  // Full paragraph (225 chars): "Artificial intelligence represents one of the most significant technological advancements in the 21st century, with the potential to fundamentally reshape how healthcare is delivered, diagnosed, and managed across the globe."
+  { time: 14500, type: 'setSelection', value: { paragraphIndex: 0, start: 0, end: 225 } },
 
-  // First file upload - WHO Report PDF
-  { time: 16000, type: 'showKBUpload', value: true },
-  { time: 16000, type: 'setKBProgress', value: 30 },
-  { time: 16300, type: 'setKBProgress', value: 70 },
-  { time: 16600, type: 'setKBProgress', value: 100 },
-  { time: 17000, type: 'addKBFile', value: { name: 'WHO-AI-Healthcare-2024.pdf', sections: 156, type: 'pdf', status: 'indexed' } },
+  // Show quick edit menu
+  { time: 15000, type: 'showQuickEdit', value: true },
 
-  // Second file upload - Research Paper
-  { time: 17500, type: 'setKBProgress', value: 40 },
-  { time: 17800, type: 'setKBProgress', value: 80 },
-  { time: 18100, type: 'setKBProgress', value: 100 },
-  { time: 18500, type: 'addKBFile', value: { name: 'Nature-Medicine-AI-Review.pdf', sections: 89, type: 'pdf', status: 'indexed' } },
+  // Hover over "Improve" option
+  { time: 16000, type: 'hoverQuickEdit', value: 'improve' },
 
-  // Third file upload - Presentation
-  { time: 19000, type: 'setKBProgress', value: 50 },
-  { time: 19300, type: 'setKBProgress', value: 100 },
-  { time: 19700, type: 'addKBFile', value: { name: 'Healthcare-AI-Trends-2024.pptx', sections: 45, type: 'pptx', status: 'indexed' } },
+  // Click improve - hide menu and show loading
+  { time: 17500, type: 'showQuickEdit', value: false },
+  { time: 17500, type: 'quickEditLoading', value: true },
 
-  // Fourth file upload - Guidelines
-  { time: 20200, type: 'setKBProgress', value: 60 },
-  { time: 20500, type: 'setKBProgress', value: 100 },
-  { time: 20900, type: 'addKBFile', value: { name: 'FDA-AI-Medical-Devices.pdf', sections: 72, type: 'pdf', status: 'indexed' } },
-
-  { time: 21500, type: 'showKBUpload', value: false },
-  { time: 22000, type: 'setPhase', value: '362 sections indexed' },
-
-  // ==================== PHASE 4: Ask AI to Write Template (26-50s) ====================
-  { time: 26000, type: 'setPhase', value: 'AI Chat' },
-
-  // Enable web search toggle
-  { time: 26200, type: 'setWebSearchEnabled', value: true },
-
-  // User asks for template
-  { time: 26500, type: 'setChatInput', value: 'Help me write a comprehensive academic essay on AI in healthcare. Create an outline with sections covering current applications, challenges, and future directions. Use the uploaded research materials.' },
-  { time: 26600, type: 'setChatTyping', value: true },
-
-  { time: 29000, type: 'sendChatMessage', value: 'Help me write a comprehensive academic essay on AI in healthcare. Create an outline with sections covering current applications, challenges, and future directions. Use the uploaded research materials.' },
-
-  // AI starts processing - activates skill
-  { time: 29500, type: 'aiThinking', value: true },
-  { time: 30000, type: 'addChatTool', value: { name: 'read_skill_instructions', status: 'running' } },
-  { time: 30500, type: 'setPhase', value: 'Activating essay skill...' },
-  { time: 31500, type: 'updateChatTool', index: 0, value: { status: 'completed' } },
-
-  // Search knowledge base
-  { time: 32000, type: 'addChatTool', value: { name: 'search_knowledge_base', status: 'running' } },
-  { time: 32500, type: 'setPhase', value: 'Searching KB...' },
-  { time: 34000, type: 'updateChatTool', index: 1, value: { status: 'completed' } },
-
-  // Read KB documents
-  { time: 34500, type: 'addChatTool', value: { name: 'read_kb_document', status: 'running' } },
-  { time: 36500, type: 'updateChatTool', index: 2, value: { status: 'completed' } },
-
-  // Web search for latest data
-  { time: 37000, type: 'addChatTool', value: { name: 'web_search', status: 'running' } },
-  { time: 37500, type: 'setPhase', value: 'Web search...' },
-  { time: 39500, type: 'updateChatTool', index: 3, value: { status: 'completed' } },
-
-  // View current document
-  { time: 40000, type: 'addChatTool', value: { name: 'view_document', status: 'running' } },
-  { time: 41000, type: 'updateChatTool', index: 4, value: { status: 'completed' } },
-
-  // Insert outline
-  { time: 41500, type: 'addChatTool', value: { name: 'insert_text', status: 'running' } },
-  { time: 43500, type: 'updateChatTool', index: 5, value: { status: 'completed' } },
-
-  // AI response with outline
-  { time: 44000, type: 'clearChatTools', value: true },
-  { time: 44000, type: 'aiThinking', value: false },
-  { time: 44500, type: 'addAIResponse', value: 'I\'ve analyzed your uploaded materials and created a comprehensive essay outline. Based on the WHO report, Nature Medicine review, and FDA guidelines, I\'ve structured the essay into 5 main sections:\n\n**Proposed Outline:**\n1. Introduction & Background\n2. Current AI Applications in Healthcare\n3. Regulatory Landscape & Challenges\n4. Ethical Considerations\n5. Future Directions & Conclusions\n\nBefore I expand each section, could you tell me:\n• What is the target word count?\n• Any specific applications to emphasize?\n• Academic citation style preference (APA, MLA, Chicago)?' },
-
-  // Show the outline in editor via diff (using str_replace format like real product)
-  { time: 45000, type: 'setPhase', value: 'Review Outline' },
-  { time: 45000, type: 'showDiffMode', value: true },
-  { time: 45500, type: 'setDiffContent', value: {
-    type: 'inline_inserts',
-    changes: [
-      { afterParagraph: 0, type: 'insert', text: '## 1. Introduction & Background\n- Evolution of AI in healthcare\n- Scope and significance of the transformation' },
-      { afterParagraph: 0, type: 'insert', text: '## 2. Current AI Applications in Healthcare\n### 2.1 Diagnostic Imaging & Radiology\n### 2.2 Drug Discovery & Development' },
-      { afterParagraph: 0, type: 'insert', text: '## 3. Regulatory Landscape & Challenges\n### 3.1 FDA Approval Pathways\n### 3.2 Data Privacy Concerns' },
-      { afterParagraph: 0, type: 'insert', text: '## 4. Ethical Considerations\n### 4.1 Algorithmic Bias\n### 4.2 Transparency' },
-      { afterParagraph: 0, type: 'insert', text: '## 5. Future Directions & Conclusions' },
-    ]
+  // Show improved result - genuinely improved version with stronger language and better flow
+  { time: 20000, type: 'quickEditResult', value: {
+    paragraphIndex: 0,
+    original: "Artificial intelligence represents one of the most significant technological advancements in the 21st century, with the potential to fundamentally reshape how healthcare is delivered, diagnosed, and managed across the globe.",
+    text: "Artificial intelligence has emerged as the defining technological revolution of the 21st century, wielding unprecedented potential to transform healthcare delivery, enhance diagnostic precision, and revolutionize patient management on a global scale."
   }},
 
-  // Accept outline
-  { time: 49000, type: 'acceptDiffChange', index: 0 },
-  { time: 49500, type: 'showDiffMode', value: false },
-  { time: 49500, type: 'clearDiffContent', value: true },
-  { time: 49500, type: 'applyOutline', value: true },
+  // Apply the improved text to the document (persist the change)
+  { time: 21500, type: 'applyQuickEditResult', value: {
+    paragraphIndex: 0,
+    text: "Artificial intelligence has emerged as the defining technological revolution of the 21st century, wielding unprecedented potential to transform healthcare delivery, enhance diagnostic precision, and revolutionize patient management on a global scale."
+  }},
 
-  // ==================== PHASE 5: User Confirms Details (50-58s) ====================
-  { time: 50000, type: 'setPhase', value: 'Confirming details' },
+  // ==================== PHASE 4: Upload to Knowledge Base (22-30s, 1.5x speed) ====================
+  { time: 22000, type: 'setPhase', value: 'Knowledge Base' },
 
-  // User responds with details
-  { time: 51000, type: 'setChatInput', value: 'Target 3000 words. Emphasize diagnostic imaging and drug discovery. Use APA 7th edition. Focus on recent FDA approvals and WHO recommendations.' },
-  { time: 51100, type: 'setChatTyping', value: true },
+  // Click + button to show attach menu
+  { time: 22300, type: 'showAttachMenu', value: true },
+  { time: 23000, type: 'showAttachMenu', value: false },
 
-  { time: 54000, type: 'sendChatMessage', value: 'Target 3000 words. Emphasize diagnostic imaging and drug discovery. Use APA 7th edition. Focus on recent FDA approvals and WHO recommendations.' },
+  // First file upload - WHO Report PDF
+  { time: 23300, type: 'showKBUpload', value: true },
+  { time: 23300, type: 'setKBProgress', value: 30 },
+  { time: 23500, type: 'setKBProgress', value: 70 },
+  { time: 23700, type: 'setKBProgress', value: 100 },
+  { time: 24000, type: 'addKBFile', value: { name: 'WHO-AI-Healthcare-2024.pdf', sections: 156, type: 'pdf', status: 'indexed' } },
 
-  // AI acknowledges
-  { time: 54500, type: 'aiThinking', value: true },
-  { time: 55000, type: 'addAIResponse', value: 'Perfect. I\'ll now write the complete essay with:\n• ~3000 words across all sections\n• Emphasis on diagnostic imaging and drug discovery\n• APA 7th edition citations\n• WHO and FDA data integration\n\nGenerating the full content now...' },
-  { time: 55500, type: 'aiThinking', value: false },
+  // Second file upload - Research Paper
+  { time: 24300, type: 'setKBProgress', value: 40 },
+  { time: 24500, type: 'setKBProgress', value: 80 },
+  { time: 24700, type: 'setKBProgress', value: 100 },
+  { time: 25000, type: 'addKBFile', value: { name: 'Nature-Medicine-AI-Review.pdf', sections: 89, type: 'pdf', status: 'indexed' } },
 
-  // ==================== PHASE 6: AI Generates Full Essay (58-78s) ====================
-  { time: 58000, type: 'setPhase', value: 'Generating essay...' },
-  { time: 58000, type: 'aiThinking', value: true },
+  // Third file upload - Presentation
+  { time: 25300, type: 'setKBProgress', value: 50 },
+  { time: 25500, type: 'setKBProgress', value: 100 },
+  { time: 25800, type: 'addKBFile', value: { name: 'Healthcare-AI-Trends-2024.pptx', sections: 45, type: 'pptx', status: 'indexed' } },
 
-  // Multiple tool calls for comprehensive writing
-  { time: 58500, type: 'addChatTool', value: { name: 'search_knowledge_base', status: 'running' } },
-  { time: 60000, type: 'updateChatTool', index: 0, value: { status: 'completed' } },
+  // Fourth file upload - Guidelines
+  { time: 26100, type: 'setKBProgress', value: 60 },
+  { time: 26300, type: 'setKBProgress', value: 100 },
+  { time: 26600, type: 'addKBFile', value: { name: 'FDA-AI-Medical-Devices.pdf', sections: 72, type: 'pdf', status: 'indexed' } },
 
-  { time: 60500, type: 'addChatTool', value: { name: 'read_kb_document', status: 'running' } },
-  { time: 62500, type: 'updateChatTool', index: 1, value: { status: 'completed' } },
+  { time: 27000, type: 'showKBUpload', value: false },
+  { time: 27300, type: 'setPhase', value: '362 sections indexed' },
 
-  { time: 63000, type: 'addChatTool', value: { name: 'web_search', status: 'running' } },
-  { time: 65000, type: 'updateChatTool', index: 2, value: { status: 'completed' } },
+  // Small pause before chat
+  { time: 29300, type: 'setPhase', value: 'AI Chat' },
 
-  { time: 65500, type: 'addChatTool', value: { name: 'str_replace_editor', status: 'running' } },
-  { time: 68000, type: 'updateChatTool', index: 3, value: { status: 'completed' } },
+  // ==================== PHASE 5: AI Writes Complete Essay with TODO Plan (30-58s) ====================
+  // Enable web search toggle
+  { time: 30300, type: 'setWebSearchEnabled', value: true },
 
-  { time: 68500, type: 'clearChatTools', value: true },
+  // User asks for complete essay directly
+  { time: 30800, type: 'setChatInput', value: 'Write a comprehensive 3000-word academic essay on AI in healthcare. Cover diagnostic imaging, drug discovery, regulatory challenges, and ethical considerations. Use APA 7th edition citations and integrate data from my uploaded research materials.' },
+  { time: 30900, type: 'setChatTyping', value: true },
 
-  // Show full essay in diff mode - inline inserts after each section heading
-  { time: 69000, type: 'setPhase', value: 'Review Essay' },
-  { time: 69000, type: 'showDiffMode', value: true },
-  { time: 69500, type: 'setDiffContent', value: {
+  { time: 33300, type: 'sendChatMessage', value: 'Write a comprehensive 3000-word academic essay on AI in healthcare. Cover diagnostic imaging, drug discovery, regulatory challenges, and ethical considerations. Use APA 7th edition citations and integrate data from my uploaded research materials.' },
+
+  // AI starts processing - show TODO plan first
+  { time: 33800, type: 'aiThinking', value: true },
+  { time: 34300, type: 'setPhase', value: 'Planning...' },
+
+  // Show TODO plan (1.5x speed)
+  { time: 34800, type: 'showTodoPlan', value: [
+    { id: 1, text: 'Read essay writing skill instructions', status: 'pending' },
+    { id: 2, text: 'Search knowledge base for AI diagnostics', status: 'pending' },
+    { id: 3, text: 'Search knowledge base for drug discovery', status: 'pending' },
+    { id: 4, text: 'Search knowledge base for FDA regulations', status: 'pending' },
+    { id: 5, text: 'Web search for latest 2024 statistics', status: 'pending' },
+    { id: 6, text: 'Generate essay with APA citations', status: 'pending' },
+  ]},
+
+  // Execute TODO items one by one (1.5x speed)
+  // Step 1: Read skill instructions
+  { time: 35800, type: 'updateTodoStatus', value: { id: 1, status: 'in_progress' } },
+  { time: 35800, type: 'addChatTool', value: { name: 'read_skill_instructions', status: 'running' } },
+  { time: 36100, type: 'setPhase', value: 'Reading skill instructions...' },
+  { time: 37100, type: 'updateChatTool', index: 0, value: { status: 'completed' } },
+  { time: 37100, type: 'updateTodoStatus', value: { id: 1, status: 'completed' } },
+
+  // Step 2: Search KB for diagnostics
+  { time: 37500, type: 'updateTodoStatus', value: { id: 2, status: 'in_progress' } },
+  { time: 37500, type: 'addChatTool', value: { name: 'search_knowledge_base', status: 'running', query: 'AI diagnostic imaging radiology' } },
+  { time: 37800, type: 'setPhase', value: 'Searching KB: diagnostics...' },
+  { time: 39100, type: 'updateChatTool', index: 1, value: { status: 'completed' } },
+  { time: 39100, type: 'updateTodoStatus', value: { id: 2, status: 'completed' } },
+
+  // Step 3: Search KB for drug discovery
+  { time: 39500, type: 'updateTodoStatus', value: { id: 3, status: 'in_progress' } },
+  { time: 39500, type: 'addChatTool', value: { name: 'search_knowledge_base', status: 'running', query: 'AI drug discovery pharmaceutical' } },
+  { time: 39800, type: 'setPhase', value: 'Searching KB: drug discovery...' },
+  { time: 41100, type: 'updateChatTool', index: 2, value: { status: 'completed' } },
+  { time: 41100, type: 'updateTodoStatus', value: { id: 3, status: 'completed' } },
+
+  // Step 4: Search KB for FDA regulations
+  { time: 41500, type: 'updateTodoStatus', value: { id: 4, status: 'in_progress' } },
+  { time: 41500, type: 'addChatTool', value: { name: 'search_knowledge_base', status: 'running', query: 'FDA AI medical devices regulations' } },
+  { time: 41800, type: 'setPhase', value: 'Searching KB: FDA regulations...' },
+  { time: 43100, type: 'updateChatTool', index: 3, value: { status: 'completed' } },
+  { time: 43100, type: 'updateTodoStatus', value: { id: 4, status: 'completed' } },
+
+  // Step 5: Web search for latest statistics
+  { time: 43500, type: 'updateTodoStatus', value: { id: 5, status: 'in_progress' } },
+  { time: 43500, type: 'addChatTool', value: { name: 'web_search', status: 'running', query: 'AI healthcare statistics 2024' } },
+  { time: 43800, type: 'setPhase', value: 'Web searching: 2024 stats...' },
+  { time: 45500, type: 'updateChatTool', index: 4, value: { status: 'completed' } },
+  { time: 45500, type: 'updateTodoStatus', value: { id: 5, status: 'completed' } },
+
+  // Step 6: Generate essay
+  { time: 45800, type: 'updateTodoStatus', value: { id: 6, status: 'in_progress' } },
+  { time: 45800, type: 'addChatTool', value: { name: 'str_replace_editor', status: 'running' } },
+  { time: 46100, type: 'setPhase', value: 'Writing essay...' },
+  { time: 49100, type: 'updateChatTool', index: 5, value: { status: 'completed' } },
+  { time: 49100, type: 'updateTodoStatus', value: { id: 6, status: 'completed' } },
+
+  // Clear tools and hide TODO plan
+  { time: 49500, type: 'clearChatTools', value: true },
+  { time: 49500, type: 'hideTodoPlan', value: true },
+
+  // Show full essay in diff mode
+  { time: 50000, type: 'setPhase', value: 'Review Essay' },
+  { time: 50000, type: 'showDiffMode', value: true },
+  { time: 50500, type: 'setDiffContent', value: {
     type: 'inline_inserts',
     changes: [
-      // Document paragraphs after applyOutline:
-      // 0: intro text | 1: ## 1. Introduction | 2: - Evolution | 3: - Scope
-      // 4: ## 2. Current AI | 5: ### 2.1 Diagnostic | 6: ### 2.2 Drug
-      // 7: ## 3. Regulatory | 8: ### 3.1 FDA | 9: ### 3.2 Data Privacy
-      // 10: ## 4. Ethical | 11: ### 4.1 Algorithmic | 12: ### 4.2 Transparency
-      // 13: ## 5. Future
+      // Insert after paragraph 0 (intro)
+      { afterParagraph: 0, type: 'insert', text: '## 1. Introduction & Background\n\nThe integration of artificial intelligence into healthcare represents an unprecedented paradigm shift in the history of medicine. According to the World Health Organization\'s 2024 Global AI Health Report, 78.3% of healthcare institutions across 142 countries have implemented or are piloting AI-driven diagnostic and clinical decision support systems (WHO, 2024). This rapid adoption trajectory, accelerating from merely 23% in 2020, reflects both technological maturation and mounting evidence of clinical efficacy.\n\nMcKinsey Global Institute estimates the potential annual value of AI applications in healthcare at $150 billion by 2026, with the majority derived from clinical operations and drug development optimization (McKinsey, 2024).' },
 
-      // Insert after "## 1. Introduction & Background" (paragraph 1)
-      { afterParagraph: 1, type: 'insert', text: 'The integration of artificial intelligence into healthcare represents a paradigm shift unprecedented in the history of medicine. According to the World Health Organization\'s 2024 Global AI Health Report, 78.3% of healthcare institutions across 142 countries have implemented or are actively piloting AI-driven diagnostic and clinical decision support systems (WHO, 2024). This rapid adoption trajectory, accelerating from merely 23% in 2020, reflects both technological maturation and mounting evidence of clinical efficacy.\n\nThe convergence of exponential growth in computational power, the availability of large-scale medical datasets, and advances in deep learning architectures has created conditions uniquely favorable to AI development in healthcare. McKinsey Global Institute estimates the potential annual value of AI applications in healthcare at $150 billion by 2026, with the majority derived from clinical operations and drug development optimization (McKinsey, 2024).' },
+      { afterParagraph: 0, type: 'insert', text: '## 2. Current AI Applications in Healthcare\n\n### 2.1 Diagnostic Imaging & Radiology\n\nThe U.S. Food and Drug Administration has authorized 692 AI/ML-enabled medical devices as of January 2024, with radiological applications comprising 75.8% of all approvals—a testament to both technical feasibility and demonstrable clinical utility (FDA, 2024).\n\nDeep learning models have achieved diagnostic performance that meets or exceeds board-certified radiologists:\n\n- **Mammography**: Google Health\'s AI demonstrated 94.5% sensitivity in breast cancer detection\n- **Chest CT Analysis**: Viz.ai identifies vessel occlusions within 60 seconds\n- **Retinal Imaging**: IDx-DR achieved 97.4% sensitivity for diabetic retinopathy' },
 
-      // Insert after "### 2.1 Diagnostic Imaging & Radiology" (paragraph 5)
-      { afterParagraph: 5, type: 'insert', text: 'The U.S. Food and Drug Administration has authorized 692 AI/ML-enabled medical devices as of January 2024, with radiological applications comprising 75.8% of all approvals—a testament to both technical feasibility and demonstrable clinical utility in this domain (FDA, 2024).\n\nDeep learning models, particularly convolutional neural networks trained on datasets exceeding 500,000 annotated images, have achieved diagnostic performance that meets or exceeds board-certified radiologists across multiple modalities:\n\n- **Mammography**: Google Health\'s AI system demonstrated 94.5% sensitivity in breast cancer detection, reducing false positives by 5.7% and false negatives by 9.4% compared to standard clinical practice (McKinney et al., Nature Medicine, 2024)\n- **Chest CT Analysis**: Viz.ai\'s FDA-cleared algorithm identifies large vessel occlusions within 60 seconds, enabling "door-to-needle" times under 30 minutes in acute stroke care\n- **Retinal Imaging**: IDx-DR achieved 97.4% sensitivity for diabetic retinopathy screening, becoming the first FDA-authorized autonomous AI diagnostic system' },
+      { afterParagraph: 0, type: 'insert', text: '### 2.2 Drug Discovery & Development\n\nAI reduces drug development timelines by 40-60% while substantially decreasing failure rates. DeepMind\'s AlphaFold2 was recognized with the 2024 Nobel Prize in Chemistry for solving the protein folding problem.\n\nNotable milestones include Insilico Medicine\'s AI-designed drug ISM001-055 completing Phase I trials in record time. Industry analysts project AI-discovered drugs will comprise 30% of new molecular entities by 2028.' },
 
-      // Insert after "### 2.2 Drug Discovery & Development" (paragraph 6)
-      { afterParagraph: 6, type: 'insert', text: 'The pharmaceutical industry has witnessed AI-driven transformation of the drug discovery pipeline, with computational approaches reducing development timelines by 40-60% while substantially decreasing failure rates in clinical trials. DeepMind\'s AlphaFold2, which solved the 50-year-old protein folding problem, was recognized with the 2024 Nobel Prize in Chemistry—the first Nobel awarded to an AI system\'s primary contribution.\n\nNotable milestones include Insilico Medicine\'s AI-designed drug ISM001-055, which completed Phase I trials in record time, and Recursion Pharmaceuticals\' identification of novel therapeutic targets using self-supervised learning on cellular imaging data. Industry analysts project that AI-discovered drugs will comprise 30% of new molecular entities approved by 2028 (Nature Reviews Drug Discovery, 2024).' },
+      { afterParagraph: 0, type: 'insert', text: '## 3. Regulatory Landscape & Challenges\n\nThe FDA\'s 2024 guidance on Predetermined Change Control Plans (PCCPs) establishes a landmark precedent for adaptive AI systems. The European Union\'s AI Act, effective January 2025, classifies medical AI as "high-risk."\n\nKey regulatory developments:\n- **FDA GMLP**: 10 guiding principles for AI/ML lifecycle management\n- **WHO Ethics Framework**: Six core principles including transparency and accountability\n- **HIPAA-AI Addendum**: Proposed 2025 guidelines for AI-specific data governance' },
 
-      // Insert after "## 3. Regulatory Landscape & Challenges" (paragraph 7)
-      { afterParagraph: 7, type: 'insert', text: 'The regulatory framework governing AI in healthcare continues to evolve, with the FDA\'s 2024 guidance on Predetermined Change Control Plans (PCCPs) establishing a landmark precedent for adaptive AI systems that improve post-deployment. The European Union\'s AI Act, effective January 2025, classifies medical AI as "high-risk" and mandates conformity assessments, algorithmic auditing, and human oversight requirements.\n\nKey regulatory developments include:\n- **FDA Good Machine Learning Practices (GMLP)**: 10 guiding principles for AI/ML lifecycle management\n- **WHO Ethics Framework**: Six core principles including transparency, accountability, and equity\n- **HIPAA-AI Addendum**: Proposed 2025 guidelines addressing AI-specific data governance requirements' },
+      { afterParagraph: 0, type: 'insert', text: '## 4. Ethical Considerations\n\nAlgorithmic bias remains critical—a 2024 JAMA meta-analysis found dermatological AI exhibited 18.4% lower sensitivity for darker skin tones.\n\nAddressing inequities requires:\n- **Data Diversification**: NIH BRIDGE2AI initiative mandating representative datasets\n- **Algorithmic Auditing**: Regular bias assessments using standardized fairness metrics\n- **Interpretability**: FDA emphasis on explainable AI (XAI) for clinical decisions' },
 
-      // Insert after "## 4. Ethical Considerations" (paragraph 10)
-      { afterParagraph: 10, type: 'insert', text: 'Algorithmic bias remains a critical concern, with multiple studies documenting disparate performance across demographic groups. A 2024 JAMA meta-analysis found that dermatological AI systems exhibited 18.4% lower sensitivity for skin conditions in patients with darker skin tones, attributable to training dataset composition that underrepresented non-Caucasian populations (Adamson & Smith, JAMA Dermatology, 2024).\n\nAddressing these inequities requires multi-stakeholder collaboration:\n- **Data Diversification**: NIH BRIDGE2AI initiative mandating representative dataset composition\n- **Algorithmic Auditing**: Regular bias assessments using standardized fairness metrics\n- **Interpretability Requirements**: FDA emphasis on explainable AI (XAI) for clinical decision support' },
-
-      // Insert after "## 5. Future Directions & Conclusions" (paragraph 13)
-      { afterParagraph: 13, type: 'insert', text: 'Emerging technologies promise continued acceleration of AI integration into clinical practice. Foundation models trained on multimodal medical data—integrating imaging, genomics, clinical notes, and sensor data—demonstrate potential for generalist medical AI assistants. Google\'s Med-PaLM 2 achieved expert-level performance across multiple medical examination benchmarks, while Microsoft\'s BioGPT enables zero-shot clinical reasoning.\n\nFederated learning architectures address data privacy concerns by enabling model training across distributed healthcare systems without centralizing sensitive patient information. Initial deployments at Mayo Clinic and Cleveland Clinic demonstrate feasibility of collaborative AI development while maintaining HIPAA compliance.\n\nAs AI systems assume greater roles in clinical decision-making, the imperative for robust governance, continuous validation, and human-centered design becomes paramount. The transformation of healthcare through artificial intelligence is not merely technological but fundamentally sociotechnical, requiring careful navigation of the complex interplay between innovation, ethics, and patient welfare.\n\n**References**\n- FDA. (2024). Artificial Intelligence and Machine Learning (AI/ML)-Enabled Medical Devices. U.S. Food & Drug Administration.\n- McKinney, S. M., et al. (2024). International evaluation of an AI system for breast cancer screening. Nature Medicine, 26(1), 89-94.\n- WHO. (2024). Ethics and Governance of Artificial Intelligence for Health. World Health Organization.\n- McKinsey Global Institute. (2024). The Economics of AI in Healthcare. McKinsey & Company.\n\n*Word Count: 2,847*' },
+      { afterParagraph: 0, type: 'insert', text: '## 5. Future Directions & Conclusions\n\nFoundation models trained on multimodal medical data demonstrate potential for generalist medical AI assistants. Google\'s Med-PaLM 2 achieved expert-level performance across medical benchmarks.\n\nFederated learning addresses privacy concerns by enabling model training without centralizing patient data. Mayo Clinic and Cleveland Clinic deployments demonstrate HIPAA-compliant collaborative AI development.\n\n**References**\n- FDA. (2024). AI/ML-Enabled Medical Devices. U.S. Food & Drug Administration.\n- McKinney et al. (2024). AI system for breast cancer screening. Nature Medicine.\n- WHO. (2024). Ethics and Governance of AI for Health.\n\n*Word Count: 2,847*' },
     ]
   }},
 
   // AI completion message
-  { time: 70000, type: 'addAIResponse', value: 'I\'ve written a comprehensive 2,850-word essay covering all requested topics. The essay includes:\n\n• APA 7th edition citations\n• WHO and FDA data integration\n• Emphasis on diagnostic imaging and drug discovery\n• 5 main sections with subsections\n• References section\n\nPlease review the changes in the editor. You can accept or reject the entire essay, or I can help refine specific sections.' },
-  { time: 70500, type: 'aiThinking', value: false },
+  { time: 51000, type: 'addAIResponse', value: 'I\'ve written a comprehensive 2,847-word essay covering all requested topics with APA 7th edition citations. The essay integrates data from your uploaded WHO report, Nature Medicine review, and FDA guidelines.\n\nPlease review the changes in the editor.' },
+  { time: 51500, type: 'aiThinking', value: false },
 
   // Accept essay
-  { time: 76000, type: 'acceptDiffChange', index: 0 },
-  { time: 76500, type: 'showDiffMode', value: false },
-  { time: 76500, type: 'clearDiffContent', value: true },
-  { time: 77000, type: 'setPhase', value: 'Essay Generated' },
-  { time: 77000, type: 'applyFullEssay', value: true },
+  { time: 57000, type: 'acceptDiffChange', index: 0 },
+  { time: 57500, type: 'showDiffMode', value: false },
+  { time: 57500, type: 'clearDiffContent', value: true },
+  { time: 58000, type: 'setPhase', value: 'Essay Generated' },
+  { time: 58000, type: 'applyFullEssay', value: true },
 
-  // ==================== PHASE 7: Text Review (78-90s) ====================
-  // Like TextReviewScene: Review button → Analyzing → Suggestions with underlines → Accept
-  { time: 78000, type: 'setPhase', value: 'Text Review' },
+  // Set outline items (collapsed initially) - essay structure
+  { time: 58000, type: 'setOutlineItems', value: [
+    { id: 'title', label: 'The Transformative Impact...', level: 0 },
+    { id: 'intro', label: '1. Introduction & Background', level: 1 },
+    { id: 'apps', label: '2. Current AI Applications', level: 1 },
+    { id: 'imaging', label: '2.1 Diagnostic Imaging', level: 2 },
+    { id: 'drug', label: '2.2 Drug Discovery', level: 2 },
+    { id: 'reg', label: '3. Regulatory Landscape', level: 1 },
+    { id: 'ethics', label: '4. Ethical Considerations', level: 1 },
+    { id: 'future', label: '5. Future Directions', level: 1 },
+  ]},
+
+  // ==================== PHASE 6: Text Review (61-72s) ====================
+  { time: 61000, type: 'setPhase', value: 'Text Review' },
 
   // Click Review button - show loading state
-  { time: 78500, type: 'showReview', value: true },
-  { time: 78500, type: 'reviewLoading', value: true },
+  { time: 61500, type: 'showReview', value: true },
+  { time: 61500, type: 'reviewLoading', value: true },
 
-  // Analysis complete - show issues with wavy underlines
-  // Paragraph 2: "The integration of artificial intelligence into healthcare represents a paradigm shift unprecedented..."
-  { time: 80500, type: 'reviewLoading', value: false },
-  { time: 80500, type: 'setReviewIssues', value: [
+  // Analysis complete - show issues
+  { time: 63500, type: 'reviewLoading', value: false },
+  { time: 63500, type: 'setReviewIssues', value: [
     {
       id: 1,
       type: 'grammar',
-      text: 'paradigm shift unprecedented',
-      suggestion: 'unprecedented paradigm shift',
-      position: { start: 74, end: 102 },
+      text: 'unprecedented paradigm shift',
+      suggestion: 'an unprecedented paradigm shift',
+      position: { start: 74, end: 99 },
       color: '#EF4444',
     },
     {
       id: 2,
       type: 'clarity',
-      text: 'actively piloting',
-      suggestion: 'piloting',
-      position: { start: 270, end: 287 },
+      text: 'piloting',
+      suggestion: 'actively piloting',
+      position: { start: 270, end: 278 },
+      color: '#3B82F6',
+    },
+    {
+      id: 3,
+      type: 'style',
+      text: 'a testament to',
+      suggestion: 'demonstrating',
+      position: { start: 450, end: 464 },
+      color: '#8B5CF6',
+    },
+    {
+      id: 4,
+      type: 'grammar',
+      text: 'that meets or exceeds',
+      suggestion: 'that meets or surpasses',
+      position: { start: 580, end: 601 },
+      color: '#EF4444',
+    },
+    {
+      id: 5,
+      type: 'tone',
+      text: 'substantially decreasing',
+      suggestion: 'significantly reducing',
+      position: { start: 720, end: 744 },
+      color: '#F59E0B',
+    },
+    {
+      id: 6,
+      type: 'clarity',
+      text: 'remains critical',
+      suggestion: 'remains a critical concern',
+      position: { start: 890, end: 906 },
       color: '#3B82F6',
     },
   ]},
-  { time: 81000, type: 'setPhase', value: '2 issues found' },
+  { time: 64000, type: 'setPhase', value: '6 issues found' },
 
   // Click first issue - highlight it
-  { time: 83000, type: 'highlightReviewIssue', value: 0 },
+  { time: 65500, type: 'highlightReviewIssue', value: 0 },
 
-  // Accept first issue
-  { time: 85000, type: 'fixReviewIssue', index: 0 },
-  { time: 85000, type: 'setPhase', value: '1 issue remaining' },
+  // Accept first issue individually
+  { time: 67000, type: 'fixReviewIssue', index: 0 },
+  { time: 67000, type: 'setPhase', value: '5 issues remaining' },
 
-  // Click second issue
-  { time: 86500, type: 'highlightReviewIssue', value: 1 },
-
-  // Accept second issue
-  { time: 88000, type: 'fixReviewIssue', index: 1 },
-  { time: 88000, type: 'setPhase', value: 'All issues reviewed' },
+  // Click "Accept All" to fix remaining issues
+  { time: 69000, type: 'acceptAllReviewIssues', value: true },
+  { time: 69000, type: 'setPhase', value: 'All issues reviewed' },
 
   // Clear review state
-  { time: 89500, type: 'showReview', value: false },
-  { time: 89500, type: 'setReviewIssues', value: [] },
+  { time: 71500, type: 'showReview', value: false },
+  { time: 71500, type: 'setReviewIssues', value: [] },
 
-  // ==================== PHASE 8: Quick Edit (90-100s) ====================
-  { time: 90000, type: 'setPhase', value: 'Quick Edit' },
+  // ==================== PHASE 7: Mindmap/Outline View (74-85s) ====================
+  { time: 74000, type: 'setPhase', value: 'Mindlines View' },
 
-  // Select text for quick edit - use paragraph 5 (FDA paragraph) which is higher up and visible
-  // Paragraph 5: "The U.S. Food and Drug Administration has authorized 692 AI/ML-enabled medical devices as of January 2024, with radiological applications comprising 75.8% of all approvals."
-  // Length: 171 chars
-  { time: 90500, type: 'setSelection', value: { paragraphIndex: 5, start: 0, end: 171 } },
+  // Expand outline in sidebar
+  { time: 74000, type: 'setOutlineExpanded', value: true },
 
-  // Show quick edit menu immediately after selection
-  { time: 91000, type: 'showQuickEdit', value: true },
+  // Show mindmap view
+  { time: 74500, type: 'showMindlines', value: true },
 
-  // Hover over "Improve" option
-  { time: 92000, type: 'hoverQuickEdit', value: 'improve' },
+  // Add nodes progressively to build the mindmap
+  // Clean horizontal tree layout - root at left, branches extend right
 
-  // Click improve - hide menu and show loading
-  { time: 93500, type: 'showQuickEdit', value: false },
-  { time: 93500, type: 'quickEditLoading', value: true },
+  // Root node - left side
+  { time: 75000, type: 'addMindlineNode', value: { id: 'root', label: 'AI in Healthcare', level: 0, x: 80, y: 110 } },
 
-  // Show improved result
-  { time: 96500, type: 'quickEditResult', value: {
-    paragraphIndex: 5,
-    original: "The U.S. Food and Drug Administration has authorized 692 AI/ML-enabled medical devices as of January 2024, with radiological applications comprising 75.8% of all approvals.",
-    text: "As of January 2024, the U.S. Food and Drug Administration has granted authorization to 692 AI/ML-enabled medical devices, with radiological applications accounting for an impressive 75.8% of total approvals—underscoring the technology's maturity in diagnostic imaging."
-  }},
+  // Level 1 nodes - vertical stack on the right of root
+  { time: 75500, type: 'addMindlineNode', value: { id: 'intro', label: 'Intro', level: 1, x: 220, y: 35, parent: 'root' } },
+  { time: 76000, type: 'addMindlineNode', value: { id: 'applications', label: 'Apps', level: 1, x: 220, y: 75, parent: 'root' } },
+  { time: 76500, type: 'addMindlineNode', value: { id: 'regulatory', label: 'Regulatory', level: 1, x: 220, y: 115, parent: 'root' } },
+  { time: 77000, type: 'addMindlineNode', value: { id: 'ethics', label: 'Ethics', level: 1, x: 220, y: 155, parent: 'root' } },
+  { time: 77500, type: 'addMindlineNode', value: { id: 'future', label: 'Future', level: 1, x: 220, y: 195, parent: 'root' } },
 
-  { time: 99000, type: 'clearQuickEditResult', value: true },
-  { time: 99500, type: 'setPhase', value: 'Demo Complete' },
+  // Level 2 nodes - to the right of their parents
+  { time: 78500, type: 'addMindlineNode', value: { id: 'diagnostics', label: 'Imaging', level: 2, x: 330, y: 60, parent: 'applications' } },
+  { time: 79000, type: 'addMindlineNode', value: { id: 'drug', label: 'Drugs', level: 2, x: 330, y: 90, parent: 'applications' } },
+  { time: 79500, type: 'addMindlineNode', value: { id: 'fda', label: 'FDA', level: 2, x: 330, y: 115, parent: 'regulatory' } },
+  { time: 80000, type: 'addMindlineNode', value: { id: 'bias', label: 'Bias', level: 2, x: 330, y: 155, parent: 'ethics' } },
+
+  // Highlight interaction - hover on applications
+  { time: 82000, type: 'setMindlineHover', value: 'applications' },
+
+  // Final state
+  { time: 85000, type: 'setMindlineHover', value: null },
+  { time: 85500, type: 'setPhase', value: 'Demo Complete' },
 ];
+
+// Essay content for applying after diff is accepted
+export const FULL_ESSAY_CONTENT = {
+  sections: [
+    '## 1. Introduction & Background',
+    '## 2. Current AI Applications in Healthcare',
+    '### 2.1 Diagnostic Imaging & Radiology',
+    '### 2.2 Drug Discovery & Development',
+    '## 3. Regulatory Landscape & Challenges',
+    '## 4. Ethical Considerations',
+    '## 5. Future Directions & Conclusions',
+  ]
+};

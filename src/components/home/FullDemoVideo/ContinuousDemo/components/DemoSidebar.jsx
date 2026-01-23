@@ -1,6 +1,16 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FileText, Plus, FolderOpen, X } from 'lucide-react';
+import { FileText, Plus, FolderOpen, X, ChevronRight, List } from 'lucide-react';
+
+// Level indicators matching the real app
+const getLevelIndicator = (level) => {
+  switch (level) {
+    case 0: return '●'; // H1
+    case 1: return '○'; // H2
+    case 2: return '◦'; // H3
+    default: return '·';
+  }
+};
 
 const DemoSidebar = ({
   files = [],
@@ -8,10 +18,12 @@ const DemoSidebar = ({
   showCreateModal = false,
   createModalInput = '',
   onCloseModal,
+  outlineExpanded = false,
+  outlineItems = [],
 }) => {
   return (
     <div className="w-36 md:w-44 border-r border-white/10 bg-white/[0.01] flex flex-col h-full relative">
-      {/* Header */}
+      {/* Files Section */}
       <div className="flex items-center justify-between px-2 py-2 border-b border-white/10">
         <div className="flex items-center gap-1.5">
           <FolderOpen className="w-3 h-3 text-gray-500" />
@@ -44,6 +56,59 @@ const DemoSidebar = ({
               </span>
             </motion.div>
           ))}
+        </AnimatePresence>
+      </div>
+
+      {/* Outline Section - Collapsible */}
+      <div className="border-t border-white/10">
+        {/* Outline Header - Always visible */}
+        <div className="flex items-center justify-between px-2 py-2">
+          <div className="flex items-center gap-1.5">
+            <motion.div
+              animate={{ rotate: outlineExpanded ? 90 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ChevronRight className="w-3 h-3 text-gray-500" />
+            </motion.div>
+            <List className="w-3 h-3 text-gray-500" />
+            <span className="text-[10px] font-medium text-gray-400">
+              OUTLINE {outlineItems.length > 0 && `(${outlineItems.length})`}
+            </span>
+          </div>
+        </div>
+
+        {/* Outline Content - Expandable */}
+        <AnimatePresence>
+          {outlineExpanded && outlineItems.length > 0 && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="px-2 pb-2 space-y-0.5">
+                {outlineItems.map((item, idx) => (
+                  <motion.div
+                    key={item.id || idx}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-center gap-1.5 py-0.5 cursor-pointer text-gray-400 hover:text-gray-300"
+                    style={{ paddingLeft: `${item.level * 8 + 4}px` }}
+                  >
+                    <span className={`text-[9px] ${
+                      item.level === 0 ? 'text-blue-400' :
+                      item.level === 1 ? 'text-gray-400' : 'text-gray-500'
+                    }`}>
+                      {getLevelIndicator(item.level)}
+                    </span>
+                    <span className="text-[9px] truncate">{item.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
 
