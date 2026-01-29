@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import CookieConsent from '../ui/CookieConsent';
 import { cn } from '../../core/utils';
 
 const Layout = ({ children, className = '' }) => {
@@ -11,8 +12,9 @@ const Layout = ({ children, className = '' }) => {
       <main className={cn('flex-1', className)}>
         {children}
       </main>
-      
+
       <Footer />
+      <CookieConsent />
     </div>
   );
 };

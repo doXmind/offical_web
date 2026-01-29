@@ -200,6 +200,9 @@ export const footerLinks = {
     { name: 'Launch Beta', href: 'https://beta.doxmind.com/', external: true },
     { name: 'Join Testing', href: 'https://beta.doxmind.com/', external: true },
   ],
+  legal: [
+    { name: 'Cookies & Privacy', href: '/cookies-privacy' },
+  ],
 };
 
 // Company info
