@@ -8,6 +8,7 @@ import Pricing from './pages/Pricing';
 import Guide from './pages/Guide';
 import Demo from './pages/Demo';
 import CookiesPrivacy from './pages/CookiesPrivacy';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         <Route path="/pricing" element={<Layout><Pricing /></Layout>} />
         <Route path="/guide" element={<Layout><Guide /></Layout>} />
         <Route path="/cookies-privacy" element={<Layout><CookiesPrivacy /></Layout>} />
+
+        {/* 404 catch-all route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
