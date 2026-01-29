@@ -15,7 +15,8 @@ function App() {
       <Routes>
         {/* Demo page without Layout wrapper for full-screen experience */}
         <Route path="/demo" element={<Demo />} />
-        {/* Video export page for Puppeteer recording */}
+
+        {/* Video export page for recording demo */}
         <Route path="/video-export" element={<VideoExport />} />
 
         {/* Other pages with Layout */}

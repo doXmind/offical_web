@@ -22,6 +22,7 @@ import {
   Circle,
   CheckCircle2,
   PlayCircle,
+  Search,
 } from 'lucide-react';
 
 // Simple markdown renderer for AI messages
@@ -145,7 +146,7 @@ const getKBFileIcon = (type) => {
   }
 };
 
-// TODO Plan Component - shows agent execution plan
+// TODO Plan Component - shows agent execution plan with search previews
 const TodoPlan = ({ items }) => {
   if (!items || items.length === 0) return null;
 
@@ -172,6 +173,7 @@ const TodoPlan = ({ items }) => {
   };
 
   const completedCount = items.filter(item => item.status === 'completed').length;
+  const currentItem = items.find(item => item.status === 'in_progress');
 
   return (
     <motion.div
@@ -209,19 +211,56 @@ const TodoPlan = ({ items }) => {
             initial={{ opacity: 0, x: -5 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className={`flex items-start gap-1.5 text-[8px] ${
-              item.status === 'in_progress' ? 'bg-blue-500/10 rounded px-1 py-0.5 -mx-1' : ''
-            }`}
+            className="space-y-0.5"
           >
-            <div className="flex-shrink-0 mt-0.5">
-              {getStatusIcon(item.status)}
+            <div className={`flex items-start gap-1.5 text-[8px] ${
+              item.status === 'in_progress' ? 'bg-blue-500/10 rounded px-1 py-0.5 -mx-1' : ''
+            }`}>
+              <div className="flex-shrink-0 mt-0.5">
+                {getStatusIcon(item.status)}
+              </div>
+              <span className={getStatusColor(item.status)}>
+                {item.text}
+              </span>
             </div>
-            <span className={getStatusColor(item.status)}>
-              {item.text}
-            </span>
+
+            {/* Search result preview - show when item just completed */}
+            <AnimatePresence>
+              {item.result && item.status === 'completed' && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="ml-4 pl-2 border-l border-green-500/30"
+                >
+                  <p className="text-[7px] text-green-400/80 italic truncate">
+                    "{item.result}"
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         ))}
       </div>
+
+      {/* Current action preview - highlight box */}
+      <AnimatePresence>
+        {currentItem?.preview && (
+          <motion.div
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            className="mt-2 p-1.5 bg-blue-500/10 border border-blue-500/30 rounded text-[7px] text-blue-300"
+          >
+            <div className="flex items-center gap-1 mb-0.5">
+              <Search className="w-2.5 h-2.5" />
+              <span className="font-medium">Found:</span>
+            </div>
+            <p className="text-blue-200/80 truncate">{currentItem.preview}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

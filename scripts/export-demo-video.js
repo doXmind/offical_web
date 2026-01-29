@@ -1,13 +1,13 @@
 /**
  * Export Demo Video Script
  *
- * Uses Puppeteer's native screencast to record the demo in real-time.
- * Records the same ContinuousDemo component as shown on the /demo page.
+ * Uses Puppeteer with frame-by-frame capture to ensure real-time recording.
+ * Records the ContinuousDemo component with built-in intro/outro sequences.
  *
- * Timeline (106 seconds total):
- * - 0-3s: Logo intro animation
- * - 3-103s: Demo content (100 seconds)
- * - 103-106s: Logo outro animation
+ * Timeline (100 seconds total):
+ * - 0-12s: IntroSequence (hook + abstract + brand)
+ * - 12-92s: Demo content (80 seconds)
+ * - 92-100s: OutroSequence (stats + CTA)
  *
  * Prerequisites:
  * 1. FFmpeg must be installed and available in PATH
@@ -20,7 +20,8 @@
  *   --width=1920    Video width (default: 1920)
  *   --height=1080   Video height (default: 1080)
  *   --output=name   Output filename without extension (default: doxmind-demo)
- *   --url=http://   Dev server URL (default: http://localhost:3000)
+ *   --url=http://   Dev server URL (default: http://localhost:5173)
+ *   --fps=30        Frames per second (default: 30)
  */
 
 import puppeteer from 'puppeteer';
@@ -44,10 +45,12 @@ const CONFIG = {
   width: parseInt(args.width) || 1920,
   height: parseInt(args.height) || 1080,
   outputName: args.output || 'doxmind-demo',
-  devServerUrl: args.url || 'http://localhost:3000',
+  devServerUrl: args.url || 'http://localhost:5173',
+  fps: parseInt(args.fps) || 30,
 };
 
 const outputDir = path.join(__dirname, '..', 'dist');
+const framesDir = path.join(outputDir, 'frames');
 
 async function checkFFmpeg() {
   try {
@@ -61,9 +64,11 @@ async function checkFFmpeg() {
 async function recordVideo() {
   console.log('🎬 Starting video recording...');
   console.log(`   Resolution: ${CONFIG.width}x${CONFIG.height}`);
+  console.log(`   Frame rate: ${CONFIG.fps} fps`);
 
   // Ensure output directory exists
   fs.mkdirSync(outputDir, { recursive: true });
+  fs.mkdirSync(framesDir, { recursive: true });
 
   const browser = await puppeteer.launch({
     headless: 'new',
@@ -110,98 +115,89 @@ async function recordVideo() {
   console.log('   API ready');
 
   // Wait for page to be fully ready
-  await page.waitForFunction(() => window.__VIDEO_EXPORT__.isReady(), { timeout: 10000 });
+  await page.waitForFunction(() => window.__VIDEO_EXPORT__.isReady !== undefined, { timeout: 10000 });
   console.log('   Page ready');
 
   // Small delay to ensure everything is initialized
   await new Promise(r => setTimeout(r, 500));
 
-  const outputPath = path.join(outputDir, `${CONFIG.outputName}.webm`);
-  const mp4OutputPath = path.join(outputDir, `${CONFIG.outputName}.mp4`);
-
-  console.log(`\n🎥 Recording to: ${outputPath}`);
-
-  // Start screencast recording
-  const recorder = await page.screencast({
-    path: outputPath,
-    speed: 1,
-  });
-
-  // Small delay before starting to ensure recorder is ready
-  await new Promise(r => setTimeout(r, 200));
+  console.log(`\n🎥 Recording frames to: ${framesDir}`);
 
   // Signal the page to start
   console.log('   Calling start()...');
   await page.evaluate(() => window.__VIDEO_EXPORT__.start());
 
-  // Wait for playback to actually begin
-  await new Promise(r => setTimeout(r, 300));
-  console.log('   Recording started...');
-
   // Get duration from page
   const duration = await page.evaluate(() => window.__VIDEO_EXPORT__.getDuration());
   const durationSeconds = duration / 1000;
   console.log(`   Duration: ${durationSeconds}s`);
+  console.log('   Recording started...\n');
 
-  // Wait for completion with progress updates
+  // Calculate total frames
+  const totalFrames = Math.ceil(durationSeconds * CONFIG.fps);
+  const frameDuration = 1000 / CONFIG.fps; // ms per frame
+
+  // Capture frames at specified frame rate
   const startTime = Date.now();
+  let frameCount = 0;
 
-  await new Promise((resolve) => {
-    const checkInterval = setInterval(async () => {
-      const elapsed = (Date.now() - startTime) / 1000;
-      const progress = Math.min((elapsed / durationSeconds) * 100, 100).toFixed(1);
-      process.stdout.write(`\r   Progress: ${progress}% (${elapsed.toFixed(0)}s / ${durationSeconds}s)    `);
+  for (let i = 0; i < totalFrames; i++) {
+    const targetTime = startTime + (i * frameDuration);
+    const now = Date.now();
 
-      try {
-        const isComplete = await page.evaluate(() => window.__VIDEO_EXPORT_COMPLETE__);
-        if (isComplete) {
-          clearInterval(checkInterval);
-          // Wait a bit more to capture the final frames
-          setTimeout(resolve, 2000);
-        }
-      } catch (e) {
-        // Page might be navigating, ignore
-      }
-    }, 500);
+    // Wait until it's time for the next frame
+    if (now < targetTime) {
+      await new Promise(resolve => setTimeout(resolve, targetTime - now));
+    }
 
-    // Fallback timeout
-    setTimeout(() => {
-      clearInterval(checkInterval);
-      resolve();
-    }, (durationSeconds + 5) * 1000);
-  });
+    // Capture screenshot
+    const framePath = path.join(framesDir, `frame_${String(i).padStart(6, '0')}.png`);
+    await page.screenshot({ path: framePath });
 
-  console.log('\n\n   Stopping recorder...');
-  await recorder.stop();
+    frameCount++;
+
+    // Update progress
+    const elapsed = (Date.now() - startTime) / 1000;
+    const progress = ((i + 1) / totalFrames * 100).toFixed(1);
+    process.stdout.write(`\r   Progress: ${progress}% (Frame ${i + 1}/${totalFrames}, ${elapsed.toFixed(1)}s / ${durationSeconds}s)    `);
+  }
+
+  console.log('\n\n   Capturing complete!');
 
   await browser.close();
 
-  console.log('✅ Recording complete!');
-
   // Check if we have FFmpeg to convert to MP4
   const hasFFmpeg = await checkFFmpeg();
-  if (hasFFmpeg) {
-    console.log('\n🔄 Converting to MP4...');
-    try {
-      execSync(`ffmpeg -y -i "${outputPath}" -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -movflags +faststart "${mp4OutputPath}"`, {
-        stdio: 'pipe',
-      });
+  if (!hasFFmpeg) {
+    console.error('\n❌ FFmpeg not found! Please install FFmpeg to create video.');
+    console.log(`   Frames saved in: ${framesDir}\n`);
+    return;
+  }
 
-      // Remove webm file
-      fs.unlinkSync(outputPath);
+  // Convert frames to video using ffmpeg
+  console.log('\n🔄 Converting frames to video...');
+  const outputPath = path.join(outputDir, `${CONFIG.outputName}.mp4`);
 
-      const stats = fs.statSync(mp4OutputPath);
-      const fileSizeMB = (stats.size / (1024 * 1024)).toFixed(2);
-      console.log(`\n✅ Video export successful!`);
-      console.log(`   File size: ${fileSizeMB} MB`);
-      console.log(`   Location: ${mp4OutputPath}\n`);
-    } catch (error) {
-      console.error('\n⚠️  FFmpeg conversion failed, keeping WebM file');
-      console.log(`   Location: ${outputPath}\n`);
-    }
-  } else {
-    console.log('\n⚠️  FFmpeg not found, video saved as WebM');
+  try {
+    execSync(
+      `ffmpeg -y -r ${CONFIG.fps} -i "${path.join(framesDir, 'frame_%06d.png')}" ` +
+      `-c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -movflags +faststart "${outputPath}"`,
+      { stdio: 'pipe' }
+    );
+
+    // Clean up frames directory
+    console.log('   Cleaning up frames...');
+    fs.rmSync(framesDir, { recursive: true, force: true });
+
+    const stats = fs.statSync(outputPath);
+    const fileSizeMB = (stats.size / (1024 * 1024)).toFixed(2);
+    console.log(`\n✅ Video export successful!`);
+    console.log(`   File size: ${fileSizeMB} MB`);
+    console.log(`   Duration: ${durationSeconds}s`);
     console.log(`   Location: ${outputPath}\n`);
+  } catch (error) {
+    console.error('\n❌ FFmpeg conversion failed:', error.message);
+    console.log(`   Frames saved in: ${framesDir}\n`);
   }
 }
 
@@ -214,6 +210,7 @@ async function main() {
     await recordVideo();
   } catch (error) {
     console.error('\n❌ Error during video export:', error.message);
+    console.error(error.stack);
     process.exit(1);
   }
 }

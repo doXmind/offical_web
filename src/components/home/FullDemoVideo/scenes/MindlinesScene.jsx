@@ -4,6 +4,7 @@ import { FileText, List } from 'lucide-react';
 import { DemoHeader } from '../components';
 import { MINDLINES_CONTENT } from '../constants/demoContent';
 import { ITEM_SPRING, MOBILE_SPRINGS } from '../constants/animationConfig';
+import { getConnectionPoint } from '../constants/nodeDimensions';
 
 // Level indicators matching doxmind-mini outline view
 const getLevelIndicator = (level) => {
@@ -13,6 +14,29 @@ const getLevelIndicator = (level) => {
     case 2: return '◦'; // H3: small dot
     default: return '·';
   }
+};
+
+// Connection line styling constants for modern minimal aesthetic
+const CONNECTION_STYLE = {
+  // Curve algorithm parameters
+  baseTension: 0.5,      // Base curve tension (0.4 = loose, 0.6 = tight)
+  maxDistance: 300,      // Distance at which tension starts adapting
+  tensionFalloff: 0.2,   // How much tension reduces for long connections
+
+  // Visual styling
+  rootStrokeWidth: 1.8,       // Stroke width for root connections (level 0)
+  defaultStrokeWidth: 1.5,    // Stroke width for other connections
+  rootOpacity: 0.18,          // Opacity for root connections
+  defaultOpacity: 0.15,       // Opacity for other connections
+  glowOpacity: 0.08,          // Opacity for the glow layer
+
+  // Glow effect
+  glowBlur: 3,                // Blur radius for glow (px)
+  glowWidthOffset: 2,         // Extra width for glow layer
+
+  // Animation
+  animationDuration: 0.6,     // Path drawing duration (seconds)
+  animationEasing: [0.22, 1, 0.36, 1],  // Smooth ease-out curve
 };
 
 const MindlinesScene = ({ isActive = true }) => {
@@ -123,17 +147,17 @@ const MindlinesScene = ({ isActive = true }) => {
   }
 
   const getNodePosition = (node) => {
-    // Adjusted positions for the scene
+    // Optimized hierarchical layout with generous spacing
     const positions = {
-      root: { x: 150, y: 50 },
-      intro: { x: 50, y: 120 },
-      features: { x: 150, y: 120 },
-      advanced: { x: 250, y: 120 },
-      autocomplete: { x: 120, y: 180 },
-      chat: { x: 180, y: 180 },
-      new: { x: 320, y: 120 },
+      root: { x: 320, y: 70 },          // Center top
+      intro: { x: 140, y: 200 },        // Left branch
+      features: { x: 320, y: 200 },     // Center branch
+      advanced: { x: 500, y: 200 },     // Right branch
+      autocomplete: { x: 260, y: 310 }, // Below features-left
+      chat: { x: 380, y: 310 },         // Below features-right
+      new: { x: 640, y: 200 },          // Far right (Best Practices)
     };
-    return positions[node.id] || { x: 150, y: 150 };
+    return positions[node.id] || { x: 320, y: 200 };
   };
 
   const renderConnection = (fromId, toId) => {
@@ -144,19 +168,67 @@ const MindlinesScene = ({ isActive = true }) => {
     const from = getNodePosition(fromNode);
     const to = getNodePosition(toNode);
 
+    // Calculate connection points (level-aware offsets)
+    const startX = from.x;
+    const startY = from.y + getConnectionPoint.start(fromNode.level);
+    const endX = to.x;
+    const endY = to.y + getConnectionPoint.end(toNode.level);
+
+    // Enhanced curve algorithm with vertical-emphasis and adaptive tension
+    const dx = endX - startX;
+    const dy = endY - startY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    // Adaptive tension: gentler curves for long connections
+    const distanceFactor = Math.min(distance / CONNECTION_STYLE.maxDistance, 1);
+    const tension = CONNECTION_STYLE.baseTension * (1 - distanceFactor * CONNECTION_STYLE.tensionFalloff);
+
+    // Vertical-emphasis control points for natural hierarchical flow
+    const controlOffset = Math.abs(dy) * tension;
+    const controlX1 = startX + dx * 0.25;  // 25% horizontal interpolation
+    const controlY1 = startY + controlOffset;
+    const controlX2 = startX + dx * 0.75;  // 75% horizontal interpolation
+    const controlY2 = endY - controlOffset;
+
+    const pathData = `M ${startX} ${startY} C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${endX} ${endY}`;
+
+    // Level-based styling for visual hierarchy
+    const isRootConnection = fromNode.level === 0;
+    const strokeWidth = isRootConnection ? CONNECTION_STYLE.rootStrokeWidth : CONNECTION_STYLE.defaultStrokeWidth;
+    const strokeOpacity = isRootConnection ? CONNECTION_STYLE.rootOpacity : CONNECTION_STYLE.defaultOpacity;
+
     return (
-      <motion.line
-        key={`${fromId}-${toId}`}
-        x1={from.x}
-        y1={from.y + 15}
-        x2={to.x}
-        y2={to.y - 5}
-        stroke="rgba(255,255,255,0.2)"
-        strokeWidth="1"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 0.4 }}
-      />
+      <g key={`${fromId}-${toId}`}>
+        {/* Glow layer for subtle depth */}
+        <motion.path
+          d={pathData}
+          stroke={`rgba(255,255,255,${CONNECTION_STYLE.glowOpacity})`}
+          strokeWidth={strokeWidth + CONNECTION_STYLE.glowWidthOffset}
+          fill="none"
+          style={{ filter: `blur(${CONNECTION_STYLE.glowBlur}px)` }}
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 0.6 }}
+          transition={{
+            duration: CONNECTION_STYLE.animationDuration,
+            ease: CONNECTION_STYLE.animationEasing
+          }}
+        />
+
+        {/* Main line */}
+        <motion.path
+          d={pathData}
+          stroke={`rgba(255,255,255,${strokeOpacity})`}
+          strokeWidth={strokeWidth}
+          fill="none"
+          strokeLinecap="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{
+            duration: CONNECTION_STYLE.animationDuration,
+            ease: CONNECTION_STYLE.animationEasing
+          }}
+        />
+      </g>
     );
   };
 
@@ -247,10 +319,12 @@ const MindlinesScene = ({ isActive = true }) => {
               const isHovered = hoveredNode === node.id;
               const isNew = node.id === 'new';
 
+              // Node size classes by level
+              // IMPORTANT: If you change these classes, update NODE_DIMENSIONS in constants/nodeDimensions.js
               const sizeByLevel = {
-                0: 'px-3 py-1.5 text-xs font-medium',
-                1: 'px-2.5 py-1 text-[10px]',
-                2: 'px-2 py-0.5 text-[9px]',
+                0: 'px-4 py-2 text-sm font-semibold',
+                1: 'px-3 py-1.5 text-xs font-medium',
+                2: 'px-2.5 py-1 text-[10px]',
               };
 
               return (
@@ -260,21 +334,25 @@ const MindlinesScene = ({ isActive = true }) => {
                   animate={{
                     scale: 1,
                     opacity: 1,
-                    boxShadow: isHovered ? '0 0 20px rgba(59, 130, 246, 0.5)' : 'none',
+                    boxShadow: isHovered
+                      ? '0 0 24px rgba(59, 130, 246, 0.6), 0 4px 12px rgba(0, 0, 0, 0.3)'
+                      : node.level === 0
+                      ? '0 4px 16px rgba(59, 130, 246, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3)'
+                      : '0 2px 8px rgba(0, 0, 0, 0.2)',
                   }}
                   exit={{ scale: 0, opacity: 0 }}
                   transition={{ type: 'spring', ...MOBILE_SPRINGS.SNAPPY }}
                   whileHover={{ scale: 1.05 }}
-                  className={`absolute rounded-lg border transition-colors ${sizeByLevel[node.level]} ${
+                  className={`absolute rounded-lg border-2 transition-all duration-200 ${sizeByLevel[node.level]} ${
                     isNew
-                      ? 'bg-green-500/20 border-green-500/50 text-green-300'
+                      ? 'bg-green-500/25 border-green-400/60 text-green-200'
                       : isHovered
-                      ? 'bg-blue-500/20 border-blue-500/50 text-blue-300'
+                      ? 'bg-blue-500/30 border-blue-400/70 text-blue-100'
                       : node.level === 0
-                      ? 'bg-blue-500/10 border-blue-500/30 text-white'
+                      ? 'bg-blue-500/20 border-blue-400/50 text-white'
                       : node.level === 1
-                      ? 'bg-white/5 border-white/15 text-gray-300'
-                      : 'bg-white/[0.02] border-white/10 text-gray-400'
+                      ? 'bg-white/8 border-white/25 text-gray-200'
+                      : 'bg-white/5 border-white/20 text-gray-300'
                   }`}
                   style={{
                     left: pos.x,

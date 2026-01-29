@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1152" width="2048" height="1152">
+  <!-- Background -->
+  <rect width="2048" height="1152" fill="#000000"/>
+
+  <!-- Subtle grid pattern for texture -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#111111" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="2048" height="1152" fill="url(#grid)" opacity="0.3"/>
+
+  <!-- Main content group - centered at 1024, 576 -->
+
+  <!-- Logo Icon + Wordmark (horizontal lockup) - total width ~480px, centered -->
+  <g transform="translate(784, 470)">
+    <!-- X Icon - 100x100 -->
+    <path d="M7.5 0 Q0 0 0 7.5 L0 40 L50 50 L40 0 Z" fill="#FFFFFF"/>
+    <path d="M60 0 L50 50 L100 40 L100 7.5 Q100 0 92.5 0 Z" fill="#FFFFFF"/>
+    <path d="M0 60 L50 50 L40 100 L7.5 100 Q0 100 0 92.5 Z" fill="#FFFFFF"/>
+    <path d="M50 50 L100 60 L100 92.5 Q100 100 92.5 100 L60 100 Z" fill="#FFFFFF"/>
+
+    <!-- Wordmark next to icon -->
+    <text x="130" y="72" font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="72" fill="#FFFFFF" letter-spacing="-2">
+      <tspan font-weight="300">do</tspan><tspan font-weight="900">X</tspan><tspan font-weight="300">mind</tspan>
+    </text>
+  </g>
+
+  <!-- Tagline - centered -->
+  <text x="1024" y="640" text-anchor="middle" font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#666666" letter-spacing="8" font-weight="400" font-style="italic">
+    THINK. WRITE. PUBLISH.
+  </text>
+
+  <!-- Subtitle - centered -->
+  <text x="1024" y="690" text-anchor="middle" font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#555555" letter-spacing="1" font-weight="300">
+    The AI editor that reasons with you
+  </text>
+
+  <!-- Decorative corner accents -->
+  <g opacity="0.08">
+    <path d="M0 0 L100 0 L100 8 L8 8 L8 100 L0 100 Z" fill="#FFFFFF"/>
+    <path d="M2048 0 L1948 0 L1948 8 L2040 8 L2040 100 L2048 100 Z" fill="#FFFFFF"/>
+    <path d="M0 1152 L100 1152 L100 1144 L8 1144 L8 1052 L0 1052 Z" fill="#FFFFFF"/>
+    <path d="M2048 1152 L1948 1152 L1948 1144 L2040 1144 L2040 1052 L2048 1052 Z" fill="#FFFFFF"/>
+  </g>
+</svg>
