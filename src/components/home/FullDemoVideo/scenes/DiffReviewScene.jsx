@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X, AlertCircle } from 'lucide-react';
-import { DemoHeader, DemoToolbar, DemoSidebar } from '../components';
-import { DIFF_REVIEW_CONTENT, UI_CONTENT } from '../constants/demoContent';
+import { DemoHeader, DemoToolbar } from '../components';
+import { DIFF_REVIEW_CONTENT } from '../constants/demoContent';
 import { ITEM_SPRING, MOBILE_SPRINGS } from '../constants/animationConfig';
 
 const DiffReviewScene = ({ isActive = true }) => {
@@ -162,17 +162,13 @@ const DiffReviewScene = ({ isActive = true }) => {
       <DemoHeader
         fileName="Quarterly Review.md"
         isDirty={acceptedChanges.length > 0}
-        isSidebarOpen={true}
+        isSidebarOpen={false}
         isChatOpen={false}
       />
 
       {/* Main Content */}
       <div className="flex flex-1 overflow-hidden">
-        <DemoSidebar
-          files={UI_CONTENT.files}
-          activeFileId="project"
-        />
-
+        {/* No sidebar - focus on diff review */}
         <div className="flex-1 flex flex-col min-w-0">
           <DemoToolbar activeButtons={[]} />
 

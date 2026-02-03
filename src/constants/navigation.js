@@ -49,7 +49,8 @@ export const navigationData = {
 export const simpleNavItems = [
   { label: 'Features', href: '/features' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Solutions', href: '/solutions' }
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Releases', href: '/releases' }
 ];
 
 export const ctaButtons = [

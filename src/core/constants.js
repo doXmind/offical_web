@@ -195,6 +195,7 @@ export const footerLinks = {
   resources: [
     { name: 'User Guide', href: '/guide', external: false },
     { name: 'Documentation', href: '/guide', external: false },
+    { name: 'Releases', href: '/releases', external: false },
   ],
   community: [
     { name: 'Launch Beta', href: 'https://beta.doxmind.com/', external: true },
@@ -211,11 +212,12 @@ export const companyInfo = {
   tagline: 'AI-Powered Intelligent Document Creation Platform',
   description: 'Transform Every Idea into Professional Content',
   copyright: `© ${new Date().getFullYear()} W Aixs Inc. All rights reserved.`,
-  socialLinks: {
-    twitter: 'https://twitter.com/doxmind',
-    github: 'https://github.com/doxmind',
-    linkedin: 'https://linkedin.com/company/doxmind',
-  },
+  socialLinks: [
+    { name: 'X', href: 'https://x.com/doxmindofficial', icon: 'Twitter' },
+    { name: 'GitHub', href: 'https://github.com/doXmind', icon: 'Github' },
+    { name: 'YouTube', href: 'https://www.youtube.com/@doxmind-official', icon: 'Youtube' },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/doxmind/', icon: 'Linkedin' },
+  ],
 };
 
 // Comparison data

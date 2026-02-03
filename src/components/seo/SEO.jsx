@@ -34,6 +34,11 @@ const seoConfig = {
     description: 'Experience doXmind in action. Interactive demo showcasing AI-powered document editing, data visualization, and multi-agent capabilities.',
     keywords: 'demo, try free, interactive demo, AI editor demo, product demo',
   },
+  '/releases': {
+    title: 'Releases - doXmind Updates & Changelog',
+    description: 'Stay updated with the latest doXmind releases. Discover new features, improvements, and bug fixes in each version update.',
+    keywords: 'releases, changelog, updates, new features, version history, doXmind updates, release notes',
+  },
 };
 
 // JSON-LD Structured Data for Organization

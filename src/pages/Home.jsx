@@ -1,310 +1,143 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Sparkles, ArrowRight,
-  MessageSquare, Zap, BookOpen,
-  GitCompare, SpellCheck, Map,
-  Type, Brain, FileText, Database, CheckSquare
-} from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/seo/SEO';
-import CTASection from '../components/ui/cta-section';
-import MockEditorShowcase from '../components/home/MockEditorShowcase';
-import { MockEditorContainer } from '../components/home/MockEditorShowcase/components';
+import { EmbeddedEditor } from '../components/home/EmbeddedEditor';
+import { DemoContainer } from '../components/home/FullDemoVideo/components';
 import {
-  QuickEditScene,
   AIChatScene,
-  AutocompleteScene,
-  KnowledgeBaseScene,
+  DiffReviewScene,
+  QuickEditScene,
   TextReviewScene,
-  DiffAcceptScene,
-} from '../components/home/MockEditorShowcase/scenes';
+} from '../components/home/FullDemoVideo/scenes';
 
-// Hero Section Component
+// Feature showcase container - pure black/white style
+const FeatureShowcase = ({ children, className = '' }) => (
+  <div className={`relative rounded-2xl overflow-hidden border border-white/[0.08] ${className}`}>
+    {children}
+  </div>
+);
+
+// Hero Section
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center px-4 md:px-6 pt-16 md:pt-20">
-      <div className="relative max-w-7xl mx-auto text-center">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-5 md:px-8 pt-24 pb-16 overflow-hidden">
+      <div className="relative max-w-[1400px] mx-auto text-center z-10 w-full">
+        {/* Product Icon */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 border border-white/30 bg-white/10 rounded-full mb-4 md:mb-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-6"
         >
-          <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
-          <span className="text-xs md:text-sm text-white font-medium">Beta Now Live</span>
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/[0.04] border border-white/10">
+            <img src="/logo.svg" alt="doXmind" className="w-10 h-10" />
+          </div>
         </motion.div>
 
+        {/* Product Name */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-7xl font-bold tracking-wider md:tracking-widest uppercase mb-3 md:mb-6"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-[clamp(3rem,10vw,6rem)] font-semibold tracking-tight leading-[1] mb-6 text-white"
         >
-          <span className="text-white">Think. Write. Publish.</span>
+          doXmind
         </motion.h1>
 
+        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-base md:text-xl text-gray-400 mb-5 md:mb-8 max-w-3xl mx-auto tracking-wide"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto"
         >
-          The AI editor that reasons with you
+          Try with Beta now available, or enjoy full AI writing features for free for a limited time.
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-row items-center justify-center gap-2 md:gap-4"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-20"
         >
-          <motion.a
+          <a
             href="https://beta.doxmind.com/"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-1.5 md:gap-2 px-4 md:px-8 py-2.5 md:py-4 bg-white text-black text-sm md:text-base font-medium rounded-lg hover:bg-gray-200 transition-all"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-black text-base font-medium rounded-full hover:bg-white/90 transition-all duration-200 min-w-[180px]"
           >
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
             Try doXmind
-          </motion.a>
+            <ArrowRight className="w-4 h-4" />
+          </a>
           <Link
             to="/guide"
-            className="inline-flex items-center px-4 md:px-8 py-2.5 md:py-4 text-sm md:text-base border border-white/20 rounded-lg hover:bg-white/5 transition-all"
+            className="inline-flex items-center justify-center px-6 py-3.5 text-base text-white/80 font-medium rounded-full border border-white/20 hover:bg-white/[0.04] hover:border-white/30 transition-all duration-200 min-w-[180px]"
           >
             User Guide
           </Link>
         </motion.div>
 
-        {/* Mock Editor Showcase */}
+        {/* Hero Demo - Embedded Editor */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-10 md:mt-20"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="w-full"
         >
-          <MockEditorShowcase />
+          <EmbeddedEditor />
         </motion.div>
       </div>
     </section>
   );
 };
 
-// Feature scene map
-const featureSceneMap = {
-  'ai-chat': AIChatScene,
-  'quick-edit': QuickEditScene,
-  'diff-review': DiffAcceptScene,
-  'text-review': TextReviewScene,
-  'knowledge-base': KnowledgeBaseScene,
-  'autocomplete': AutocompleteScene,
-};
-
-// Features Section Component - Interactive showcase with mock videos
-const FeaturesSection = () => {
-  const [activeFeature, setActiveFeature] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  const features = [
-    {
-      id: 'ai-chat',
-      icon: MessageSquare,
-      title: 'AI Chat Assistant',
-      description: 'Chat with Claude AI to edit your document. AI reads, understands, and modifies your content directly.',
-      highlight: 'Powered by Claude',
-      color: 'from-blue-500/20 to-transparent'
-    },
-    {
-      id: 'quick-edit',
-      icon: Zap,
-      title: 'Quick Edit',
-      description: 'Select text and instantly improve, simplify, expand, translate, or fix grammar with one click.',
-      highlight: 'One-click transforms',
-      color: 'from-yellow-500/20 to-transparent'
-    },
-    {
-      id: 'diff-review',
-      icon: GitCompare,
-      title: 'Diff Review',
-      description: 'Review AI-suggested changes with inline diff view. Accept or reject each change individually.',
-      highlight: 'Granular control',
-      color: 'from-green-500/20 to-transparent'
-    },
-    {
-      id: 'text-review',
-      icon: CheckSquare,
-      title: 'Text Review',
-      description: 'Grammarly-like analysis with color-coded suggestions for grammar, clarity, and style improvements.',
-      highlight: 'Writing quality',
-      color: 'from-purple-500/20 to-transparent'
-    },
-    {
-      id: 'knowledge-base',
-      icon: Database,
-      title: 'Knowledge Base',
-      description: 'Upload PDFs, DOCX, or PPTX files. AI can search and reference your documents when answering.',
-      highlight: 'RAG-powered',
-      color: 'from-red-500/20 to-transparent'
-    },
-    {
-      id: 'autocomplete',
-      icon: Type,
-      title: 'AI Autocomplete',
-      description: 'Get intelligent suggestions as you type. Press Tab to accept and keep writing seamlessly.',
-      highlight: 'Like GitHub Copilot',
-      color: 'from-cyan-500/20 to-transparent'
-    },
-  ];
-
-  // Intersection observer to detect visibility
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const currentFeature = features[activeFeature];
-  const SceneComponent = featureSceneMap[currentFeature.id];
-
+// Feature Section with text + mock GUI
+const FeatureSection = ({
+  title,
+  description,
+  children,
+  reverse = false,
+  badge,
+}) => {
   return (
-    <section ref={sectionRef} className="py-12 md:py-24 px-4 md:px-6">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mb-8 md:mb-16"
-        >
-          <h2 className="text-2xl md:text-5xl font-extralight mb-2 md:mb-4">
-            Powerful AI Features
-          </h2>
-          <p className="text-sm md:text-lg text-gray-500 max-w-2xl mx-auto">
-            Every tool you need for AI-assisted writing
-          </p>
-        </motion.div>
-
-        {/* Two-column layout: Feature list + Mock video */}
-        <div className="grid lg:grid-cols-2 gap-4 md:gap-8 items-start">
-          {/* Left: Feature selector list */}
-          <div className="space-y-2 md:space-y-3 order-2 lg:order-1">
-            {features.map((feature, index) => (
-              <motion.button
-                key={feature.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                onClick={() => setActiveFeature(index)}
-                className={`w-full text-left group relative transition-all duration-300 ${
-                  activeFeature === index ? 'scale-[1.01] md:scale-[1.02]' : ''
-                }`}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-r ${feature.color} rounded-lg md:rounded-xl transition-opacity duration-500 ${
-                  activeFeature === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
-                }`} />
-                <div className={`relative p-3 md:p-5 border rounded-lg md:rounded-xl transition-all duration-300 ${
-                  activeFeature === index
-                    ? 'border-white/30 bg-white/10'
-                    : 'border-white/10 hover:border-white/20 bg-black/50'
-                }`}>
-                  <div className="flex items-start gap-2.5 md:gap-4">
-                    <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg border flex items-center justify-center flex-shrink-0 transition-colors ${
-                      activeFeature === index
-                        ? 'border-white/40 bg-white/10'
-                        : 'border-white/20 group-hover:border-white/30'
-                    }`}>
-                      <feature.icon className="w-4 h-4 md:w-5 md:h-5" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 md:gap-2 mb-0.5 md:mb-1">
-                        <h3 className="text-sm md:text-lg font-light">{feature.title}</h3>
-                        <span className={`hidden sm:inline text-[10px] px-2 py-0.5 rounded-full transition-colors ${
-                          activeFeature === index
-                            ? 'bg-white/20 text-white'
-                            : 'bg-white/5 text-gray-500'
-                        }`}>
-                          {feature.highlight}
-                        </span>
-                      </div>
-                      <p className="text-xs md:text-sm text-gray-400 leading-relaxed line-clamp-1 md:line-clamp-2">{feature.description}</p>
-                    </div>
-                    {activeFeature === index && (
-                      <motion.div
-                        layoutId="activeIndicator"
-                        className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-white flex-shrink-0 mt-2 md:mt-3"
-                      />
-                    )}
-                  </div>
-                </div>
-              </motion.button>
-            ))}
-
-            {/* View all features link */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="pt-2 md:pt-4"
-            >
-              <Link
-                to="/features"
-                className="inline-flex items-center gap-2 text-xs md:text-sm text-gray-500 hover:text-white transition-colors"
-              >
-                View all features
-                <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Right: Mock video showcase */}
+    <section className="py-24 md:py-32 px-5 md:px-8">
+      <div className="max-w-[1400px] mx-auto">
+        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
+          {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: reverse ? 20 : -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:sticky lg:top-24 order-1 lg:order-2"
+            transition={{ duration: 0.6 }}
+            className={reverse ? 'lg:order-2' : ''}
           >
-            <MockEditorContainer>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentFeature.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full h-full"
-                >
-                  {SceneComponent && <SceneComponent isActive={isVisible} />}
-                </motion.div>
-              </AnimatePresence>
-            </MockEditorContainer>
+            {badge && (
+              <span className="inline-block text-xs font-medium text-white/60 mb-4 uppercase tracking-wider">
+                {badge}
+              </span>
+            )}
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold tracking-tight mb-6 leading-tight">
+              {title}
+            </h2>
+            <p className="text-lg text-white/50 leading-relaxed max-w-lg">
+              {description}
+            </p>
+          </motion.div>
 
-            {/* Feature indicator dots */}
-            <div className="flex justify-center gap-1.5 md:gap-2 mt-3 md:mt-4">
-              {features.map((feature, index) => (
-                <button
-                  key={feature.id}
-                  onClick={() => setActiveFeature(index)}
-                  className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${
-                    activeFeature === index
-                      ? 'bg-white w-4 md:w-6'
-                      : 'bg-white/30 hover:bg-white/50 w-1.5 md:w-2'
-                  }`}
-                  aria-label={`View ${feature.title}`}
-                />
-              ))}
-            </div>
+          {/* Mock GUI */}
+          <motion.div
+            initial={{ opacity: 0, x: reverse ? -20 : 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className={reverse ? 'lg:order-1' : ''}
+          >
+            <FeatureShowcase>
+              {children}
+            </FeatureShowcase>
           </motion.div>
         </div>
       </div>
@@ -312,152 +145,238 @@ const FeaturesSection = () => {
   );
 };
 
-// How It Works Section - Redesigned to guide users to User Guide
-const HowItWorksSection = () => {
-  const steps = [
+// Polished mock previews for platform cards
+const EditorMockPreview = () => (
+  <div className="w-full h-full flex items-center justify-center p-6">
+    {/* Floating editor window */}
+    <div className="w-full max-w-[280px] bg-[#0a0a0a] rounded-xl border border-white/10 shadow-2xl overflow-hidden">
+      {/* Window bar */}
+      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10">
+        <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+        <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+        <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+        <span className="flex-1 text-center text-[9px] text-white/40">Project Brief.md</span>
+      </div>
+      {/* Editor content */}
+      <div className="p-4 space-y-3">
+        <h3 className="text-[11px] font-semibold text-white">Project Overview</h3>
+        <p className="text-[9px] text-white/50 leading-relaxed">
+          This document outlines the key objectives and milestones for Q4 2024.
+        </p>
+        <div className="pt-2">
+          <h4 className="text-[10px] font-medium text-white/80 mb-1">Key Goals</h4>
+          <ul className="text-[9px] text-white/40 space-y-1">
+            <li>• Launch beta version</li>
+            <li>• Reach 1000 users</li>
+            <li>• Improve AI accuracy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const DiffMockPreview = () => (
+  <div className="w-full h-full flex items-center justify-center p-6">
+    {/* Floating diff window */}
+    <div className="w-full max-w-[280px] bg-[#0a0a0a] rounded-xl border border-white/10 shadow-2xl overflow-hidden">
+      {/* Review banner */}
+      <div className="flex items-center justify-between px-3 py-2 bg-amber-500/10 border-b border-amber-500/20">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+          <span className="text-[9px] text-amber-300 font-medium">2 changes pending</span>
+        </div>
+        <div className="flex gap-1">
+          <span className="text-[8px] px-1.5 py-0.5 rounded bg-green-500/20 text-green-400">Accept All</span>
+        </div>
+      </div>
+      {/* Diff content */}
+      <div className="p-4 space-y-3">
+        <p className="text-[9px] text-white/60 leading-relaxed">
+          The project showed{' '}
+          <span className="bg-red-500/20 text-red-300 line-through px-0.5">good</span>{' '}
+          <span className="bg-green-500/20 text-green-300 px-0.5">exceptional</span>{' '}
+          results while identifying{' '}
+          <span className="bg-red-500/20 text-red-300 line-through px-0.5">some</span>{' '}
+          <span className="bg-green-500/20 text-green-300 px-0.5">key</span>{' '}
+          areas for improvement.
+        </p>
+        <div className="flex items-center gap-2 pt-2">
+          <span className="text-[8px] text-green-400">+2 improved</span>
+          <span className="text-[8px] text-red-400">-2 removed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const ChatMockPreview = () => (
+  <div className="w-full h-full flex items-center justify-center p-6">
+    {/* Floating chat window */}
+    <div className="w-full max-w-[280px] bg-[#0a0a0a] rounded-xl border border-white/10 shadow-2xl overflow-hidden">
+      {/* Header */}
+      <div className="flex items-center gap-2 px-3 py-2 border-b border-white/10">
+        <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center">
+          <span className="text-[8px]">✦</span>
+        </div>
+        <span className="text-[9px] text-white/60 font-medium">AI Assistant</span>
+      </div>
+      {/* Chat messages */}
+      <div className="p-3 space-y-2">
+        {/* User message */}
+        <div className="flex justify-end">
+          <div className="max-w-[180px] px-2.5 py-1.5 rounded-lg bg-white/10 text-[9px] text-white/80">
+            Make this introduction more engaging
+          </div>
+        </div>
+        {/* AI response */}
+        <div className="flex justify-start">
+          <div className="max-w-[200px] px-2.5 py-1.5 rounded-lg bg-white/5 text-[9px] text-white/60">
+            Done! I've enhanced the opening with a stronger hook and clearer value proposition.
+          </div>
+        </div>
+        {/* Input */}
+        <div className="flex items-center gap-2 mt-3 px-2 py-1.5 rounded-lg border border-white/10 bg-white/[0.02]">
+          <span className="flex-1 text-[8px] text-white/30">Ask AI anything...</span>
+          <div className="w-5 h-5 rounded-full bg-white/10" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Platform Cards Section
+const PlatformSection = () => {
+  const platforms = [
     {
-      number: '01',
-      title: 'Write in Markdown',
-      description: 'Clean, distraction-free editor with full Markdown support.',
-      icon: FileText,
-      guideLink: '/guide#editor'
+      title: 'Start in the Web Editor',
+      description: 'Full-featured writing experience with AI assistance, right in your browser.',
+      cta: 'Try doXmind',
+      ctaHref: 'https://beta.doxmind.com/',
+      external: true,
+      preview: <EditorMockPreview />,
     },
     {
-      number: '02',
-      title: 'Get AI Assistance',
-      description: 'AI autocomplete, quick edits, and chat for complex requests.',
-      icon: Brain,
-      guideLink: '/guide#ai-features'
+      title: 'Review AI suggestions',
+      description: 'Accept or reject changes with inline diff view. Full control over your content.',
+      cta: 'Learn more',
+      ctaHref: '/features',
+      external: false,
+      preview: <DiffMockPreview />,
     },
     {
-      number: '03',
-      title: 'Review & Accept',
-      description: 'Review suggestions with diff view. Stay in control.',
-      icon: GitCompare,
-      guideLink: '/guide#diff-review'
+      title: 'Chat with your documents',
+      description: 'AI reads, understands, and modifies your content directly through conversation.',
+      cta: 'User Guide',
+      ctaHref: '/guide',
+      external: false,
+      preview: <ChatMockPreview />,
     },
   ];
 
   return (
-    <section className="py-12 md:py-24 px-4 md:px-6 border-t border-white/5">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-24 md:py-32 px-5 md:px-8 border-t border-white/[0.06]">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-16"
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl md:text-5xl font-extralight mb-2 md:mb-4">
-            How It Works
+          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold tracking-tight mb-4">
+            The same AI everywhere you write
           </h2>
-          <p className="text-sm md:text-lg text-gray-500">
-            Simple workflow, powerful results
+          <p className="text-lg text-white/50 max-w-2xl mx-auto">
+            Use doXmind across web, desktop, and mobile—all connected by your account.
           </p>
         </motion.div>
 
-        {/* Steps */}
-        <div className="grid grid-cols-3 gap-3 md:gap-8 mb-8 md:mb-12">
-          {steps.map((step, index) => (
+        {/* Platform Cards */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {platforms.map((platform, index) => (
             <motion.div
-              key={index}
+              key={platform.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="relative"
+              transition={{ delay: index * 0.1 }}
+              className="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-white/[0.15] transition-all duration-300"
             >
-              {/* Connector line */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-gradient-to-r from-white/20 to-white/5" />
-              )}
+              {/* Card Preview */}
+              <div className="relative aspect-[4/3] bg-gradient-to-b from-white/[0.03] to-transparent">
+                {platform.preview}
+              </div>
 
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-10 h-10 md:w-16 md:h-16 rounded-full border border-white/20 mb-2 md:mb-4 relative">
-                  <step.icon className="w-4 h-4 md:w-7 md:h-7 text-white" />
-                  <span className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-4 h-4 md:w-6 md:h-6 bg-white text-black text-[10px] md:text-xs font-medium rounded-full flex items-center justify-center">
-                    {step.number}
-                  </span>
-                </div>
-                <h3 className="text-xs md:text-lg font-medium mb-1 md:mb-2">{step.title}</h3>
-                <p className="hidden md:block text-sm text-gray-500 leading-relaxed">{step.description}</p>
+              {/* Card Content */}
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-2">{platform.title}</h3>
+                <p className="text-sm text-white/44 mb-4 leading-relaxed">
+                  {platform.description}
+                </p>
+
+                {/* CTA Button */}
+                {platform.external ? (
+                  <a
+                    href={platform.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium rounded-full border border-white/20 hover:bg-white/[0.04] transition-all"
+                  >
+                    {platform.cta}
+                  </a>
+                ) : (
+                  <Link
+                    to={platform.ctaHref}
+                    className="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium rounded-full border border-white/20 hover:bg-white/[0.04] transition-all"
+                  >
+                    {platform.cta}
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* User Guide CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="inline-flex flex-row items-center gap-3 md:gap-4 p-3 md:p-6 border border-white/10 rounded-xl md:rounded-2xl bg-gradient-to-r from-white/5 via-white/10 to-white/5">
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-white/10 border border-white/20 flex items-center justify-center">
-                <BookOpen className="w-4 h-4 md:w-6 md:h-6 text-white" />
-              </div>
-              <div className="text-left hidden sm:block">
-                <p className="text-white text-sm md:text-base font-medium">Want to learn more?</p>
-                <p className="text-xs md:text-sm text-gray-400">Explore our User Guide</p>
-              </div>
-            </div>
-            <Link
-              to="/guide"
-              className="inline-flex items-center gap-1.5 md:gap-2 px-4 md:px-6 py-2 md:py-3 bg-white text-black text-xs md:text-base font-medium rounded-lg hover:bg-gray-200 transition-all"
-            >
-              Read Guide
-              <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
-            </Link>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
 };
 
-// Beta CTA Section
-const BetaCTASection = () => {
+// Final CTA Section
+const CTASection = () => {
   return (
-    <section className="py-12 md:py-24 px-4 md:px-6 border-t border-white/5">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative py-32 md:py-40 px-5 md:px-8 overflow-hidden border-t border-white/[0.06]">
+      <div className="relative max-w-3xl mx-auto text-center z-10">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mb-6 md:mb-8"
-        >
-          <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 border border-white/10 rounded-full mb-4 md:mb-6">
-            <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 bg-white"></span>
-            </span>
-            <span className="text-xs md:text-sm text-gray-400">Beta Available Now</span>
-          </div>
-
-          <h2 className="text-2xl md:text-5xl font-extralight mb-2 md:mb-4">
-            Try doXmind Today
-          </h2>
-          <p className="text-sm md:text-lg text-gray-500 mb-5 md:mb-8">
-            Start writing with AI. No installation required.
-          </p>
-        </motion.div>
-
-        <motion.a
-          href="https://beta.doxmind.com/"
-          target="_blank"
-          rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-12 py-3 md:py-5 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all text-sm md:text-lg"
         >
-          <Sparkles className="w-4 h-4 md:w-6 md:h-6" />
-          Launch App
-          <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-        </motion.a>
+          <h2 className="text-[clamp(2rem,5vw,4rem)] font-semibold tracking-tight mb-4 leading-tight">
+            Try doXmind today
+          </h2>
+          <p className="text-lg text-white/50 mb-10">
+            Try with Beta now available, or enjoy full AI writing features for free for a limited time.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="https://beta.doxmind.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black text-base font-medium rounded-full hover:bg-white/90 transition-all duration-200"
+            >
+              Try doXmind
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <Link
+              to="/guide"
+              className="inline-flex items-center justify-center px-8 py-4 text-base text-white/80 font-medium rounded-full border border-white/20 hover:bg-white/[0.04] transition-all duration-200"
+            >
+              User Guide
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -469,9 +388,57 @@ const Home = () => {
     <div className="min-h-screen bg-black text-white">
       <SEO path="/" />
       <HeroSection />
-      <FeaturesSection />
-      <HowItWorksSection />
-      <BetaCTASection />
+
+      {/* Feature: AI Chat */}
+      <FeatureSection
+        badge="AI Chat"
+        title="Built to drive real writing work"
+        description="From routine edits to your hardest writing tasks, doXmind reliably completes work end to end—drafting content, improving style, fixing grammar, and more—powered by Claude's frontier language models."
+      >
+        <DemoContainer showControls={false} showWindowBar={true}>
+          <AIChatScene isActive={true} />
+        </DemoContainer>
+      </FeatureSection>
+
+      {/* Feature: Diff Review */}
+      <FeatureSection
+        badge="Diff Review"
+        title="Designed for granular control"
+        description="Review AI-suggested changes with inline diff view. Accept or reject each change individually—so you stay in control and your content ships with confidence."
+        reverse={true}
+      >
+        <DemoContainer showControls={false} showWindowBar={true}>
+          <DiffReviewScene isActive={true} />
+        </DemoContainer>
+      </FeatureSection>
+
+      {/* Feature: Quick Edit */}
+      <FeatureSection
+        badge="Quick Edit"
+        title="One-click transformations"
+        description="Select text and instantly improve, simplify, expand, translate, or fix grammar. Quick Edit gives you fast access to common AI actions without leaving your writing flow."
+      >
+        <DemoContainer showControls={false} showWindowBar={true}>
+          <QuickEditScene isActive={true} />
+        </DemoContainer>
+      </FeatureSection>
+
+      {/* Feature: Text Review */}
+      <FeatureSection
+        badge="Text Review"
+        title="Writing quality analysis"
+        description="Grammarly-like analysis with color-coded suggestions for grammar, clarity, and style improvements. Get comprehensive feedback on your writing quality."
+        reverse={true}
+      >
+        <DemoContainer showControls={false} showWindowBar={true}>
+          <TextReviewScene isActive={true} />
+        </DemoContainer>
+      </FeatureSection>
+
+      {/* Platform Cards */}
+      <PlatformSection />
+
+      {/* Final CTA */}
       <CTASection />
     </div>
   );

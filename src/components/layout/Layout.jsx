@@ -6,10 +6,22 @@ import { cn } from '../../core/utils';
 
 const Layout = ({ children, className = '' }) => {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen bg-black text-white flex flex-col light:bg-white light:text-gray-900 transition-colors duration-300">
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="skip-to-content"
+      >
+        Skip to main content
+      </a>
+
       <Header />
-      
-      <main className={cn('flex-1', className)}>
+
+      <main
+        id="main-content"
+        className={cn('flex-1', className)}
+        tabIndex={-1}
+      >
         {children}
       </main>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { DemoHeader, DemoToolbar, DemoSidebar, DemoChatPanel } from '../components';
-import { AI_CHAT_CONTENT, UI_CONTENT } from '../constants/demoContent';
+import { DemoHeader, DemoToolbar, DemoChatPanel } from '../components';
+import { AI_CHAT_CONTENT } from '../constants/demoContent';
 import { ITEM_SPRING, MOBILE_SPRINGS } from '../constants/animationConfig';
 
 const AIChatScene = ({ isActive = true }) => {
@@ -160,25 +160,15 @@ const AIChatScene = ({ isActive = true }) => {
       <DemoHeader
         fileName="Project Overview.md"
         isDirty={isDocumentUpdated}
-        isSidebarOpen={true}
+        isSidebarOpen={false}
         isChatOpen={true}
       />
 
       {/* Main Content */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar */}
-        <DemoSidebar
-          files={UI_CONTENT.files}
-          activeFileId="project"
-        />
-
-        {/* Editor Area */}
+        {/* Editor Area - No sidebar when chat is open */}
         <div className="flex-1 flex flex-col min-w-0">
-          <DemoToolbar
-            activeButtons={[]}
-            showAutocomplete={true}
-            showReview={true}
-          />
+          <DemoToolbar activeButtons={[]} />
 
           <div className="flex-1 p-4 md:p-6 overflow-hidden">
             <div className="max-w-md">

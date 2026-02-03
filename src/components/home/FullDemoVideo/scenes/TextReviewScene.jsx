@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X } from 'lucide-react';
-import { DemoHeader, DemoToolbar, DemoSidebar } from '../components';
-import { TEXT_REVIEW_CONTENT, UI_CONTENT } from '../constants/demoContent';
+import { DemoHeader, DemoToolbar } from '../components';
+import { TEXT_REVIEW_CONTENT } from '../constants/demoContent';
 import { ITEM_SPRING, MOBILE_SPRINGS, MENU_SPRING } from '../constants/animationConfig';
 
 const issueColors = {
@@ -180,17 +180,13 @@ const TextReviewScene = ({ isActive = true }) => {
       <DemoHeader
         fileName="Progress Report.md"
         isDirty={fixedIssues.length > 0}
-        isSidebarOpen={true}
+        isSidebarOpen={false}
         isChatOpen={false}
       />
 
       {/* Main Content */}
       <div className="flex flex-1 overflow-hidden">
-        <DemoSidebar
-          files={UI_CONTENT.files}
-          activeFileId="project"
-        />
-
+        {/* No sidebar when review panel is open */}
         <div className="flex-1 flex flex-col min-w-0">
           <DemoToolbar
             showReview={true}

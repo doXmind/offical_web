@@ -166,11 +166,15 @@ const Header = () => {
       ref={headerRef}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 border-b',
-        isScrolled || isDropdownOpen ? 'bg-black' : 'bg-transparent',
+        isScrolled || isDropdownOpen
+          ? 'bg-black/80 backdrop-blur-xl'
+          : 'bg-transparent',
         hideHeader ? '-translate-y-full' : 'translate-y-0'
       )}
       style={{
-        borderBottomColor: isDropdownOpen ? 'rgba(255, 255, 255, 0.1)' : `rgba(255, 255, 255, ${borderOpacity})`
+        borderBottomColor: isDropdownOpen
+          ? 'rgba(255, 255, 255, 0.08)'
+          : `rgba(255, 255, 255, ${borderOpacity})`
       }}
     >
       <div className="w-full px-8 lg:px-12 xl:px-16 2xl:px-20">
@@ -250,10 +254,10 @@ const Header = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      "px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
+                      "px-5 py-2 text-sm font-medium rounded-full transition-all duration-200",
                       button.variant === 'primary'
-                        ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                        : "text-gray-300 hover:text-white"
+                        ? "bg-white/[0.04] border border-white/[0.12] text-white hover:bg-white/[0.08] hover:border-white/20"
+                        : "text-white/60 hover:text-white"
                     )}
                   >
                     {button.label}
@@ -263,10 +267,10 @@ const Header = () => {
                     key={button.label}
                     to={button.href}
                     className={cn(
-                      "px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
+                      "px-5 py-2 text-sm font-medium rounded-full transition-all duration-200",
                       button.variant === 'primary'
-                        ? "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                        : "text-gray-300 hover:text-white"
+                        ? "bg-white/[0.04] border border-white/[0.12] text-white hover:bg-white/[0.08] hover:border-white/20"
+                        : "text-white/60 hover:text-white"
                     )}
                   >
                     {button.label}
@@ -296,7 +300,7 @@ const Header = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          'md:hidden bg-black/95 backdrop-blur-primary transition-all duration-300 overflow-hidden',
+          'md:hidden backdrop-blur-primary transition-all duration-300 overflow-hidden bg-black/95',
           isMobileMenuOpen
             ? 'max-h-screen opacity-100'
             : 'max-h-0 opacity-0'
@@ -399,14 +403,15 @@ const Header = () => {
         onMouseLeave={handleDropdownLeave}
         ref={dropdownRef}
       >
-        <div 
+        <div
           className={cn(
-            "transition-all duration-300 transform",
-            isDropdownOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
-            "bg-black"
+            "transition-all duration-300 transform bg-black",
+            isDropdownOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
           )}
           style={{
-            boxShadow: isDropdownOpen ? '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)' : 'none'
+            boxShadow: isDropdownOpen
+              ? '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)'
+              : 'none'
           }}
         >
           <div 

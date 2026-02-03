@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <style>
+      .light { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 300; }
+      .bold { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 900; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="#000000"/>
+
+  <!-- Logo Section (Top Left) -->
+  <g transform="translate(100, 100)">
+    <!-- Icon -->
+    <g>
+      <path d="M3.6 0 Q0 0 0 3.6 L0 19.2 L24 24 L19.2 0 Z" fill="#FFFFFF"/>
+      <path d="M28.8 0 L24 24 L48 19.2 L48 3.6 Q48 0 44.4 0 Z" fill="#FFFFFF"/>
+      <path d="M0 28.8 L24 24 L19.2 48 L3.6 48 Q0 48 0 44.4 Z" fill="#FFFFFF"/>
+      <path d="M24 24 L48 28.8 L48 44.4 Q48 48 44.4 48 L28.8 48 Z" fill="#FFFFFF"/>
+    </g>
+    <!-- Wordmark -->
+    <text x="64" y="36" fill="#FFFFFF" font-size="28" letter-spacing="-1.5">
+      <tspan class="light">do</tspan><tspan class="bold">X</tspan><tspan class="light">mind</tspan>
+    </text>
+  </g>
+
+  <!-- Main Content (Centered) -->
+  <g transform="translate(600, 540)">
+    <!-- Headline -->
+    <text x="0" y="0" text-anchor="middle" fill="#FFFFFF" font-size="88" letter-spacing="-2">
+      <tspan class="bold">Think.</tspan><tspan class="light"> Write. </tspan><tspan class="bold">Publish.</tspan>
+    </text>
+    <!-- Subtext -->
+    <text x="0" y="100" text-anchor="middle" fill="#999999" font-size="28" letter-spacing="0">
+      <tspan class="light">The AI editor that reasons with you.</tspan>
+    </text>
+  </g>
+
+  <!-- Footer (Bottom) -->
+  <text x="600" y="1100" text-anchor="middle" fill="#FFFFFF" font-size="14" letter-spacing="3">
+    <tspan class="light">DOXMIND.COM</tspan>
+  </text>
+
+</svg>

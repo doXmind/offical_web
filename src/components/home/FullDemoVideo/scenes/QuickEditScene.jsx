@@ -13,8 +13,8 @@ import {
   MessageCircle,
   Wand2,
 } from 'lucide-react';
-import { DemoHeader, DemoToolbar, DemoSidebar } from '../components';
-import { QUICK_EDIT_CONTENT, UI_CONTENT } from '../constants/demoContent';
+import { DemoHeader, DemoToolbar } from '../components';
+import { QUICK_EDIT_CONTENT } from '../constants/demoContent';
 import { MENU_SPRING, ITEM_SPRING, QUICK_EDIT_OPTIONS } from '../constants/animationConfig';
 
 const commandIcons = {
@@ -161,17 +161,13 @@ const QuickEditScene = ({ isActive = true }) => {
       <DemoHeader
         fileName="Meeting Notes.md"
         isDirty={isImproved}
-        isSidebarOpen={true}
+        isSidebarOpen={false}
         isChatOpen={false}
       />
 
       {/* Main Content */}
       <div className="flex flex-1 overflow-hidden">
-        <DemoSidebar
-          files={UI_CONTENT.files}
-          activeFileId="project"
-        />
-
+        {/* No sidebar - focus on Quick Edit menu */}
         <div className="flex-1 flex flex-col min-w-0">
           <DemoToolbar activeButtons={[]} />
 

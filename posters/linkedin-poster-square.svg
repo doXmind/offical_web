@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;900&amp;display=swap');
+      .light { font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 300; }
+      .bold { font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 900; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#000000"/>
+
+  <!-- Top Left: Icon -->
+  <g transform="translate(80, 80)">
+    <path d="M4.8 0 Q0 0 0 4.8 L0 25.6 L32 32 L25.6 0 Z" fill="#FFFFFF"/>
+    <path d="M38.4 0 L32 32 L64 25.6 L64 4.8 Q64 0 59.2 0 Z" fill="#FFFFFF"/>
+    <path d="M0 38.4 L32 32 L25.6 64 L4.8 64 Q0 64 0 59.2 Z" fill="#FFFFFF"/>
+    <path d="M32 32 L64 38.4 L64 59.2 Q64 64 59.2 64 L38.4 64 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Top Right: Wordmark -->
+  <text x="1000" y="124" text-anchor="end" fill="#FFFFFF" font-size="24" letter-spacing="-1">
+    <tspan class="light">do</tspan><tspan class="bold">X</tspan><tspan class="light">mind</tspan>
+  </text>
+
+  <!-- Center: Main Text -->
+  <text x="540" y="420" text-anchor="middle" fill="#FFFFFF" font-size="64" letter-spacing="-2">
+    <tspan class="light">Map Your</tspan>
+  </text>
+  <text x="540" y="500" text-anchor="middle" fill="#FFFFFF" font-size="64" letter-spacing="-2">
+    <tspan class="bold">Mind.</tspan>
+  </text>
+  <text x="540" y="600" text-anchor="middle" fill="#FFFFFF" font-size="64" letter-spacing="-2">
+    <tspan class="light">Unlock Your</tspan>
+  </text>
+  <text x="540" y="680" text-anchor="middle" fill="#FFFFFF" font-size="64" letter-spacing="-2">
+    <tspan class="bold">Potential.</tspan>
+  </text>
+
+  <!-- Center: Subtitle -->
+  <text x="540" y="760" text-anchor="middle" fill="#666666" font-size="20" letter-spacing="3">
+    <tspan class="light">AI-POWERED MIND MAPPING</tspan>
+  </text>
+
+  <!-- Bottom Left: Website -->
+  <text x="80" y="1000" fill="#666666" font-size="14" letter-spacing="2">
+    <tspan class="light">doxmind.com</tspan>
+  </text>
+
+  <!-- Bottom Right: Year -->
+  <text x="1000" y="1000" text-anchor="end" fill="#666666" font-size="13">
+    <tspan class="light">2025</tspan>
+  </text>
+
+</svg>

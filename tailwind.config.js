@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
       colors: {
@@ -19,6 +20,19 @@ export default {
           800: '#1a1a1a',
           900: '#0a0a0a',
         },
+        // Codex-inspired transparency system
+        primary: {
+          4: 'rgba(255, 255, 255, 0.04)',
+          8: 'rgba(255, 255, 255, 0.08)',
+          12: 'rgba(255, 255, 255, 0.12)',
+          44: 'rgba(255, 255, 255, 0.44)',
+          60: 'rgba(255, 255, 255, 0.60)',
+          100: 'rgba(255, 255, 255, 1)',
+        },
+      },
+      transitionTimingFunction: {
+        'curve-a': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'curve-out': 'cubic-bezier(0, 0, 0.2, 1)',
       },
       fontFamily: {
         sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
@@ -76,8 +90,14 @@ export default {
       },
       backdropBlur: {
         xs: '2px',
+        '3xl': '64px',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Custom plugin for light mode variant
+    function({ addVariant }) {
+      addVariant('light', '.light &');
+    },
+  ],
 } 

@@ -6,6 +6,7 @@ import Features from './pages/Features';
 import Solutions from './pages/Solutions';
 import Pricing from './pages/Pricing';
 import Guide from './pages/Guide';
+import Releases from './pages/Releases';
 import Demo from './pages/Demo';
 import CookiesPrivacy from './pages/CookiesPrivacy';
 import NotFound from './pages/NotFound';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/solutions" element={<Layout><Solutions /></Layout>} />
         <Route path="/pricing" element={<Layout><Pricing /></Layout>} />
         <Route path="/guide" element={<Layout><Guide /></Layout>} />
+        <Route path="/releases" element={<Layout><Releases /></Layout>} />
         <Route path="/cookies-privacy" element={<Layout><CookiesPrivacy /></Layout>} />
 
         {/* 404 catch-all route */}

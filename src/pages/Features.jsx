@@ -15,15 +15,15 @@ import {
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import CTASection from '../components/ui/cta-section';
-import { MockEditorContainer } from '../components/home/MockEditorShowcase/components';
+import { DemoContainer } from '../components/home/FullDemoVideo/components';
 import {
   QuickEditScene,
   AIChatScene,
   AutocompleteScene,
   KnowledgeBaseScene,
   TextReviewScene,
-  DiffAcceptScene,
-} from '../components/home/MockEditorShowcase/scenes';
+  DiffReviewScene,
+} from '../components/home/FullDemoVideo/scenes';
 
 // Map feature IDs to their corresponding scene components
 const featureSceneMap = {
@@ -32,7 +32,7 @@ const featureSceneMap = {
   'autocomplete': AutocompleteScene,
   'knowledge-base': KnowledgeBaseScene,
   'text-review': TextReviewScene,
-  'version-history': DiffAcceptScene,
+  'version-history': DiffReviewScene,
 };
 
 const Features = () => {
@@ -297,9 +297,9 @@ const Features = () => {
                 {/* Visual */}
                 <div className="relative">
                   {SceneComponent ? (
-                    <MockEditorContainer>
+                    <DemoContainer>
                       <SceneComponent isActive={visibleFeatures[feature.id]} />
-                    </MockEditorContainer>
+                    </DemoContainer>
                   ) : (
                     <div className="border border-white/10 rounded-lg bg-white/5 p-8 aspect-video flex items-center justify-center">
                       <feature.icon className="w-24 h-24 text-white/10" />

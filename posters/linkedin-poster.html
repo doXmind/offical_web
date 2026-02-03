@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>doXmind LinkedIn Poster Templates</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 40px;
+      gap: 60px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 300;
+      color: #000;
+      margin-bottom: 8px;
+    }
+
+    .header h1 span {
+      font-weight: 900;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .poster-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+      text-align: center;
+    }
+
+    /* ==================== COMMON STYLES ==================== */
+    .wordmark {
+      font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+      letter-spacing: -1.5px;
+    }
+
+    .light { font-weight: 300; }
+    .bold { font-weight: 900; }
+
+    .icon-white path { fill: #FFFFFF; }
+    .icon-black path { fill: #000000; }
+
+    /* ==================== POSTER 1: HERO 1200x1200 ==================== */
+    .poster-hero {
+      width: 1200px;
+      height: 1200px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 100px;
+      position: relative;
+    }
+
+    .poster-hero .top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .poster-hero .center {
+      text-align: center;
+    }
+
+    .poster-hero .headline {
+      font-size: 88px;
+      color: #fff;
+      letter-spacing: -3px;
+      margin-bottom: 32px;
+    }
+
+    .poster-hero .subline {
+      font-size: 28px;
+      color: #999;
+      font-weight: 300;
+    }
+
+    .poster-hero .bottom {
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ==================== POSTER 2: LANDSCAPE 1200x627 ==================== */
+    .poster-landscape {
+      width: 1200px;
+      height: 627px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px;
+      position: relative;
+    }
+
+    .poster-landscape .logo {
+      position: absolute;
+      top: 40px;
+      left: 50px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .poster-landscape .headline {
+      font-size: 72px;
+      color: #fff;
+      letter-spacing: -3px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .poster-landscape .subline {
+      font-size: 24px;
+      color: #999;
+      font-weight: 300;
+    }
+
+    .poster-landscape .footer {
+      position: absolute;
+      bottom: 40px;
+      font-size: 13px;
+      color: #666;
+      letter-spacing: 2px;
+    }
+
+    /* ==================== POSTER 3: MINIMAL 1200x1200 ==================== */
+    .poster-minimal {
+      width: 1200px;
+      height: 1200px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .poster-minimal .icon-large {
+      margin-bottom: 60px;
+    }
+
+    .poster-minimal .headline {
+      font-size: 64px;
+      color: #fff;
+      letter-spacing: -2px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .poster-minimal .subline {
+      font-size: 22px;
+      color: #666;
+      font-weight: 300;
+    }
+
+    /* ==================== POSTER 4: SPLIT 1200x627 ==================== */
+    .poster-split {
+      width: 1200px;
+      height: 627px;
+      background: #000;
+      display: flex;
+      position: relative;
+    }
+
+    .poster-split .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+    }
+
+    .poster-split .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .poster-split .headline {
+      font-size: 56px;
+      color: #fff;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .poster-split .subline {
+      font-size: 20px;
+      color: #666;
+      font-weight: 300;
+    }
+
+    .poster-split .right {
+      width: 400px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==================== POSTER 5: CTA 1200x627 ==================== */
+    .poster-cta {
+      width: 1200px;
+      height: 627px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .poster-cta .headline {
+      font-size: 80px;
+      color: #fff;
+      letter-spacing: -3px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .poster-cta .subline {
+      font-size: 24px;
+      color: #999;
+      font-weight: 300;
+      margin-bottom: 48px;
+    }
+
+    .poster-cta .cta-button {
+      padding: 20px 60px;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .poster-cta .logo {
+      position: absolute;
+      top: 40px;
+      left: 50px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* ==================== POSTER 6: STORY 1080x1920 ==================== */
+    .poster-story {
+      width: 1080px;
+      height: 1920px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 100px 80px;
+      position: relative;
+    }
+
+    .poster-story .top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .poster-story .center {
+      text-align: center;
+    }
+
+    .poster-story .headline {
+      font-size: 72px;
+      color: #fff;
+      letter-spacing: -3px;
+      line-height: 1.15;
+      margin-bottom: 40px;
+    }
+
+    .poster-story .subline {
+      font-size: 28px;
+      color: #999;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .poster-story .bottom {
+      text-align: center;
+    }
+
+    .poster-story .cta-button {
+      display: inline-block;
+      padding: 24px 80px;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .poster-story .website {
+      font-size: 16px;
+      color: #666;
+      letter-spacing: 3px;
+    }
+
+    /* ==================== POSTER 7: QUOTE 1200x1200 ==================== */
+    .poster-quote {
+      width: 1200px;
+      height: 1200px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 120px;
+      position: relative;
+    }
+
+    .poster-quote .quote-mark {
+      font-size: 200px;
+      color: #222;
+      font-weight: 900;
+      line-height: 0.5;
+      margin-bottom: 40px;
+    }
+
+    .poster-quote .quote-text {
+      font-size: 48px;
+      color: #fff;
+      font-weight: 300;
+      text-align: center;
+      line-height: 1.4;
+      letter-spacing: -1px;
+      margin-bottom: 60px;
+    }
+
+    .poster-quote .quote-text strong {
+      font-weight: 900;
+    }
+
+    .poster-quote .logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ==================== POSTER 8: FEATURES 1200x1200 ==================== */
+    .poster-features {
+      width: 1200px;
+      height: 1200px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      padding: 100px;
+      position: relative;
+    }
+
+    .poster-features .top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    .poster-features .headline {
+      font-size: 64px;
+      color: #fff;
+      letter-spacing: -2px;
+      margin-bottom: 60px;
+    }
+
+    .poster-features .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .poster-features .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .poster-features .feature-icon {
+      width: 48px;
+      height: 48px;
+      border: 2px solid #333;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .poster-features .feature-text {
+      font-size: 28px;
+      color: #999;
+      font-weight: 300;
+    }
+
+    .poster-features .bottom {
+      margin-top: auto;
+      font-size: 14px;
+      color: #666;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>do<span>X</span>mind Poster Templates</h1>
+    <p>Right-click → Save as image or use browser DevTools screenshot</p>
+  </div>
+
+  <!-- POSTER 1: HERO 1200x1200 (主打款) -->
+  <div class="poster-container">
+    <span class="label">Style 1 — Hero Square (1200×1200) ★ Recommended</span>
+    <div class="poster-hero">
+      <div class="top">
+        <svg viewBox="0 0 80 80" width="48" height="48">
+          <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#FFFFFF"/>
+          <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#FFFFFF"/>
+          <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#FFFFFF"/>
+          <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#FFFFFF"/>
+        </svg>
+        <span class="wordmark" style="font-size: 28px; color: #fff;">
+          <span class="light">do</span><span class="bold">X</span><span class="light">mind</span>
+        </span>
+      </div>
+      <div class="center">
+        <h2 class="headline">
+          <span class="bold">Think.</span> <span class="light">Write.</span> <span class="bold">Publish.</span>
+        </h2>
+        <p class="subline">The AI editor that reasons with you.</p>
+      </div>
+      <div class="bottom">DOXMIND.COM</div>
+    </div>
+  </div>
+
+  <!-- POSTER 2: LANDSCAPE 1200x627 -->
+  <div class="poster-container">
+    <span class="label">Style 2 — Landscape (1200×627)</span>
+    <div class="poster-landscape">
+      <div class="logo">
+        <svg viewBox="0 0 80 80" width="40" height="40">
+          <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#FFFFFF"/>
+          <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#FFFFFF"/>
+          <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#FFFFFF"/>
+          <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#FFFFFF"/>
+        </svg>
+        <span class="wordmark" style="font-size: 24px; color: #fff;">
+          <span class="light">do</span><span class="bold">X</span><span class="light">mind</span>
+        </span>
+      </div>
+      <h2 class="headline">
+        <span class="bold">Think.</span> <span class="light">Write.</span> <span class="bold">Publish.</span>
+      </h2>
+      <p class="subline">The AI editor that reasons with you.</p>
+      <div class="footer">DOXMIND.COM</div>
+    </div>
+  </div>
+
+  <!-- POSTER 3: MINIMAL 1200x1200 -->
+  <div class="poster-container">
+    <span class="label">Style 3 — Minimal Icon (1200×1200)</span>
+    <div class="poster-minimal">
+      <div class="icon-large">
+        <svg viewBox="0 0 80 80" width="180" height="180">
+          <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#FFFFFF"/>
+          <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#FFFFFF"/>
+          <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#FFFFFF"/>
+          <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#FFFFFF"/>
+        </svg>
+      </div>
+      <h2 class="headline">
+        <span class="bold">Think.</span> <span class="light">Write.</span> <span class="bold">Publish.</span>
+      </h2>
+      <p class="subline">The AI editor that reasons with you.</p>
+    </div>
+  </div>
+
+  <!-- POSTER 4: SPLIT 1200x627 -->
+  <div class="poster-container">
+    <span class="label">Style 4 — Split Layout (1200×627)</span>
+    <div class="poster-split">
+      <div class="left">
+        <div class="logo">
+          <svg viewBox="0 0 80 80" width="40" height="40">
+            <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#FFFFFF"/>
+            <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#FFFFFF"/>
+            <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#FFFFFF"/>
+            <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#FFFFFF"/>
+          </svg>
+          <span class="wordmark" style="font-size: 24px; color: #fff;">
+            <span class="light">do</span><span class="bold">X</span><span class="light">mind</span>
+          </span>
+        </div>
+        <h2 class="headline">
+          <span class="bold">Think.</span><br>
+          <span class="light">Write.</span><br>
+          <span class="bold">Publish.</span>
+        </h2>
+        <p class="subline">The AI editor that reasons with you.</p>
+      </div>
+      <div class="right">
+        <svg viewBox="0 0 80 80" width="140" height="140">
+          <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#000000"/>
+          <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#000000"/>
+          <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#000000"/>
+          <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#000000"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSTER 5: CTA 1200x627 -->
+  <div class="poster-container">
+    <span class="label">Style 5 — Call to Action (1200×627)</span>
+    <div class="poster-cta">
+      <div class="logo">
+        <svg viewBox="0 0 80 80" width="40" height="40">
+          <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#FFFFFF"/>
+          <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#FFFFFF"/>
+          <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#FFFFFF"/>
+          <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#FFFFFF"/>
+        </svg>
+        <span class="wordmark" style="font-size: 24px; color: #fff;">
+          <span class="light">do</span><span class="bold">X</span><span class="light">mind</span>
+        </span>
+      </div>
+      <h2 class="headline">
+        <span class="bold">Think.</span> <span class="light">Write.</span> <span class="bold">Publish.</span>
+      </h2>
+      <p class="subline">The AI editor that reasons with you.</p>
+      <div class="cta-button">Try It Free</div>
+    </div>
+  </div>
+
+  <!-- POSTER 6: STORY 1080x1920 -->
+  <div class="poster-container">
+    <span class="label">Style 6 — Story / Vertical (1080×1920)</span>
+    <div class="poster-story">
+      <div class="top">
+        <svg viewBox="0 0 80 80" width="56" height="56">
+          <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#FFFFFF"/>
+          <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#FFFFFF"/>
+          <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#FFFFFF"/>
+          <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#FFFFFF"/>
+        </svg>
+        <span class="wordmark" style="font-size: 28px; color: #fff;">
+          <span class="light">do</span><span class="bold">X</span><span class="light">mind</span>
+        </span>
+      </div>
+      <div class="center">
+        <h2 class="headline">
+          <span class="bold">Think.</span><br>
+          <span class="light">Write.</span><br>
+          <span class="bold">Publish.</span>
+        </h2>
+        <p class="subline">The AI editor<br>that reasons with you.</p>
+      </div>
+      <div class="bottom">
+        <div class="cta-button">Get Started</div>
+        <p class="website">DOXMIND.COM</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSTER 7: QUOTE 1200x1200 -->
+  <div class="poster-container">
+    <span class="label">Style 7 — Quote Style (1200×1200)</span>
+    <div class="poster-quote">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">
+        An AI that doesn't just <strong>write</strong> for you,<br>
+        but <strong>thinks</strong> with you.
+      </p>
+      <div class="logo">
+        <svg viewBox="0 0 80 80" width="48" height="48">
+          <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#FFFFFF"/>
+          <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#FFFFFF"/>
+          <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#FFFFFF"/>
+          <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#FFFFFF"/>
+        </svg>
+        <span class="wordmark" style="font-size: 28px; color: #fff;">
+          <span class="light">do</span><span class="bold">X</span><span class="light">mind</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSTER 8: FEATURES 1200x1200 -->
+  <div class="poster-container">
+    <span class="label">Style 8 — Features List (1200×1200)</span>
+    <div class="poster-features">
+      <div class="top">
+        <svg viewBox="0 0 80 80" width="48" height="48">
+          <path d="M6 0 Q0 0 0 6 L0 32 L40 40 L32 0 Z" fill="#FFFFFF"/>
+          <path d="M48 0 L40 40 L80 32 L80 6 Q80 0 74 0 Z" fill="#FFFFFF"/>
+          <path d="M0 48 L40 40 L32 80 L6 80 Q0 80 0 74 Z" fill="#FFFFFF"/>
+          <path d="M40 40 L80 48 L80 74 Q80 80 74 80 L48 80 Z" fill="#FFFFFF"/>
+        </svg>
+        <span class="wordmark" style="font-size: 28px; color: #fff;">
+          <span class="light">do</span><span class="bold">X</span><span class="light">mind</span>
+        </span>
+      </div>
+      <h2 class="headline">
+        <span class="bold">Think.</span> <span class="light">Write.</span> <span class="bold">Publish.</span>
+      </h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">→</div>
+          <span class="feature-text">AI that reasons alongside you</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">→</div>
+          <span class="feature-text">Structure your thoughts visually</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">→</div>
+          <span class="feature-text">From draft to publish in one flow</span>
+        </div>
+      </div>
+      <div class="bottom">DOXMIND.COM</div>
+    </div>
+  </div>
+
+</body>
+</html>
