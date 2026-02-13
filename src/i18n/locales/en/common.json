@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "guide": "Guide",
+    "changelog": "Changelog",
+    "privacy": "Privacy",
+    "features": "Features",
+    "search": "Search",
+    "logIn": "Log in"
+  },
+  "footer": {
+    "columns": {
+      "product": {
+        "title": "Product",
+        "aiEditor": "AI Editor",
+        "aiChat": "AI Chat",
+        "knowledgeBase": "Knowledge Base",
+        "presentationMode": "Presentation Mode",
+        "download": "Download"
+      },
+      "resources": {
+        "title": "Resources",
+        "guide": "Guide",
+        "helpCenter": "Help Center",
+        "changelog": "Changelog",
+        "getStarted": "Get Started"
+      },
+      "company": {
+        "title": "Company",
+        "aboutUs": "About Us",
+        "careers": "Careers",
+        "contactSales": "Contact Sales"
+      },
+      "terms": {
+        "title": "Terms & Policies",
+        "termsOfUse": "Terms of Use",
+        "privacyPolicy": "Privacy Policy",
+        "cookieSettings": "Cookie Settings"
+      }
+    },
+    "copyright": "W Aixs Inc. © 2024–{{year}}",
+    "manageCookies": "Manage Cookies",
+    "languageSelector": {
+      "selectLanguage": "Select language",
+      "search": "Search",
+      "noResults": "No languages found"
+    }
+  },
+  "cta": {
+    "tryForFree": "Try for Free",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started"
+  },
+  "globalSearch": {
+    "placeholder": "Search doXmind...",
+    "noResults": "No results for \"{{query}}\"",
+    "tryDifferent": "Try a different keyword",
+    "navigate": "navigate",
+    "open": "open",
+    "close": "close",
+    "groups": {
+      "pages": "Pages",
+      "features": "Features",
+      "actions": "Quick Actions"
+    },
+    "entries": {
+      "page-home": { "label": "Home", "description": "Main landing page", "keywords": "home landing main start" },
+      "page-about": { "label": "About", "description": "Our vision and values", "keywords": "about vision values team mission" },
+      "page-guide": { "label": "Help & Feature Guide", "description": "Learn how to use doXmind", "keywords": "guide help features documentation docs" },
+      "page-changelog": { "label": "Changelog", "description": "Release notes and version history", "keywords": "changelog releases updates version what's new patch notes" },
+      "getting-started": { "label": "Getting Started", "description": "Create your first document and learn the layout", "keywords": "getting started setup onboarding tour create document" },
+      "home-dashboard": { "label": "Home Dashboard", "description": "Search, recent files, favorites, and file management", "keywords": "dashboard home recent favorites files search" },
+      "editor": { "label": "Editor Basics", "description": "Rich text formatting, blocks, and slash commands", "keywords": "editor text format bold italic heading list code table slash" },
+      "quick-edit": { "label": "AI Quick Edit", "description": "Select text to fix grammar, improve, simplify, or translate", "keywords": "quick edit ai grammar improve simplify translate rewrite tone" },
+      "autocomplete": { "label": "AI Autocomplete", "description": "Ghost text suggestions as you type", "keywords": "autocomplete suggestion ghost text tab complete ai" },
+      "chat": { "label": "AI Chat", "description": "Converse with AI about your document", "keywords": "chat ai conversation brainstorm voice image" },
+      "diff-review": { "label": "Diff Review", "description": "Visual diff for AI edits with accept/reject", "keywords": "diff review accept reject changes version" },
+      "knowledge-base": { "label": "Knowledge Base", "description": "Upload reference documents for AI-powered answers", "keywords": "knowledge base upload pdf reference research rag" },
+      "search-nav": { "label": "Search & Navigation", "description": "Semantic search, find & replace, command palette", "keywords": "search find replace command palette navigation semantic" },
+      "documents": { "label": "Document Management", "description": "Folders, versions, import, export, and templates", "keywords": "document folder version import export template organize" },
+      "presentation": { "label": "Presentation Mode", "description": "Turn your document into a slideshow", "keywords": "presentation slideshow slides present f5" },
+      "outline": { "label": "Outline & Mindlines", "description": "Navigate document structure visually", "keywords": "outline mindlines structure heading navigation sidebar" },
+      "customization": { "label": "Customization", "description": "Typography, themes, editor width, and spellcheck", "keywords": "customization settings theme font typography dark mode spellcheck" },
+      "sharing": { "label": "Sharing", "description": "Share documents via read-only links", "keywords": "sharing share link publish read-only" },
+      "shortcuts": { "label": "Keyboard Shortcuts", "description": "Full keyboard shortcut reference", "keywords": "keyboard shortcuts hotkey keybinding ctrl" },
+      "action-login": { "label": "Log in to doXmind", "description": "Open the doXmind editor", "keywords": "login log in sign in open app editor try" }
+    }
+  },
+  "cookiePreferences": {
+    "title": "Cookie Preferences Center",
+    "description": "Using websites and apps involves storing and retrieving information from your device, including cookies and other identifiers, which can be shared with third parties, for various activities. We provide a simple tool below allowing you to tailor your choices as you deem fit. You can change your consent at any time.",
+    "learnMore": "Learn more",
+    "necessary": {
+      "title": "Strictly Necessary Cookies (always active)",
+      "description": "These cookies are essential for the site to function and cannot be toggled off. They assist with security, user authentication, customer support, etc."
+    },
+    "analytics": {
+      "title": "Analytics Cookies",
+      "description": "These cookies help us understand how visitors interact with our site. They allow us to measure traffic and improve site performance."
+    },
+    "marketing": {
+      "title": "Marketing Performance Cookies",
+      "description": "These cookies help us measure the effectiveness of our marketing campaigns."
+    },
+    "done": "Done"
+  },
+  "seo": {
+    "home": {
+      "title": "doXmind - AI-Native Desktop Editor for Data Analysis",
+      "description": "Transform your data workflow with doXmind's AI-powered desktop editor. Features multi-agent system, interactive visualizations, and automated data analysis.",
+      "keywords": "AI editor, desktop editor, data analysis, data visualization, multi-agent AI, document editor, productivity tool"
+    },
+    "about": {
+      "title": "About - doXmind | AI-Powered Writing Platform",
+      "description": "Learn about doXmind's mission to solve every writer's problem. An AI-native, distraction-free writing platform built around knowledge and intelligence.",
+      "keywords": "about doXmind, AI writing platform, mission, writing tools, AI editor company"
+    },
+    "guide": {
+      "title": "User Guide - Getting Started with doXmind",
+      "description": "Learn how to use doXmind effectively. Step-by-step tutorials, tips, and best practices for maximizing your AI-powered editing experience.",
+      "keywords": "user guide, tutorial, documentation, getting started, how to use, tips and tricks"
+    },
+    "changelog": {
+      "title": "Changelog - doXmind | What's New",
+      "description": "Follow the evolution of doXmind. Every improvement, new feature, and fix — tracked and documented.",
+      "keywords": "changelog, release notes, updates, new features, version history, doXmind updates"
+    },
+    "cookiesPrivacy": {
+      "title": "Cookies & Privacy Policy - doXmind",
+      "description": "Learn about how doXmind collects, uses, and protects your personal information and how we use cookies.",
+      "keywords": "privacy policy, cookies, data protection, personal information, GDPR"
+    }
+  }
+}

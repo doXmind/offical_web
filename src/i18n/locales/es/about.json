@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "badge": "Acerca de doXmind",
+    "heading": "Queremos resolver todos los problemas del escritor.",
+    "subtitle": "doXmind es una plataforma de escritura nativa con IA, diseñada desde cero para eliminar cada barrera entre un escritor y su mejor trabajo."
+  },
+  "vision": {
+    "label": "Nuestra visión",
+    "heading": "El futuro de la escritura es inteligente",
+    "p1": "Creemos que cada texto debería contar con el beneficio de un compañero inteligente. No para escribir por ti, sino para brindar exactamente la ayuda correcta en cada paso — desde la inspiración inicial hasta el pulido final.",
+    "p2": "doXmind integra la IA en el núcleo de la experiencia de escritura. Tus materiales de investigación, estilo de escritura e intención creativa — la IA lo comprende todo y ofrece sugerencias en consecuencia. Una plataforma para todo el recorrido, desde la investigación y el borrador hasta la revisión y la publicación.",
+    "p3": "Esto no es el futuro — es lo que estamos construyendo ahora mismo."
+  },
+  "problem": {
+    "label": "El problema",
+    "heading": "Las herramientas de escritura no fueron creadas para escritores",
+    "subtitle": "Durante décadas, el software de escritura ha sido diseñado en torno al formato y la maquetación — no en torno al acto de pensar y comunicar. Los escritores se ven obligados a malabarear múltiples herramientas desconectadas.",
+    "fragmentedTools": {
+      "title": "Herramientas fragmentadas",
+      "description": "Los escritores saltan entre un procesador de texto, una herramienta de investigación, un corrector gramatical y un chatbot de IA. El contexto se pierde en cada cambio y el flujo se interrumpe constantemente."
+    },
+    "aiBoltedOn": {
+      "title": "IA añadida, no integrada",
+      "description": "La mayoría de los editores tratan la IA como algo secundario — una barra lateral o una aplicación separada. La IA no entiende la estructura de tu documento, tu estilo de escritura ni tu verdadera intención."
+    },
+    "noMemory": {
+      "title": "Sin memoria, sin conocimiento",
+      "description": "Tu asistente de IA olvida todo entre sesiones. No puede hacer referencia a tus materiales de investigación, guías de estilo ni trabajos anteriores."
+    }
+  },
+  "approach": {
+    "label": "Nuestro enfoque",
+    "heading": "Nativa con IA desde la base",
+    "subtitle": "En doXmind, la IA no es una herramienta separada que invocas — está entretejida en cada parte de la experiencia de escritura.",
+    "aiWoven": {
+      "title": "IA entretejida en cada tecla",
+      "description": "En doXmind, la IA está integrada en cada parte de la experiencia de escritura. El autocompletado sugiere mientras escribes. Selecciona texto para reescribir, traducir o refinar al instante. Conversa con la IA sobre todo tu documento."
+    },
+    "distractionFree": {
+      "title": "Un lienzo libre de distracciones",
+      "description": "Eliminamos todo lo que no te ayuda a escribir. Sin barras de herramientas tipo cinta. Sin laberintos de menús. Solo un editor limpio con herramientas inteligentes que aparecen exactamente cuando las necesitas."
+    },
+    "knowledgeConnected": {
+      "title": "Tu conocimiento, siempre conectado",
+      "description": "Sube artículos de investigación, guías de estilo y documentos de referencia. La IA los lee, los cita y fundamenta cada sugerencia en tus materiales reales. Tu escritura gana la profundidad de tu investigación."
+    }
+  },
+  "values": {
+    "label": "Nuestros principios",
+    "heading": "En lo que creemos",
+    "writerFirst": {
+      "title": "El escritor primero, siempre",
+      "description": "Cada función que desarrollamos comienza con una pregunta: ¿esto facilita la vida del escritor? Si no es así, no la lanzamos."
+    },
+    "aiAsPartner": {
+      "title": "IA como compañera, no como reemplazo",
+      "description": "La IA debe amplificar tu voz, no reemplazarla. Cada edición de la IA es una sugerencia que tú controlas — acepta, rechaza o refina."
+    },
+    "yourData": {
+      "title": "Tus datos, tu trabajo",
+      "description": "Tus documentos y base de conocimiento te pertenecen. No entrenamos con tu contenido. Tu escritura permanece privada."
+    },
+    "simplicity": {
+      "title": "La simplicidad es una función",
+      "description": "La complejidad es enemiga de la creatividad. Nos obsesionamos con eliminar la fricción para que puedas concentrarte en lo que importa: tus ideas."
+    }
+  },
+  "cta": {
+    "heading": "Empieza a escribir con IA hoy",
+    "subtitle": "Únete a miles de escritores que ya han descubierto una mejor forma de escribir. Gratis para empezar, no se requiere tarjeta de crédito."
+  }
+}

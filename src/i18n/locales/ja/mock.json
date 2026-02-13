@@ -1,0 +1,351 @@
+{
+  "titleBar": "デモドキュメント — doXmind",
+
+  "chat": {
+    "aiAssistant": "AIアシスタント",
+    "demo": "デモ",
+    "userMessage": "導入部をもっと魅力的にして、文法の問題を修正してください",
+    "analyzingDocument": "ドキュメントを分析中",
+    "editingIntroduction": "導入部を編集中",
+    "improvedIntro": "導入部を改善しました：",
+    "fixed": "修正済み",
+    "efficently": "efficently",
+    "efficiently": "efficiently",
+    "madeEngaging": "冒頭をより魅力的にしました",
+    "tightenedLanguage": "文章を引き締めて流れを改善しました",
+    "reviewChanges": "エディタで変更を確認",
+    "summarizeDoc": "ドキュメントを要約",
+    "brainstormIdeas": "アイデアをブレインストーミング",
+    "fixGrammar": "文法を修正",
+    "knowledgeBase": "ナレッジベース",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "askAiAnything": "AIに何でも質問..."
+  },
+
+  "editor": {
+    "title": "AI搭載ライティングの未来",
+    "bodyP1": "人工知能は、私たちの文章作成へのアプローチを根本的に変革しています。自動文法チェックからインテリジェントなコンテンツ提案まで、最新のAIツールにより、ライターはより明確で、より",
+    "compelling": "説得力のある",
+    "bodyP1End": "文章を短時間で書けるようになっています。",
+    "keyFeatures": "主な機能",
+    "feature1": "入力中のリアルタイムAI提案",
+    "feature2": "AI生成編集のインライン差分レビュー",
+    "feature3": "リサーチのためのナレッジベース統合",
+    "autocompleteVisible": "ライティングアシスタントが文脈を分析し",
+    "autocompleteGhost": "、音声とスタイルの一貫性を維持する提案を提供します。",
+    "diffOld": "この製品はとても良く、日々の業務に大いに役立ちました。",
+    "diffNew": "この製品は卓越したパフォーマンスを発揮し、日々のワークフローを効率化しました。",
+    "accept": "承認",
+    "reject": "却下",
+    "exportLine": "各ドキュメントはMarkdown、PDF、またはWord形式でエクスポートして簡単に共有できます。",
+    "delete": "削除",
+    "duplicate": "複製",
+    "turnInto": "変換...",
+    "blocks": "ブロック",
+    "heading1": "見出し 1",
+    "heading2": "見出し 2",
+    "bulletList": "箇条書きリスト",
+    "taskList": "タスクリスト",
+    "codeBlock": "コードブロック",
+    "blockquote": "引用",
+    "implementation": "実装"
+  },
+
+  "sidebar": {
+    "outline": "アウトライン",
+    "item1": "AI搭載ライティング...",
+    "item2": "主な機能",
+    "item3": "実装",
+    "item4": "結果",
+    "item5": "結論",
+    "item6": "次のステップ"
+  },
+
+  "status": {
+    "saved": "保存済み",
+    "words": "847 語",
+    "characters": "4,231 文字",
+    "readTime": "5 分で読了"
+  },
+
+  "ill": {
+    "layout": {
+      "ariaLabel": "アウトラインサイドバー、エディタ、チャットパネルを表示するアプリケーションレイアウト",
+      "outline": "アウトライン",
+      "editor": "エディタ",
+      "aiChat": "AIチャット"
+    },
+    "toolbar": {
+      "ariaLabel": "太字、斜体、その他のオプションを表示するテキスト書式設定ツールバー",
+      "bold": "太字",
+      "italic": "斜体",
+      "underline": "下線",
+      "strikethrough": "取消線",
+      "head1": "H1",
+      "head2": "H2",
+      "head3": "H3",
+      "list": "リスト",
+      "code": "コード",
+      "link": "リンク"
+    },
+    "quickEdit": {
+      "ariaLabel": "クイック編集フロー：テキストを選択、アクションを選択、変更を確認",
+      "selectText": "テキストを選択",
+      "fixGrammar": "文法を修正",
+      "improve": "改善",
+      "simplify": "簡潔にする",
+      "makeLonger": "長くする",
+      "translate": "翻訳",
+      "askInChat": "チャットで質問",
+      "pickAction": "アクションを選択",
+      "accept": "承認",
+      "reject": "却下",
+      "reviewDiff": "差分を確認"
+    },
+    "autocomplete": {
+      "ariaLabel": "カーソル後にゴーストテキストの提案を表示するAIオートコンプリート",
+      "existingText": "すばしっこい茶色の狐が飛び越える",
+      "ghostLine1": "怠け者の犬のそばの川辺で",
+      "ghostLine2": "夕日が静かに沈んでいく。",
+      "tab": "Tab",
+      "toAccept": "で確定"
+    },
+    "chatPanel": {
+      "ariaLabel": "メッセージと入力エリアを備えたAIチャットパネル",
+      "title": "AIチャット",
+      "userMessage1": "この段落をもっと",
+      "userMessage2": "簡潔でプロフェッショナルにして",
+      "applyEdit": "編集を適用",
+      "summarizeDoc": "ドキュメントを要約",
+      "brainstormIdeas": "アイデアをブレインストーミング",
+      "askAiAnything": "AIに何でも質問..."
+    },
+    "diff": {
+      "ariaLabel": "承認・却下ボタン付きの追加・削除テキストを表示する差分レビュー",
+      "removedLine": "- この製品はとても良く、うまく機能しました",
+      "addedLine": "+ この製品は卓越したパフォーマンスを発揮しました",
+      "accept": "承認",
+      "reject": "却下",
+      "acceptAll": "すべて承認"
+    },
+    "kb": {
+      "ariaLabel": "ナレッジベースのアップロードフロー：アップロード、処理、分割、インデックス化、AI準備完了",
+      "upload": "アップロード",
+      "processing": "処理中",
+      "chunked": "分割済み",
+      "indexed": "インデックス済み",
+      "aiReady": "AI準備完了"
+    },
+    "cmdPalette": {
+      "ariaLabel": "検索入力と結果リストを備えたコマンドパレット",
+      "placeholder": "コマンドを入力または検索...",
+      "newDocument": "新規ドキュメント",
+      "toggleOutline": "アウトラインの切り替え",
+      "semanticSearch": "セマンティック検索"
+    },
+    "fileTree": {
+      "ariaLabel": "フォルダとドキュメントを含むファイルツリー",
+      "myProjects": "マイプロジェクト",
+      "researchNotes": "リサーチノート.md",
+      "meetingSummary": "会議サマリー.md",
+      "blogPosts": "ブログ投稿",
+      "draftAiWriting": "下書き：AIライティング.md"
+    },
+    "presentation": {
+      "ariaLabel": "スライドフレームとナビゲーションコントロールを備えたプレゼンテーションモード",
+      "navigationHint": "← → 矢印キーで移動"
+    },
+    "outlineTree": {
+      "ariaLabel": "ネストされた見出し階層を表示するアウトラインサイドバー",
+      "outline": "アウトライン",
+      "clickToJump": "クリックでジャンプ"
+    },
+    "customization": {
+      "ariaLabel": "フォント、テーマ、エディタ幅のカスタマイズオプション",
+      "font": "フォント",
+      "sansSerif": "ゴシック体",
+      "serif": "明朝体",
+      "mono": "等幅",
+      "theme": "テーマ",
+      "highContrast": "+ ハイコントラスト",
+      "width": "幅",
+      "narrow": "狭い",
+      "wide": "広い",
+      "full": "全幅"
+    },
+    "dashboard": {
+      "ariaLabel": "検索バー、AI質問、ドキュメントカードを備えたホームダッシュボード",
+      "greeting": "おはようございます、Alexさん",
+      "subtitle": "前回の続きから始めるか、作成した文章を検索しましょう。",
+      "askAi": "AIに質問",
+      "search": "検索",
+      "searchPlaceholder": "文章について何でも質問...",
+      "continueWriting": "執筆を続ける",
+      "twoHoursAgo": "2時間前",
+      "oneDayAgo": "1日前",
+      "threeDaysAgo": "3日前",
+      "fiveDaysAgo": "5日前",
+      "oneWeekAgo": "1週間前",
+      "projects": "プロジェクト",
+      "fourFiles": "4 ファイル",
+      "newDocument": "新規ドキュメント"
+    },
+    "sharing": {
+      "ariaLabel": "ドキュメント共有フロー：共有をクリック、リンクをコピー、閲覧者が開く",
+      "share": "共有",
+      "copyLink": "リンクをコピー",
+      "readOnly": "読み取り専用"
+    }
+  },
+
+  "miniChat": {
+    "aiAssistant": "AIアシスタント",
+    "demo": "デモ",
+    "userMessage": "導入部をもっと魅力的にして、文法の問題を修正してください",
+    "analyzingDocument": "ドキュメントを分析中",
+    "editingIntroduction": "導入部を編集中",
+    "improvedIntro": "導入部を改善しました：",
+    "fixedOld": "efficently",
+    "fixedNew": "efficiently",
+    "madeEngaging": "冒頭をより魅力的にしました",
+    "tightenedLanguage": "文章を引き締めて流れを改善しました",
+    "reviewChanges": "エディタで変更を確認",
+    "summarizeDoc": "ドキュメントを要約",
+    "brainstormIdeas": "アイデアをブレインストーミング",
+    "fixGrammar": "文法を修正",
+    "askAiAnything": "AIに何でも質問..."
+  },
+
+  "miniEditor": {
+    "bodyText": "最新のAIツールにより、ライターはより明確で、より",
+    "compelling": "説得力のある",
+    "bodyEnd": "文章を短時間で書けるようになっています。",
+    "autocompleteVisible": "ライティングアシスタントが文脈を分析し",
+    "autocompleteGhost": "、音声とスタイルの一貫性を維持する提案を提供します。",
+    "feature1Done": "入力中のリアルタイムAI提案",
+    "feature2Todo": "リサーチのためのナレッジベース統合",
+    "blocks": "ブロック",
+    "heading1": "見出し 1",
+    "heading2": "見出し 2",
+    "bulletList": "箇条書きリスト",
+    "taskList": "タスクリスト",
+    "codeBlock": "コードブロック",
+    "blockquote": "引用"
+  },
+
+  "miniDiff": {
+    "description": "AIによる各編集はインライン差分として表示され、承認前に確認できます：",
+    "oldText": "この製品はとても良く、日々の業務に大いに役立ちました。",
+    "newText": "この製品は卓越したパフォーマンスを発揮し、日々のワークフローを効率化しました。",
+    "accept": "承認",
+    "reject": "却下"
+  },
+
+  "miniKB": {
+    "knowledgeBase": "ナレッジベース",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "brandGuidelines": "brand-guidelines.pdf",
+    "filesSummary": "3 ファイル · 2 インデックス済み · 1 処理中"
+  },
+
+  "miniKBAgent": {
+    "kbAssistant": "KBアシスタント",
+    "userQuestion": "Q4レポートの主な発見は何ですか？",
+    "searchingDocs": "ドキュメントを検索中...",
+    "readingReport": "Q4-report.pdf を読み取り中",
+    "aiResponse": "Q4レポートによると、主な発見は以下の通りです：",
+    "finding1": "売上が前年比23%増加",
+    "finding2": "顧客維持率が94%に改善",
+    "finding3": "3つの新しい製品ラインを発売",
+    "sources": "ソース",
+    "q4Report": "Q4-report.pdf",
+    "annualSummary": "annual-summary.md",
+    "askFollowUp": "フォローアップの質問..."
+  },
+
+  "miniPresentation": {
+    "title": "AI搭載ライティングの未来",
+    "byline": "著者 John Doe · 2025年1月",
+    "feature1": "入力中のリアルタイムAI提案",
+    "feature2": "AI生成編集のインライン差分レビュー",
+    "feature3": "リサーチのためのナレッジベース統合",
+    "slideCount": "2 / 5"
+  },
+
+  "miniSearch": {
+    "searchQuery": "ライティングアシスタント",
+    "resultCount": "3 / 8",
+    "aiResults": "AI結果",
+    "matchCount": "5 件の一致",
+    "result1Pre": "",
+    "result1Highlight": "ライティングアシスタント",
+    "result1Post": "が文脈を分析して提案を提供...",
+    "result1Score": "95%",
+    "result1Location": "段落 4",
+    "result2Pre": "最新AI",
+    "result2Highlight": "ライティング",
+    "result2Post": "ツールでより明確なコミュニケーションを実現...",
+    "result2Score": "82%",
+    "result2Location": "段落 1",
+    "result3Pre": "",
+    "result3Highlight": "アシスタント",
+    "result3Post": "のトーンとスタイルの設定...",
+    "result3Score": "61%",
+    "result3Location": "段落 7"
+  },
+
+  "miniReview": {
+    "writingReview": "ライティングレビュー",
+    "suggestionCount": "4 件の提案",
+    "summary": "全体的に明確な文章です。いくつかの改善で表現を引き締め、軽微な問題を修正できます。",
+    "grammar": "文法",
+    "old1": "efficently",
+    "new1": "efficiently",
+    "accept": "承認",
+    "dismiss": "却下",
+    "clarity": "明確さ",
+    "old2": "とても良く、大いに役立った",
+    "new2": "卓越した結果を提供",
+    "tone": "トーン",
+    "old3": "やるべきこと",
+    "new3": "達成すべきタスク",
+    "dismissAll": "すべて却下",
+    "acceptAll": "すべて承認"
+  },
+
+  "miniWrite": {
+    "title": "AIライティングの未来",
+    "body": "最新のAIツールにより、ライターはより明確で説得力のある文章を短時間で作成できるようになっています。",
+    "autocompleteVisible": "ライティングアシスタント",
+    "autocompleteGhost": "が文脈を分析して提案を提供します。",
+    "diffOld": "大いに役立った",
+    "diffNew": "日々のワークフローを効率化",
+    "improve": "改善",
+    "simplify": "簡潔化",
+    "expand": "拡張"
+  },
+
+  "miniResearch": {
+    "userQuestion": "AI導入に関する研究は何と言っていますか？",
+    "searchingDocs": "3 件のドキュメントを検索中...",
+    "readingPaper": "research-paper.pdf を読み取り中",
+    "aiResponse": "研究によると、AI導入は業界全体で前年比40%増加しています。",
+    "researchPaper": "research-paper.pdf",
+    "industryReport": "industry-report.md",
+    "askFollowUp": "フォローアップの質問..."
+  },
+
+  "miniPresent": {
+    "title": "AI搭載ライティング",
+    "byline": "著者 John Doe · 2025",
+    "feature1": "リアルタイムAI提案",
+    "feature2": "インライン差分レビュー",
+    "feature3": "ナレッジベース統合",
+    "slideCount": "2 / 5",
+    "present": "プレゼンテーション",
+    "exportPdf": "PDF書き出し",
+    "exportMd": "MD書き出し"
+  }
+}

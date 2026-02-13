@@ -1,0 +1,351 @@
+{
+  "titleBar": "Documento de demostración — doXmind",
+
+  "chat": {
+    "aiAssistant": "Asistente de IA",
+    "demo": "Demo",
+    "userMessage": "Haz la introducción más atractiva y corrige los errores gramaticales",
+    "analyzingDocument": "Analizando documento",
+    "editingIntroduction": "Editando introducción",
+    "improvedIntro": "He mejorado la introducción:",
+    "fixed": "Corregido",
+    "efficently": "eficientmente",
+    "efficiently": "eficientemente",
+    "madeEngaging": "Hice la apertura más atractiva",
+    "tightenedLanguage": "Ajusté el lenguaje para una mejor fluidez",
+    "reviewChanges": "Revisar cambios en el editor",
+    "summarizeDoc": "Resumir doc",
+    "brainstormIdeas": "Lluvia de ideas",
+    "fixGrammar": "Corregir gramática",
+    "knowledgeBase": "Base de conocimiento",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "askAiAnything": "Pregunta lo que quieras a la IA..."
+  },
+
+  "editor": {
+    "title": "El futuro de la escritura impulsada por IA",
+    "bodyP1": "La inteligencia artificial está transformando fundamentalmente la forma en que abordamos el oficio de escribir. Desde la corrección gramatical automatizada hasta las sugerencias inteligentes de contenido, las herramientas modernas de IA permiten a los escritores producir una prosa más clara y",
+    "compelling": "convincente",
+    "bodyP1End": "en una fracción del tiempo.",
+    "keyFeatures": "Características clave",
+    "feature1": "Sugerencias de IA en tiempo real mientras escribes",
+    "feature2": "Revisión de diferencias en línea para ediciones generadas por IA",
+    "feature3": "Integración con base de conocimiento para investigación",
+    "autocompleteVisible": "El asistente de escritura analiza el contexto",
+    "autocompleteGhost": "para ofrecer sugerencias que mantienen la coherencia en voz y estilo.",
+    "diffOld": "El producto era muy bueno y nos ayudó mucho con nuestras tareas diarias.",
+    "diffNew": "El producto ofreció un rendimiento excepcional, optimizando los flujos de trabajo diarios.",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "exportLine": "Cada documento se puede exportar como Markdown, PDF o formato Word para compartir fácilmente.",
+    "delete": "Eliminar",
+    "duplicate": "Duplicar",
+    "turnInto": "Convertir en...",
+    "blocks": "Bloques",
+    "heading1": "Encabezado 1",
+    "heading2": "Encabezado 2",
+    "bulletList": "Lista con viñetas",
+    "taskList": "Lista de tareas",
+    "codeBlock": "Bloque de código",
+    "blockquote": "Cita",
+    "implementation": "Implementación"
+  },
+
+  "sidebar": {
+    "outline": "Esquema",
+    "item1": "El futuro de la IA...",
+    "item2": "Características clave",
+    "item3": "Implementación",
+    "item4": "Resultados",
+    "item5": "Conclusión",
+    "item6": "Próximos pasos"
+  },
+
+  "status": {
+    "saved": "Guardado",
+    "words": "847 palabras",
+    "characters": "4.231 caracteres",
+    "readTime": "5 min de lectura"
+  },
+
+  "ill": {
+    "layout": {
+      "ariaLabel": "Diseño de la aplicación mostrando la barra lateral de esquema, el editor y el panel de chat",
+      "outline": "Esquema",
+      "editor": "Editor",
+      "aiChat": "Chat de IA"
+    },
+    "toolbar": {
+      "ariaLabel": "Barra de herramientas de formato de texto mostrando negrita, cursiva y otras opciones",
+      "bold": "B",
+      "italic": "I",
+      "underline": "U",
+      "strikethrough": "S",
+      "head1": "H1",
+      "head2": "H2",
+      "head3": "H3",
+      "list": "Lista",
+      "code": "Código",
+      "link": "Enlace"
+    },
+    "quickEdit": {
+      "ariaLabel": "Flujo de edición rápida: seleccionar texto, elegir acción, revisar cambios",
+      "selectText": "Seleccionar texto",
+      "fixGrammar": "Corregir gramática",
+      "improve": "Mejorar",
+      "simplify": "Simplificar",
+      "makeLonger": "Hacer más largo",
+      "translate": "Traducir",
+      "askInChat": "Preguntar en el chat",
+      "pickAction": "Elegir acción",
+      "accept": "Aceptar",
+      "reject": "Rechazar",
+      "reviewDiff": "Revisar diferencias"
+    },
+    "autocomplete": {
+      "ariaLabel": "Autocompletado de IA mostrando texto fantasma sugerido después del cursor",
+      "existingText": "El rápido zorro marrón salta sobre",
+      "ghostLine1": "el perro perezoso cerca del río",
+      "ghostLine2": "donde el sol se pone suavemente.",
+      "tab": "Tab",
+      "toAccept": "para aceptar"
+    },
+    "chatPanel": {
+      "ariaLabel": "Panel de chat de IA con mensajes y área de entrada",
+      "title": "Chat de IA",
+      "userMessage1": "Haz este párrafo más",
+      "userMessage2": "conciso y profesional",
+      "applyEdit": "Aplicar edición",
+      "summarizeDoc": "Resumir doc",
+      "brainstormIdeas": "Lluvia de ideas",
+      "askAiAnything": "Pregunta lo que quieras a la IA..."
+    },
+    "diff": {
+      "ariaLabel": "Revisión de diferencias mostrando texto añadido y eliminado con botones de aceptar y rechazar",
+      "removedLine": "- El producto era muy bueno y funcionaba bien",
+      "addedLine": "+ El producto ofreció un rendimiento excepcional",
+      "accept": "Aceptar",
+      "reject": "Rechazar",
+      "acceptAll": "Aceptar todo"
+    },
+    "kb": {
+      "ariaLabel": "Flujo de carga de base de conocimiento: subir, procesar, indexar, listo",
+      "upload": "Subir",
+      "processing": "Procesando",
+      "chunked": "Fragmentado",
+      "indexed": "Indexado",
+      "aiReady": "IA lista"
+    },
+    "cmdPalette": {
+      "ariaLabel": "Paleta de comandos con entrada de búsqueda y lista de resultados",
+      "placeholder": "Escribe un comando o busca...",
+      "newDocument": "Nuevo documento",
+      "toggleOutline": "Alternar esquema",
+      "semanticSearch": "Búsqueda semántica"
+    },
+    "fileTree": {
+      "ariaLabel": "Árbol de archivos con carpetas y documentos",
+      "myProjects": "Mis proyectos",
+      "researchNotes": "Notas de investigación.md",
+      "meetingSummary": "Resumen de reunión.md",
+      "blogPosts": "Publicaciones del blog",
+      "draftAiWriting": "Borrador: Escritura con IA.md"
+    },
+    "presentation": {
+      "ariaLabel": "Modo de presentación con marco de diapositiva y controles de navegación",
+      "navigationHint": "← → Teclas de flecha para navegar"
+    },
+    "outlineTree": {
+      "ariaLabel": "Barra lateral de esquema mostrando jerarquía anidada de encabezados",
+      "outline": "Esquema",
+      "clickToJump": "Clic para ir"
+    },
+    "customization": {
+      "ariaLabel": "Opciones de personalización para fuente, tema y ancho del editor",
+      "font": "Fuente",
+      "sansSerif": "Sans-serif",
+      "serif": "Serif",
+      "mono": "Mono",
+      "theme": "Tema",
+      "highContrast": "+ Alto contraste",
+      "width": "Ancho",
+      "narrow": "Estrecho",
+      "wide": "Amplio",
+      "full": "Completo"
+    },
+    "dashboard": {
+      "ariaLabel": "Panel de inicio con barra de búsqueda, Preguntar a IA y tarjetas de documentos",
+      "greeting": "Buenos días, Alex",
+      "subtitle": "Retoma donde lo dejaste, o busca en tus escritos.",
+      "askAi": "Preguntar a IA",
+      "search": "Buscar",
+      "searchPlaceholder": "Pregunta cualquier cosa sobre tus escritos...",
+      "continueWriting": "Continuar escribiendo",
+      "twoHoursAgo": "hace 2h",
+      "oneDayAgo": "hace 1d",
+      "threeDaysAgo": "hace 3d",
+      "fiveDaysAgo": "hace 5d",
+      "oneWeekAgo": "hace 1sem",
+      "projects": "Proyectos",
+      "fourFiles": "4 archivos",
+      "newDocument": "Nuevo documento"
+    },
+    "sharing": {
+      "ariaLabel": "Flujo de compartir documento: hacer clic en compartir, copiar enlace, el lector abre",
+      "share": "Compartir",
+      "copyLink": "Copiar enlace",
+      "readOnly": "Solo lectura"
+    }
+  },
+
+  "miniChat": {
+    "aiAssistant": "Asistente de IA",
+    "demo": "Demo",
+    "userMessage": "Haz la introducción más atractiva y corrige los errores gramaticales",
+    "analyzingDocument": "Analizando documento",
+    "editingIntroduction": "Editando introducción",
+    "improvedIntro": "He mejorado la introducción:",
+    "fixedOld": "eficientmente",
+    "fixedNew": "eficientemente",
+    "madeEngaging": "Hice la apertura más atractiva",
+    "tightenedLanguage": "Ajusté el lenguaje para una mejor fluidez",
+    "reviewChanges": "Revisar cambios en el editor",
+    "summarizeDoc": "Resumir doc",
+    "brainstormIdeas": "Lluvia de ideas",
+    "fixGrammar": "Corregir gramática",
+    "askAiAnything": "Pregunta lo que quieras a la IA..."
+  },
+
+  "miniEditor": {
+    "bodyText": "Las herramientas modernas de IA permiten a los escritores producir una prosa más clara y",
+    "compelling": "convincente",
+    "bodyEnd": "en una fracción del tiempo.",
+    "autocompleteVisible": "El asistente de escritura analiza el contexto",
+    "autocompleteGhost": "para ofrecer sugerencias que mantienen la coherencia en voz y estilo.",
+    "feature1Done": "Sugerencias de IA en tiempo real mientras escribes",
+    "feature2Todo": "Integración con base de conocimiento para investigación",
+    "blocks": "Bloques",
+    "heading1": "Encabezado 1",
+    "heading2": "Encabezado 2",
+    "bulletList": "Lista con viñetas",
+    "taskList": "Lista de tareas",
+    "codeBlock": "Bloque de código",
+    "blockquote": "Cita"
+  },
+
+  "miniDiff": {
+    "description": "Cada edición de IA aparece como una diferencia en línea que puedes revisar antes de aceptar:",
+    "oldText": "El producto era muy bueno y nos ayudó mucho con nuestras tareas diarias.",
+    "newText": "El producto ofreció un rendimiento excepcional, optimizando los flujos de trabajo diarios.",
+    "accept": "Aceptar",
+    "reject": "Rechazar"
+  },
+
+  "miniKB": {
+    "knowledgeBase": "Base de conocimiento",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "brandGuidelines": "brand-guidelines.pdf",
+    "filesSummary": "3 archivos · 2 indexados · 1 procesando"
+  },
+
+  "miniKBAgent": {
+    "kbAssistant": "Asistente BC",
+    "userQuestion": "¿Cuáles son los hallazgos clave del informe Q4?",
+    "searchingDocs": "Buscando documentos...",
+    "readingReport": "Leyendo Q4-report.pdf",
+    "aiResponse": "Según el informe Q4, los hallazgos clave son:",
+    "finding1": "Los ingresos crecieron un 23% interanual",
+    "finding2": "La retención de clientes mejoró al 94%",
+    "finding3": "Se lanzaron tres nuevas líneas de productos",
+    "sources": "Fuentes",
+    "q4Report": "Q4-report.pdf",
+    "annualSummary": "annual-summary.md",
+    "askFollowUp": "Hacer una pregunta de seguimiento..."
+  },
+
+  "miniPresentation": {
+    "title": "El futuro de la escritura impulsada por IA",
+    "byline": "Por John Doe · Enero 2025",
+    "feature1": "Sugerencias de IA en tiempo real mientras escribes",
+    "feature2": "Revisión de diferencias en línea para ediciones de IA",
+    "feature3": "Integración con base de conocimiento para investigación",
+    "slideCount": "2 / 5"
+  },
+
+  "miniSearch": {
+    "searchQuery": "asistente de escritura",
+    "resultCount": "3 de 8",
+    "aiResults": "Resultados IA",
+    "matchCount": "5 coincidencias",
+    "result1Pre": "El",
+    "result1Highlight": "asistente de escritura",
+    "result1Post": "analiza el contexto para ofrecer sugerencias...",
+    "result1Score": "95%",
+    "result1Location": "Párrafo 4",
+    "result2Pre": "Las herramientas modernas de IA para la",
+    "result2Highlight": "escritura",
+    "result2Post": "permiten una comunicación más clara...",
+    "result2Score": "82%",
+    "result2Location": "Párrafo 1",
+    "result3Pre": "Configura las preferencias del",
+    "result3Highlight": "asistente",
+    "result3Post": "para tono y estilo...",
+    "result3Score": "61%",
+    "result3Location": "Párrafo 7"
+  },
+
+  "miniReview": {
+    "writingReview": "Revisión de escritura",
+    "suggestionCount": "4 sugerencias",
+    "summary": "Tu escritura es clara en general. Algunas mejoras pueden afinar el lenguaje y corregir problemas menores.",
+    "grammar": "Gramática",
+    "old1": "eficientmente",
+    "new1": "eficientemente",
+    "accept": "Aceptar",
+    "dismiss": "Descartar",
+    "clarity": "Claridad",
+    "old2": "muy bueno y nos ayudó mucho",
+    "new2": "ofreció resultados excepcionales",
+    "tone": "Tono",
+    "old3": "cosas que tenemos que hacer",
+    "new3": "tareas por cumplir",
+    "dismissAll": "Descartar todo",
+    "acceptAll": "Aceptar todo"
+  },
+
+  "miniWrite": {
+    "title": "El futuro de la escritura con IA",
+    "body": "Las herramientas modernas de IA permiten a los escritores producir una prosa más clara y convincente en una fracción del tiempo.",
+    "autocompleteVisible": "El asistente de escritura",
+    "autocompleteGhost": "analiza el contexto para ofrecer sugerencias.",
+    "diffOld": "nos ayudó mucho",
+    "diffNew": "optimizó los flujos de trabajo diarios",
+    "improve": "Mejorar",
+    "simplify": "Simplificar",
+    "expand": "Expandir"
+  },
+
+  "miniResearch": {
+    "userQuestion": "¿Qué dicen las investigaciones sobre la adopción de la IA?",
+    "searchingDocs": "Buscando en 3 documentos...",
+    "readingPaper": "Leyendo research-paper.pdf",
+    "aiResponse": "Según la investigación, la adopción de IA ha aumentado un 40% interanual en todas las industrias.",
+    "researchPaper": "research-paper.pdf",
+    "industryReport": "industry-report.md",
+    "askFollowUp": "Hacer una pregunta de seguimiento..."
+  },
+
+  "miniPresent": {
+    "title": "Escritura impulsada por IA",
+    "byline": "Por John Doe · 2025",
+    "feature1": "Sugerencias de IA en tiempo real",
+    "feature2": "Revisión de diferencias en línea",
+    "feature3": "Integración con base de conocimiento",
+    "slideCount": "2 / 5",
+    "present": "Presentar",
+    "exportPdf": "Exportar PDF",
+    "exportMd": "Exportar MD"
+  }
+}

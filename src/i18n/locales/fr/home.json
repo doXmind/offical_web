@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "subtitle": "Ecrivez, editez et affinez vos idees avec un assistant IA integre dans chaque recoin de l'editeur."
+  },
+  "features": {
+    "heading": "Tout ce dont vous avez besoin pour ecrire",
+    "subheading": "Des fonctionnalites propulsees par l'IA integrees dans chaque partie de l'editeur.",
+    "aiPartner": {
+      "title": "Votre partenaire d'ecriture IA",
+      "description": "Discutez avec l'IA a propos de votre document. Obtenez des suggestions intelligentes, corrigez la grammaire, reformulez des paragraphes et brainstormez des idees — le tout dans une conversation contextuelle qui comprend votre contenu."
+    },
+    "intelligentAssist": {
+      "title": "Ecrivez avec une assistance intelligente",
+      "description": "L'autocompletion IA suggere du texte pendant que vous tapez. Selectionnez du texte pour acceder aux outils de mise en forme et d'IA depuis la barre d'outils flottante. Utilisez les commandes slash pour inserer rapidement des titres, des listes, des blocs de code, et plus encore."
+    },
+    "reviewChanges": {
+      "title": "Revisez les modifications de l'IA en toute confiance",
+      "description": "Chaque modification de l'IA apparait sous forme de diff en ligne. Examinez les ajouts et les suppressions cote a cote, puis acceptez ou rejetez les modifications en un seul clic. Vous gardez le controle total de votre document."
+    },
+    "groundResearch": {
+      "title": "Ancrez l'IA dans vos recherches",
+      "description": "Telechargez des documents de reference, des articles et des notes dans votre base de connaissances. L'IA cite vos sources pour repondre aux questions et suggere du contenu ancre dans vos materiaux de recherche."
+    },
+    "askKB": {
+      "title": "Interrogez votre base de connaissances",
+      "description": "L'agent KB recherche dans tous vos documents telecharges, lit les sections pertinentes et synthetise les reponses avec des citations de sources et des scores de pertinence. Posez des questions de suivi pour une exploration plus approfondie."
+    },
+    "present": {
+      "title": "Presentez votre texte en plein ecran",
+      "description": "Transformez n'importe quel document en un diaporama soigne en un seul clic. Naviguez entre les diapositives avec des raccourcis clavier ou la navigation par clic, avec un decoupage automatique des diapositives par titres."
+    },
+    "semanticSearch": {
+      "title": "Recherchez par sens, pas seulement par mots-cles",
+      "description": "La recherche semantique propulsee par l'IA comprend le sens de votre requete. Trouvez des passages pertinents meme lorsqu'ils ne contiennent pas les mots-cles exacts, avec des scores de pertinence pour chaque resultat."
+    },
+    "writingReview": {
+      "title": "Revision d'ecriture propulsee par l'IA",
+      "description": "Obtenez un retour complet sur la grammaire, la clarte, le ton et l'engagement. Examinez les suggestions categorizees une par une ou acceptez-les toutes en une fois. Chaque suggestion montre le texte original, l'amelioration et la raison."
+    }
+  },
+  "workflow": {
+    "heading": "Un espace de travail, tous les flux",
+    "subheading": "Ecrivez, recherchez et presentez — le tout depuis le meme document.",
+    "write": { "title": "Ecrire avec l'IA", "cta": "Commencer a ecrire" },
+    "research": { "title": "Explorer vos documents", "cta": "Telecharger des documents" },
+    "present": { "title": "Presenter et exporter", "cta": "Essayer le mode presentation" }
+  },
+  "ctaSection": {
+    "heading": "Essayez doXmind aujourd'hui",
+    "subheading": "Commencez a ecrire avec l'IA gratuitement. Aucune carte bancaire requise."
+  }
+}

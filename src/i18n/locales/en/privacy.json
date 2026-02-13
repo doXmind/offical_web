@@ -1,0 +1,119 @@
+{
+  "badge": "Legal",
+  "heading": "Cookies & Privacy Policy",
+  "lastUpdated": "Last updated: January 28, 2026",
+  "introduction": {
+    "title": "Introduction",
+    "p1": "At doXmind (\"we\", \"our\", or \"us\"), we are committed to protecting your privacy and ensuring the security of your personal information. This Cookies & Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered writing assistant platform.",
+    "p2": "By using doXmind, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, please do not use our services."
+  },
+  "informationCollected": {
+    "title": "Information We Collect",
+    "personal": {
+      "title": "Personal Information",
+      "intro": "We may collect the following types of personal information:",
+      "account": "Account information (name, email address, password)",
+      "profile": "Profile information (profile picture, preferences)",
+      "payment": "Payment information (processed securely through third-party payment providers)",
+      "communication": "Communication data (support tickets, feedback)"
+    },
+    "usage": {
+      "title": "Usage Data",
+      "intro": "We automatically collect certain information when you use our service:",
+      "device": "Device information (browser type, operating system, device type)",
+      "log": "Log data (IP address, access times, pages viewed)",
+      "patterns": "Usage patterns (features used, interaction data)",
+      "performance": "Performance data (error reports, loading times)"
+    },
+    "content": {
+      "title": "Content Data",
+      "description": "Documents and content you create, upload, or process through doXmind are stored securely. We do not use your content to train our AI models without your explicit consent."
+    }
+  },
+  "cookies": {
+    "title": "How We Use Cookies",
+    "intro": "Cookies are small text files stored on your device that help us provide and improve our services. We use the following types of cookies:",
+    "essential": {
+      "name": "Essential Cookies",
+      "desc": "Required for core functionality such as security, authentication, and session management. You cannot opt out of these."
+    },
+    "analytics": {
+      "name": "Analytics Cookies",
+      "desc": "Help us understand how visitors interact with our website by collecting and reporting information anonymously."
+    },
+    "functional": {
+      "name": "Functional Cookies",
+      "desc": "Enable enhanced functionality and personalization, such as remembering your preferences and theme choices."
+    },
+    "marketing": {
+      "name": "Marketing Cookies",
+      "desc": "Used to track visitors across websites to display relevant advertisements. Only set with your consent."
+    },
+    "managing": {
+      "title": "Managing Cookies",
+      "description": "You can control and manage cookies through your browser settings. Most browsers allow you to refuse cookies or delete existing cookies. Please note that disabling certain cookies may affect the functionality of our services."
+    }
+  },
+  "useOfInformation": {
+    "title": "How We Use Your Information",
+    "intro": "We use the information we collect to:",
+    "items": {
+      "provide": "Provide, maintain, and improve our services",
+      "process": "Process transactions and send related information",
+      "send": "Send technical notices, updates, and support messages",
+      "respond": "Respond to your comments, questions, and requests",
+      "monitor": "Monitor and analyze trends, usage, and activities",
+      "detect": "Detect, investigate, and prevent fraudulent transactions and abuse",
+      "personalize": "Personalize and improve your experience",
+      "comply": "Comply with legal obligations"
+    }
+  },
+  "dataSecurity": {
+    "title": "Data Security",
+    "intro": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction:",
+    "items": {
+      "encryption": "Encryption of data in transit and at rest",
+      "assessments": "Regular security assessments and penetration testing",
+      "access": "Access controls and authentication mechanisms",
+      "training": "Employee training on data protection",
+      "incident": "Incident response procedures"
+    },
+    "disclaimer": "While we strive to protect your personal information, no method of transmission over the Internet or electronic storage is 100% secure. We cannot guarantee absolute security."
+  },
+  "yourRights": {
+    "title": "Your Rights",
+    "intro": "Depending on your location, you may have the following rights regarding your personal information:",
+    "access": { "key": "Access", "value": "Request access to your personal data" },
+    "correction": { "key": "Correction", "value": "Request correction of inaccurate data" },
+    "deletion": { "key": "Deletion", "value": "Request deletion of your data" },
+    "portability": { "key": "Portability", "value": "Request transfer of your data" },
+    "objection": { "key": "Objection", "value": "Object to processing of your data" },
+    "restriction": { "key": "Restriction", "value": "Request restriction of processing" },
+    "withdrawConsent": { "key": "Withdraw Consent", "value": "Withdraw consent at any time" },
+    "contact": "To exercise any of these rights, please contact us using the information provided below."
+  },
+  "thirdParty": {
+    "title": "Third-Party Services",
+    "p1": "Our service may contain links to third-party websites and services. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies.",
+    "p2": "We may use third-party service providers to help us operate our business, such as cloud hosting providers, payment processors, analytics services, and customer support tools."
+  },
+  "children": {
+    "title": "Children's Privacy",
+    "description": "Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately."
+  },
+  "changes": {
+    "title": "Changes to This Policy",
+    "description": "We may update this Cookies & Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the \"Last updated\" date. We encourage you to review this policy periodically."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "intro": "If you have any questions about this Cookies & Privacy Policy, please contact us:",
+    "email": "Email",
+    "company": "Company",
+    "website": "Website"
+  },
+  "cta": {
+    "heading": "Ready to Get Started?",
+    "description": "Experience the future of AI-powered writing with doXmind."
+  }
+}

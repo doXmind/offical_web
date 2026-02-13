@@ -1,0 +1,351 @@
+{
+  "titleBar": "Demo Document — doXmind",
+
+  "chat": {
+    "aiAssistant": "AI Assistant",
+    "demo": "Demo",
+    "userMessage": "Make the introduction more compelling and fix grammar issues",
+    "analyzingDocument": "Analyzing document",
+    "editingIntroduction": "Editing introduction",
+    "improvedIntro": "I've improved the introduction:",
+    "fixed": "Fixed",
+    "efficently": "efficently",
+    "efficiently": "efficiently",
+    "madeEngaging": "Made the opening more engaging",
+    "tightenedLanguage": "Tightened language for better flow",
+    "reviewChanges": "Review changes in editor",
+    "summarizeDoc": "Summarize doc",
+    "brainstormIdeas": "Brainstorm ideas",
+    "fixGrammar": "Fix grammar",
+    "knowledgeBase": "Knowledge Base",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "askAiAnything": "Ask AI anything..."
+  },
+
+  "editor": {
+    "title": "The Future of AI-Powered Writing",
+    "bodyP1": "Artificial intelligence is fundamentally transforming how we approach the craft of writing. From automated grammar checking to intelligent content suggestions, modern AI tools are enabling writers to produce clearer, more",
+    "compelling": "compelling",
+    "bodyP1End": "prose in a fraction of the time.",
+    "keyFeatures": "Key Features",
+    "feature1": "Real-time AI suggestions as you type",
+    "feature2": "Inline diff review for AI-generated edits",
+    "feature3": "Knowledge base integration for research",
+    "autocompleteVisible": "The writing assistant analyzes context",
+    "autocompleteGhost": "to provide suggestions that maintain consistency in voice and style.",
+    "diffOld": "The product was very good and helped us a lot with our daily tasks.",
+    "diffNew": "The product delivered exceptional performance, streamlining daily workflows.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "exportLine": "Each document can be exported as Markdown, PDF, or Word format for easy sharing.",
+    "delete": "Delete",
+    "duplicate": "Duplicate",
+    "turnInto": "Turn into...",
+    "blocks": "Blocks",
+    "heading1": "Heading 1",
+    "heading2": "Heading 2",
+    "bulletList": "Bullet List",
+    "taskList": "Task List",
+    "codeBlock": "Code Block",
+    "blockquote": "Blockquote",
+    "implementation": "Implementation"
+  },
+
+  "sidebar": {
+    "outline": "Outline",
+    "item1": "The Future of AI-Po...",
+    "item2": "Key Features",
+    "item3": "Implementation",
+    "item4": "Results",
+    "item5": "Conclusion",
+    "item6": "Next Steps"
+  },
+
+  "status": {
+    "saved": "Saved",
+    "words": "847 words",
+    "characters": "4,231 characters",
+    "readTime": "5 min read"
+  },
+
+  "ill": {
+    "layout": {
+      "ariaLabel": "Application layout showing outline sidebar, editor, and chat panel",
+      "outline": "Outline",
+      "editor": "Editor",
+      "aiChat": "AI Chat"
+    },
+    "toolbar": {
+      "ariaLabel": "Text formatting toolbar showing bold, italic, and other options",
+      "bold": "Bold",
+      "italic": "Italic",
+      "underline": "Under",
+      "strikethrough": "Strike",
+      "head1": "Head 1",
+      "head2": "Head 2",
+      "head3": "Head 3",
+      "list": "List",
+      "code": "Code",
+      "link": "Link"
+    },
+    "quickEdit": {
+      "ariaLabel": "Quick edit flow: select text, choose action, review changes",
+      "selectText": "Select text",
+      "fixGrammar": "Fix Grammar",
+      "improve": "Improve",
+      "simplify": "Simplify",
+      "makeLonger": "Make Longer",
+      "translate": "Translate",
+      "askInChat": "Ask in Chat",
+      "pickAction": "Pick action",
+      "accept": "Accept",
+      "reject": "Reject",
+      "reviewDiff": "Review diff"
+    },
+    "autocomplete": {
+      "ariaLabel": "AI autocomplete showing ghost text suggestion after cursor",
+      "existingText": "The quick brown fox jumps over",
+      "ghostLine1": "the lazy dog near the river",
+      "ghostLine2": "bank where the sun sets gently.",
+      "tab": "Tab",
+      "toAccept": "to accept"
+    },
+    "chatPanel": {
+      "ariaLabel": "AI chat panel with messages and input area",
+      "title": "AI Chat",
+      "userMessage1": "Make this paragraph more",
+      "userMessage2": "concise and professional",
+      "applyEdit": "Apply Edit",
+      "summarizeDoc": "Summarize doc",
+      "brainstormIdeas": "Brainstorm ideas",
+      "askAiAnything": "Ask AI anything..."
+    },
+    "diff": {
+      "ariaLabel": "Diff review showing added and removed text with accept and reject buttons",
+      "removedLine": "- The product was very good and worked well",
+      "addedLine": "+ The product delivered exceptional performance",
+      "accept": "Accept",
+      "reject": "Reject",
+      "acceptAll": "Accept All"
+    },
+    "kb": {
+      "ariaLabel": "Knowledge base upload flow: upload, process, index, ready",
+      "upload": "Upload",
+      "processing": "Processing",
+      "chunked": "Chunked",
+      "indexed": "Indexed",
+      "aiReady": "AI Ready"
+    },
+    "cmdPalette": {
+      "ariaLabel": "Command palette with search input and result list",
+      "placeholder": "Type a command or search...",
+      "newDocument": "New Document",
+      "toggleOutline": "Toggle Outline",
+      "semanticSearch": "Semantic Search"
+    },
+    "fileTree": {
+      "ariaLabel": "File tree with folders and documents",
+      "myProjects": "My Projects",
+      "researchNotes": "Research Notes.md",
+      "meetingSummary": "Meeting Summary.md",
+      "blogPosts": "Blog Posts",
+      "draftAiWriting": "Draft: AI Writing.md"
+    },
+    "presentation": {
+      "ariaLabel": "Presentation mode with slide frame and navigation controls",
+      "navigationHint": "← → Arrow keys to navigate"
+    },
+    "outlineTree": {
+      "ariaLabel": "Outline sidebar showing nested heading hierarchy",
+      "outline": "Outline",
+      "clickToJump": "Click to jump"
+    },
+    "customization": {
+      "ariaLabel": "Customization options for font, theme, and editor width",
+      "font": "Font",
+      "sansSerif": "Sans-serif",
+      "serif": "Serif",
+      "mono": "Mono",
+      "theme": "Theme",
+      "highContrast": "+ High Contrast",
+      "width": "Width",
+      "narrow": "Narrow",
+      "wide": "Wide",
+      "full": "Full"
+    },
+    "dashboard": {
+      "ariaLabel": "Home dashboard with search bar, Ask AI, and document cards",
+      "greeting": "Good morning, Alex",
+      "subtitle": "Pick up where you left off, or search across your writing.",
+      "askAi": "Ask AI",
+      "search": "Search",
+      "searchPlaceholder": "Ask anything about your writing...",
+      "continueWriting": "Continue writing",
+      "twoHoursAgo": "2h ago",
+      "oneDayAgo": "1d ago",
+      "threeDaysAgo": "3d ago",
+      "fiveDaysAgo": "5d ago",
+      "oneWeekAgo": "1w ago",
+      "projects": "Projects",
+      "fourFiles": "4 files",
+      "newDocument": "New Document"
+    },
+    "sharing": {
+      "ariaLabel": "Share document flow: click share, copy link, viewer opens",
+      "share": "Share",
+      "copyLink": "Copy link",
+      "readOnly": "Read-only"
+    }
+  },
+
+  "miniChat": {
+    "aiAssistant": "AI Assistant",
+    "demo": "Demo",
+    "userMessage": "Make the introduction more compelling and fix grammar issues",
+    "analyzingDocument": "Analyzing document",
+    "editingIntroduction": "Editing introduction",
+    "improvedIntro": "I've improved the introduction:",
+    "fixedOld": "efficently",
+    "fixedNew": "efficiently",
+    "madeEngaging": "Made the opening more engaging",
+    "tightenedLanguage": "Tightened language for better flow",
+    "reviewChanges": "Review changes in editor",
+    "summarizeDoc": "Summarize doc",
+    "brainstormIdeas": "Brainstorm ideas",
+    "fixGrammar": "Fix grammar",
+    "askAiAnything": "Ask AI anything..."
+  },
+
+  "miniEditor": {
+    "bodyText": "Modern AI tools are enabling writers to produce clearer, more",
+    "compelling": "compelling",
+    "bodyEnd": "prose in a fraction of the time.",
+    "autocompleteVisible": "The writing assistant analyzes context",
+    "autocompleteGhost": "to provide suggestions that maintain consistency in voice and style.",
+    "feature1Done": "Real-time AI suggestions as you type",
+    "feature2Todo": "Knowledge base integration for research",
+    "blocks": "Blocks",
+    "heading1": "Heading 1",
+    "heading2": "Heading 2",
+    "bulletList": "Bullet List",
+    "taskList": "Task List",
+    "codeBlock": "Code Block",
+    "blockquote": "Blockquote"
+  },
+
+  "miniDiff": {
+    "description": "Each AI edit appears as an inline diff you can review before accepting:",
+    "oldText": "The product was very good and helped us a lot with our daily tasks.",
+    "newText": "The product delivered exceptional performance, streamlining daily workflows.",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+
+  "miniKB": {
+    "knowledgeBase": "Knowledge Base",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "brandGuidelines": "brand-guidelines.pdf",
+    "filesSummary": "3 files · 2 indexed · 1 processing"
+  },
+
+  "miniKBAgent": {
+    "kbAssistant": "KB Assistant",
+    "userQuestion": "What are the key findings from the Q4 report?",
+    "searchingDocs": "Searching documents...",
+    "readingReport": "Reading Q4-report.pdf",
+    "aiResponse": "Based on the Q4 report, the key findings are:",
+    "finding1": "Revenue grew 23% year-over-year",
+    "finding2": "Customer retention improved to 94%",
+    "finding3": "Three new product lines launched",
+    "sources": "Sources",
+    "q4Report": "Q4-report.pdf",
+    "annualSummary": "annual-summary.md",
+    "askFollowUp": "Ask a follow-up..."
+  },
+
+  "miniPresentation": {
+    "title": "The Future of AI-Powered Writing",
+    "byline": "By John Doe · January 2025",
+    "feature1": "Real-time AI suggestions as you type",
+    "feature2": "Inline diff review for AI-generated edits",
+    "feature3": "Knowledge base integration for research",
+    "slideCount": "2 / 5"
+  },
+
+  "miniSearch": {
+    "searchQuery": "writing assistant",
+    "resultCount": "3 of 8",
+    "aiResults": "AI Results",
+    "matchCount": "5 matches",
+    "result1Pre": "The",
+    "result1Highlight": "writing assistant",
+    "result1Post": "analyzes context to provide suggestions...",
+    "result1Score": "95%",
+    "result1Location": "Paragraph 4",
+    "result2Pre": "Modern AI",
+    "result2Highlight": "writing",
+    "result2Post": "tools enable clearer communication...",
+    "result2Score": "82%",
+    "result2Location": "Paragraph 1",
+    "result3Pre": "Configure",
+    "result3Highlight": "assistant",
+    "result3Post": "preferences for tone and style...",
+    "result3Score": "61%",
+    "result3Location": "Paragraph 7"
+  },
+
+  "miniReview": {
+    "writingReview": "Writing Review",
+    "suggestionCount": "4 suggestions",
+    "summary": "Your writing is clear overall. A few improvements can tighten the language and fix minor issues.",
+    "grammar": "Grammar",
+    "old1": "efficently",
+    "new1": "efficiently",
+    "accept": "Accept",
+    "dismiss": "Dismiss",
+    "clarity": "Clarity",
+    "old2": "very good and helped us a lot",
+    "new2": "delivered exceptional results",
+    "tone": "Tone",
+    "old3": "stuff we need to do",
+    "new3": "tasks to accomplish",
+    "dismissAll": "Dismiss All",
+    "acceptAll": "Accept All"
+  },
+
+  "miniWrite": {
+    "title": "The Future of AI Writing",
+    "body": "Modern AI tools are enabling writers to produce clearer, more compelling prose in a fraction of the time.",
+    "autocompleteVisible": "The writing assistant",
+    "autocompleteGhost": "analyzes context to provide suggestions.",
+    "diffOld": "helped us a lot",
+    "diffNew": "streamlined daily workflows",
+    "improve": "Improve",
+    "simplify": "Simplify",
+    "expand": "Expand"
+  },
+
+  "miniResearch": {
+    "userQuestion": "What does the research say about AI adoption?",
+    "searchingDocs": "Searching 3 documents...",
+    "readingPaper": "Reading research-paper.pdf",
+    "aiResponse": "According to the research, AI adoption has increased 40% year-over-year across industries.",
+    "researchPaper": "research-paper.pdf",
+    "industryReport": "industry-report.md",
+    "askFollowUp": "Ask a follow-up..."
+  },
+
+  "miniPresent": {
+    "title": "AI-Powered Writing",
+    "byline": "By John Doe · 2025",
+    "feature1": "Real-time AI suggestions",
+    "feature2": "Inline diff review",
+    "feature3": "Knowledge base integration",
+    "slideCount": "2 / 5",
+    "present": "Present",
+    "exportPdf": "Export PDF",
+    "exportMd": "Export MD"
+  }
+}

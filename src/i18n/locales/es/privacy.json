@@ -1,0 +1,119 @@
+{
+  "badge": "Legal",
+  "heading": "Política de cookies y privacidad",
+  "lastUpdated": "Última actualización: 28 de enero de 2026",
+  "introduction": {
+    "title": "Introducción",
+    "p1": "En doXmind (\"nosotros\", \"nuestro\" o \"nos\"), estamos comprometidos con la protección de tu privacidad y la seguridad de tu información personal. Esta Política de cookies y privacidad explica cómo recopilamos, usamos, divulgamos y protegemos tu información cuando utilizas nuestra plataforma de asistente de escritura con IA.",
+    "p2": "Al utilizar doXmind, aceptas la recopilación y el uso de información de acuerdo con esta política. Si no estás de acuerdo con nuestras políticas y prácticas, por favor no uses nuestros servicios."
+  },
+  "informationCollected": {
+    "title": "Información que recopilamos",
+    "personal": {
+      "title": "Información personal",
+      "intro": "Podemos recopilar los siguientes tipos de información personal:",
+      "account": "Información de la cuenta (nombre, dirección de correo electrónico, contraseña)",
+      "profile": "Información del perfil (foto de perfil, preferencias)",
+      "payment": "Información de pago (procesada de forma segura a través de proveedores de pago de terceros)",
+      "communication": "Datos de comunicación (tickets de soporte, comentarios)"
+    },
+    "usage": {
+      "title": "Datos de uso",
+      "intro": "Recopilamos automáticamente cierta información cuando usas nuestro servicio:",
+      "device": "Información del dispositivo (tipo de navegador, sistema operativo, tipo de dispositivo)",
+      "log": "Datos de registro (dirección IP, horarios de acceso, páginas visitadas)",
+      "patterns": "Patrones de uso (funciones utilizadas, datos de interacción)",
+      "performance": "Datos de rendimiento (informes de errores, tiempos de carga)"
+    },
+    "content": {
+      "title": "Datos de contenido",
+      "description": "Los documentos y el contenido que creas, subes o procesas a través de doXmind se almacenan de forma segura. No utilizamos tu contenido para entrenar nuestros modelos de IA sin tu consentimiento explícito."
+    }
+  },
+  "cookies": {
+    "title": "Cómo usamos las cookies",
+    "intro": "Las cookies son pequeños archivos de texto almacenados en tu dispositivo que nos ayudan a proporcionar y mejorar nuestros servicios. Utilizamos los siguientes tipos de cookies:",
+    "essential": {
+      "name": "Cookies esenciales",
+      "desc": "Necesarias para la funcionalidad principal, como la seguridad, la autenticación y la gestión de sesiones. No puedes desactivarlas."
+    },
+    "analytics": {
+      "name": "Cookies de análisis",
+      "desc": "Nos ayudan a comprender cómo los visitantes interactúan con nuestro sitio web al recopilar e informar datos de forma anónima."
+    },
+    "functional": {
+      "name": "Cookies funcionales",
+      "desc": "Permiten funcionalidad mejorada y personalización, como recordar tus preferencias y elecciones de tema."
+    },
+    "marketing": {
+      "name": "Cookies de marketing",
+      "desc": "Se utilizan para rastrear a los visitantes entre sitios web con el fin de mostrar anuncios relevantes. Solo se establecen con tu consentimiento."
+    },
+    "managing": {
+      "title": "Gestión de cookies",
+      "description": "Puedes controlar y gestionar las cookies a través de la configuración de tu navegador. La mayoría de los navegadores te permiten rechazar cookies o eliminar las existentes. Ten en cuenta que desactivar ciertas cookies puede afectar la funcionalidad de nuestros servicios."
+    }
+  },
+  "useOfInformation": {
+    "title": "Cómo usamos tu información",
+    "intro": "Usamos la información que recopilamos para:",
+    "items": {
+      "provide": "Proporcionar, mantener y mejorar nuestros servicios",
+      "process": "Procesar transacciones y enviar información relacionada",
+      "send": "Enviar avisos técnicos, actualizaciones y mensajes de soporte",
+      "respond": "Responder a tus comentarios, preguntas y solicitudes",
+      "monitor": "Supervisar y analizar tendencias, uso y actividades",
+      "detect": "Detectar, investigar y prevenir transacciones fraudulentas y abusos",
+      "personalize": "Personalizar y mejorar tu experiencia",
+      "comply": "Cumplir con obligaciones legales"
+    }
+  },
+  "dataSecurity": {
+    "title": "Seguridad de los datos",
+    "intro": "Implementamos medidas técnicas y organizativas apropiadas para proteger tu información personal contra el acceso no autorizado, la alteración, la divulgación o la destrucción:",
+    "items": {
+      "encryption": "Cifrado de datos en tránsito y en reposo",
+      "assessments": "Evaluaciones de seguridad y pruebas de penetración periódicas",
+      "access": "Controles de acceso y mecanismos de autenticación",
+      "training": "Capacitación de empleados en protección de datos",
+      "incident": "Procedimientos de respuesta ante incidentes"
+    },
+    "disclaimer": "Aunque nos esforzamos por proteger tu información personal, ningún método de transmisión por Internet o almacenamiento electrónico es 100% seguro. No podemos garantizar una seguridad absoluta."
+  },
+  "yourRights": {
+    "title": "Tus derechos",
+    "intro": "Dependiendo de tu ubicación, puedes tener los siguientes derechos con respecto a tu información personal:",
+    "access": { "key": "Acceso", "value": "Solicitar acceso a tus datos personales" },
+    "correction": { "key": "Corrección", "value": "Solicitar la corrección de datos inexactos" },
+    "deletion": { "key": "Eliminación", "value": "Solicitar la eliminación de tus datos" },
+    "portability": { "key": "Portabilidad", "value": "Solicitar la transferencia de tus datos" },
+    "objection": { "key": "Oposición", "value": "Oponerte al procesamiento de tus datos" },
+    "restriction": { "key": "Restricción", "value": "Solicitar la restricción del procesamiento" },
+    "withdrawConsent": { "key": "Retirar consentimiento", "value": "Retirar el consentimiento en cualquier momento" },
+    "contact": "Para ejercer cualquiera de estos derechos, contáctanos utilizando la información proporcionada a continuación."
+  },
+  "thirdParty": {
+    "title": "Servicios de terceros",
+    "p1": "Nuestro servicio puede contener enlaces a sitios web y servicios de terceros. No somos responsables de las prácticas de privacidad de estos terceros. Te animamos a revisar sus políticas de privacidad.",
+    "p2": "Podemos utilizar proveedores de servicios de terceros para ayudarnos a operar nuestro negocio, como proveedores de alojamiento en la nube, procesadores de pago, servicios de análisis y herramientas de atención al cliente."
+  },
+  "children": {
+    "title": "Privacidad de menores",
+    "description": "Nuestros servicios no están destinados a menores de 13 años. No recopilamos intencionadamente información personal de menores de 13 años. Si eres padre, madre o tutor y crees que tu hijo nos ha proporcionado información personal, contáctanos de inmediato."
+  },
+  "changes": {
+    "title": "Cambios en esta política",
+    "description": "Podemos actualizar esta Política de cookies y privacidad periódicamente. Te notificaremos cualquier cambio publicando la nueva política en esta página y actualizando la fecha de \"Última actualización\". Te recomendamos revisar esta política con regularidad."
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "intro": "Si tienes alguna pregunta sobre esta Política de cookies y privacidad, contáctanos:",
+    "email": "Correo electrónico",
+    "company": "Empresa",
+    "website": "Sitio web"
+  },
+  "cta": {
+    "heading": "¿Listo para empezar?",
+    "description": "Experimenta el futuro de la escritura con IA con doXmind."
+  }
+}

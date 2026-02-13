@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "subtitle": "Write, edit, and refine your ideas with an AI assistant built into every corner of the editor."
+  },
+  "features": {
+    "heading": "Everything you need to write",
+    "subheading": "AI-powered features built into every part of the editor.",
+    "aiPartner": {
+      "title": "Your AI writing partner",
+      "description": "Chat with AI about your document. Get intelligent suggestions, fix grammar, rewrite paragraphs, and brainstorm ideas — all within a contextual conversation that understands your content."
+    },
+    "intelligentAssist": {
+      "title": "Write with intelligent assistance",
+      "description": "AI autocomplete suggests text as you type. Select any text to access formatting and AI tools from the bubble toolbar. Use slash commands to quickly insert headings, lists, code blocks, and more."
+    },
+    "reviewChanges": {
+      "title": "Review AI changes with confidence",
+      "description": "Every AI edit appears as an inline diff. Review additions and deletions side by side, then accept or reject changes with a single click. You stay in full control of your document."
+    },
+    "groundResearch": {
+      "title": "Ground AI in your research",
+      "description": "Upload reference documents, papers, and notes to your knowledge base. The AI cites your sources when answering questions and suggests content grounded in your research materials."
+    },
+    "askKB": {
+      "title": "Ask your knowledge base anything",
+      "description": "The KB Agent searches across all your uploaded documents, reads relevant sections, and synthesizes answers with source citations and relevance scores. Ask follow-up questions for deeper exploration."
+    },
+    "present": {
+      "title": "Present your writing full-screen",
+      "description": "Turn any document into a polished slideshow with a single click. Navigate slides with keyboard shortcuts or click navigation, with automatic slide splitting by headings."
+    },
+    "semanticSearch": {
+      "title": "Search by meaning, not just keywords",
+      "description": "AI-powered semantic search understands the meaning behind your query. Find relevant passages even when they don't contain exact keyword matches, with relevance scores for each result."
+    },
+    "writingReview": {
+      "title": "AI-powered writing review",
+      "description": "Get comprehensive feedback on grammar, clarity, tone, and engagement. Review categorized suggestions one by one or accept them all at once. Every suggestion shows the original text, the improvement, and why."
+    }
+  },
+  "workflow": {
+    "heading": "One workspace, every workflow",
+    "subheading": "Write, research, and present — all from the same document.",
+    "write": { "title": "Write with AI", "cta": "Start writing" },
+    "research": { "title": "Research your docs", "cta": "Upload documents" },
+    "present": { "title": "Present & Export", "cta": "Try presentation mode" }
+  },
+  "ctaSection": {
+    "heading": "Try doXmind today",
+    "subheading": "Start writing with AI for free. No credit card required."
+  }
+}

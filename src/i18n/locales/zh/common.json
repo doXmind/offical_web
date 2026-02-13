@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "guide": "指南",
+    "changelog": "更新日志",
+    "privacy": "隐私",
+    "features": "功能",
+    "search": "搜索",
+    "logIn": "登录"
+  },
+  "footer": {
+    "columns": {
+      "product": {
+        "title": "产品",
+        "aiEditor": "AI 编辑器",
+        "aiChat": "AI 对话",
+        "knowledgeBase": "知识库",
+        "presentationMode": "演示模式",
+        "download": "下载"
+      },
+      "resources": {
+        "title": "资源",
+        "guide": "使用指南",
+        "helpCenter": "帮助中心",
+        "changelog": "更新日志",
+        "getStarted": "快速入门"
+      },
+      "company": {
+        "title": "公司",
+        "aboutUs": "关于我们",
+        "careers": "招聘",
+        "contactSales": "联系销售"
+      },
+      "terms": {
+        "title": "条款与政策",
+        "termsOfUse": "使用条款",
+        "privacyPolicy": "隐私政策",
+        "cookieSettings": "Cookie 设置"
+      }
+    },
+    "copyright": "W Aixs Inc. © 2024–{{year}}",
+    "manageCookies": "管理 Cookie",
+    "languageSelector": {
+      "selectLanguage": "选择语言",
+      "search": "搜索",
+      "noResults": "未找到语言"
+    }
+  },
+  "cta": {
+    "tryForFree": "免费试用",
+    "learnMore": "了解更多",
+    "getStarted": "立即开始"
+  },
+  "globalSearch": {
+    "placeholder": "搜索 doXmind...",
+    "noResults": "未找到\"{{query}}\"的结果",
+    "tryDifferent": "试试其他关键词",
+    "navigate": "导航",
+    "open": "打开",
+    "close": "关闭",
+    "groups": {
+      "pages": "页面",
+      "features": "功能",
+      "actions": "快捷操作"
+    },
+    "entries": {
+      "page-home": { "label": "首页", "description": "主登陆页面", "keywords": "首页 主页 开始 home" },
+      "page-about": { "label": "关于", "description": "我们的愿景和价值观", "keywords": "关于 愿景 价值观 团队 使命 about" },
+      "page-guide": { "label": "帮助与功能指南", "description": "了解如何使用 doXmind", "keywords": "指南 帮助 功能 文档 guide help" },
+      "page-changelog": { "label": "更新日志", "description": "版本发布说明和更新历史", "keywords": "更新日志 发布 版本 更新 changelog" },
+      "getting-started": { "label": "入门指南", "description": "创建您的第一个文档并了解界面布局", "keywords": "入门 设置 引导 创建文档 getting started" },
+      "home-dashboard": { "label": "主页仪表盘", "description": "搜索、最近文件、收藏和文件管理", "keywords": "仪表盘 主页 最近 收藏 文件 搜索 dashboard" },
+      "editor": { "label": "编辑器基础", "description": "富文本格式、块级元素和斜杠命令", "keywords": "编辑器 文本 格式 加粗 斜体 标题 列表 代码 表格 斜杠 editor" },
+      "quick-edit": { "label": "AI 快速编辑", "description": "选择文本以修正语法、改进、简化或翻译", "keywords": "快速编辑 AI 语法 改进 简化 翻译 重写 语气 quick edit" },
+      "autocomplete": { "label": "AI 自动补全", "description": "输入时显示的幽灵文本建议", "keywords": "自动补全 建议 幽灵文本 tab 补全 AI autocomplete" },
+      "chat": { "label": "AI 对话", "description": "与 AI 对话讨论您的文档", "keywords": "对话 AI 聊天 头脑风暴 语音 图片 chat" },
+      "diff-review": { "label": "差异审查", "description": "AI 编辑的可视化差异对比，支持接受/拒绝", "keywords": "差异 审查 接受 拒绝 修改 版本 diff review" },
+      "knowledge-base": { "label": "知识库", "description": "上传参考文档以获取 AI 驱动的回答", "keywords": "知识库 上传 PDF 参考 研究 RAG knowledge base" },
+      "search-nav": { "label": "搜索与导航", "description": "语义搜索、查找替换、命令面板", "keywords": "搜索 查找 替换 命令面板 导航 语义 search" },
+      "documents": { "label": "文档管理", "description": "文件夹、版本历史、导入、导出和模板", "keywords": "文档 文件夹 版本 导入 导出 模板 组织 document" },
+      "presentation": { "label": "演示模式", "description": "将文档转化为幻灯片", "keywords": "演示 幻灯片 展示 F5 presentation" },
+      "outline": { "label": "大纲与思维线", "description": "可视化浏览文档结构", "keywords": "大纲 思维线 结构 标题 导航 侧栏 outline" },
+      "customization": { "label": "自定义设置", "description": "字体、主题、编辑器宽度和拼写检查", "keywords": "自定义 设置 主题 字体 排版 深色模式 拼写检查 customization" },
+      "sharing": { "label": "分享", "description": "通过只读链接分享文档", "keywords": "分享 链接 发布 只读 sharing" },
+      "shortcuts": { "label": "键盘快捷键", "description": "完整的键盘快捷键参考", "keywords": "键盘 快捷键 热键 按键 Ctrl shortcuts" },
+      "action-login": { "label": "登录 doXmind", "description": "打开 doXmind 编辑器", "keywords": "登录 注册 打开 应用 编辑器 试用 login" }
+    }
+  },
+  "cookiePreferences": {
+    "title": "Cookie 偏好设置中心",
+    "description": "使用网站和应用程序涉及在您的设备上存储和检索信息，包括 Cookie 和其他标识符，这些信息可能会出于各种目的与第三方共享。我们在下方提供了一个简单的工具，让您可以根据需要自定义选择。您可以随时更改您的同意设置。",
+    "learnMore": "了解更多",
+    "necessary": {
+      "title": "严格必要 Cookie（始终开启）",
+      "description": "这些 Cookie 对网站正常运行至关重要，无法关闭。它们用于安全保障、用户认证、客户支持等。"
+    },
+    "analytics": {
+      "title": "分析 Cookie",
+      "description": "这些 Cookie 帮助我们了解访问者如何与我们的网站互动，使我们能够衡量流量并改进网站性能。"
+    },
+    "marketing": {
+      "title": "营销效果 Cookie",
+      "description": "这些 Cookie 帮助我们衡量营销活动的效果。"
+    },
+    "done": "完成"
+  },
+  "seo": {
+    "home": {
+      "title": "doXmind - AI 原生桌面编辑器，助力数据分析",
+      "description": "使用 doXmind 的 AI 驱动桌面编辑器，革新您的数据工作流。具备多智能体系统、交互式可视化和自动化数据分析功能。",
+      "keywords": "AI 编辑器, 桌面编辑器, 数据分析, 数据可视化, 多智能体 AI, 文档编辑器, 生产力工具"
+    },
+    "about": {
+      "title": "关于 - doXmind | AI 驱动的写作平台",
+      "description": "了解 doXmind 解决每位写作者难题的使命。一个以 AI 为核心、无干扰的写作平台，围绕知识和智能构建。",
+      "keywords": "关于 doXmind, AI 写作平台, 使命, 写作工具, AI 编辑器公司"
+    },
+    "guide": {
+      "title": "用户指南 - doXmind 入门教程",
+      "description": "学习如何高效使用 doXmind。分步教程、使用技巧和最佳实践，助您充分发挥 AI 编辑体验。",
+      "keywords": "用户指南, 教程, 文档, 入门, 使用方法, 技巧"
+    },
+    "changelog": {
+      "title": "更新日志 - doXmind | 最新动态",
+      "description": "关注 doXmind 的持续进化。每一项改进、新功能和修复 — 均已追踪和记录。",
+      "keywords": "更新日志, 发布说明, 更新, 新功能, 版本历史, doXmind 更新"
+    },
+    "cookiesPrivacy": {
+      "title": "Cookie 与隐私政策 - doXmind",
+      "description": "了解 doXmind 如何收集、使用和保护您的个人信息，以及我们如何使用 Cookie。",
+      "keywords": "隐私政策, Cookie, 数据保护, 个人信息, GDPR"
+    }
+  }
+}

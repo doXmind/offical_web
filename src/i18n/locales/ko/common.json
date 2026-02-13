@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "홈",
+    "about": "소개",
+    "guide": "가이드",
+    "changelog": "변경 이력",
+    "privacy": "개인정보",
+    "features": "기능",
+    "search": "검색",
+    "logIn": "로그인"
+  },
+  "footer": {
+    "columns": {
+      "product": {
+        "title": "제품",
+        "aiEditor": "AI 에디터",
+        "aiChat": "AI 채팅",
+        "knowledgeBase": "지식 베이스",
+        "presentationMode": "프레젠테이션 모드",
+        "download": "다운로드"
+      },
+      "resources": {
+        "title": "리소스",
+        "guide": "가이드",
+        "helpCenter": "도움말 센터",
+        "changelog": "변경 로그",
+        "getStarted": "시작하기"
+      },
+      "company": {
+        "title": "회사",
+        "aboutUs": "회사 소개",
+        "careers": "채용",
+        "contactSales": "영업팀 문의"
+      },
+      "terms": {
+        "title": "약관 및 정책",
+        "termsOfUse": "이용약관",
+        "privacyPolicy": "개인정보처리방침",
+        "cookieSettings": "쿠키 설정"
+      }
+    },
+    "copyright": "W Aixs Inc. © 2024–{{year}}",
+    "manageCookies": "쿠키 관리",
+    "languageSelector": {
+      "selectLanguage": "언어 선택",
+      "search": "검색",
+      "noResults": "언어를 찾을 수 없습니다"
+    }
+  },
+  "cta": {
+    "tryForFree": "무료로 사용해 보기",
+    "learnMore": "자세히 알아보기",
+    "getStarted": "시작하기"
+  },
+  "globalSearch": {
+    "placeholder": "doXmind 검색...",
+    "noResults": "\"{{query}}\"에 대한 결과가 없습니다",
+    "tryDifferent": "다른 키워드를 시도해 보세요",
+    "navigate": "이동",
+    "open": "열기",
+    "close": "닫기",
+    "groups": {
+      "pages": "페이지",
+      "features": "기능",
+      "actions": "빠른 작업"
+    },
+    "entries": {
+      "page-home": { "label": "홈", "description": "메인 랜딩 페이지", "keywords": "홈 메인 시작 home" },
+      "page-about": { "label": "소개", "description": "비전과 가치관", "keywords": "소개 비전 가치관 팀 미션 about" },
+      "page-guide": { "label": "도움말 및 기능 가이드", "description": "doXmind 사용법 알아보기", "keywords": "가이드 도움말 기능 문서 guide help" },
+      "page-changelog": { "label": "변경 이력", "description": "릴리스 노트 및 버전 이력", "keywords": "변경이력 릴리스 업데이트 버전 새기능 changelog" },
+      "getting-started": { "label": "시작하기", "description": "첫 문서를 만들고 레이아웃 학습", "keywords": "시작하기 설정 온보딩 투어 문서만들기 getting started" },
+      "home-dashboard": { "label": "홈 대시보드", "description": "검색, 최근 파일, 즐겨찾기, 파일 관리", "keywords": "대시보드 홈 최근 즐겨찾기 파일 검색 dashboard" },
+      "editor": { "label": "에디터 기초", "description": "서식, 블록, 슬래시 명령어", "keywords": "에디터 텍스트 서식 굵게 기울임 제목 목록 코드 테이블 슬래시 editor" },
+      "quick-edit": { "label": "AI 빠른 편집", "description": "텍스트 선택 후 문법 수정, 개선, 간소화, 번역", "keywords": "빠른편집 AI 문법 개선 간소화 번역 다시쓰기 톤 quick edit" },
+      "autocomplete": { "label": "AI 자동완성", "description": "입력 시 고스트 텍스트 제안 표시", "keywords": "자동완성 제안 고스트텍스트 Tab 완성 AI autocomplete" },
+      "chat": { "label": "AI 채팅", "description": "문서에 대해 AI와 대화", "keywords": "채팅 AI 대화 브레인스토밍 음성 이미지 chat" },
+      "diff-review": { "label": "차이 검토", "description": "AI 편집의 시각적 차이 비교 (승인/거부)", "keywords": "차이 검토 승인 거부 변경 버전 diff review" },
+      "knowledge-base": { "label": "지식 베이스", "description": "참고 문서 업로드로 AI 답변 강화", "keywords": "지식베이스 업로드 PDF 참고 연구 RAG knowledge base" },
+      "search-nav": { "label": "검색 및 탐색", "description": "시맨틱 검색, 찾기 및 바꾸기, 명령 팔레트", "keywords": "검색 찾기 바꾸기 명령팔레트 탐색 시맨틱 search" },
+      "documents": { "label": "문서 관리", "description": "폴더, 버전, 가져오기, 내보내기, 템플릿", "keywords": "문서 폴더 버전 가져오기 내보내기 템플릿 정리 document" },
+      "presentation": { "label": "프레젠테이션 모드", "description": "문서를 슬라이드쇼로 변환", "keywords": "프레젠테이션 슬라이드쇼 슬라이드 발표 F5 presentation" },
+      "outline": { "label": "아웃라인 및 마인드라인", "description": "문서 구조를 시각적으로 탐색", "keywords": "아웃라인 마인드라인 구조 제목 탐색 사이드바 outline" },
+      "customization": { "label": "사용자 설정", "description": "타이포그래피, 테마, 에디터 너비, 맞춤법 검사", "keywords": "사용자설정 설정 테마 글꼴 타이포그래피 다크모드 맞춤법검사 customization" },
+      "sharing": { "label": "공유", "description": "읽기 전용 링크로 문서 공유", "keywords": "공유 링크 게시 읽기전용 sharing" },
+      "shortcuts": { "label": "키보드 단축키", "description": "키보드 단축키 전체 목록", "keywords": "키보드 단축키 핫키 키바인딩 Ctrl shortcuts" },
+      "action-login": { "label": "doXmind 로그인", "description": "doXmind 에디터 열기", "keywords": "로그인 가입 열기 앱 에디터 시도 login" }
+    }
+  },
+  "cookiePreferences": {
+    "title": "쿠키 환경설정 센터",
+    "description": "웹사이트와 앱을 사용하면 쿠키 및 기타 식별자를 포함한 정보가 기기에 저장 및 검색되며, 이는 다양한 활동을 위해 제3자와 공유될 수 있습니다. 아래의 간단한 도구를 통해 원하는 대로 선택을 조정할 수 있습니다. 언제든지 동의를 변경할 수 있습니다.",
+    "learnMore": "자세히 알아보기",
+    "necessary": {
+      "title": "필수 쿠키 (항상 활성)",
+      "description": "이 쿠키는 사이트 작동에 필수적이며 비활성화할 수 없습니다. 보안, 사용자 인증, 고객 지원 등에 사용됩니다."
+    },
+    "analytics": {
+      "title": "분석 쿠키",
+      "description": "이 쿠키는 방문자가 사이트와 어떻게 상호작용하는지 이해하는 데 도움을 줍니다. 트래픽을 측정하고 사이트 성능을 개선할 수 있게 합니다."
+    },
+    "marketing": {
+      "title": "마케팅 성과 쿠키",
+      "description": "이 쿠키는 마케팅 캠페인의 효과를 측정하는 데 도움을 줍니다."
+    },
+    "done": "완료"
+  },
+  "seo": {
+    "home": {
+      "title": "doXmind - 데이터 분석을 위한 AI 네이티브 데스크톱 에디터",
+      "description": "doXmind의 AI 기반 데스크톱 에디터로 데이터 워크플로를 혁신하세요. 멀티 에이전트 시스템, 인터랙티브 시각화, 자동화된 데이터 분석 기능을 제공합니다.",
+      "keywords": "AI 에디터, 데스크톱 에디터, 데이터 분석, 데이터 시각화, 멀티 에이전트 AI, 문서 편집기, 생산성 도구"
+    },
+    "about": {
+      "title": "소개 - doXmind | AI 기반 글쓰기 플랫폼",
+      "description": "모든 작가의 문제를 해결하려는 doXmind의 미션을 알아보세요. 지식과 지능을 중심으로 설계된 AI 네이티브 집중 글쓰기 플랫폼입니다.",
+      "keywords": "doXmind 소개, AI 글쓰기 플랫폼, 미션, 글쓰기 도구, AI 에디터 회사"
+    },
+    "guide": {
+      "title": "사용자 가이드 - doXmind 시작하기",
+      "description": "doXmind를 효과적으로 사용하는 방법을 알아보세요. AI 기반 편집 경험을 극대화하기 위한 단계별 튜토리얼, 팁 및 모범 사례를 제공합니다.",
+      "keywords": "사용자 가이드, 튜토리얼, 문서, 시작하기, 사용 방법, 팁과 요령"
+    },
+    "changelog": {
+      "title": "변경 이력 - doXmind | 새로운 소식",
+      "description": "doXmind의 진화 과정을 따라가 보세요. 모든 개선, 새로운 기능, 수정 사항을 추적하고 문서화합니다.",
+      "keywords": "변경 이력, 릴리스 노트, 업데이트, 새로운 기능, 버전 이력, doXmind 업데이트"
+    },
+    "cookiesPrivacy": {
+      "title": "쿠키 및 개인정보처리방침 - doXmind",
+      "description": "doXmind가 귀하의 개인정보를 어떻게 수집, 사용, 보호하는지와 쿠키 사용 방식에 대해 알아보세요.",
+      "keywords": "개인정보처리방침, 쿠키, 데이터 보호, 개인정보, GDPR"
+    }
+  }
+}

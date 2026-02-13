@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "about": "概要",
+    "guide": "ガイド",
+    "changelog": "変更履歴",
+    "privacy": "プライバシー",
+    "features": "機能",
+    "search": "検索",
+    "logIn": "ログイン"
+  },
+  "footer": {
+    "columns": {
+      "product": {
+        "title": "製品",
+        "aiEditor": "AIエディタ",
+        "aiChat": "AIチャット",
+        "knowledgeBase": "ナレッジベース",
+        "presentationMode": "プレゼンテーションモード",
+        "download": "ダウンロード"
+      },
+      "resources": {
+        "title": "リソース",
+        "guide": "ガイド",
+        "helpCenter": "ヘルプセンター",
+        "changelog": "更新履歴",
+        "getStarted": "はじめに"
+      },
+      "company": {
+        "title": "会社情報",
+        "aboutUs": "会社概要",
+        "careers": "採用情報",
+        "contactSales": "営業に問い合わせ"
+      },
+      "terms": {
+        "title": "利用規約・ポリシー",
+        "termsOfUse": "利用規約",
+        "privacyPolicy": "プライバシーポリシー",
+        "cookieSettings": "Cookie設定"
+      }
+    },
+    "copyright": "W Aixs Inc. © 2024–{{year}}",
+    "manageCookies": "Cookieの管理",
+    "languageSelector": {
+      "selectLanguage": "言語を選択",
+      "search": "検索",
+      "noResults": "言語が見つかりません"
+    }
+  },
+  "cta": {
+    "tryForFree": "無料で試す",
+    "learnMore": "詳しく見る",
+    "getStarted": "はじめる"
+  },
+  "globalSearch": {
+    "placeholder": "doXmindを検索...",
+    "noResults": "「{{query}}」の結果が見つかりません",
+    "tryDifferent": "別のキーワードをお試しください",
+    "navigate": "移動",
+    "open": "開く",
+    "close": "閉じる",
+    "groups": {
+      "pages": "ページ",
+      "features": "機能",
+      "actions": "クイックアクション"
+    },
+    "entries": {
+      "page-home": { "label": "ホーム", "description": "メインランディングページ", "keywords": "ホーム メイン トップ 開始 home" },
+      "page-about": { "label": "概要", "description": "ビジョンと価値観", "keywords": "概要 ビジョン 価値観 チーム ミッション about" },
+      "page-guide": { "label": "ヘルプ＆機能ガイド", "description": "doXmindの使い方を学ぶ", "keywords": "ガイド ヘルプ 機能 ドキュメント guide help" },
+      "page-changelog": { "label": "変更履歴", "description": "リリースノートとバージョン履歴", "keywords": "変更履歴 リリース 更新 バージョン 新機能 changelog" },
+      "getting-started": { "label": "はじめに", "description": "最初のドキュメントを作成しレイアウトを学ぶ", "keywords": "はじめに セットアップ オンボーディング ツアー ドキュメント作成 getting started" },
+      "home-dashboard": { "label": "ホームダッシュボード", "description": "検索、最近のファイル、お気に入り、ファイル管理", "keywords": "ダッシュボード ホーム 最近 お気に入り ファイル 検索 dashboard" },
+      "editor": { "label": "エディタの基本", "description": "リッチテキスト書式、ブロック、スラッシュコマンド", "keywords": "エディタ テキスト 書式 太字 斜体 見出し リスト コード テーブル スラッシュ editor" },
+      "quick-edit": { "label": "AIクイック編集", "description": "テキストを選択して文法修正、改善、簡略化、翻訳", "keywords": "クイック編集 AI 文法 改善 簡略化 翻訳 書き直し トーン quick edit" },
+      "autocomplete": { "label": "AIオートコンプリート", "description": "入力中にゴーストテキストで候補を表示", "keywords": "オートコンプリート 候補 ゴーストテキスト Tab 補完 AI autocomplete" },
+      "chat": { "label": "AIチャット", "description": "ドキュメントについてAIと会話", "keywords": "チャット AI 会話 ブレインストーム 音声 画像 chat" },
+      "diff-review": { "label": "差分レビュー", "description": "AI編集の視覚的差分表示（承認/却下）", "keywords": "差分 レビュー 承認 却下 変更 バージョン diff review" },
+      "knowledge-base": { "label": "ナレッジベース", "description": "参考資料をアップロードしてAI回答を強化", "keywords": "ナレッジベース アップロード PDF 参考 研究 RAG knowledge base" },
+      "search-nav": { "label": "検索＆ナビゲーション", "description": "セマンティック検索、検索と置換、コマンドパレット", "keywords": "検索 検索 置換 コマンドパレット ナビゲーション セマンティック search" },
+      "documents": { "label": "ドキュメント管理", "description": "フォルダ、バージョン、インポート、エクスポート、テンプレート", "keywords": "ドキュメント フォルダ バージョン インポート エクスポート テンプレート 整理 document" },
+      "presentation": { "label": "プレゼンテーションモード", "description": "ドキュメントをスライドショーに変換", "keywords": "プレゼンテーション スライドショー スライド 発表 F5 presentation" },
+      "outline": { "label": "アウトライン＆マインドライン", "description": "ドキュメント構造を視覚的にナビゲート", "keywords": "アウトライン マインドライン 構造 見出し ナビゲーション サイドバー outline" },
+      "customization": { "label": "カスタマイズ", "description": "書体、テーマ、エディタ幅、スペルチェック", "keywords": "カスタマイズ 設定 テーマ フォント 書体 ダークモード スペルチェック customization" },
+      "sharing": { "label": "共有", "description": "読み取り専用リンクでドキュメントを共有", "keywords": "共有 リンク 公開 読み取り専用 sharing" },
+      "shortcuts": { "label": "キーボードショートカット", "description": "キーボードショートカット一覧", "keywords": "キーボード ショートカット ホットキー キーバインド Ctrl shortcuts" },
+      "action-login": { "label": "doXmindにログイン", "description": "doXmindエディタを開く", "keywords": "ログイン サインイン 開く アプリ エディタ 試す login" }
+    }
+  },
+  "cookiePreferences": {
+    "title": "Cookie設定センター",
+    "description": "ウェブサイトやアプリの利用には、Cookie やその他の識別子を含む情報のデバイスへの保存・取得が伴い、これらは様々な目的で第三者と共有される場合があります。以下のシンプルなツールで、お好みに合わせて設定をカスタマイズできます。同意はいつでも変更可能です。",
+    "learnMore": "詳しく見る",
+    "necessary": {
+      "title": "必須Cookie（常に有効）",
+      "description": "これらのCookieはサイトの機能に不可欠であり、無効にすることはできません。セキュリティ、ユーザー認証、カスタマーサポートなどに使用されます。"
+    },
+    "analytics": {
+      "title": "分析Cookie",
+      "description": "これらのCookieは、訪問者がサイトとどのようにやり取りしているかを理解するのに役立ちます。トラフィックの測定やサイトパフォーマンスの向上に使用されます。"
+    },
+    "marketing": {
+      "title": "マーケティングパフォーマンスCookie",
+      "description": "これらのCookieは、マーケティングキャンペーンの効果を測定するのに役立ちます。"
+    },
+    "done": "完了"
+  },
+  "seo": {
+    "home": {
+      "title": "doXmind - データ分析のためのAIネイティブデスクトップエディタ",
+      "description": "doXmindのAI搭載デスクトップエディタでデータワークフローを変革しましょう。マルチエージェントシステム、インタラクティブな可視化、自動データ分析機能を搭載。",
+      "keywords": "AIエディタ, デスクトップエディタ, データ分析, データ可視化, マルチエージェントAI, ドキュメントエディタ, 生産性ツール"
+    },
+    "about": {
+      "title": "概要 - doXmind | AI搭載ライティングプラットフォーム",
+      "description": "すべてのライターの課題を解決するというdoXmindのミッションについてご紹介します。知識とインテリジェンスを核に構築された、AIネイティブで集中力を妨げないライティングプラットフォーム。",
+      "keywords": "doXmindについて, AIライティングプラットフォーム, ミッション, ライティングツール, AIエディタ企業"
+    },
+    "guide": {
+      "title": "ユーザーガイド - doXmindの使い方",
+      "description": "doXmindを効果的に活用する方法をご紹介します。AI搭載エディタ体験を最大限に活かすためのステップバイステップのチュートリアル、ヒント、ベストプラクティス。",
+      "keywords": "ユーザーガイド, チュートリアル, ドキュメント, はじめに, 使い方, ヒントとコツ"
+    },
+    "changelog": {
+      "title": "変更履歴 - doXmind | 最新情報",
+      "description": "doXmindの進化をフォローしましょう。すべての改善、新機能、修正を追跡・記録しています。",
+      "keywords": "変更履歴, リリースノート, アップデート, 新機能, バージョン履歴, doXmind更新情報"
+    },
+    "cookiesPrivacy": {
+      "title": "Cookie・プライバシーポリシー - doXmind",
+      "description": "doXmindがお客様の個人情報をどのように収集・利用・保護しているか、またCookieの使用方法についてご説明します。",
+      "keywords": "プライバシーポリシー, Cookie, データ保護, 個人情報, GDPR"
+    }
+  }
+}

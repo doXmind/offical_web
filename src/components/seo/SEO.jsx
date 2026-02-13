@@ -1,44 +1,24 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 const SITE_URL = 'https://doxmind.com';
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 
-const seoConfig = {
-  '/': {
-    title: 'doXmind - AI-Native Desktop Editor for Data Analysis',
-    description: 'Transform your data workflow with doXmind\'s AI-powered desktop editor. Features multi-agent system, interactive visualizations, and automated data analysis.',
-    keywords: 'AI editor, desktop editor, data analysis, data visualization, multi-agent AI, document editor, productivity tool',
-  },
-  '/features': {
-    title: 'Features - doXmind AI Editor',
-    description: 'Explore doXmind\'s powerful features: multi-agent AI system, real-time collaboration, interactive charts, automated data analysis, and seamless document editing.',
-    keywords: 'AI features, multi-agent system, data visualization, real-time collaboration, document editing, automated analysis',
-  },
-  '/solutions': {
-    title: 'Solutions - doXmind for Every Industry',
-    description: 'Discover how doXmind transforms workflows across industries. From research to business analytics, our AI-powered editor adapts to your needs.',
-    keywords: 'AI solutions, business analytics, research tools, data workflow, industry solutions, enterprise AI',
-  },
-  '/pricing': {
-    title: 'Pricing - doXmind Plans & Pricing',
-    description: 'Choose the perfect doXmind plan for your needs. From free personal use to enterprise solutions, find pricing that scales with your workflow.',
-    keywords: 'pricing, plans, subscription, free tier, enterprise, AI editor pricing',
-  },
-  '/guide': {
-    title: 'User Guide - Getting Started with doXmind',
-    description: 'Learn how to use doXmind effectively. Step-by-step tutorials, tips, and best practices for maximizing your AI-powered editing experience.',
-    keywords: 'user guide, tutorial, documentation, getting started, how to use, tips and tricks',
-  },
-  '/demo': {
-    title: 'Demo - Try doXmind AI Editor',
-    description: 'Experience doXmind in action. Interactive demo showcasing AI-powered document editing, data visualization, and multi-agent capabilities.',
-    keywords: 'demo, try free, interactive demo, AI editor demo, product demo',
-  },
-  '/releases': {
-    title: 'Releases - doXmind Updates & Changelog',
-    description: 'Stay updated with the latest doXmind releases. Discover new features, improvements, and bug fixes in each version update.',
-    keywords: 'releases, changelog, updates, new features, version history, doXmind updates, release notes',
-  },
+const LOCALE_MAP = {
+  en: 'en_US',
+  zh: 'zh_CN',
+  fr: 'fr_FR',
+  ja: 'ja_JP',
+  ko: 'ko_KR',
+  es: 'es_ES',
+};
+
+const SEO_KEY_MAP = {
+  '/': 'home',
+  '/about': 'about',
+  '/guide': 'guide',
+  '/changelog': 'changelog',
+  '/cookies-privacy': 'cookiesPrivacy',
 };
 
 // JSON-LD Structured Data for Organization
@@ -100,21 +80,25 @@ const softwareSchema = {
   ],
 };
 
-// Page-specific breadcrumb schemas
-const getBreadcrumbSchema = (path) => {
-  const breadcrumbItems = [
-    { name: 'Home', url: SITE_URL },
-  ];
+export default function SEO({ path = '/' }) {
+  const { t, i18n } = useTranslation('common');
 
+  const seoKey = SEO_KEY_MAP[path];
+  const title = seoKey ? t(`seo.${seoKey}.title`) : t('seo.home.title');
+  const description = seoKey ? t(`seo.${seoKey}.description`) : t('seo.home.description');
+  const keywords = seoKey ? t(`seo.${seoKey}.keywords`) : t('seo.home.keywords');
+
+  const canonicalUrl = `${SITE_URL}${path === '/' ? '' : path}`;
+  const ogLocale = LOCALE_MAP[i18n.language] || 'en_US';
+
+  // Page-specific breadcrumb schema
+  const breadcrumbItems = [{ name: 'Home', url: SITE_URL }];
   if (path !== '/') {
-    const pageName = seoConfig[path]?.title.split(' - ')[0] || 'Page';
-    breadcrumbItems.push({
-      name: pageName,
-      url: `${SITE_URL}${path}`,
-    });
+    const pageName = title.split(' - ')[0] || 'Page';
+    breadcrumbItems.push({ name: pageName, url: `${SITE_URL}${path}` });
   }
 
-  return {
+  const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: breadcrumbItems.map((item, index) => ({
@@ -124,12 +108,6 @@ const getBreadcrumbSchema = (path) => {
       item: item.url,
     })),
   };
-};
-
-export default function SEO({ path = '/' }) {
-  const config = seoConfig[path] || seoConfig['/'];
-  const canonicalUrl = `${SITE_URL}${path === '/' ? '' : path}`;
-  const breadcrumbSchema = getBreadcrumbSchema(path);
 
   // Combine all structured data
   const structuredData = path === '/'
@@ -139,10 +117,10 @@ export default function SEO({ path = '/' }) {
   return (
     <Helmet>
       {/* Primary Meta Tags */}
-      <title>{config.title}</title>
-      <meta name="title" content={config.title} />
-      <meta name="description" content={config.description} />
-      <meta name="keywords" content={config.keywords} />
+      <title>{title}</title>
+      <meta name="title" content={title} />
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
 
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
@@ -150,15 +128,16 @@ export default function SEO({ path = '/' }) {
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:title" content={config.title} />
-      <meta property="og:description" content={config.description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
       <meta property="og:image" content={DEFAULT_IMAGE} />
+      <meta property="og:locale" content={ogLocale} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={canonicalUrl} />
-      <meta name="twitter:title" content={config.title} />
-      <meta name="twitter:description" content={config.description} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={DEFAULT_IMAGE} />
 
       {/* JSON-LD Structured Data */}

@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "badge": "A propos de doXmind",
+    "heading": "Nous voulons resoudre chaque probleme des ecrivains.",
+    "subtitle": "doXmind est une plateforme d'ecriture native IA concue des le depart pour supprimer chaque obstacle entre un ecrivain et son meilleur travail."
+  },
+  "vision": {
+    "label": "Notre vision",
+    "heading": "L'avenir de l'ecriture est intelligent",
+    "p1": "Nous croyons que chaque texte devrait beneficier d'un partenaire intelligent. Non pas pour ecrire a votre place, mais pour fournir exactement la bonne aide a chaque etape — de l'inspiration initiale a la touche finale.",
+    "p2": "doXmind integre l'IA au coeur de l'experience d'ecriture. Vos materiaux de recherche, votre style d'ecriture et votre intention creative — l'IA comprend tout et propose des suggestions en consequence. Une seule plateforme pour tout le parcours, de la recherche et la redaction a la revision et la publication.",
+    "p3": "Ce n'est pas le futur — c'est ce que nous construisons en ce moment."
+  },
+  "problem": {
+    "label": "Le probleme",
+    "heading": "Les outils d'ecriture n'ont pas ete concus pour les ecrivains",
+    "subtitle": "Pendant des decennies, les logiciels d'ecriture ont ete concus autour de la mise en forme et de la mise en page — et non autour de l'acte de penser et de communiquer. Les ecrivains se retrouvent a jongler entre plusieurs outils deconnectes.",
+    "fragmentedTools": {
+      "title": "Outils fragmentes",
+      "description": "Les ecrivains naviguent entre un traitement de texte, un outil de recherche, un correcteur grammatical et un chatbot IA. Le contexte est perdu a chaque bascule, et la concentration est constamment interrompue."
+    },
+    "aiBoltedOn": {
+      "title": "IA ajoutee apres coup, pas integree",
+      "description": "La plupart des editeurs traitent l'IA comme un ajout secondaire — une barre laterale ou une application separee. L'IA ne comprend pas la structure de votre document, votre style d'ecriture ni votre veritable intention."
+    },
+    "noMemory": {
+      "title": "Pas de memoire, pas de connaissances",
+      "description": "Votre assistant IA oublie tout entre les sessions. Il ne peut pas faire reference a vos materiaux de recherche, guides de style ou travaux precedents."
+    }
+  },
+  "approach": {
+    "label": "Notre approche",
+    "heading": "Native IA des la conception",
+    "subtitle": "Dans doXmind, l'IA n'est pas un outil separe que vous invoquez — elle est tissee dans chaque partie de l'experience d'ecriture.",
+    "aiWoven": {
+      "title": "L'IA tissee dans chaque frappe",
+      "description": "Dans doXmind, l'IA est integree dans chaque partie de l'experience d'ecriture. L'autocompletion suggere pendant que vous tapez. Selectionnez du texte pour reformuler, traduire ou affiner instantanement. Discutez avec l'IA de l'ensemble de votre document."
+    },
+    "distractionFree": {
+      "title": "Un espace sans distraction",
+      "description": "Nous avons supprime tout ce qui ne vous aide pas a ecrire. Pas de barres d'outils a ruban. Pas de labyrinthes de menus. Juste un editeur epure avec des outils intelligents qui apparaissent exactement quand vous en avez besoin."
+    },
+    "knowledgeConnected": {
+      "title": "Vos connaissances, toujours connectees",
+      "description": "Telechargez des articles de recherche, des guides de style et des documents de reference. L'IA les lit, les cite et ancre chaque suggestion dans vos materiaux reels. Votre ecriture gagne la profondeur de vos recherches."
+    }
+  },
+  "values": {
+    "label": "Nos principes",
+    "heading": "Ce en quoi nous croyons",
+    "writerFirst": {
+      "title": "L'ecrivain d'abord, toujours",
+      "description": "Chaque fonctionnalite que nous creons commence par une question : est-ce que cela facilite la vie d'un ecrivain ? Si ce n'est pas le cas, nous ne la livrons pas."
+    },
+    "aiAsPartner": {
+      "title": "L'IA comme partenaire, pas comme remplacement",
+      "description": "L'IA doit amplifier votre voix, pas la remplacer. Chaque modification de l'IA est une suggestion que vous controlez — acceptez, rejetez ou affinez."
+    },
+    "yourData": {
+      "title": "Vos donnees, votre travail",
+      "description": "Vos documents et votre base de connaissances vous appartiennent. Nous n'entrainons pas nos modeles sur votre contenu. Vos ecrits restent prives."
+    },
+    "simplicity": {
+      "title": "La simplicite est une fonctionnalite",
+      "description": "La complexite est l'ennemi de la creativite. Nous nous obsedons a supprimer les frictions pour que vous puissiez vous concentrer sur l'essentiel : vos idees."
+    }
+  },
+  "cta": {
+    "heading": "Commencez a ecrire avec l'IA des aujourd'hui",
+    "subtitle": "Rejoignez des milliers d'ecrivains qui ont deja decouvert une meilleure facon d'ecrire. Gratuit pour commencer, aucune carte bancaire requise."
+  }
+}

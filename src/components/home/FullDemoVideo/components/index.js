@@ -1,9 +1,0 @@
-export { default as DemoContainer } from './DemoContainer';
-export { default as DemoProgressBar } from './DemoProgressBar';
-export { default as DemoToolbar } from './DemoToolbar';
-export { default as DemoSidebar } from './DemoSidebar';
-export { default as DemoChatPanel } from './DemoChatPanel';
-export { default as DemoHeader } from './DemoHeader';
-export { default as DemoFileItem } from './DemoFileItem';
-export { default as DemoToolIndicator } from './DemoToolIndicator';
-export { default as DemoThinkingIndicator } from './DemoThinkingIndicator';

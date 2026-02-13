@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "subtitle": "Escribe, edita y perfecciona tus ideas con un asistente de IA integrado en cada rincón del editor."
+  },
+  "features": {
+    "heading": "Todo lo que necesitas para escribir",
+    "subheading": "Funciones impulsadas por IA integradas en cada parte del editor.",
+    "aiPartner": {
+      "title": "Tu compañero de escritura con IA",
+      "description": "Conversa con la IA sobre tu documento. Obtén sugerencias inteligentes, corrige la gramática, reescribe párrafos y genera ideas — todo dentro de una conversación contextual que entiende tu contenido."
+    },
+    "intelligentAssist": {
+      "title": "Escribe con asistencia inteligente",
+      "description": "El autocompletado con IA sugiere texto mientras escribes. Selecciona cualquier texto para acceder a herramientas de formato e IA desde la barra flotante. Usa los comandos de barra para insertar rápidamente encabezados, listas, bloques de código y más."
+    },
+    "reviewChanges": {
+      "title": "Revisa los cambios de la IA con confianza",
+      "description": "Cada edición de la IA aparece como un diff en línea. Revisa las adiciones y eliminaciones lado a lado, luego acepta o rechaza los cambios con un solo clic. Mantienes el control total de tu documento."
+    },
+    "groundResearch": {
+      "title": "Fundamenta la IA en tu investigación",
+      "description": "Sube documentos de referencia, artículos y notas a tu base de conocimiento. La IA cita tus fuentes al responder preguntas y sugiere contenido basado en tus materiales de investigación."
+    },
+    "askKB": {
+      "title": "Pregúntale cualquier cosa a tu base de conocimiento",
+      "description": "El agente de BC busca en todos tus documentos subidos, lee las secciones relevantes y sintetiza respuestas con citas de fuentes y puntuaciones de relevancia. Haz preguntas de seguimiento para una exploración más profunda."
+    },
+    "present": {
+      "title": "Presenta tu escritura a pantalla completa",
+      "description": "Convierte cualquier documento en una presentación pulida con un solo clic. Navega entre diapositivas con atajos de teclado o navegación por clic, con división automática de diapositivas por encabezados."
+    },
+    "semanticSearch": {
+      "title": "Busca por significado, no solo por palabras clave",
+      "description": "La búsqueda semántica con IA comprende el significado detrás de tu consulta. Encuentra pasajes relevantes incluso cuando no contienen coincidencias exactas de palabras clave, con puntuaciones de relevancia para cada resultado."
+    },
+    "writingReview": {
+      "title": "Revisión de escritura con IA",
+      "description": "Obtén retroalimentación completa sobre gramática, claridad, tono y engagement. Revisa las sugerencias categorizadas una por una o acéptalas todas a la vez. Cada sugerencia muestra el texto original, la mejora y el porqué."
+    }
+  },
+  "workflow": {
+    "heading": "Un espacio de trabajo, cada flujo de trabajo",
+    "subheading": "Escribe, investiga y presenta — todo desde el mismo documento.",
+    "write": { "title": "Escribe con IA", "cta": "Empezar a escribir" },
+    "research": { "title": "Investiga tus documentos", "cta": "Subir documentos" },
+    "present": { "title": "Presenta y exporta", "cta": "Probar modo presentación" }
+  },
+  "ctaSection": {
+    "heading": "Prueba doXmind hoy",
+    "subheading": "Empieza a escribir con IA gratis. No se requiere tarjeta de crédito."
+  }
+}

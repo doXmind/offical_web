@@ -1,0 +1,351 @@
+{
+  "titleBar": "演示文档 — doXmind",
+
+  "chat": {
+    "aiAssistant": "AI 助手",
+    "demo": "演示",
+    "userMessage": "让引言更引人入胜并修正语法问题",
+    "analyzingDocument": "正在分析文档",
+    "editingIntroduction": "正在编辑引言",
+    "improvedIntro": "我已改进了引言：",
+    "fixed": "已修正",
+    "efficently": "efficently",
+    "efficiently": "efficiently",
+    "madeEngaging": "使开头更加引人入胜",
+    "tightenedLanguage": "精炼语言以提升流畅度",
+    "reviewChanges": "在编辑器中查看更改",
+    "summarizeDoc": "总结文档",
+    "brainstormIdeas": "头脑风暴",
+    "fixGrammar": "修正语法",
+    "knowledgeBase": "知识库",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "askAiAnything": "向 AI 提问..."
+  },
+
+  "editor": {
+    "title": "AI 驱动写作的未来",
+    "bodyP1": "人工智能正在从根本上改变我们对写作技艺的理解。从自动语法检查到智能内容建议，现代 AI 工具正在帮助写作者在更短的时间内创作出更清晰、更",
+    "compelling": "引人入胜的",
+    "bodyP1End": "文章。",
+    "keyFeatures": "核心功能",
+    "feature1": "输入时实时提供 AI 建议",
+    "feature2": "AI 生成编辑的内联差异审查",
+    "feature3": "集成知识库用于研究",
+    "autocompleteVisible": "写作助手会分析上下文",
+    "autocompleteGhost": "以提供与语气和风格保持一致的建议。",
+    "diffOld": "这个产品非常好，对我们的日常工作帮助很大。",
+    "diffNew": "该产品表现卓越，有效优化了日常工作流程。",
+    "accept": "接受",
+    "reject": "拒绝",
+    "exportLine": "每个文档都可以导出为 Markdown、PDF 或 Word 格式，方便分享。",
+    "delete": "删除",
+    "duplicate": "复制",
+    "turnInto": "转换为...",
+    "blocks": "块",
+    "heading1": "标题 1",
+    "heading2": "标题 2",
+    "bulletList": "无序列表",
+    "taskList": "任务列表",
+    "codeBlock": "代码块",
+    "blockquote": "引用块",
+    "implementation": "实现方案"
+  },
+
+  "sidebar": {
+    "outline": "大纲",
+    "item1": "AI 驱动写作的未...",
+    "item2": "核心功能",
+    "item3": "实现方案",
+    "item4": "成果",
+    "item5": "结论",
+    "item6": "后续步骤"
+  },
+
+  "status": {
+    "saved": "已保存",
+    "words": "847 字",
+    "characters": "4,231 字符",
+    "readTime": "约 5 分钟阅读"
+  },
+
+  "ill": {
+    "layout": {
+      "ariaLabel": "应用布局展示大纲侧边栏、编辑器和聊天面板",
+      "outline": "大纲",
+      "editor": "编辑器",
+      "aiChat": "AI 聊天"
+    },
+    "toolbar": {
+      "ariaLabel": "文本格式工具栏，显示加粗、斜体等选项",
+      "bold": "加粗",
+      "italic": "斜体",
+      "underline": "下划线",
+      "strikethrough": "删除线",
+      "head1": "H1",
+      "head2": "H2",
+      "head3": "H3",
+      "list": "列表",
+      "code": "代码",
+      "link": "链接"
+    },
+    "quickEdit": {
+      "ariaLabel": "快捷编辑流程：选择文本、选择操作、审查更改",
+      "selectText": "选择文本",
+      "fixGrammar": "修正语法",
+      "improve": "改进",
+      "simplify": "简化",
+      "makeLonger": "扩展",
+      "translate": "翻译",
+      "askInChat": "在聊天中提问",
+      "pickAction": "选择操作",
+      "accept": "接受",
+      "reject": "拒绝",
+      "reviewDiff": "审查差异"
+    },
+    "autocomplete": {
+      "ariaLabel": "AI 自动补全，在光标后显示灰色建议文本",
+      "existingText": "敏捷的棕色狐狸跳过了",
+      "ghostLine1": "河边那条懒惰的狗",
+      "ghostLine2": "夕阳在那里缓缓落下。",
+      "tab": "Tab",
+      "toAccept": "接受"
+    },
+    "chatPanel": {
+      "ariaLabel": "AI 聊天面板，包含消息和输入区域",
+      "title": "AI 聊天",
+      "userMessage1": "让这段话更加",
+      "userMessage2": "简洁和专业",
+      "applyEdit": "应用编辑",
+      "summarizeDoc": "总结文档",
+      "brainstormIdeas": "头脑风暴",
+      "askAiAnything": "向 AI 提问..."
+    },
+    "diff": {
+      "ariaLabel": "差异审查，显示添加和删除的文本以及接受和拒绝按钮",
+      "removedLine": "- 这个产品非常好，而且效果不错",
+      "addedLine": "+ 该产品表现卓越",
+      "accept": "接受",
+      "reject": "拒绝",
+      "acceptAll": "全部接受"
+    },
+    "kb": {
+      "ariaLabel": "知识库上传流程：上传、处理、分块、索引、就绪",
+      "upload": "上传",
+      "processing": "处理中",
+      "chunked": "已分块",
+      "indexed": "已索引",
+      "aiReady": "AI 就绪"
+    },
+    "cmdPalette": {
+      "ariaLabel": "命令面板，包含搜索输入和结果列表",
+      "placeholder": "输入命令或搜索...",
+      "newDocument": "新建文档",
+      "toggleOutline": "切换大纲",
+      "semanticSearch": "语义搜索"
+    },
+    "fileTree": {
+      "ariaLabel": "文件树，包含文件夹和文档",
+      "myProjects": "我的项目",
+      "researchNotes": "研究笔记.md",
+      "meetingSummary": "会议总结.md",
+      "blogPosts": "博客文章",
+      "draftAiWriting": "草稿：AI 写作.md"
+    },
+    "presentation": {
+      "ariaLabel": "演示模式，包含幻灯片框架和导航控制",
+      "navigationHint": "← → 方向键导航"
+    },
+    "outlineTree": {
+      "ariaLabel": "大纲侧边栏，显示嵌套的标题层级",
+      "outline": "大纲",
+      "clickToJump": "点击跳转"
+    },
+    "customization": {
+      "ariaLabel": "自定义选项：字体、主题和编辑器宽度",
+      "font": "字体",
+      "sansSerif": "无衬线",
+      "serif": "衬线",
+      "mono": "等宽",
+      "theme": "主题",
+      "highContrast": "+ 高对比度",
+      "width": "宽度",
+      "narrow": "窄",
+      "wide": "宽",
+      "full": "全屏"
+    },
+    "dashboard": {
+      "ariaLabel": "主页仪表板，包含搜索栏、AI 提问和文档卡片",
+      "greeting": "早上好，Alex",
+      "subtitle": "继续之前的工作，或在您的文档中搜索。",
+      "askAi": "AI 提问",
+      "search": "搜索",
+      "searchPlaceholder": "关于您的文档，随便问...",
+      "continueWriting": "继续写作",
+      "twoHoursAgo": "2 小时前",
+      "oneDayAgo": "1 天前",
+      "threeDaysAgo": "3 天前",
+      "fiveDaysAgo": "5 天前",
+      "oneWeekAgo": "1 周前",
+      "projects": "项目",
+      "fourFiles": "4 个文件",
+      "newDocument": "新建文档"
+    },
+    "sharing": {
+      "ariaLabel": "分享文档流程：点击分享、复制链接、查看者打开",
+      "share": "分享",
+      "copyLink": "复制链接",
+      "readOnly": "只读"
+    }
+  },
+
+  "miniChat": {
+    "aiAssistant": "AI 助手",
+    "demo": "演示",
+    "userMessage": "让引言更引人入胜并修正语法问题",
+    "analyzingDocument": "正在分析文档",
+    "editingIntroduction": "正在编辑引言",
+    "improvedIntro": "我已改进了引言：",
+    "fixedOld": "efficently",
+    "fixedNew": "efficiently",
+    "madeEngaging": "使开头更加引人入胜",
+    "tightenedLanguage": "精炼语言以提升流畅度",
+    "reviewChanges": "在编辑器中查看更改",
+    "summarizeDoc": "总结文档",
+    "brainstormIdeas": "头脑风暴",
+    "fixGrammar": "修正语法",
+    "askAiAnything": "向 AI 提问..."
+  },
+
+  "miniEditor": {
+    "bodyText": "现代 AI 工具正在帮助写作者创作出更清晰、更",
+    "compelling": "引人入胜的",
+    "bodyEnd": "文章，且只需极短的时间。",
+    "autocompleteVisible": "写作助手会分析上下文",
+    "autocompleteGhost": "以提供与语气和风格保持一致的建议。",
+    "feature1Done": "输入时实时提供 AI 建议",
+    "feature2Todo": "集成知识库用于研究",
+    "blocks": "块",
+    "heading1": "标题 1",
+    "heading2": "标题 2",
+    "bulletList": "无序列表",
+    "taskList": "任务列表",
+    "codeBlock": "代码块",
+    "blockquote": "引用块"
+  },
+
+  "miniDiff": {
+    "description": "每次 AI 编辑都会以内联差异的形式显示，供您在接受前审查：",
+    "oldText": "这个产品非常好，对我们的日常工作帮助很大。",
+    "newText": "该产品表现卓越，有效优化了日常工作流程。",
+    "accept": "接受",
+    "reject": "拒绝"
+  },
+
+  "miniKB": {
+    "knowledgeBase": "知识库",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "brandGuidelines": "brand-guidelines.pdf",
+    "filesSummary": "3 个文件 · 2 已索引 · 1 处理中"
+  },
+
+  "miniKBAgent": {
+    "kbAssistant": "知识库助手",
+    "userQuestion": "Q4 报告的主要发现是什么？",
+    "searchingDocs": "正在搜索文档...",
+    "readingReport": "正在阅读 Q4-report.pdf",
+    "aiResponse": "根据 Q4 报告，主要发现如下：",
+    "finding1": "营收同比增长 23%",
+    "finding2": "客户留存率提升至 94%",
+    "finding3": "推出三条新产品线",
+    "sources": "来源",
+    "q4Report": "Q4-report.pdf",
+    "annualSummary": "annual-summary.md",
+    "askFollowUp": "追问..."
+  },
+
+  "miniPresentation": {
+    "title": "AI 驱动写作的未来",
+    "byline": "作者 John Doe · 2025年1月",
+    "feature1": "输入时实时提供 AI 建议",
+    "feature2": "AI 生成编辑的内联差异审查",
+    "feature3": "集成知识库用于研究",
+    "slideCount": "2 / 5"
+  },
+
+  "miniSearch": {
+    "searchQuery": "写作助手",
+    "resultCount": "3 / 8",
+    "aiResults": "AI 结果",
+    "matchCount": "5 个匹配",
+    "result1Pre": "",
+    "result1Highlight": "写作助手",
+    "result1Post": "会分析上下文以提供建议...",
+    "result1Score": "95%",
+    "result1Location": "第 4 段",
+    "result2Pre": "现代 AI",
+    "result2Highlight": "写作",
+    "result2Post": "工具使沟通更加清晰...",
+    "result2Score": "82%",
+    "result2Location": "第 1 段",
+    "result3Pre": "配置",
+    "result3Highlight": "助手",
+    "result3Post": "的语气和风格偏好...",
+    "result3Score": "61%",
+    "result3Location": "第 7 段"
+  },
+
+  "miniReview": {
+    "writingReview": "写作审查",
+    "suggestionCount": "4 条建议",
+    "summary": "您的文章整体清晰。一些改进可以使语言更精炼并修复小问题。",
+    "grammar": "语法",
+    "old1": "efficently",
+    "new1": "efficiently",
+    "accept": "接受",
+    "dismiss": "忽略",
+    "clarity": "清晰度",
+    "old2": "非常好，帮助很大",
+    "new2": "表现卓越",
+    "tone": "语气",
+    "old3": "我们要做的事情",
+    "new3": "需要完成的任务",
+    "dismissAll": "全部忽略",
+    "acceptAll": "全部接受"
+  },
+
+  "miniWrite": {
+    "title": "AI 写作的未来",
+    "body": "现代 AI 工具正在帮助写作者在更短的时间内创作出更清晰、更引人入胜的文章。",
+    "autocompleteVisible": "写作助手",
+    "autocompleteGhost": "会分析上下文以提供建议。",
+    "diffOld": "帮助很大",
+    "diffNew": "优化了日常工作流程",
+    "improve": "改进",
+    "simplify": "简化",
+    "expand": "扩展"
+  },
+
+  "miniResearch": {
+    "userQuestion": "关于 AI 应用的研究怎么说？",
+    "searchingDocs": "正在搜索 3 个文档...",
+    "readingPaper": "正在阅读 research-paper.pdf",
+    "aiResponse": "根据研究，各行业的 AI 应用率同比增长了 40%。",
+    "researchPaper": "research-paper.pdf",
+    "industryReport": "industry-report.md",
+    "askFollowUp": "追问..."
+  },
+
+  "miniPresent": {
+    "title": "AI 驱动的写作",
+    "byline": "作者 John Doe · 2025",
+    "feature1": "实时 AI 建议",
+    "feature2": "内联差异审查",
+    "feature3": "知识库集成",
+    "slideCount": "2 / 5",
+    "present": "演示",
+    "exportPdf": "导出 PDF",
+    "exportMd": "导出 MD"
+  }
+}

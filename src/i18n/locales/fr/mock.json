@@ -1,0 +1,351 @@
+{
+  "titleBar": "Document de demo — doXmind",
+
+  "chat": {
+    "aiAssistant": "Assistant IA",
+    "demo": "Demo",
+    "userMessage": "Rendre l'introduction plus percutante et corriger les erreurs de grammaire",
+    "analyzingDocument": "Analyse du document",
+    "editingIntroduction": "Modification de l'introduction",
+    "improvedIntro": "J'ai ameliore l'introduction :",
+    "fixed": "Corrige",
+    "efficently": "efficacement",
+    "efficiently": "efficacement",
+    "madeEngaging": "Rendu l'ouverture plus captivante",
+    "tightenedLanguage": "Resserre le style pour une meilleure fluidite",
+    "reviewChanges": "Voir les modifications dans l'editeur",
+    "summarizeDoc": "Resumer le doc",
+    "brainstormIdeas": "Trouver des idees",
+    "fixGrammar": "Corriger la grammaire",
+    "knowledgeBase": "Base de connaissances",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "askAiAnything": "Posez n'importe quelle question a l'IA..."
+  },
+
+  "editor": {
+    "title": "L'avenir de l'ecriture assistee par l'IA",
+    "bodyP1": "L'intelligence artificielle transforme fondamentalement notre approche de l'ecriture. De la correction grammaticale automatique aux suggestions de contenu intelligentes, les outils d'IA modernes permettent aux redacteurs de produire une prose plus claire et plus",
+    "compelling": "percutante",
+    "bodyP1End": "en une fraction du temps.",
+    "keyFeatures": "Fonctionnalites cles",
+    "feature1": "Suggestions IA en temps reel pendant la saisie",
+    "feature2": "Revue des differences en ligne pour les modifications generees par l'IA",
+    "feature3": "Integration de la base de connaissances pour la recherche",
+    "autocompleteVisible": "L'assistant d'ecriture analyse le contexte",
+    "autocompleteGhost": "pour fournir des suggestions qui maintiennent la coherence du ton et du style.",
+    "diffOld": "Le produit etait tres bien et nous a beaucoup aide dans nos taches quotidiennes.",
+    "diffNew": "Le produit a offert des performances exceptionnelles, rationalisant les flux de travail quotidiens.",
+    "accept": "Accepter",
+    "reject": "Rejeter",
+    "exportLine": "Chaque document peut etre exporte en Markdown, PDF ou format Word pour un partage facile.",
+    "delete": "Supprimer",
+    "duplicate": "Dupliquer",
+    "turnInto": "Convertir en...",
+    "blocks": "Blocs",
+    "heading1": "Titre 1",
+    "heading2": "Titre 2",
+    "bulletList": "Liste a puces",
+    "taskList": "Liste de taches",
+    "codeBlock": "Bloc de code",
+    "blockquote": "Citation",
+    "implementation": "Implementation"
+  },
+
+  "sidebar": {
+    "outline": "Plan",
+    "item1": "L'avenir de l'IA...",
+    "item2": "Fonctionnalites cles",
+    "item3": "Implementation",
+    "item4": "Resultats",
+    "item5": "Conclusion",
+    "item6": "Prochaines etapes"
+  },
+
+  "status": {
+    "saved": "Enregistre",
+    "words": "847 mots",
+    "characters": "4 231 caracteres",
+    "readTime": "5 min de lecture"
+  },
+
+  "ill": {
+    "layout": {
+      "ariaLabel": "Disposition de l'application montrant la barre laterale du plan, l'editeur et le panneau de discussion IA",
+      "outline": "Plan",
+      "editor": "Editeur",
+      "aiChat": "Discussion IA"
+    },
+    "toolbar": {
+      "ariaLabel": "Barre d'outils de mise en forme du texte avec gras, italique et autres options",
+      "bold": "Gras",
+      "italic": "Italique",
+      "underline": "Souligne",
+      "strikethrough": "Barre",
+      "head1": "Titre 1",
+      "head2": "Titre 2",
+      "head3": "Titre 3",
+      "list": "Liste",
+      "code": "Code",
+      "link": "Lien"
+    },
+    "quickEdit": {
+      "ariaLabel": "Edition rapide : selectionner le texte, choisir une action, verifier les modifications",
+      "selectText": "Selectionner le texte",
+      "fixGrammar": "Corriger la grammaire",
+      "improve": "Ameliorer",
+      "simplify": "Simplifier",
+      "makeLonger": "Allonger",
+      "translate": "Traduire",
+      "askInChat": "Demander dans le chat",
+      "pickAction": "Choisir une action",
+      "accept": "Accepter",
+      "reject": "Rejeter",
+      "reviewDiff": "Verifier les differences"
+    },
+    "autocomplete": {
+      "ariaLabel": "Autocompletion IA montrant une suggestion en texte fantome apres le curseur",
+      "existingText": "Le rapide renard brun saute par-dessus",
+      "ghostLine1": "le chien paresseux pres de la riviere",
+      "ghostLine2": "ou le soleil se couche doucement.",
+      "tab": "Tab",
+      "toAccept": "pour accepter"
+    },
+    "chatPanel": {
+      "ariaLabel": "Panneau de discussion IA avec messages et zone de saisie",
+      "title": "Discussion IA",
+      "userMessage1": "Rendre ce paragraphe plus",
+      "userMessage2": "concis et professionnel",
+      "applyEdit": "Appliquer la modification",
+      "summarizeDoc": "Resumer le doc",
+      "brainstormIdeas": "Trouver des idees",
+      "askAiAnything": "Posez n'importe quelle question a l'IA..."
+    },
+    "diff": {
+      "ariaLabel": "Revue des differences montrant le texte ajoute et supprime avec les boutons accepter et rejeter",
+      "removedLine": "- Le produit etait tres bien et fonctionnait bien",
+      "addedLine": "+ Le produit a offert des performances exceptionnelles",
+      "accept": "Accepter",
+      "reject": "Rejeter",
+      "acceptAll": "Tout accepter"
+    },
+    "kb": {
+      "ariaLabel": "Flux de telechargement de la base de connaissances : telecharger, traiter, indexer, pret",
+      "upload": "Telecharger",
+      "processing": "Traitement",
+      "chunked": "Decoupe",
+      "indexed": "Indexe",
+      "aiReady": "IA prete"
+    },
+    "cmdPalette": {
+      "ariaLabel": "Palette de commandes avec champ de recherche et liste de resultats",
+      "placeholder": "Saisissez une commande ou recherchez...",
+      "newDocument": "Nouveau document",
+      "toggleOutline": "Afficher/masquer le plan",
+      "semanticSearch": "Recherche semantique"
+    },
+    "fileTree": {
+      "ariaLabel": "Arborescence de fichiers avec dossiers et documents",
+      "myProjects": "Mes projets",
+      "researchNotes": "Notes de recherche.md",
+      "meetingSummary": "Resume de reunion.md",
+      "blogPosts": "Articles de blog",
+      "draftAiWriting": "Brouillon : Ecriture IA.md"
+    },
+    "presentation": {
+      "ariaLabel": "Mode presentation avec cadre de diapositive et controles de navigation",
+      "navigationHint": "← → Touches flechees pour naviguer"
+    },
+    "outlineTree": {
+      "ariaLabel": "Barre laterale du plan montrant la hierarchie imbriquee des titres",
+      "outline": "Plan",
+      "clickToJump": "Cliquer pour acceder"
+    },
+    "customization": {
+      "ariaLabel": "Options de personnalisation pour la police, le theme et la largeur de l'editeur",
+      "font": "Police",
+      "sansSerif": "Sans-serif",
+      "serif": "Serif",
+      "mono": "Mono",
+      "theme": "Theme",
+      "highContrast": "+ Contraste eleve",
+      "width": "Largeur",
+      "narrow": "Etroit",
+      "wide": "Large",
+      "full": "Plein"
+    },
+    "dashboard": {
+      "ariaLabel": "Tableau de bord avec barre de recherche, Demander a l'IA et cartes de documents",
+      "greeting": "Bonjour, Alex",
+      "subtitle": "Reprenez la ou vous en etiez, ou recherchez dans vos ecrits.",
+      "askAi": "Demander a l'IA",
+      "search": "Rechercher",
+      "searchPlaceholder": "Posez n'importe quelle question sur vos ecrits...",
+      "continueWriting": "Reprendre l'ecriture",
+      "twoHoursAgo": "il y a 2h",
+      "oneDayAgo": "il y a 1j",
+      "threeDaysAgo": "il y a 3j",
+      "fiveDaysAgo": "il y a 5j",
+      "oneWeekAgo": "il y a 1sem",
+      "projects": "Projets",
+      "fourFiles": "4 fichiers",
+      "newDocument": "Nouveau document"
+    },
+    "sharing": {
+      "ariaLabel": "Flux de partage du document : cliquer sur partager, copier le lien, le lecteur ouvre",
+      "share": "Partager",
+      "copyLink": "Copier le lien",
+      "readOnly": "Lecture seule"
+    }
+  },
+
+  "miniChat": {
+    "aiAssistant": "Assistant IA",
+    "demo": "Démo",
+    "userMessage": "Rendre l'introduction plus percutante et corriger les erreurs de grammaire",
+    "analyzingDocument": "Analyse du document",
+    "editingIntroduction": "Modification de l'introduction",
+    "improvedIntro": "J'ai amélioré l'introduction :",
+    "fixedOld": "efficacement",
+    "fixedNew": "efficacement",
+    "madeEngaging": "Rendu l'ouverture plus captivante",
+    "tightenedLanguage": "Resserré le style pour une meilleure fluidité",
+    "reviewChanges": "Voir les modifications dans l'éditeur",
+    "summarizeDoc": "Résumer le doc",
+    "brainstormIdeas": "Trouver des idées",
+    "fixGrammar": "Corriger la grammaire",
+    "askAiAnything": "Posez n'importe quelle question à l'IA..."
+  },
+
+  "miniEditor": {
+    "bodyText": "Les outils d'IA modernes permettent aux rédacteurs de produire une prose plus claire et plus",
+    "compelling": "percutante",
+    "bodyEnd": "en une fraction du temps.",
+    "autocompleteVisible": "L'assistant d'écriture analyse le contexte",
+    "autocompleteGhost": "pour fournir des suggestions qui maintiennent la cohérence du ton et du style.",
+    "feature1Done": "Suggestions IA en temps réel pendant la saisie",
+    "feature2Todo": "Intégration de la base de connaissances pour la recherche",
+    "blocks": "Blocs",
+    "heading1": "Titre 1",
+    "heading2": "Titre 2",
+    "bulletList": "Liste à puces",
+    "taskList": "Liste de tâches",
+    "codeBlock": "Bloc de code",
+    "blockquote": "Citation"
+  },
+
+  "miniDiff": {
+    "description": "Chaque modification de l'IA apparaît comme une différence en ligne que vous pouvez vérifier avant d'accepter :",
+    "oldText": "Le produit était très bien et nous a beaucoup aidé dans nos tâches quotidiennes.",
+    "newText": "Le produit a offert des performances exceptionnelles, rationalisant les flux de travail quotidiens.",
+    "accept": "Accepter",
+    "reject": "Rejeter"
+  },
+
+  "miniKB": {
+    "knowledgeBase": "Base de connaissances",
+    "researchPaper": "research-paper.pdf",
+    "styleGuide": "style-guide.md",
+    "brandGuidelines": "brand-guidelines.pdf",
+    "filesSummary": "3 fichiers · 2 indexés · 1 en traitement"
+  },
+
+  "miniKBAgent": {
+    "kbAssistant": "Assistant BC",
+    "userQuestion": "Quelles sont les principales conclusions du rapport Q4 ?",
+    "searchingDocs": "Recherche dans les documents...",
+    "readingReport": "Lecture de Q4-report.pdf",
+    "aiResponse": "D'après le rapport Q4, les principales conclusions sont :",
+    "finding1": "Le chiffre d'affaires a augmenté de 23 % par rapport à l'année précédente",
+    "finding2": "La rétention des clients s'est améliorée à 94 %",
+    "finding3": "Trois nouvelles lignes de produits ont été lancées",
+    "sources": "Sources",
+    "q4Report": "Q4-report.pdf",
+    "annualSummary": "annual-summary.md",
+    "askFollowUp": "Poser une question de suivi..."
+  },
+
+  "miniPresentation": {
+    "title": "L'avenir de l'écriture assistée par l'IA",
+    "byline": "Par John Doe · Janvier 2025",
+    "feature1": "Suggestions IA en temps réel pendant la saisie",
+    "feature2": "Revue des différences en ligne pour les modifications de l'IA",
+    "feature3": "Intégration de la base de connaissances pour la recherche",
+    "slideCount": "2 / 5"
+  },
+
+  "miniSearch": {
+    "searchQuery": "assistant d'écriture",
+    "resultCount": "3 sur 8",
+    "aiResults": "Résultats IA",
+    "matchCount": "5 correspondances",
+    "result1Pre": "L'",
+    "result1Highlight": "assistant d'écriture",
+    "result1Post": "analyse le contexte pour fournir des suggestions...",
+    "result1Score": "95 %",
+    "result1Location": "Paragraphe 4",
+    "result2Pre": "Les outils d'IA pour l'",
+    "result2Highlight": "écriture",
+    "result2Post": "moderne permettent une communication plus claire...",
+    "result2Score": "82 %",
+    "result2Location": "Paragraphe 1",
+    "result3Pre": "Configurez les préférences de l'",
+    "result3Highlight": "assistant",
+    "result3Post": "pour le ton et le style...",
+    "result3Score": "61 %",
+    "result3Location": "Paragraphe 7"
+  },
+
+  "miniReview": {
+    "writingReview": "Revue de rédaction",
+    "suggestionCount": "4 suggestions",
+    "summary": "Votre rédaction est claire dans l'ensemble. Quelques améliorations peuvent affiner le style et corriger des problèmes mineurs.",
+    "grammar": "Grammaire",
+    "old1": "efficacement",
+    "new1": "efficacement",
+    "accept": "Accepter",
+    "dismiss": "Ignorer",
+    "clarity": "Clarté",
+    "old2": "très bien et nous a beaucoup aidé",
+    "new2": "offert des résultats exceptionnels",
+    "tone": "Ton",
+    "old3": "les trucs à faire",
+    "new3": "les tâches à accomplir",
+    "dismissAll": "Tout ignorer",
+    "acceptAll": "Tout accepter"
+  },
+
+  "miniWrite": {
+    "title": "L'avenir de l'écriture par IA",
+    "body": "Les outils d'IA modernes permettent aux rédacteurs de produire une prose plus claire et plus percutante en une fraction du temps.",
+    "autocompleteVisible": "L'assistant d'écriture",
+    "autocompleteGhost": "analyse le contexte pour fournir des suggestions.",
+    "diffOld": "nous a beaucoup aidé",
+    "diffNew": "a rationalisé les flux de travail quotidiens",
+    "improve": "Améliorer",
+    "simplify": "Simplifier",
+    "expand": "Développer"
+  },
+
+  "miniResearch": {
+    "userQuestion": "Que disent les recherches sur l'adoption de l'IA ?",
+    "searchingDocs": "Recherche dans 3 documents...",
+    "readingPaper": "Lecture de research-paper.pdf",
+    "aiResponse": "Selon les recherches, l'adoption de l'IA a augmenté de 40 % d'une année sur l'autre dans tous les secteurs.",
+    "researchPaper": "research-paper.pdf",
+    "industryReport": "industry-report.md",
+    "askFollowUp": "Poser une question de suivi..."
+  },
+
+  "miniPresent": {
+    "title": "Écriture assistée par l'IA",
+    "byline": "Par John Doe · 2025",
+    "feature1": "Suggestions IA en temps réel",
+    "feature2": "Revue des différences en ligne",
+    "feature3": "Intégration de la base de connaissances",
+    "slideCount": "2 / 5",
+    "present": "Présenter",
+    "exportPdf": "Exporter PDF",
+    "exportMd": "Exporter MD"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "badge": "About doXmind",
+    "heading": "We want to solve every writer's problem.",
+    "subtitle": "doXmind is an AI-native writing platform designed from the ground up to remove every barrier between a writer and their best work."
+  },
+  "vision": {
+    "label": "Our Vision",
+    "heading": "The future of writing is intelligent",
+    "p1": "We believe every piece of writing should have the benefit of an intelligent partner. Not to write for you, but to provide exactly the right help at every step — from initial inspiration to final polish.",
+    "p2": "doXmind brings AI into the core of the writing experience. Your research materials, writing style, and creative intent — the AI understands it all and offers suggestions accordingly. One platform for the entire journey from research and drafting to revision and publishing.",
+    "p3": "This isn't the future — it's what we're building right now."
+  },
+  "problem": {
+    "label": "The Problem",
+    "heading": "Writing tools weren't built for writers",
+    "subtitle": "For decades, writing software has been designed around formatting and layout — not around the act of thinking and communicating. Writers are left juggling multiple disconnected tools.",
+    "fragmentedTools": {
+      "title": "Fragmented tools",
+      "description": "Writers bounce between a word processor, a research tool, a grammar checker, and an AI chatbot. Context is lost at every switch, and flow is constantly interrupted."
+    },
+    "aiBoltedOn": {
+      "title": "AI bolted on, not built in",
+      "description": "Most editors treat AI as an afterthought — a sidebar or a separate app. The AI doesn't understand your document structure, writing style, or true intent."
+    },
+    "noMemory": {
+      "title": "No memory, no knowledge",
+      "description": "Your AI assistant forgets everything between sessions. It can't reference your research materials, style guides, or previous work."
+    }
+  },
+  "approach": {
+    "label": "Our Approach",
+    "heading": "AI-native from the ground up",
+    "subtitle": "In doXmind, AI isn't a separate tool you invoke — it's woven into every part of the writing experience.",
+    "aiWoven": {
+      "title": "AI woven into every keystroke",
+      "description": "In doXmind, AI is embedded in every part of the writing experience. Autocomplete suggests as you type. Select text to instantly rewrite, translate, or refine. Chat with AI about your entire document."
+    },
+    "distractionFree": {
+      "title": "A distraction-free canvas",
+      "description": "We stripped away everything that doesn't help you write. No ribbon toolbars. No menu mazes. Just a clean editor with intelligent tools that appear exactly when you need them."
+    },
+    "knowledgeConnected": {
+      "title": "Your knowledge, always connected",
+      "description": "Upload research papers, style guides, and reference documents. The AI reads them, cites them, and grounds every suggestion in your actual materials. Your writing gains the depth of your research."
+    }
+  },
+  "values": {
+    "label": "Our Principles",
+    "heading": "What we believe",
+    "writerFirst": {
+      "title": "Writer-first, always",
+      "description": "Every feature we build starts with one question: does this make a writer's life easier? If it doesn't, we don't ship it."
+    },
+    "aiAsPartner": {
+      "title": "AI as partner, not replacement",
+      "description": "AI should amplify your voice, not replace it. Every AI edit is a suggestion you control — accept, reject, or refine."
+    },
+    "yourData": {
+      "title": "Your data, your work",
+      "description": "Your documents and knowledge base belong to you. We don't train on your content. Your writing stays private."
+    },
+    "simplicity": {
+      "title": "Simplicity is a feature",
+      "description": "Complexity is the enemy of creativity. We obsess over removing friction so you can focus on what matters: your ideas."
+    }
+  },
+  "cta": {
+    "heading": "Start writing with AI today",
+    "subtitle": "Join thousands of writers who've already discovered a better way to write. Free to start, no credit card required."
+  }
+}

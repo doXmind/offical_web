@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "A propos",
+    "guide": "Guide",
+    "changelog": "Journal des modifications",
+    "privacy": "Confidentialite",
+    "features": "Fonctionnalites",
+    "search": "Rechercher",
+    "logIn": "Se connecter"
+  },
+  "footer": {
+    "columns": {
+      "product": {
+        "title": "Produit",
+        "aiEditor": "Editeur IA",
+        "aiChat": "Chat IA",
+        "knowledgeBase": "Base de connaissances",
+        "presentationMode": "Mode presentation",
+        "download": "Telecharger"
+      },
+      "resources": {
+        "title": "Ressources",
+        "guide": "Guide",
+        "helpCenter": "Centre d'aide",
+        "changelog": "Journal des modifications",
+        "getStarted": "Demarrer"
+      },
+      "company": {
+        "title": "Entreprise",
+        "aboutUs": "A propos",
+        "careers": "Carrieres",
+        "contactSales": "Contacter les ventes"
+      },
+      "terms": {
+        "title": "Conditions et politiques",
+        "termsOfUse": "Conditions d'utilisation",
+        "privacyPolicy": "Politique de confidentialite",
+        "cookieSettings": "Parametres des cookies"
+      }
+    },
+    "copyright": "W Aixs Inc. © 2024–{{year}}",
+    "manageCookies": "Gerer les cookies",
+    "languageSelector": {
+      "selectLanguage": "Choisir la langue",
+      "search": "Rechercher",
+      "noResults": "Aucune langue trouvee"
+    }
+  },
+  "cta": {
+    "tryForFree": "Essayer gratuitement",
+    "learnMore": "En savoir plus",
+    "getStarted": "Commencer"
+  },
+  "globalSearch": {
+    "placeholder": "Rechercher dans doXmind...",
+    "noResults": "Aucun resultat pour \"{{query}}\"",
+    "tryDifferent": "Essayez un autre mot-cle",
+    "navigate": "naviguer",
+    "open": "ouvrir",
+    "close": "fermer",
+    "groups": {
+      "pages": "Pages",
+      "features": "Fonctionnalites",
+      "actions": "Actions rapides"
+    },
+    "entries": {
+      "page-home": { "label": "Accueil", "description": "Page d'accueil", "keywords": "accueil principal debut home" },
+      "page-about": { "label": "A propos", "description": "Notre vision et nos valeurs", "keywords": "a propos vision valeurs equipe mission about" },
+      "page-guide": { "label": "Aide et guide des fonctionnalites", "description": "Apprenez a utiliser doXmind", "keywords": "guide aide fonctionnalites documentation guide help" },
+      "page-changelog": { "label": "Journal des modifications", "description": "Notes de version et historique", "keywords": "journal modifications versions mises a jour nouveautes changelog" },
+      "getting-started": { "label": "Premiers pas", "description": "Creez votre premier document et decouvrez l'interface", "keywords": "premiers pas configuration tutoriel creer document getting started" },
+      "home-dashboard": { "label": "Tableau de bord", "description": "Recherche, fichiers recents, favoris et gestion de fichiers", "keywords": "tableau de bord accueil recents favoris fichiers recherche dashboard" },
+      "editor": { "label": "Bases de l'editeur", "description": "Mise en forme, blocs et commandes slash", "keywords": "editeur texte mise en forme gras italique titre liste code tableau slash editor" },
+      "quick-edit": { "label": "Edition rapide IA", "description": "Selectionnez du texte pour corriger, ameliorer, simplifier ou traduire", "keywords": "edition rapide IA grammaire ameliorer simplifier traduire reecrire ton quick edit" },
+      "autocomplete": { "label": "Autocompletion IA", "description": "Suggestions en texte fantome lors de la saisie", "keywords": "autocompletion suggestion texte fantome tab completer IA autocomplete" },
+      "chat": { "label": "Chat IA", "description": "Discutez avec l'IA de votre document", "keywords": "chat IA conversation brainstorming voix image chat" },
+      "diff-review": { "label": "Revue des differences", "description": "Differences visuelles des modifications IA avec accepter/rejeter", "keywords": "differences revue accepter rejeter modifications version diff review" },
+      "knowledge-base": { "label": "Base de connaissances", "description": "Telechargez des documents de reference pour des reponses IA", "keywords": "base connaissances telecharger pdf reference recherche rag knowledge base" },
+      "search-nav": { "label": "Recherche et navigation", "description": "Recherche semantique, rechercher et remplacer, palette de commandes", "keywords": "recherche trouver remplacer palette commandes navigation semantique search" },
+      "documents": { "label": "Gestion de documents", "description": "Dossiers, versions, importer, exporter et modeles", "keywords": "document dossier version importer exporter modele organiser document" },
+      "presentation": { "label": "Mode presentation", "description": "Transformez votre document en diaporama", "keywords": "presentation diaporama diapositives presenter f5 presentation" },
+      "outline": { "label": "Plan et Mindlines", "description": "Naviguez visuellement dans la structure du document", "keywords": "plan mindlines structure titre navigation barre laterale outline" },
+      "customization": { "label": "Personnalisation", "description": "Typographie, themes, largeur de l'editeur et correcteur", "keywords": "personnalisation parametres theme police typographie mode sombre correcteur customization" },
+      "sharing": { "label": "Partage", "description": "Partagez des documents via des liens en lecture seule", "keywords": "partage lien publier lecture seule sharing" },
+      "shortcuts": { "label": "Raccourcis clavier", "description": "Reference complete des raccourcis clavier", "keywords": "clavier raccourcis touche rapide combinaison ctrl shortcuts" },
+      "action-login": { "label": "Se connecter a doXmind", "description": "Ouvrir l'editeur doXmind", "keywords": "connexion se connecter inscription ouvrir app editeur essayer login" }
+    }
+  },
+  "cookiePreferences": {
+    "title": "Centre de preferences des cookies",
+    "description": "L'utilisation de sites web et d'applications implique le stockage et la recuperation d'informations sur votre appareil, y compris des cookies et d'autres identifiants, qui peuvent etre partages avec des tiers pour diverses activites. Nous fournissons un outil simple ci-dessous vous permettant d'adapter vos choix comme bon vous semble. Vous pouvez modifier votre consentement a tout moment.",
+    "learnMore": "En savoir plus",
+    "necessary": {
+      "title": "Cookies strictement necessaires (toujours actifs)",
+      "description": "Ces cookies sont essentiels au fonctionnement du site et ne peuvent pas etre desactives. Ils contribuent a la securite, a l'authentification des utilisateurs, au support client, etc."
+    },
+    "analytics": {
+      "title": "Cookies analytiques",
+      "description": "Ces cookies nous aident a comprendre comment les visiteurs interagissent avec notre site. Ils nous permettent de mesurer le trafic et d'ameliorer les performances du site."
+    },
+    "marketing": {
+      "title": "Cookies de performance marketing",
+      "description": "Ces cookies nous aident a mesurer l'efficacite de nos campagnes marketing."
+    },
+    "done": "Terminer"
+  },
+  "seo": {
+    "home": {
+      "title": "doXmind - Editeur de bureau natif IA pour l'analyse de donnees",
+      "description": "Transformez votre flux de travail avec l'editeur de bureau propulse par l'IA de doXmind. Systeme multi-agents, visualisations interactives et analyse de donnees automatisee.",
+      "keywords": "editeur IA, editeur de bureau, analyse de donnees, visualisation de donnees, IA multi-agents, editeur de documents, outil de productivite"
+    },
+    "about": {
+      "title": "A propos - doXmind | Plateforme d'ecriture propulsee par l'IA",
+      "description": "Decouvrez la mission de doXmind : resoudre chaque probleme des ecrivains. Une plateforme d'ecriture native IA, sans distraction, construite autour de la connaissance et de l'intelligence.",
+      "keywords": "a propos de doXmind, plateforme d'ecriture IA, mission, outils d'ecriture, entreprise editeur IA"
+    },
+    "guide": {
+      "title": "Guide utilisateur - Premiers pas avec doXmind",
+      "description": "Apprenez a utiliser doXmind efficacement. Tutoriels pas a pas, astuces et bonnes pratiques pour optimiser votre experience d'edition propulsee par l'IA.",
+      "keywords": "guide utilisateur, tutoriel, documentation, premiers pas, comment utiliser, trucs et astuces"
+    },
+    "changelog": {
+      "title": "Journal des modifications - doXmind | Quoi de neuf",
+      "description": "Suivez l'evolution de doXmind. Chaque amelioration, nouvelle fonctionnalite et correctif — suivis et documentes.",
+      "keywords": "journal des modifications, notes de version, mises a jour, nouvelles fonctionnalites, historique des versions, mises a jour doXmind"
+    },
+    "cookiesPrivacy": {
+      "title": "Politique de cookies et de confidentialite - doXmind",
+      "description": "Decouvrez comment doXmind collecte, utilise et protege vos informations personnelles et comment nous utilisons les cookies.",
+      "keywords": "politique de confidentialite, cookies, protection des donnees, informations personnelles, RGPD"
+    }
+  }
+}

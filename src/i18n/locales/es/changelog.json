@@ -1,0 +1,111 @@
+{
+  "badge": "Registro de cambios",
+  "heading": "Novedades en doXmind",
+  "subtitle": "Cada mejora, nueva funcionalidad y corrección — registrada y documentada. Sigue la evolución de tu asistente de escritura.",
+  "versions": "Versiones",
+  "allVersions": "Todas las versiones",
+  "majorRelease": "Lanzamiento mayor",
+  "cta": {
+    "heading": "Prueba las últimas funcionalidades hoy",
+    "description": "Cada actualización está disponible al instante. Comienza a escribir con IA gratis.",
+    "getStarted": "Comenzar",
+    "learnMore": "Más información"
+  },
+  "categories": {
+    "added": "Añadido",
+    "improved": "Mejorado",
+    "fixed": "Corregido"
+  },
+  "releases": {
+    "v0_6": {
+      "title": "Presentación y pulido",
+      "summary": "Presenta tus documentos como elegantes diapositivas, además de una página de inicio rediseñada, un centro de ayuda dedicado y mejoras del modo oscuro en toda la aplicación.",
+      "added": [
+        "Modo Presentación — vista de diapositivas a pantalla completa que divide documentos por delimitador, con navegación por teclado y deslizamiento",
+        "Página de marketing — página de demostración rediseñada como landing de marketing con soporte de color de texto en línea",
+        "Página de ayuda — nuevo centro de ayuda con ajustes de tipografía (fuente, interlineado, etc.) sincronizados entre el editor y el modo presentación",
+        "Esquema en documento compartido — barra lateral de esquema en la vista de documento compartido con barras de desplazamiento que se ocultan automáticamente",
+        "Mejoras del modo oscuro — refinamientos globales del tema oscuro para una experiencia visual más consistente"
+      ],
+      "fixed": [
+        "Problema de desplazamiento en el panel de inicio causado por un diseño FlexBox incorrecto",
+        "Estados de hover en submenús desplegables que no respondían correctamente",
+        "Compatibilidad del certificado SSL autofirmado de Heroku Redis en el limitador de velocidad"
+      ]
+    },
+    "v0_5": {
+      "title": "Editor de bloques e incorporación",
+      "summary": "Una experiencia de edición más rica e intuitiva con controles de bloque estilo Notion, un recorrido interactivo de incorporación para nuevos usuarios y controles tipográficos detallados.",
+      "added": [
+        "Controles de bloque estilo Notion — controles de arrastre para bloques, controles de fila y columna para tablas, y un diseño de encabezado unificado",
+        "Recorrido interactivo de incorporación — guía paso a paso que presenta las funciones clave a los nuevos usuarios",
+        "Ajustes de tipografía — familia de fuente, tamaño e interlineado configurables para un entorno de escritura personalizado",
+        "Sistema de papelera — eliminación temporal de archivos a una papelera recuperable en lugar de eliminación permanente",
+        "Carga de imágenes a S3 — las imágenes ahora se suben a almacenamiento de objetos S3 para un alojamiento fiable",
+        "Bloques de editor enriquecido — nuevos tipos de bloque incluyendo líneas horizontales, destacados y más",
+        "Paneles redimensionables y modo enfoque — arrastra para redimensionar paneles laterales, más un modo de escritura libre de distracciones",
+        "Renovación del diseño — lenguaje visual actualizado en toda la aplicación"
+      ],
+      "improved": [
+        "Fortalecimiento del backend — mejoras de seguridad y estabilidad en la infraestructura del servidor"
+      ]
+    },
+    "v0_4": {
+      "title": "Inteligencia del editor y organización de archivos",
+      "summary": "Un editor más inteligente impulsado por RAG agéntico, una experiencia de revisión de diferencias rediseñada, organización por carpetas, soporte matemático y modos de autocompletado adaptativos.",
+      "added": [
+        "Agente KB (RAG agéntico) — un nuevo agente de Base de conocimiento que realiza preguntas y respuestas inteligentes entre documentos y recuperación de información",
+        "Rediseño de revisión de diferencias — interfaz de revisión inspirada en Apple HIG con navegación por bloques y resaltado de enfoque",
+        "Sistema de carpetas — carpetas de un nivel con ordenación por arrastrar y soltar, operaciones de selección múltiple y categorización de archivos",
+        "Soporte matemático — menús de fórmulas matemáticas en línea y a nivel de bloque con reglas de entrada LaTeX mejoradas",
+        "Autocompletado adaptativo — tres modos de completado (corto, largo y adaptativo) con ensamblaje de contexto potenciado por RAG",
+        "Enrutamiento de archivos basado en URL — navegación de archivos mediante rutas URL, arrastrar y soltar entre páginas, y correcciones de fiabilidad en el guardado del editor"
+      ],
+      "improved": [
+        "Reemplazo de insert_text por navegación de precisión a nivel de párrafo y retroalimentación de edición estructurada",
+        "Extracción de biblioteca modular de componentes Chat a partir de componentes de IA monolíticos",
+        "Formateo de toda la base de código con Prettier y ordenación de clases Tailwind"
+      ]
+    },
+    "v0_3": {
+      "title": "Seguridad, móvil y panel de inicio",
+      "summary": "Trae tu propia clave API, un nuevo panel de inicio, soporte de edición móvil y un refuerzo significativo de la autenticación.",
+      "added": [
+        "Trae tu propia clave (BYOK) — gestiona tus propias claves API con almacenamiento cifrado, validación y medidas de seguridad",
+        "Panel de inicio — una nueva experiencia de inicio con enrutamiento según autenticación, menús desplegables con portales y efectos de texto animados",
+        "Editor móvil — cambio de modo de edición adaptable, navegación de esquema con scroll-spy y mejora de la experiencia de renombrar archivos",
+        "Refuerzo de autenticación — mejoras integrales de seguridad en todo el flujo de autenticación"
+      ],
+      "improved": [
+        "Descomposición de módulos monolíticos, eliminación de código no utilizado y mejora de la mantenibilidad general"
+      ]
+    },
+    "v0_2": {
+      "title": "Infraestructura de la plataforma",
+      "summary": "Capacidades fundacionales de la plataforma — soporte de archivos de datos, un modo de demostración para mostrar el producto y un sistema adecuado de migración de base de datos.",
+      "added": [
+        "Archivos de datos y ejecución de código — sube archivos de datos y ejecuta código directamente en la plataforma",
+        "Modo demostración — respuestas de IA simuladas para demostraciones y recorridos del producto",
+        "Sistema de migración Alembic — marco de migración de base de datos estructurado para una evolución fiable del esquema"
+      ]
+    },
+    "v0_1": {
+      "title": "Búsqueda y renovación de RAG",
+      "summary": "Los cimientos de doXmind — un motor de búsqueda híbrido que combina recuperación por palabras clave y vectores, embeddings en paralelo y la primera iteración del sistema de habilidades.",
+      "added": [
+        "Búsqueda híbrida (fusión RRF) — motor de búsqueda que combina recuperación por palabras clave y vectores con puntuación de Reciprocal Rank Fusion",
+        "Búsqueda híbrida en base de conocimiento — la misma potente recuperación híbrida aplicada a tus documentos subidos",
+        "Embedding por lotes en paralelo — la vectorización se ejecuta en lotes paralelos con lógica de reintentos automática",
+        "Compresión de historial — compresión del historial del chat con deduplicación por hash de contenido para reducir el uso de tokens",
+        "Sistema de habilidades — arquitectura de habilidades reorganizada con una nueva habilidad de búsqueda de casos legales",
+        "Resúmenes de archivos y favoritos — genera resúmenes para archivos y marca los importantes como favoritos",
+        "Seguimiento de uso de tokens — monitoriza el consumo de tokens por conversación con eliminación temporal de mensajes",
+        "Evaluación de búsqueda — scripts de evaluación de relevancia offline para pruebas continuas de calidad de búsqueda"
+      ],
+      "improved": [
+        "Soporte de fuentes CJK en exportaciones PDF para documentos en chino, japonés y coreano",
+        "Definiciones refinadas de tipos de resultados de búsqueda para un mejor manejo posterior"
+      ]
+    }
+  }
+}

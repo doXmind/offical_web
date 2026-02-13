@@ -6,6 +6,59 @@
   --header-height: 0px;
   --nav-offset: calc(var(--header-height) + 16px);
   --section-offset: calc(var(--header-height) + 96px);
+
+  /* Design system tokens — light mode defaults */
+  --background: 0 0% 100%;
+  --foreground: 45 8% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 45 8% 20%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 45 8% 20%;
+  --primary: 45 8% 20%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 40 10% 95%;
+  --secondary-foreground: 45 8% 20%;
+  --muted: 40 10% 95%;
+  --muted-foreground: 40 3% 46%;
+  --accent: 40 10% 95%;
+  --accent-foreground: 45 8% 20%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 60 4% 91%;
+  --input: 60 4% 91%;
+  --ring: 45 8% 20%;
+  --radius: 0.5rem;
+
+  /* Diff review */
+  --diff-deleted-bg: rgba(255, 59, 48, 0.08);
+  --diff-inserted-bg: rgba(52, 199, 89, 0.07);
+}
+
+.dark {
+  /* Apple-inspired premium dark palette — cool blue undertone */
+  --background: 228 14% 5%;        /* #0B0C12 — deep blue-black, OLED-friendly */
+  --foreground: 220 14% 96%;       /* #F3F4F8 — Apple-crisp near-white */
+  --card: 226 12% 10%;             /* #151720 — subtle elevation */
+  --card-foreground: 220 14% 96%;
+  --popover: 225 11% 12%;          /* #1B1D26 — higher elevation */
+  --popover-foreground: 220 14% 96%;
+  --primary: 220 14% 96%;          /* near-white — clean, bright */
+  --primary-foreground: 228 14% 5%;
+  --secondary: 224 10% 14%;        /* #1F2129 — muted surface */
+  --secondary-foreground: 220 10% 86%;
+  --muted: 224 10% 14%;
+  --muted-foreground: 218 4% 54%;  /* #848790 — Apple-like secondary text */
+  --accent: 223 8% 17%;            /* #272A33 */
+  --accent-foreground: 220 10% 90%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 0% 90%;
+  --border: 222 8% 16%;            /* #252730 — minimal, blue-tinted */
+  --input: 222 8% 16%;
+  --ring: 215 8% 60%;
+
+  /* Diff review */
+  --diff-deleted-bg: rgba(255, 69, 58, 0.1);
+  --diff-inserted-bg: rgba(48, 209, 88, 0.08);
 }
 
 @layer base {
@@ -256,6 +309,15 @@
 
   .light .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-400;
+  }
+
+  /* Ambient glow card — matches About Hero blob palette */
+  .glow-card {
+    background:
+      radial-gradient(ellipse at 10% 20%, rgb(37 99 235 / 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 10%, rgb(99 102 241 / 0.10) 0%, transparent 50%),
+      radial-gradient(ellipse at 40% 90%, rgb(124 58 237 / 0.08) 0%, transparent 50%),
+      hsl(var(--background));
   }
 
   /* Codex-inspired glass panel */

@@ -1,0 +1,119 @@
+{
+  "badge": "Mentions legales",
+  "heading": "Politique de cookies et de confidentialite",
+  "lastUpdated": "Derniere mise a jour : 28 janvier 2026",
+  "introduction": {
+    "title": "Introduction",
+    "p1": "Chez doXmind (« nous », « notre » ou « nos »), nous nous engageons a proteger votre vie privee et a assurer la securite de vos informations personnelles. Cette politique de cookies et de confidentialite explique comment nous collectons, utilisons, divulguons et protegeons vos informations lorsque vous utilisez notre plateforme d'assistant d'ecriture propulsee par l'IA.",
+    "p2": "En utilisant doXmind, vous acceptez la collecte et l'utilisation des informations conformement a cette politique. Si vous n'etes pas d'accord avec nos politiques et pratiques, veuillez ne pas utiliser nos services."
+  },
+  "informationCollected": {
+    "title": "Informations que nous collectons",
+    "personal": {
+      "title": "Informations personnelles",
+      "intro": "Nous pouvons collecter les types d'informations personnelles suivants :",
+      "account": "Informations de compte (nom, adresse e-mail, mot de passe)",
+      "profile": "Informations de profil (photo de profil, preferences)",
+      "payment": "Informations de paiement (traitees de maniere securisee par des prestataires de paiement tiers)",
+      "communication": "Donnees de communication (tickets d'assistance, commentaires)"
+    },
+    "usage": {
+      "title": "Donnees d'utilisation",
+      "intro": "Nous collectons automatiquement certaines informations lorsque vous utilisez notre service :",
+      "device": "Informations sur l'appareil (type de navigateur, systeme d'exploitation, type d'appareil)",
+      "log": "Donnees de journal (adresse IP, heures d'acces, pages consultees)",
+      "patterns": "Habitudes d'utilisation (fonctionnalites utilisees, donnees d'interaction)",
+      "performance": "Donnees de performance (rapports d'erreurs, temps de chargement)"
+    },
+    "content": {
+      "title": "Donnees de contenu",
+      "description": "Les documents et le contenu que vous creez, telechargez ou traitez via doXmind sont stockes de maniere securisee. Nous n'utilisons pas votre contenu pour entrainer nos modeles d'IA sans votre consentement explicite."
+    }
+  },
+  "cookies": {
+    "title": "Comment nous utilisons les cookies",
+    "intro": "Les cookies sont de petits fichiers texte stockes sur votre appareil qui nous aident a fournir et ameliorer nos services. Nous utilisons les types de cookies suivants :",
+    "essential": {
+      "name": "Cookies essentiels",
+      "desc": "Necessaires au fonctionnement de base, comme la securite, l'authentification et la gestion des sessions. Vous ne pouvez pas les desactiver."
+    },
+    "analytics": {
+      "name": "Cookies analytiques",
+      "desc": "Nous aident a comprendre comment les visiteurs interagissent avec notre site web en collectant et en rapportant des informations de maniere anonyme."
+    },
+    "functional": {
+      "name": "Cookies fonctionnels",
+      "desc": "Permettent des fonctionnalites ameliorees et la personnalisation, comme la memorisation de vos preferences et de vos choix de theme."
+    },
+    "marketing": {
+      "name": "Cookies marketing",
+      "desc": "Utilises pour suivre les visiteurs sur les sites web afin d'afficher des publicites pertinentes. Actives uniquement avec votre consentement."
+    },
+    "managing": {
+      "title": "Gestion des cookies",
+      "description": "Vous pouvez controler et gerer les cookies via les parametres de votre navigateur. La plupart des navigateurs vous permettent de refuser les cookies ou de supprimer les cookies existants. Veuillez noter que la desactivation de certains cookies peut affecter le fonctionnement de nos services."
+    }
+  },
+  "useOfInformation": {
+    "title": "Comment nous utilisons vos informations",
+    "intro": "Nous utilisons les informations que nous collectons pour :",
+    "items": {
+      "provide": "Fournir, maintenir et ameliorer nos services",
+      "process": "Traiter les transactions et envoyer les informations associees",
+      "send": "Envoyer des avis techniques, des mises a jour et des messages d'assistance",
+      "respond": "Repondre a vos commentaires, questions et demandes",
+      "monitor": "Surveiller et analyser les tendances, l'utilisation et les activites",
+      "detect": "Detecter, enqueter et prevenir les transactions frauduleuses et les abus",
+      "personalize": "Personnaliser et ameliorer votre experience",
+      "comply": "Respecter les obligations legales"
+    }
+  },
+  "dataSecurity": {
+    "title": "Securite des donnees",
+    "intro": "Nous mettons en oeuvre des mesures techniques et organisationnelles appropriees pour proteger vos informations personnelles contre l'acces, la modification, la divulgation ou la destruction non autorises :",
+    "items": {
+      "encryption": "Chiffrement des donnees en transit et au repos",
+      "assessments": "Evaluations regulieres de securite et tests de penetration",
+      "access": "Controles d'acces et mecanismes d'authentification",
+      "training": "Formation des employes a la protection des donnees",
+      "incident": "Procedures de reponse aux incidents"
+    },
+    "disclaimer": "Bien que nous nous efforcions de proteger vos informations personnelles, aucune methode de transmission sur Internet ou de stockage electronique n'est securisee a 100 %. Nous ne pouvons pas garantir une securite absolue."
+  },
+  "yourRights": {
+    "title": "Vos droits",
+    "intro": "Selon votre localisation, vous pouvez disposer des droits suivants concernant vos informations personnelles :",
+    "access": { "key": "Acces", "value": "Demander l'acces a vos donnees personnelles" },
+    "correction": { "key": "Rectification", "value": "Demander la correction de donnees inexactes" },
+    "deletion": { "key": "Suppression", "value": "Demander la suppression de vos donnees" },
+    "portability": { "key": "Portabilite", "value": "Demander le transfert de vos donnees" },
+    "objection": { "key": "Opposition", "value": "S'opposer au traitement de vos donnees" },
+    "restriction": { "key": "Limitation", "value": "Demander la limitation du traitement" },
+    "withdrawConsent": { "key": "Retrait du consentement", "value": "Retirer votre consentement a tout moment" },
+    "contact": "Pour exercer l'un de ces droits, veuillez nous contacter en utilisant les informations fournies ci-dessous."
+  },
+  "thirdParty": {
+    "title": "Services tiers",
+    "p1": "Notre service peut contenir des liens vers des sites web et services tiers. Nous ne sommes pas responsables des pratiques de confidentialite de ces tiers. Nous vous encourageons a consulter leurs politiques de confidentialite.",
+    "p2": "Nous pouvons faire appel a des prestataires de services tiers pour nous aider a exploiter notre activite, tels que des fournisseurs d'hebergement cloud, des processeurs de paiement, des services d'analyse et des outils de support client."
+  },
+  "children": {
+    "title": "Confidentialite des enfants",
+    "description": "Nos services ne sont pas destines aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles aupres d'enfants de moins de 13 ans. Si vous etes un parent ou un tuteur et pensez que votre enfant nous a fourni des informations personnelles, veuillez nous contacter immediatement."
+  },
+  "changes": {
+    "title": "Modifications de cette politique",
+    "description": "Nous pouvons mettre a jour cette politique de cookies et de confidentialite de temps a autre. Nous vous informerons de toute modification en publiant la nouvelle politique sur cette page et en mettant a jour la date de « Derniere mise a jour ». Nous vous encourageons a consulter cette politique regulierement."
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "intro": "Si vous avez des questions concernant cette politique de cookies et de confidentialite, veuillez nous contacter :",
+    "email": "E-mail",
+    "company": "Entreprise",
+    "website": "Site web"
+  },
+  "cta": {
+    "heading": "Pret a commencer ?",
+    "description": "Decouvrez l'avenir de l'ecriture assistee par l'IA avec doXmind."
+  }
+}

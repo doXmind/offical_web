@@ -1,0 +1,111 @@
+{
+  "badge": "Changelog",
+  "heading": "What's new in doXmind",
+  "subtitle": "Every improvement, new feature, and fix — tracked and documented. Follow the evolution of your writing assistant.",
+  "versions": "Versions",
+  "allVersions": "All Versions",
+  "majorRelease": "Major Release",
+  "cta": {
+    "heading": "Try the latest features today",
+    "description": "Every update is available instantly. Start writing with AI for free.",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "categories": {
+    "added": "Added",
+    "improved": "Improved",
+    "fixed": "Fixed"
+  },
+  "releases": {
+    "v0_6": {
+      "title": "Presentation & Polish",
+      "summary": "Present your documents as beautiful slide decks, plus a redesigned landing page, a dedicated help center, and dark mode refinements across the board.",
+      "added": [
+        "Presentation Mode — full-screen slide view that splits documents by delimiter, with keyboard and swipe navigation",
+        "Marketing Landing Page — redesigned demo page as a proper marketing landing with inline text color support",
+        "Help Page — new help center with typography settings (font, line height, etc.) that sync across the editor and presentation mode",
+        "Shared Document Outline — outline sidebar in the shared document view with auto-hiding scrollbars",
+        "Dark Mode enhancements — global dark theme refinements for a more consistent visual experience"
+      ],
+      "fixed": [
+        "Home dashboard scrolling issue caused by incorrect FlexBox layout",
+        "Dropdown sub-menu hover states not responding correctly",
+        "Heroku Redis self-signed SSL certificate compatibility in the rate limiter"
+      ]
+    },
+    "v0_5": {
+      "title": "Block Editor & Onboarding",
+      "summary": "A richer, more intuitive editing experience with Notion-style block handles, an interactive onboarding tour for new users, and fine-grained typography controls.",
+      "added": [
+        "Notion-style Block Handles — drag handles for blocks, row and column controls for tables, and a unified header layout",
+        "Interactive Onboarding Tour — step-by-step guided walkthrough that introduces key features to new users",
+        "Typography Settings — configurable font family, size, and line height for a personalized writing environment",
+        "Trash System — soft-delete files to a recoverable trash bin instead of permanent deletion",
+        "S3 Image Upload — images are now uploaded to S3 object storage for reliable hosting",
+        "Rich Editor Blocks — new block types including horizontal rules, callouts, and more",
+        "Resizable Panels & Focus Mode — drag to resize side panels, plus a distraction-free focus writing mode",
+        "Design Refresh — updated visual language across the entire application"
+      ],
+      "improved": [
+        "Backend hardening — security and stability improvements across server infrastructure"
+      ]
+    },
+    "v0_4": {
+      "title": "Editor Intelligence & File Organization",
+      "summary": "A smarter editor powered by agentic RAG, a redesigned diff review experience, folder organization, math support, and adaptive autocomplete modes.",
+      "added": [
+        "KB Agent (Agentic RAG) — a new Knowledge Base agent that performs intelligent cross-document Q&A and retrieval",
+        "Diff Review Redesign — Apple HIG-inspired review interface with hunk navigation and focus highlighting",
+        "Folder System — single-level folders with drag-and-drop sorting, multi-select operations, and file categorization",
+        "Math Support — inline and block-level math formula menus with improved LaTeX input rules",
+        "Adaptive Autocomplete — three completion modes (short, long, and adaptive) with RAG-powered context assembly",
+        "URL-based File Routing — file navigation via URL paths, cross-page drag-and-drop, and editor save reliability fixes"
+      ],
+      "improved": [
+        "Replaced insert_text with paragraph-level precision navigation and structured editing feedback",
+        "Extracted modular Chat component library from monolithic AI components",
+        "Codebase-wide formatting with Prettier and Tailwind class sorting"
+      ]
+    },
+    "v0_3": {
+      "title": "Security, Mobile & Dashboard",
+      "summary": "Bring your own API key, a brand-new home dashboard, mobile editing support, and significant authentication hardening.",
+      "added": [
+        "Bring Your Own Key (BYOK) — manage your own API keys with encrypted storage, validation, and security safeguards",
+        "Home Dashboard — a new landing experience with auth-aware routing, portal dropdown menus, and animated text effects",
+        "Mobile Editor — responsive editing mode switching, scroll-spy outline navigation, and improved file rename UX",
+        "Auth Hardening — comprehensive security improvements across the authentication flow"
+      ],
+      "improved": [
+        "Decomposed monolithic modules, removed unused code, and improved overall maintainability"
+      ]
+    },
+    "v0_2": {
+      "title": "Platform Infrastructure",
+      "summary": "Foundational platform capabilities — data file support, a demo mode for showcasing the product, and a proper database migration system.",
+      "added": [
+        "Data Files & Code Execution — upload data files and run code against them directly in the platform",
+        "Demo Mode — simulated AI responses for product demonstrations and walkthroughs",
+        "Alembic Migration System — structured database migration framework for reliable schema evolution"
+      ]
+    },
+    "v0_1": {
+      "title": "Search & RAG Overhaul",
+      "summary": "The foundation of doXmind — a hybrid search engine combining keyword and vector retrieval, parallel embeddings, and the first iteration of the skills system.",
+      "added": [
+        "Hybrid Search (RRF Fusion) — search engine combining keyword and vector retrieval with Reciprocal Rank Fusion scoring",
+        "Knowledge Base Hybrid Search — the same powerful hybrid retrieval applied to your uploaded documents",
+        "Parallel Batch Embedding — vectorization runs in parallel batches with automatic retry logic",
+        "History Compression — chat history compression with content-hash deduplication to reduce token usage",
+        "Skills System — reorganized skill architecture with a new legal case search skill",
+        "File Summaries & Favorites — generate summaries for files and mark important ones as favorites",
+        "Token Usage Tracking — monitor token consumption per conversation with soft-delete for messages",
+        "Search Evaluation — offline relevance evaluation scripts for continuous search quality testing"
+      ],
+      "improved": [
+        "CJK font support in PDF exports for Chinese, Japanese, and Korean documents",
+        "Refined search result type definitions for better downstream handling"
+      ]
+    }
+  }
+}

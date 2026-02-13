@@ -3,12 +3,15 @@ import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
+  const { t } = useTranslation('notfound');
+
   return (
     <>
       <Helmet>
-        <title>404 - Page Not Found | doXmind</title>
+        <title>{t('title')}</title>
         <meta name="robots" content="noindex, follow" />
       </Helmet>
 
@@ -29,7 +32,7 @@ const NotFound = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-2xl md:text-4xl font-bold text-white mb-4"
           >
-            Page Not Found
+            {t('heading')}
           </motion.h1>
 
           <motion.p
@@ -38,7 +41,7 @@ const NotFound = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-slate-400 mb-8"
           >
-            The page you're looking for doesn't exist or has been moved.
+            {t('description')}
           </motion.p>
 
           <motion.div
@@ -52,14 +55,14 @@ const NotFound = () => {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-lg font-medium hover:bg-slate-100 transition-colors"
             >
               <Home className="w-4 h-4" />
-              Go Home
+              {t('goHome')}
             </Link>
             <button
               onClick={() => window.history.back()}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/20 text-white rounded-lg font-medium hover:bg-white/10 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Go Back
+              {t('goBack')}
             </button>
           </motion.div>
         </div>

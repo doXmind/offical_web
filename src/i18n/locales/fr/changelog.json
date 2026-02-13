@@ -1,0 +1,111 @@
+{
+  "badge": "Journal des modifications",
+  "heading": "Quoi de neuf dans doXmind",
+  "subtitle": "Chaque amelioration, nouvelle fonctionnalite et correctif — suivis et documentes. Suivez l'evolution de votre assistant d'ecriture.",
+  "versions": "Versions",
+  "allVersions": "Toutes les versions",
+  "majorRelease": "Version majeure",
+  "cta": {
+    "heading": "Essayez les dernieres fonctionnalites des aujourd'hui",
+    "description": "Chaque mise a jour est disponible instantanement. Commencez a ecrire avec l'IA gratuitement.",
+    "getStarted": "Commencer",
+    "learnMore": "En savoir plus"
+  },
+  "categories": {
+    "added": "Ajouts",
+    "improved": "Ameliorations",
+    "fixed": "Corrections"
+  },
+  "releases": {
+    "v0_6": {
+      "title": "Presentation et finitions",
+      "summary": "Presentez vos documents sous forme de diaporamas elegants, avec une page d'accueil redessinee, un centre d'aide dedie et des ameliorations du mode sombre sur l'ensemble de l'application.",
+      "added": [
+        "Mode Presentation — vue diaporama plein ecran qui decoupe les documents par delimiteur, avec navigation au clavier et par balayage",
+        "Page d'accueil marketing — page de demonstration redessinee en veritable page marketing avec prise en charge des couleurs de texte en ligne",
+        "Page d'aide — nouveau centre d'aide avec parametres typographiques (police, interligne, etc.) synchronises entre l'editeur et le mode presentation",
+        "Plan du document partage — barre laterale de plan dans la vue de document partage avec barres de defilement a masquage automatique",
+        "Ameliorations du mode sombre — perfectionnements du theme sombre global pour une experience visuelle plus coherente"
+      ],
+      "fixed": [
+        "Probleme de defilement du tableau de bord cause par une disposition FlexBox incorrecte",
+        "Etats de survol des sous-menus deroulants ne repondant pas correctement",
+        "Compatibilite du certificat SSL auto-signe Heroku Redis dans le limiteur de debit"
+      ]
+    },
+    "v0_5": {
+      "title": "Editeur par blocs et accueil des nouveaux utilisateurs",
+      "summary": "Une experience d'edition plus riche et plus intuitive avec des poignees de blocs a la Notion, une visite guidee interactive pour les nouveaux utilisateurs et des controles typographiques avances.",
+      "added": [
+        "Poignees de blocs style Notion — poignees de deplacement pour les blocs, controles de lignes et colonnes pour les tableaux et mise en page d'en-tete unifiee",
+        "Visite guidee interactive — parcours pas a pas qui presente les fonctionnalites cles aux nouveaux utilisateurs",
+        "Parametres typographiques — famille de police, taille et interligne configurables pour un environnement d'ecriture personnalise",
+        "Systeme de corbeille — suppression douce des fichiers vers une corbeille recuperable au lieu d'une suppression definitive",
+        "Telechargement d'images S3 — les images sont desormais stockees sur un stockage objet S3 pour un hebergement fiable",
+        "Blocs d'editeur enrichi — nouveaux types de blocs incluant les filets horizontaux, les encadres et plus encore",
+        "Panneaux redimensionnables et mode concentration — redimensionnement des panneaux lateraux par glisser-deposer, plus un mode d'ecriture sans distraction",
+        "Refonte visuelle — langage visuel mis a jour sur l'ensemble de l'application"
+      ],
+      "improved": [
+        "Renforcement du backend — ameliorations de la securite et de la stabilite de l'infrastructure serveur"
+      ]
+    },
+    "v0_4": {
+      "title": "Intelligence de l'editeur et organisation des fichiers",
+      "summary": "Un editeur plus intelligent propulse par le RAG agentique, une experience de revue des differences redessinee, l'organisation par dossiers, le support des formules mathematiques et des modes d'autocompletion adaptatifs.",
+      "added": [
+        "Agent KB (RAG agentique) — un nouvel agent de base de connaissances qui effectue des questions-reponses et des recherches intelligentes inter-documents",
+        "Refonte de la revue des differences — interface de revue inspiree d'Apple HIG avec navigation par blocs et mise en surbrillance ciblee",
+        "Systeme de dossiers — dossiers a un niveau avec tri par glisser-deposer, operations par selection multiple et categorisation des fichiers",
+        "Support mathematique — menus de formules mathematiques en ligne et en bloc avec regles de saisie LaTeX ameliorees",
+        "Autocompletion adaptative — trois modes de completion (court, long et adaptatif) avec assemblage de contexte propulse par le RAG",
+        "Routage de fichiers par URL — navigation de fichiers via les chemins URL, glisser-deposer inter-pages et correctifs de fiabilite de sauvegarde de l'editeur"
+      ],
+      "improved": [
+        "Remplacement de insert_text par une navigation de precision au niveau du paragraphe et un retour d'edition structure",
+        "Extraction d'une bibliotheque modulaire de composants Chat a partir de composants IA monolithiques",
+        "Formatage de l'ensemble du code avec Prettier et tri des classes Tailwind"
+      ]
+    },
+    "v0_3": {
+      "title": "Securite, mobile et tableau de bord",
+      "summary": "Apportez votre propre cle API, un tout nouveau tableau de bord, le support de l'edition mobile et un renforcement significatif de l'authentification.",
+      "added": [
+        "Apportez votre propre cle (BYOK) — gerez vos propres cles API avec stockage chiffre, validation et mesures de securite",
+        "Tableau de bord d'accueil — nouvelle experience d'accueil avec routage contextuel d'authentification, menus deroulants en portail et effets de texte animes",
+        "Editeur mobile — basculement reactif du mode d'edition, navigation par plan avec suivi du defilement et amelioration de l'experience de renommage de fichiers",
+        "Renforcement de l'authentification — ameliorations de securite completes sur l'ensemble du flux d'authentification"
+      ],
+      "improved": [
+        "Decomposition des modules monolithiques, suppression du code inutilise et amelioration de la maintenabilite generale"
+      ]
+    },
+    "v0_2": {
+      "title": "Infrastructure de la plateforme",
+      "summary": "Capacites fondamentales de la plateforme — support des fichiers de donnees, un mode demonstration pour presenter le produit et un systeme de migration de base de donnees structure.",
+      "added": [
+        "Fichiers de donnees et execution de code — telechargez des fichiers de donnees et executez du code directement sur la plateforme",
+        "Mode demonstration — reponses IA simulees pour les demonstrations et les presentations du produit",
+        "Systeme de migration Alembic — cadre de migration de base de donnees structure pour une evolution fiable du schema"
+      ]
+    },
+    "v0_1": {
+      "title": "Recherche et refonte du RAG",
+      "summary": "Les fondations de doXmind — un moteur de recherche hybride combinant recherche par mots-cles et recherche vectorielle, embeddings paralleles et la premiere iteration du systeme de competences.",
+      "added": [
+        "Recherche hybride (fusion RRF) — moteur de recherche combinant recherche par mots-cles et recherche vectorielle avec scoring par fusion de rangs reciproques",
+        "Recherche hybride de la base de connaissances — la meme recherche hybride performante appliquee a vos documents telecharges",
+        "Embedding par lots paralleles — la vectorisation s'execute en lots paralleles avec logique de nouvelle tentative automatique",
+        "Compression de l'historique — compression de l'historique des conversations avec deduplication par hachage de contenu pour reduire l'utilisation de tokens",
+        "Systeme de competences — architecture de competences reorganisee avec une nouvelle competence de recherche juridique",
+        "Resumes de fichiers et favoris — generez des resumes pour les fichiers et marquez les plus importants comme favoris",
+        "Suivi de l'utilisation des tokens — surveillez la consommation de tokens par conversation avec suppression douce des messages",
+        "Evaluation de la recherche — scripts d'evaluation de pertinence hors ligne pour des tests continus de qualite de recherche"
+      ],
+      "improved": [
+        "Support des polices CJK dans les exports PDF pour les documents chinois, japonais et coreens",
+        "Definitions de types de resultats de recherche affinee pour un meilleur traitement en aval"
+      ]
+    }
+  }
+}

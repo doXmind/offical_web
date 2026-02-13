@@ -20,8 +20,16 @@ export default {
           800: '#1a1a1a',
           900: '#0a0a0a',
         },
-        // Codex-inspired transparency system
+        // CSS variable-based design tokens (for demo/help pages)
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+          // Legacy transparency shades for old pages
           4: 'rgba(255, 255, 255, 0.04)',
           8: 'rgba(255, 255, 255, 0.08)',
           12: 'rgba(255, 255, 255, 0.12)',
@@ -29,6 +37,35 @@ export default {
           60: 'rgba(255, 255, 255, 0.60)',
           100: 'rgba(255, 255, 255, 1)',
         },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       transitionTimingFunction: {
         'curve-a': 'cubic-bezier(0.4, 0, 0.2, 1)',

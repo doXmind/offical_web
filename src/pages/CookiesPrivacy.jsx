@@ -1,225 +1,268 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Shield, Cookie, Eye, Lock, Server, Mail } from 'lucide-react';
-import SEO from '../components/seo/SEO';
+import { Shield, Cookie, Eye, Lock, Server, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import SEO from "../components/seo/SEO";
+import { ChevronGrid } from "../components/home/chevron-grid";
+import { DemoFooter } from "../components/home/demo-footer";
 
-const Section = ({ id, title, icon: Icon, children }) => (
-  <section id={id} className="mb-12 scroll-mt-24">
-    <div className="flex items-center gap-3 mb-6">
-      {Icon && <Icon className="w-6 h-6 text-white" />}
-      <h2 className="text-2xl md:text-3xl font-light">{title}</h2>
-    </div>
-    <div className="prose prose-invert max-w-none text-gray-400">
-      {children}
-    </div>
-  </section>
-);
+function SectionBlock({ id, title, icon: Icon, children }) {
+  return (
+    <section id={id} className="scroll-mt-24">
+      <div className="mb-4 flex items-center gap-3">
+        {Icon && (
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+            <Icon className="h-4 w-4 text-primary" />
+          </div>
+        )}
+        <h2 className="text-xl font-bold">{title}</h2>
+      </div>
+      <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+        {children}
+      </div>
+    </section>
+  );
+}
 
-const CookiesPrivacy = () => {
-  const lastUpdated = 'January 28, 2026';
+export default function CookiesPrivacy() {
+  const { t } = useTranslation('privacy');
+  const { t: tc } = useTranslation('common');
+
+  const cookieTypes = [
+    { name: t('cookies.essential.name'), desc: t('cookies.essential.desc') },
+    { name: t('cookies.analytics.name'), desc: t('cookies.analytics.desc') },
+    { name: t('cookies.functional.name'), desc: t('cookies.functional.desc') },
+    { name: t('cookies.marketing.name'), desc: t('cookies.marketing.desc') },
+  ];
+
+  const rights = [
+    { key: t('yourRights.access.key'), value: t('yourRights.access.value') },
+    { key: t('yourRights.correction.key'), value: t('yourRights.correction.value') },
+    { key: t('yourRights.deletion.key'), value: t('yourRights.deletion.value') },
+    { key: t('yourRights.portability.key'), value: t('yourRights.portability.value') },
+    { key: t('yourRights.objection.key'), value: t('yourRights.objection.value') },
+    { key: t('yourRights.restriction.key'), value: t('yourRights.restriction.value') },
+    { key: t('yourRights.withdrawConsent.key'), value: t('yourRights.withdrawConsent.value') },
+  ];
 
   return (
-    <div className="min-h-screen bg-black text-white pt-24">
-      <SEO
-        path="/cookies-privacy"
-        title="Cookies & Privacy Policy - doXmind"
-        description="Learn about how doXmind collects, uses, and protects your personal information and how we use cookies."
-      />
+    <div className="min-h-screen bg-background">
+      <SEO path="/cookies-privacy" />
 
-      {/* Hero Section */}
-      <section className="px-6 py-16 border-b border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 border border-white/30 bg-white/10 rounded-full mb-6">
-              <Shield className="w-4 h-4 text-white" />
-              <span className="text-sm text-white font-medium">Legal</span>
+      {/* Hero */}
+      <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden px-6">
+        {/* Ambient gradient blobs */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-20 -top-20 h-[600px] w-[700px] rounded-full bg-blue-600/[0.12] blur-[120px]" />
+          <div className="absolute -right-10 top-0 h-[500px] w-[500px] rounded-full bg-indigo-500/[0.10] blur-[120px]" />
+          <div className="absolute bottom-0 left-1/3 h-[400px] w-[600px] rounded-full bg-violet-600/[0.08] blur-[120px]" />
+        </div>
+
+        {/* Interactive chevron grid */}
+        <ChevronGrid />
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
+
+        {/* Content */}
+        <motion.div
+          className="relative z-10 mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          {/* Pill badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5">
+            <Shield className="h-3.5 w-3.5 text-muted-foreground" />
+            <span className="text-xs font-medium text-muted-foreground">{t('badge')}</span>
+          </div>
+
+          {/* Heading */}
+          <h1 className="fluid-hero font-bold tracking-tight text-gradient">
+            {t('heading')}
+          </h1>
+
+          {/* Subtitle */}
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+            {t('lastUpdated')}
+          </p>
+        </motion.div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* Content */}
+      <div className="mx-auto max-w-3xl px-6 py-16">
+        <div className="space-y-14">
+          {/* Introduction */}
+          <SectionBlock id="introduction" title={t('introduction.title')} icon={Shield}>
+            <p>{t('introduction.p1')}</p>
+            <p>{t('introduction.p2')}</p>
+          </SectionBlock>
+
+          {/* Information We Collect */}
+          <SectionBlock id="information-collected" title={t('informationCollected.title')} icon={Eye}>
+            <div>
+              <h3 className="mb-2 text-base font-semibold text-foreground">{t('informationCollected.personal.title')}</h3>
+              <p className="mb-3">{t('informationCollected.personal.intro')}</p>
+              <ul className="ml-5 list-disc space-y-1.5">
+                <li>{t('informationCollected.personal.account')}</li>
+                <li>{t('informationCollected.personal.profile')}</li>
+                <li>{t('informationCollected.personal.payment')}</li>
+                <li>{t('informationCollected.personal.communication')}</li>
+              </ul>
             </div>
-            <h1 className="text-4xl md:text-5xl font-extralight tracking-tight mb-6">
-              Cookies & Privacy Policy
-            </h1>
-            <p className="text-lg text-gray-400">
-              Last updated: {lastUpdated}
-            </p>
-          </motion.div>
+
+            <div>
+              <h3 className="mb-2 text-base font-semibold text-foreground">{t('informationCollected.usage.title')}</h3>
+              <p className="mb-3">{t('informationCollected.usage.intro')}</p>
+              <ul className="ml-5 list-disc space-y-1.5">
+                <li>{t('informationCollected.usage.device')}</li>
+                <li>{t('informationCollected.usage.log')}</li>
+                <li>{t('informationCollected.usage.patterns')}</li>
+                <li>{t('informationCollected.usage.performance')}</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-2 text-base font-semibold text-foreground">{t('informationCollected.content.title')}</h3>
+              <p>{t('informationCollected.content.description')}</p>
+            </div>
+          </SectionBlock>
+
+          {/* How We Use Cookies */}
+          <SectionBlock id="cookies" title={t('cookies.title')} icon={Cookie}>
+            <p>{t('cookies.intro')}</p>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {cookieTypes.map((cookie) => (
+                <div
+                  key={cookie.name}
+                  className="rounded-lg border border-border px-4 py-3"
+                >
+                  <p className="mb-1 text-sm font-semibold text-foreground">{cookie.name}</p>
+                  <p className="text-sm">{cookie.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h3 className="mb-2 text-base font-semibold text-foreground">{t('cookies.managing.title')}</h3>
+              <p>{t('cookies.managing.description')}</p>
+            </div>
+          </SectionBlock>
+
+          {/* How We Use Your Information */}
+          <SectionBlock id="use-of-information" title={t('useOfInformation.title')} icon={Server}>
+            <p>{t('useOfInformation.intro')}</p>
+            <ul className="ml-5 list-disc space-y-1.5">
+              <li>{t('useOfInformation.items.provide')}</li>
+              <li>{t('useOfInformation.items.process')}</li>
+              <li>{t('useOfInformation.items.send')}</li>
+              <li>{t('useOfInformation.items.respond')}</li>
+              <li>{t('useOfInformation.items.monitor')}</li>
+              <li>{t('useOfInformation.items.detect')}</li>
+              <li>{t('useOfInformation.items.personalize')}</li>
+              <li>{t('useOfInformation.items.comply')}</li>
+            </ul>
+          </SectionBlock>
+
+          {/* Data Security */}
+          <SectionBlock id="data-security" title={t('dataSecurity.title')} icon={Lock}>
+            <p>{t('dataSecurity.intro')}</p>
+            <ul className="ml-5 list-disc space-y-1.5">
+              <li>{t('dataSecurity.items.encryption')}</li>
+              <li>{t('dataSecurity.items.assessments')}</li>
+              <li>{t('dataSecurity.items.access')}</li>
+              <li>{t('dataSecurity.items.training')}</li>
+              <li>{t('dataSecurity.items.incident')}</li>
+            </ul>
+            <p>{t('dataSecurity.disclaimer')}</p>
+          </SectionBlock>
+
+          {/* Your Rights */}
+          <SectionBlock id="your-rights" title={t('yourRights.title')} icon={Shield}>
+            <p>{t('yourRights.intro')}</p>
+            <ul className="ml-5 list-disc space-y-1.5">
+              {rights.map((r) => (
+                <li key={r.key}>
+                  <strong className="text-foreground">{r.key}:</strong> {r.value}
+                </li>
+              ))}
+            </ul>
+            <p>{t('yourRights.contact')}</p>
+          </SectionBlock>
+
+          {/* Third-Party Services */}
+          <SectionBlock id="third-party" title={t('thirdParty.title')}>
+            <p>{t('thirdParty.p1')}</p>
+            <p>{t('thirdParty.p2')}</p>
+          </SectionBlock>
+
+          {/* Children's Privacy */}
+          <SectionBlock id="children" title={t('children.title')}>
+            <p>{t('children.description')}</p>
+          </SectionBlock>
+
+          {/* Changes to This Policy */}
+          <SectionBlock id="changes" title={t('changes.title')}>
+            <p>{t('changes.description')}</p>
+          </SectionBlock>
+
+          {/* Contact Us */}
+          <SectionBlock id="contact" title={t('contact.title')} icon={Mail}>
+            <p>{t('contact.intro')}</p>
+            <div className="overflow-hidden rounded-xl border border-white/[0.06] glow-card px-6 py-5">
+              <p className="mb-1.5 text-sm">
+                <strong className="text-foreground">{t('contact.email')}:</strong> privacy@doxmind.com
+              </p>
+              <p className="mb-1.5 text-sm">
+                <strong className="text-foreground">{t('contact.company')}:</strong> W Aixs Inc.
+              </p>
+              <p className="text-sm">
+                <strong className="text-foreground">{t('contact.website')}:</strong> doxmind.com
+              </p>
+            </div>
+          </SectionBlock>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <section className="relative overflow-hidden px-4 pt-48 pb-36 text-center lg:pt-60 lg:pb-44">
+        {/* Ambient blobs */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-20 -top-20 h-[600px] w-[700px] rounded-full bg-blue-600/[0.12] blur-[120px]" />
+          <div className="absolute -right-10 top-0 h-[500px] w-[500px] rounded-full bg-indigo-500/[0.10] blur-[120px]" />
+          <div className="absolute bottom-0 left-1/3 h-[400px] w-[600px] rounded-full bg-violet-600/[0.08] blur-[120px]" />
+        </div>
+
+        <ChevronGrid />
+
+        <div className="relative z-10">
+          <h2 className="text-3xl font-bold sm:text-4xl">{t('cta.heading')}</h2>
+          <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground">
+            {t('cta.description')}
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="https://beta.doxmind.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+            >
+              {tc('cta.getStarted')}
+            </a>
+            <Link
+              to="/guide"
+              className="inline-flex items-center justify-center rounded-md border border-border bg-background px-8 py-3 text-base font-medium text-foreground shadow-sm transition-colors hover:bg-muted"
+            >
+              {tc('cta.learnMore')}
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          {/* Introduction */}
-          <Section id="introduction" title="Introduction" icon={Shield}>
-            <p className="mb-4">
-              At doXmind ("we", "our", or "us"), we are committed to protecting your privacy and ensuring the security of your personal information. This Cookies & Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered writing assistant platform.
-            </p>
-            <p>
-              By using doXmind, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, please do not use our services.
-            </p>
-          </Section>
-
-          {/* Information We Collect */}
-          <Section id="information-collected" title="Information We Collect" icon={Eye}>
-            <h3 className="text-xl font-light text-white mb-4">Personal Information</h3>
-            <p className="mb-4">We may collect the following types of personal information:</p>
-            <ul className="list-disc pl-6 mb-6 space-y-2">
-              <li>Account information (name, email address, password)</li>
-              <li>Profile information (profile picture, preferences)</li>
-              <li>Payment information (processed securely through third-party payment providers)</li>
-              <li>Communication data (support tickets, feedback)</li>
-            </ul>
-
-            <h3 className="text-xl font-light text-white mb-4">Usage Data</h3>
-            <p className="mb-4">We automatically collect certain information when you use our service:</p>
-            <ul className="list-disc pl-6 mb-6 space-y-2">
-              <li>Device information (browser type, operating system, device type)</li>
-              <li>Log data (IP address, access times, pages viewed)</li>
-              <li>Usage patterns (features used, interaction data)</li>
-              <li>Performance data (error reports, loading times)</li>
-            </ul>
-
-            <h3 className="text-xl font-light text-white mb-4">Content Data</h3>
-            <p>
-              Documents and content you create, upload, or process through doXmind are stored securely. We do not use your content to train our AI models without your explicit consent.
-            </p>
-          </Section>
-
-          {/* How We Use Cookies */}
-          <Section id="cookies" title="How We Use Cookies" icon={Cookie}>
-            <p className="mb-4">
-              Cookies are small text files stored on your device that help us provide and improve our services. We use the following types of cookies:
-            </p>
-
-            <div className="space-y-6">
-              <div className="p-4 border border-white/10 rounded-lg">
-                <h4 className="text-lg font-medium text-white mb-2">Essential Cookies</h4>
-                <p>Required for the website to function properly. These cookies enable core functionality such as security, authentication, and session management. You cannot opt out of these cookies.</p>
-              </div>
-
-              <div className="p-4 border border-white/10 rounded-lg">
-                <h4 className="text-lg font-medium text-white mb-2">Analytics Cookies</h4>
-                <p>Help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our services and user experience.</p>
-              </div>
-
-              <div className="p-4 border border-white/10 rounded-lg">
-                <h4 className="text-lg font-medium text-white mb-2">Functional Cookies</h4>
-                <p>Enable enhanced functionality and personalization, such as remembering your preferences, language settings, and theme choices.</p>
-              </div>
-
-              <div className="p-4 border border-white/10 rounded-lg">
-                <h4 className="text-lg font-medium text-white mb-2">Marketing Cookies</h4>
-                <p>Used to track visitors across websites to display relevant advertisements. These cookies are only set with your consent.</p>
-              </div>
-            </div>
-
-            <h3 className="text-xl font-light text-white mt-8 mb-4">Managing Cookies</h3>
-            <p>
-              You can control and manage cookies through your browser settings. Most browsers allow you to refuse cookies or delete existing cookies. Please note that disabling certain cookies may affect the functionality of our services.
-            </p>
-          </Section>
-
-          {/* How We Use Your Information */}
-          <Section id="use-of-information" title="How We Use Your Information" icon={Server}>
-            <p className="mb-4">We use the information we collect to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Provide, maintain, and improve our services</li>
-              <li>Process transactions and send related information</li>
-              <li>Send technical notices, updates, and support messages</li>
-              <li>Respond to your comments, questions, and requests</li>
-              <li>Monitor and analyze trends, usage, and activities</li>
-              <li>Detect, investigate, and prevent fraudulent transactions and abuse</li>
-              <li>Personalize and improve your experience</li>
-              <li>Comply with legal obligations</li>
-            </ul>
-          </Section>
-
-          {/* Data Security */}
-          <Section id="data-security" title="Data Security" icon={Lock}>
-            <p className="mb-4">
-              We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:
-            </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2">
-              <li>Encryption of data in transit and at rest</li>
-              <li>Regular security assessments and penetration testing</li>
-              <li>Access controls and authentication mechanisms</li>
-              <li>Employee training on data protection</li>
-              <li>Incident response procedures</li>
-            </ul>
-            <p>
-              While we strive to protect your personal information, no method of transmission over the Internet or electronic storage is 100% secure. We cannot guarantee absolute security.
-            </p>
-          </Section>
-
-          {/* Your Rights */}
-          <Section id="your-rights" title="Your Rights" icon={Shield}>
-            <p className="mb-4">Depending on your location, you may have the following rights regarding your personal information:</p>
-            <ul className="list-disc pl-6 mb-6 space-y-2">
-              <li><strong className="text-white">Access:</strong> Request access to your personal data</li>
-              <li><strong className="text-white">Correction:</strong> Request correction of inaccurate data</li>
-              <li><strong className="text-white">Deletion:</strong> Request deletion of your data</li>
-              <li><strong className="text-white">Portability:</strong> Request transfer of your data</li>
-              <li><strong className="text-white">Objection:</strong> Object to processing of your data</li>
-              <li><strong className="text-white">Restriction:</strong> Request restriction of processing</li>
-              <li><strong className="text-white">Withdraw Consent:</strong> Withdraw consent at any time</li>
-            </ul>
-            <p>
-              To exercise any of these rights, please contact us using the information provided below.
-            </p>
-          </Section>
-
-          {/* Third-Party Services */}
-          <Section id="third-party" title="Third-Party Services">
-            <p className="mb-4">
-              Our service may contain links to third-party websites and services. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies.
-            </p>
-            <p>
-              We may use third-party service providers to help us operate our business, such as:
-            </p>
-            <ul className="list-disc pl-6 mt-4 space-y-2">
-              <li>Cloud hosting providers</li>
-              <li>Payment processors</li>
-              <li>Analytics services</li>
-              <li>Customer support tools</li>
-            </ul>
-          </Section>
-
-          {/* Children's Privacy */}
-          <Section id="children" title="Children's Privacy">
-            <p>
-              Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.
-            </p>
-          </Section>
-
-          {/* Changes to This Policy */}
-          <Section id="changes" title="Changes to This Policy">
-            <p>
-              We may update this Cookies & Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date. We encourage you to review this policy periodically.
-            </p>
-          </Section>
-
-          {/* Contact Us */}
-          <Section id="contact" title="Contact Us" icon={Mail}>
-            <p className="mb-4">
-              If you have any questions about this Cookies & Privacy Policy, please contact us:
-            </p>
-            <div className="p-6 border border-white/10 rounded-lg bg-white/5">
-              <p className="mb-2"><strong className="text-white">Email:</strong> privacy@doxmind.com</p>
-              <p className="mb-2"><strong className="text-white">Company:</strong> W Aixs Inc.</p>
-              <p><strong className="text-white">Website:</strong> https://doxmind.com</p>
-            </div>
-          </Section>
-        </motion.div>
-      </div>
+      <DemoFooter />
     </div>
   );
-};
-
-export default CookiesPrivacy;
+}
