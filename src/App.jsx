@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { PanelLeft, Menu, Search } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Sidebar from './components/layout/Sidebar';
 import GlobalSearch from './components/search/GlobalSearch';
-import Home from './pages/Home';
-import About from './pages/About';
-import Guide from './pages/Guide';
-import CookiesPrivacy from './pages/CookiesPrivacy';
-import Changelog from './pages/Changelog';
-import NotFound from './pages/NotFound';
+
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Guide = lazy(() => import('./pages/Guide'));
+const CookiesPrivacy = lazy(() => import('./pages/CookiesPrivacy'));
+const Changelog = lazy(() => import('./pages/Changelog'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -51,14 +52,10 @@ function Header({ sidebarOpen, onToggle, onSearchOpen }) {
         <div className="flex items-center gap-5">
           <button
             onClick={onSearchOpen}
-            className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="flex items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
             aria-label={t('nav.search')}
           >
             <Search className="h-4 w-4" />
-            <span className="hidden sm:inline-block">{t('nav.search')}</span>
-            <kbd className="hidden rounded-md border border-white/[0.08] bg-white/[0.04] px-1.5 py-0.5 text-[11px] font-medium text-white/25 sm:inline-block">
-              ⌘K
-            </kbd>
           </button>
           <a
             href="https://beta.doxmind.com/"
@@ -100,14 +97,16 @@ function App() {
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <GlobalSearch open={searchOpen} onClose={closeSearch} />
       <div className={`transition-[margin] duration-300 ease-out ${sidebarOpen ? 'lg:ml-56' : ''}`}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/guide" element={<Guide />} />
-          <Route path="/changelog" element={<Changelog />} />
-          <Route path="/cookies-privacy" element={<CookiesPrivacy />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/guide" element={<Guide />} />
+            <Route path="/changelog" element={<Changelog />} />
+            <Route path="/cookies-privacy" element={<CookiesPrivacy />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </div>
     </Router>
   );

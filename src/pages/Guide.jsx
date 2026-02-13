@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import SEO from "../components/seo/SEO";
 import {
   Sparkles,
   Type,
@@ -237,6 +238,7 @@ export default function Guide() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO path="/guide" />
       <TocNav />
 
       <div className="mx-auto max-w-4xl px-4 pt-24 pb-12 xl:pr-56">

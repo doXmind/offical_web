@@ -42,11 +42,6 @@ const websiteSchema = {
   name: 'doXmind',
   url: SITE_URL,
   description: 'AI-powered desktop editor with multi-agent system, interactive visualizations, and automated data analysis.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${SITE_URL}/search?q={search_term_string}`,
-    'query-input': 'required name=search_term_string',
-  },
 };
 
 // JSON-LD Structured Data for SoftwareApplication
@@ -63,11 +58,6 @@ const softwareSchema = {
     priceCurrency: 'USD',
     description: 'Free during beta period',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    ratingCount: '150',
-  },
   featureList: [
     'AI Chat Assistant powered by Claude',
     'Quick Edit with one-click AI transformations',
@@ -79,6 +69,37 @@ const softwareSchema = {
     'Export to PDF, DOCX, Markdown',
   ],
 };
+
+// Page-specific WebPage schema types
+const PAGE_SCHEMA_TYPES = {
+  '/about': 'AboutPage',
+  '/guide': 'WebPage',
+  '/changelog': 'WebPage',
+  '/cookies-privacy': 'WebPage',
+};
+
+function getWebPageSchema(path, title, description, canonicalUrl) {
+  const pageType = PAGE_SCHEMA_TYPES[path];
+  if (!pageType) return null;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': pageType,
+    name: title,
+    description: description,
+    url: canonicalUrl,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'doXmind',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'doXmind',
+      url: SITE_URL,
+    },
+  };
+}
 
 export default function SEO({ path = '/' }) {
   const { t, i18n } = useTranslation('common');
@@ -109,10 +130,13 @@ export default function SEO({ path = '/' }) {
     })),
   };
 
+  // Page-specific WebPage schema
+  const webPageSchema = getWebPageSchema(path, title, description, canonicalUrl);
+
   // Combine all structured data
   const structuredData = path === '/'
     ? [organizationSchema, websiteSchema, softwareSchema, breadcrumbSchema]
-    : [breadcrumbSchema];
+    : [breadcrumbSchema, ...(webPageSchema ? [webPageSchema] : [])];
 
   return (
     <Helmet>
@@ -132,6 +156,7 @@ export default function SEO({ path = '/' }) {
       <meta property="og:description" content={description} />
       <meta property="og:image" content={DEFAULT_IMAGE} />
       <meta property="og:locale" content={ogLocale} />
+      <meta property="og:site_name" content="doXmind" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

@@ -11,4 +11,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <App />
     </HelmetProvider>
   </React.StrictMode>,
-) 
+)
+
+// Signal to prerenderer that the page is ready
+if (typeof requestIdleCallback !== 'undefined') {
+  requestIdleCallback(() => document.dispatchEvent(new Event('prerender-ready')))
+} else {
+  setTimeout(() => document.dispatchEvent(new Event('prerender-ready')), 200)
+} 
