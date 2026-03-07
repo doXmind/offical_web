@@ -11,7 +11,8 @@
     "logIn": "Iniciar sesión",
     "dashboard": "Panel",
     "signUp": "Registrarse",
-    "logOut": "Cerrar sesion"
+    "logOut": "Cerrar sesion",
+    "careers": "Empleo"
   },
   "footer": {
     "columns": {
@@ -90,7 +91,8 @@
       "sharing": { "label": "Compartir", "description": "Comparte documentos con enlaces de solo lectura", "keywords": "compartir enlace publicar solo lectura sharing" },
       "shortcuts": { "label": "Atajos de teclado", "description": "Referencia completa de atajos de teclado", "keywords": "teclado atajos tecla rapida combinacion ctrl shortcuts" },
       "action-login": { "label": "Iniciar sesion en doXmind", "description": "Abrir el editor doXmind", "keywords": "iniciar sesion registrarse abrir app editor probar login" },
-      "page-dashboard": { "label": "Panel", "description": "Ver uso y resumen de cuenta", "keywords": "panel uso cuenta estadisticas tokens costo dashboard" }
+      "page-dashboard": { "label": "Panel", "description": "Ver uso y resumen de cuenta", "keywords": "panel uso cuenta estadisticas tokens costo dashboard" },
+      "page-careers": { "label": "Empleo", "description": "Unete al equipo doXmind", "keywords": "empleo trabajo contratacion posiciones marketing ventas ingeniero ML careers" }
     }
   },
   "cookiePreferences": {
@@ -156,6 +158,11 @@
       "title": "Panel - doXmind",
       "description": "Consulta tus estadisticas de uso y gestiona tu cuenta.",
       "keywords": "panel, uso, cuenta, estadisticas"
+    },
+    "careers": {
+      "title": "Empleo - doXmind | Unete a nuestro equipo",
+      "description": "Unete al equipo doXmind y ayuda a construir el futuro de la escritura con IA. Contratamos para marketing, ventas e ingenieria.",
+      "keywords": "empleo, trabajo, contratacion, empleos doXmind, marketing, ventas, ingeniero ML, startup IA"
     }
   }
 }

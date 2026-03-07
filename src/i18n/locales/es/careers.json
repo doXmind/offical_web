@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "badge": "Estamos contratando",
+    "heading": "Construye el futuro de la escritura con IA",
+    "subtitle": "Únete a un equipo pequeño y ambicioso que está redefiniendo cómo el mundo escribe. Buscamos personas apasionadas que quieran llevar la IA y la creatividad al siguiente nivel.",
+    "viewRoles": "Ver posiciones"
+  },
+  "stats": {
+    "roles": { "value": "3", "label": "Posiciones abiertas" },
+    "countries": { "value": "2", "label": "Países" },
+    "remote": { "value": "100%", "label": "Equipo remoto" }
+  },
+  "values": {
+    "label": "Por qué nosotros",
+    "title": "Por qué doXmind",
+    "items": {
+      "mission": {
+        "title": "Impulsados por la misión",
+        "description": "Trabaja en IA que empodera a cada escritor. Tu código impactará directamente en cómo millones de personas crean y se comunican."
+      },
+      "impact": {
+        "title": "Equipo pequeño, gran impacto",
+        "description": "Sin burocracia ni trámites. Tus ideas se implementan rápido, tus contribuciones son visibles y cada miembro del equipo moldea el producto."
+      },
+      "remote": {
+        "title": "Trabajo remoto",
+        "description": "Trabaja desde cualquier lugar del mundo. Somos async-first con horarios flexibles para que puedas dar lo mejor de ti a tu propio ritmo."
+      }
+    }
+  },
+  "positions": {
+    "label": "Empleo",
+    "title": "Posiciones abiertas",
+    "subtitle": "Encuentra tu próximo rol y ayúdanos a construir algo extraordinario.",
+    "apply": "Postular ahora",
+    "tags": {
+      "remote": "Canadá / China",
+      "fullTime": "Tiempo completo"
+    },
+    "roles": {
+      "marketing": {
+        "department": "Marketing",
+        "title": "Líder de marketing",
+        "description": "Dirige la estrategia de crecimiento de doXmind en todos los canales. Serás responsable del posicionamiento de marca, marketing de contenidos y adquisición de usuarios para llevar nuestra plataforma de escritura con IA a una audiencia global."
+      },
+      "sales": {
+        "department": "Ventas",
+        "title": "Líder de ventas",
+        "description": "Construye y lidera nuestro equipo de ventas desde cero. Desarrollarás relaciones empresariales, darás forma a nuestra estrategia de go-to-market y cerrarás acuerdos que amplíen el alcance de doXmind."
+      },
+      "ml": {
+        "department": "Ingeniería",
+        "title": "Ingeniero ML",
+        "description": "Diseña y optimiza los sistemas de machine learning que impulsan las funciones de IA de doXmind. Trabajarás en arquitecturas multi-agente, fine-tuning y construcción de asistencia inteligente de escritura a escala."
+      }
+    }
+  },
+  "culture": {
+    "label": "Beneficios",
+    "title": "Cómo trabajamos",
+    "subtitle": "Creemos que el gran trabajo surge de grandes entornos. Esto es lo que disfrutarás.",
+    "items": {
+      "flexibility": {
+        "title": "Horario flexible",
+        "description": "Cultura async-first con horarios flexibles. Trabaja cuando seas más productivo — madrugador o noctámbulo, nos adaptamos."
+      },
+      "growth": {
+        "title": "Crecimiento rápido",
+        "description": "Únete en una etapa temprana donde tu trayectoria profesional crece rápidamente. Lidera iniciativas importantes y crece con la empresa."
+      },
+      "equity": {
+        "title": "Paquete de equity",
+        "description": "Cada miembro del equipo comparte nuestro éxito. Salario competitivo más equity significativo para que te beneficies de lo que construimos juntos."
+      },
+      "tools": {
+        "title": "Herramientas de primera",
+        "description": "Hardware de primer nivel, cualquier software que necesites y un subsidio para oficina en casa. Invertimos en lo que te hace productivo."
+      }
+    }
+  },
+  "cta": {
+    "heading": "¿Listo para dar forma al futuro?",
+    "subtitle": "Estamos construyendo algo extraordinario. Si te apasiona la IA y la escritura, nos encantaría saber de ti."
+  }
+}

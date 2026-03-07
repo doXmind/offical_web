@@ -19,6 +19,7 @@ const SEO_KEY_MAP = {
   '/team': 'team',
   '/guide': 'guide',
   '/changelog': 'changelog',
+  '/careers': 'careers',
   '/cookies-privacy': 'cookiesPrivacy',
   '/login': 'login',
   '/register': 'register',
@@ -80,6 +81,7 @@ const PAGE_SCHEMA_TYPES = {
   '/team': 'AboutPage',
   '/guide': 'WebPage',
   '/changelog': 'WebPage',
+  '/careers': 'WebPage',
   '/cookies-privacy': 'WebPage',
 };
 

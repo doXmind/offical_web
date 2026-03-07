@@ -11,7 +11,8 @@
     "logIn": "로그인",
     "dashboard": "대시보드",
     "signUp": "가입하기",
-    "logOut": "로그아웃"
+    "logOut": "로그아웃",
+    "careers": "채용"
   },
   "footer": {
     "columns": {
@@ -90,7 +91,8 @@
       "sharing": { "label": "공유", "description": "읽기 전용 링크로 문서 공유", "keywords": "공유 링크 게시 읽기전용 sharing" },
       "shortcuts": { "label": "키보드 단축키", "description": "키보드 단축키 전체 목록", "keywords": "키보드 단축키 핫키 키바인딩 Ctrl shortcuts" },
       "action-login": { "label": "doXmind 로그인", "description": "doXmind 에디터 열기", "keywords": "로그인 가입 열기 앱 에디터 시도 login" },
-      "page-dashboard": { "label": "대시보드", "description": "사용량 및 계정 개요 보기", "keywords": "대시보드 사용량 계정 통계 토큰 비용 dashboard" }
+      "page-dashboard": { "label": "대시보드", "description": "사용량 및 계정 개요 보기", "keywords": "대시보드 사용량 계정 통계 토큰 비용 dashboard" },
+      "page-careers": { "label": "채용", "description": "doXmind 팀에 합류하세요", "keywords": "채용 일자리 채용중 포지션 마케팅 영업 ML엔지니어 careers" }
     }
   },
   "cookiePreferences": {
@@ -156,6 +158,11 @@
       "title": "대시보드 - doXmind",
       "description": "사용량 통계를 확인하고 계정을 관리하세요.",
       "keywords": "대시보드, 사용량, 계정, 통계"
+    },
+    "careers": {
+      "title": "채용 - doXmind | 팀에 합류하세요",
+      "description": "doXmind 팀에 합류하여 AI 글쓰기의 미래를 함께 만들어보세요. 마케팅, 영업, 엔지니어링 포지션 채용 중.",
+      "keywords": "채용, 일자리, 채용중, doXmind 채용, 마케팅, 영업, ML 엔지니어, AI 스타트업"
     }
   }
 }

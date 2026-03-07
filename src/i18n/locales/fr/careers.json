@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "badge": "Nous recrutons",
+    "heading": "Construisez l'avenir de l'écriture IA",
+    "subtitle": "Rejoignez une petite équipe ambitieuse qui redéfinit la façon dont le monde écrit. Nous recherchons des personnes passionnées qui veulent repousser les limites de l'IA et de la créativité.",
+    "viewRoles": "Voir les postes"
+  },
+  "stats": {
+    "roles": { "value": "3", "label": "Postes ouverts" },
+    "countries": { "value": "2", "label": "Pays" },
+    "remote": { "value": "100%", "label": "Équipe distante" }
+  },
+  "values": {
+    "label": "Pourquoi nous",
+    "title": "Pourquoi doXmind",
+    "items": {
+      "mission": {
+        "title": "Portés par la mission",
+        "description": "Travaillez sur une IA qui aide chaque rédacteur. Votre code aura un impact direct sur la façon dont des millions de personnes créent et communiquent."
+      },
+      "impact": {
+        "title": "Petite équipe, grand impact",
+        "description": "Pas de bureaucratie, pas de formalités. Vos idées sont livrées rapidement, vos contributions sont visibles, et chaque membre façonne le produit."
+      },
+      "remote": {
+        "title": "Télétravail",
+        "description": "Travaillez de n'importe où dans le monde. Nous fonctionnons en asynchrone avec des horaires flexibles pour que vous puissiez donner le meilleur de vous-même."
+      }
+    }
+  },
+  "positions": {
+    "label": "Carrières",
+    "title": "Postes ouverts",
+    "subtitle": "Trouvez votre prochain rôle et aidez-nous à construire quelque chose d'extraordinaire.",
+    "apply": "Postuler",
+    "tags": {
+      "remote": "Canada / Chine",
+      "fullTime": "Temps plein"
+    },
+    "roles": {
+      "marketing": {
+        "department": "Marketing",
+        "title": "Responsable marketing",
+        "description": "Dirigez la stratégie de croissance de doXmind sur tous les canaux. Vous gérerez le positionnement de marque, le marketing de contenu et l'acquisition d'utilisateurs pour amener notre plateforme d'écriture IA à un public mondial."
+      },
+      "sales": {
+        "department": "Ventes",
+        "title": "Responsable des ventes",
+        "description": "Construisez et dirigez notre activité commerciale de zéro. Vous développerez les relations entreprises, façonnerez notre stratégie de mise en marché et conclurez des accords qui étendent la portée de doXmind."
+      },
+      "ml": {
+        "department": "Ingénierie",
+        "title": "Ingénieur ML",
+        "description": "Concevez et optimisez les systèmes d'apprentissage automatique alimentant les fonctionnalités IA de doXmind. Vous travaillerez sur des architectures multi-agents, le fine-tuning et la construction d'une assistance intelligente à l'écriture à grande échelle."
+      }
+    }
+  },
+  "culture": {
+    "label": "Avantages",
+    "title": "Notre façon de travailler",
+    "subtitle": "Nous croyons que le meilleur travail naît dans les meilleurs environnements. Voici ce dont vous profiterez.",
+    "items": {
+      "flexibility": {
+        "title": "Horaires flexibles",
+        "description": "Culture asynchrone avec des horaires flexibles. Travaillez quand vous êtes le plus productif — lève-tôt ou couche-tard, on s'adapte."
+      },
+      "growth": {
+        "title": "Croissance rapide",
+        "description": "Rejoignez-nous à un stade précoce où votre trajectoire de carrière est en forte ascension. Prenez en charge des initiatives majeures et grandissez avec l'entreprise."
+      },
+      "equity": {
+        "title": "Participation au capital",
+        "description": "Chaque membre de l'équipe partage notre succès. Salaire compétitif plus participation significative au capital pour que vous bénéficiez de ce que nous construisons ensemble."
+      },
+      "tools": {
+        "title": "Outils de premier ordre",
+        "description": "Matériel haut de gamme, tout logiciel dont vous avez besoin et une allocation bureau à domicile. Nous investissons dans ce qui vous rend productif."
+      }
+    }
+  },
+  "cta": {
+    "heading": "Prêt à façonner l'avenir ?",
+    "subtitle": "Nous construisons quelque chose d'extraordinaire. Si l'IA et l'écriture vous passionnent, nous aimerions vous entendre."
+  }
+}

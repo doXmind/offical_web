@@ -11,7 +11,8 @@
     "logIn": "ログイン",
     "dashboard": "ダッシュボード",
     "signUp": "新規登録",
-    "logOut": "ログアウト"
+    "logOut": "ログアウト",
+    "careers": "採用情報"
   },
   "footer": {
     "columns": {
@@ -90,7 +91,8 @@
       "sharing": { "label": "共有", "description": "読み取り専用リンクでドキュメントを共有", "keywords": "共有 リンク 公開 読み取り専用 sharing" },
       "shortcuts": { "label": "キーボードショートカット", "description": "キーボードショートカット一覧", "keywords": "キーボード ショートカット ホットキー キーバインド Ctrl shortcuts" },
       "action-login": { "label": "doXmindにログイン", "description": "doXmindエディタを開く", "keywords": "ログイン サインイン 開く アプリ エディタ 試す login" },
-      "page-dashboard": { "label": "ダッシュボード", "description": "使用状況とアカウント概要", "keywords": "ダッシュボード 使用状況 アカウント 統計 トークン コスト dashboard" }
+      "page-dashboard": { "label": "ダッシュボード", "description": "使用状況とアカウント概要", "keywords": "ダッシュボード 使用状況 アカウント 統計 トークン コスト dashboard" },
+      "page-careers": { "label": "採用情報", "description": "doXmindチームに参加", "keywords": "採用 求人 募集 ポジション マーケティング セールス MLエンジニア careers" }
     }
   },
   "cookiePreferences": {
@@ -156,6 +158,11 @@
       "title": "ダッシュボード - doXmind",
       "description": "使用状況の統計を確認し、アカウントを管理。",
       "keywords": "ダッシュボード, 使用状況, アカウント, 統計"
+    },
+    "careers": {
+      "title": "採用情報 - doXmind | チームに参加",
+      "description": "doXmindチームに参加し、AIライティングの未来を一緒に作りましょう。マーケティング、セールス、エンジニアリング職を募集中。",
+      "keywords": "採用, 求人, 募集, doXmind求人, マーケティング, セールス, MLエンジニア, AIスタートアップ"
     }
   }
 }

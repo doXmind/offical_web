@@ -11,7 +11,8 @@
     "logIn": "登录",
     "dashboard": "控制台",
     "signUp": "注册",
-    "logOut": "退出登录"
+    "logOut": "退出登录",
+    "careers": "招聘"
   },
   "footer": {
     "columns": {
@@ -90,7 +91,8 @@
       "sharing": { "label": "分享", "description": "通过只读链接分享文档", "keywords": "分享 链接 发布 只读 sharing" },
       "shortcuts": { "label": "键盘快捷键", "description": "完整的键盘快捷键参考", "keywords": "键盘 快捷键 热键 按键 Ctrl shortcuts" },
       "action-login": { "label": "登录 doXmind", "description": "打开 doXmind 编辑器", "keywords": "登录 注册 打开 应用 编辑器 试用 login" },
-      "page-dashboard": { "label": "控制台", "description": "查看用量和账户概览", "keywords": "控制台 用量 账户 统计 token 费用 dashboard" }
+      "page-dashboard": { "label": "控制台", "description": "查看用量和账户概览", "keywords": "控制台 用量 账户 统计 token 费用 dashboard" },
+      "page-careers": { "label": "招聘", "description": "加入 doXmind 团队", "keywords": "招聘 工作 职位 市场营销 销售 机器学习 工程师 careers" }
     }
   },
   "cookiePreferences": {
@@ -156,6 +158,11 @@
       "title": "控制台 - doXmind",
       "description": "查看用量统计，管理账户。",
       "keywords": "控制台, 用量, 账户, 统计"
+    },
+    "careers": {
+      "title": "招聘 - doXmind | 加入我们",
+      "description": "加入 doXmind 团队，一起打造 AI 写作的未来。我们正在招聘市场营销、销售和工程岗位。",
+      "keywords": "招聘, 工作, 职位, doXmind 招聘, 市场营销, 销售, 机器学习工程师, AI 创业公司"
     }
   }
 }

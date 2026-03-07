@@ -11,7 +11,8 @@
     "logIn": "Log in",
     "dashboard": "Dashboard",
     "signUp": "Sign up",
-    "logOut": "Log out"
+    "logOut": "Log out",
+    "careers": "Careers"
   },
   "footer": {
     "columns": {
@@ -90,7 +91,8 @@
       "sharing": { "label": "Sharing", "description": "Share documents via read-only links", "keywords": "sharing share link publish read-only" },
       "shortcuts": { "label": "Keyboard Shortcuts", "description": "Full keyboard shortcut reference", "keywords": "keyboard shortcuts hotkey keybinding ctrl" },
       "action-login": { "label": "Log in to doXmind", "description": "Open the doXmind editor", "keywords": "login log in sign in open app editor try" },
-      "page-dashboard": { "label": "Dashboard", "description": "View your usage and account overview", "keywords": "dashboard usage account statistics tokens cost" }
+      "page-dashboard": { "label": "Dashboard", "description": "View your usage and account overview", "keywords": "dashboard usage account statistics tokens cost" },
+      "page-careers": { "label": "Careers", "description": "Join the doXmind team", "keywords": "careers jobs hiring positions marketing sales ML engineer" }
     }
   },
   "cookiePreferences": {
@@ -156,6 +158,11 @@
       "title": "Dashboard - doXmind",
       "description": "View your usage statistics and manage your account.",
       "keywords": "dashboard, usage, account, statistics"
+    },
+    "careers": {
+      "title": "Careers - doXmind | Join Our Team",
+      "description": "Join the doXmind team and help build the future of AI-powered writing. We're hiring for marketing, sales, and engineering roles.",
+      "keywords": "careers, jobs, hiring, doXmind jobs, marketing, sales, ML engineer, AI startup"
     }
   }
 }

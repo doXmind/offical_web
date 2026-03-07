@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "badge": "加入我们",
+    "heading": "构建 AI 写作的未来",
+    "subtitle": "加入一支精干而充满雄心的团队，重塑全世界的写作方式。我们正在寻找热情的人才，一同突破 AI 与创造力的边界。",
+    "viewRoles": "查看开放职位"
+  },
+  "stats": {
+    "roles": { "value": "3", "label": "开放职位" },
+    "countries": { "value": "2", "label": "覆盖国家" },
+    "remote": { "value": "100%", "label": "远程团队" }
+  },
+  "values": {
+    "label": "为什么选择我们",
+    "title": "为什么选择 doXmind",
+    "items": {
+      "mission": {
+        "title": "使命驱动",
+        "description": "打造赋能每位写作者的 AI。你的代码将直接影响数百万人的创作与沟通方式。"
+      },
+      "impact": {
+        "title": "小团队，大影响",
+        "description": "没有官僚主义，没有繁文缛节。你的想法快速落地，贡献清晰可见，每位成员都在塑造产品。"
+      },
+      "remote": {
+        "title": "远程友好",
+        "description": "在世界任何地方工作。我们以异步协作为主，时间灵活，让你以最佳状态完成工作。"
+      }
+    }
+  },
+  "positions": {
+    "label": "招聘",
+    "title": "开放职位",
+    "subtitle": "找到你的下一个角色，与我们一起构建非凡产品。",
+    "apply": "立即申请",
+    "tags": {
+      "remote": "加拿大 / 中国",
+      "fullTime": "全职"
+    },
+    "roles": {
+      "marketing": {
+        "department": "市场营销",
+        "title": "市场负责人",
+        "description": "全面负责 doXmind 的增长策略。你将主导品牌定位、内容营销和用户获取，将我们的 AI 写作平台推向全球。"
+      },
+      "sales": {
+        "department": "销售",
+        "title": "销售负责人",
+        "description": "从零开始构建并领导销售体系。你将发展企业客户关系、制定市场进入策略，并推动成交以扩大 doXmind 的影响力。"
+      },
+      "ml": {
+        "department": "工程",
+        "title": "机器学习工程师",
+        "description": "设计和优化驱动 doXmind AI 功能的机器学习系统。你将参与多智能体架构、模型微调，以及大规模智能写作辅助的构建。"
+      }
+    }
+  },
+  "culture": {
+    "label": "福利与待遇",
+    "title": "我们的工作方式",
+    "subtitle": "我们相信优秀的工作源于优秀的环境。以下是你将享受到的。",
+    "items": {
+      "flexibility": {
+        "title": "弹性工作",
+        "description": "异步优先的文化，弹性工作时间。无论你是早起型还是夜猫型，都能在最佳状态下工作。"
+      },
+      "growth": {
+        "title": "快速成长",
+        "description": "在早期阶段加入，职业发展曲线陡峭。掌控重要项目，与公司共同成长。"
+      },
+      "equity": {
+        "title": "股权激励",
+        "description": "每位团队成员都能分享公司的成功。有竞争力的薪资加上有意义的股权，让你从共同构建中受益。"
+      },
+      "tools": {
+        "title": "顶级工具",
+        "description": "顶级硬件、所需的任何软件，以及居家办公津贴。我们投资于一切能让你高效工作的东西。"
+      }
+    }
+  },
+  "cta": {
+    "heading": "准备好塑造未来了吗？",
+    "subtitle": "我们正在构建非凡的产品。如果你对 AI 和写作充满热情，我们期待你的加入。"
+  }
+}

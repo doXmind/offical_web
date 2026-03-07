@@ -323,7 +323,7 @@ export function DemoFooter() {
       title: t('footer.columns.company.title'),
       links: [
         { label: t('footer.columns.company.aboutUs'), href: "/about" },
-        { label: t('footer.columns.company.careers'), href: "/guide" },
+        { label: t('footer.columns.company.careers'), href: "/careers" },
         { label: t('footer.columns.company.contactSales'), href: "mailto:sales@doxmind.com" },
       ],
     },

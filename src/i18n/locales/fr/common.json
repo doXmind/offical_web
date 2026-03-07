@@ -11,7 +11,8 @@
     "logIn": "Se connecter",
     "dashboard": "Tableau de bord",
     "signUp": "S'inscrire",
-    "logOut": "Se deconnecter"
+    "logOut": "Se deconnecter",
+    "careers": "Carrieres"
   },
   "footer": {
     "columns": {
@@ -90,7 +91,8 @@
       "sharing": { "label": "Partage", "description": "Partagez des documents via des liens en lecture seule", "keywords": "partage lien publier lecture seule sharing" },
       "shortcuts": { "label": "Raccourcis clavier", "description": "Reference complete des raccourcis clavier", "keywords": "clavier raccourcis touche rapide combinaison ctrl shortcuts" },
       "action-login": { "label": "Se connecter a doXmind", "description": "Ouvrir l'editeur doXmind", "keywords": "connexion se connecter inscription ouvrir app editeur essayer login" },
-      "page-dashboard": { "label": "Tableau de bord", "description": "Voir l'utilisation et le compte", "keywords": "tableau bord utilisation compte statistiques tokens cout dashboard" }
+      "page-dashboard": { "label": "Tableau de bord", "description": "Voir l'utilisation et le compte", "keywords": "tableau bord utilisation compte statistiques tokens cout dashboard" },
+      "page-careers": { "label": "Carrieres", "description": "Rejoindre l'equipe doXmind", "keywords": "carrieres emploi recrutement postes marketing ventes ingenieur ML careers" }
     }
   },
   "cookiePreferences": {
@@ -156,6 +158,11 @@
       "title": "Tableau de bord - doXmind",
       "description": "Consultez vos statistiques d'utilisation.",
       "keywords": "tableau de bord, utilisation, compte, statistiques"
+    },
+    "careers": {
+      "title": "Carrieres - doXmind | Rejoignez notre equipe",
+      "description": "Rejoignez l'equipe doXmind et construisez l'avenir de l'ecriture avec IA. Nous recrutons en marketing, ventes et ingenierie.",
+      "keywords": "carrieres, emploi, recrutement, postes doXmind, marketing, ventes, ingenieur ML, startup IA"
     }
   }
 }

@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "badge": "We're Hiring",
+    "heading": "Build the Future of AI Writing",
+    "subtitle": "Join a small, ambitious team reshaping how the world writes. We're looking for passionate people who want to push the boundaries of AI and creativity.",
+    "viewRoles": "View Open Roles"
+  },
+  "stats": {
+    "roles": { "value": "3", "label": "Open Positions" },
+    "countries": { "value": "2", "label": "Countries" },
+    "remote": { "value": "100%", "label": "Remote Team" }
+  },
+  "values": {
+    "label": "Why Us",
+    "title": "Why doXmind",
+    "items": {
+      "mission": {
+        "title": "Mission-Driven",
+        "description": "Work on AI that empowers every writer. Your code will directly impact how millions of people create and communicate."
+      },
+      "impact": {
+        "title": "Small Team, Big Impact",
+        "description": "No bureaucracy, no red tape. Your ideas ship fast, your contributions are visible, and every team member shapes the product."
+      },
+      "remote": {
+        "title": "Remote-Friendly",
+        "description": "Work from anywhere in the world. We're async-first with flexible hours, so you can do your best work on your own schedule."
+      }
+    }
+  },
+  "positions": {
+    "label": "Careers",
+    "title": "Open Positions",
+    "subtitle": "Find your next role and help us build something extraordinary.",
+    "apply": "Apply Now",
+    "tags": {
+      "remote": "Canada / China",
+      "fullTime": "Full-time"
+    },
+    "roles": {
+      "marketing": {
+        "department": "Marketing",
+        "title": "Marketing Lead",
+        "description": "Drive doXmind's growth strategy across channels. You'll own brand positioning, content marketing, and user acquisition to bring our AI writing platform to a global audience."
+      },
+      "sales": {
+        "department": "Sales",
+        "title": "Sales Lead",
+        "description": "Build and lead our sales motion from the ground up. You'll develop enterprise relationships, shape our go-to-market strategy, and close deals that expand doXmind's reach."
+      },
+      "ml": {
+        "department": "Engineering",
+        "title": "ML Engineer",
+        "description": "Design and optimize the machine learning systems powering doXmind's AI features. You'll work on multi-agent architectures, fine-tuning, and building intelligent writing assistance at scale."
+      }
+    }
+  },
+  "culture": {
+    "label": "Perks & Benefits",
+    "title": "How We Work",
+    "subtitle": "We believe great work comes from great environments. Here's what you'll enjoy.",
+    "items": {
+      "flexibility": {
+        "title": "Flexible Schedule",
+        "description": "Async-first culture with flexible hours. Work when you're most productive — early bird or night owl, we've got you."
+      },
+      "growth": {
+        "title": "Rapid Growth",
+        "description": "Join at an early stage where your career trajectory is steep. Take ownership of major initiatives and grow with the company."
+      },
+      "equity": {
+        "title": "Equity Package",
+        "description": "Every team member shares in our success. Competitive salary plus meaningful equity so you benefit from what we build together."
+      },
+      "tools": {
+        "title": "Best-in-Class Tools",
+        "description": "Top-tier hardware, any software you need, and a home office stipend. We invest in what makes you productive."
+      }
+    }
+  },
+  "cta": {
+    "heading": "Ready to Shape the Future?",
+    "subtitle": "We're building something extraordinary. If you're excited about AI and writing, we'd love to hear from you."
+  }
+}
