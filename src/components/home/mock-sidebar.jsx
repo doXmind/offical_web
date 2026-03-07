@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { cn } from "../../utils/cn";
 
-export function MockSidebar() {
+export function MockSidebar({ inView = false }) {
   const { t } = useTranslation('mock');
 
   const outlineItems = [
@@ -21,15 +22,23 @@ export function MockSidebar() {
         borderRight: "1px solid rgba(255,255,255,0.06)",
       }}
     >
-      <div className="flex items-center justify-between px-3.5 py-3">
+      <motion.div
+        className="flex items-center justify-between px-3.5 py-3"
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.3, delay: 0.0 }}
+      >
         <span className="text-[10px] font-semibold uppercase tracking-widest text-white/25">
           {t('sidebar.outline')}
         </span>
-      </div>
+      </motion.div>
       <div className="px-2 py-1">
         {outlineItems.map((item, i) => (
-          <div
+          <motion.div
             key={i}
+            initial={{ opacity: 0, x: -8 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+            transition={{ duration: 0.3, delay: 0.05 + i * 0.05, ease: "easeOut" }}
             className={cn(
               "flex items-center gap-2 rounded-md px-2 py-1.5 transition-colors",
               item.active && "bg-white/[0.06]"
@@ -52,7 +61,7 @@ export function MockSidebar() {
             >
               {t(`sidebar.${item.key}`)}
             </span>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

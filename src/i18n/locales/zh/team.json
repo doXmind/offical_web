@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "badge": "我们的团队",
+    "heading": "doXmind 背后的人",
+    "subtitle": "我们相信 AI 应该服务每一位文字工作者。我们的团队正在构建实现这一愿景的工具。"
+  },
+  "members": {
+    "steve": {
+      "name": "Steve",
+      "role": "CEO",
+      "quote": "好的写作工具应该是无感的——AI 为你服务，而不是反过来。"
+    },
+    "rickie": {
+      "name": "Rickie",
+      "role": "CTO",
+      "quote": "我们正在构建将复杂 AI 转化为流畅写作体验的技术。"
+    },
+    "cassie": {
+      "name": "Cassie",
+      "role": "CMO",
+      "quote": "每位写作者都应该拥有真正理解其创作的 AI。"
+    }
+  },
+  "cta": {
+    "heading": "与我们同行",
+    "subtitle": "体验 AI 如何改变你的写作工作流。"
+  }
+}

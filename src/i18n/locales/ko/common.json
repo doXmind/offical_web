@@ -4,10 +4,14 @@
     "about": "소개",
     "guide": "가이드",
     "changelog": "변경 이력",
+    "team": "팀",
     "privacy": "개인정보",
     "features": "기능",
     "search": "검색",
-    "logIn": "로그인"
+    "logIn": "로그인",
+    "dashboard": "대시보드",
+    "signUp": "가입하기",
+    "logOut": "로그아웃"
   },
   "footer": {
     "columns": {
@@ -68,6 +72,7 @@
       "page-home": { "label": "홈", "description": "메인 랜딩 페이지", "keywords": "홈 메인 시작 home" },
       "page-about": { "label": "소개", "description": "비전과 가치관", "keywords": "소개 비전 가치관 팀 미션 about" },
       "page-guide": { "label": "도움말 및 기능 가이드", "description": "doXmind 사용법 알아보기", "keywords": "가이드 도움말 기능 문서 guide help" },
+      "page-team": { "label": "팀", "description": "doXmind 팀 소개", "keywords": "팀 멤버 창립자 CEO CTO CMO team" },
       "page-changelog": { "label": "변경 이력", "description": "릴리스 노트 및 버전 이력", "keywords": "변경이력 릴리스 업데이트 버전 새기능 changelog" },
       "getting-started": { "label": "시작하기", "description": "첫 문서를 만들고 레이아웃 학습", "keywords": "시작하기 설정 온보딩 투어 문서만들기 getting started" },
       "home-dashboard": { "label": "홈 대시보드", "description": "검색, 최근 파일, 즐겨찾기, 파일 관리", "keywords": "대시보드 홈 최근 즐겨찾기 파일 검색 dashboard" },
@@ -84,7 +89,8 @@
       "customization": { "label": "사용자 설정", "description": "타이포그래피, 테마, 에디터 너비, 맞춤법 검사", "keywords": "사용자설정 설정 테마 글꼴 타이포그래피 다크모드 맞춤법검사 customization" },
       "sharing": { "label": "공유", "description": "읽기 전용 링크로 문서 공유", "keywords": "공유 링크 게시 읽기전용 sharing" },
       "shortcuts": { "label": "키보드 단축키", "description": "키보드 단축키 전체 목록", "keywords": "키보드 단축키 핫키 키바인딩 Ctrl shortcuts" },
-      "action-login": { "label": "doXmind 로그인", "description": "doXmind 에디터 열기", "keywords": "로그인 가입 열기 앱 에디터 시도 login" }
+      "action-login": { "label": "doXmind 로그인", "description": "doXmind 에디터 열기", "keywords": "로그인 가입 열기 앱 에디터 시도 login" },
+      "page-dashboard": { "label": "대시보드", "description": "사용량 및 계정 개요 보기", "keywords": "대시보드 사용량 계정 통계 토큰 비용 dashboard" }
     }
   },
   "cookiePreferences": {
@@ -126,10 +132,30 @@
       "description": "doXmind의 진화 과정을 따라가 보세요. 모든 개선, 새로운 기능, 수정 사항을 추적하고 문서화합니다.",
       "keywords": "변경 이력, 릴리스 노트, 업데이트, 새로운 기능, 버전 이력, doXmind 업데이트"
     },
+    "team": {
+      "title": "팀 - doXmind | doXmind를 만드는 사람들",
+      "description": "doXmind를 만드는 팀을 소개합니다 — 모든 글쓰기 작업자를 위한 AI 글쓰기 플랫폼.",
+      "keywords": "doXmind 팀, 창립자, CEO, CTO, CMO, AI 글쓰기 팀"
+    },
     "cookiesPrivacy": {
       "title": "쿠키 및 개인정보처리방침 - doXmind",
       "description": "doXmind가 귀하의 개인정보를 어떻게 수집, 사용, 보호하는지와 쿠키 사용 방식에 대해 알아보세요.",
       "keywords": "개인정보처리방침, 쿠키, 데이터 보호, 개인정보, GDPR"
+    },
+    "login": {
+      "title": "로그인 - doXmind",
+      "description": "doXmind 계정에 로그인하세요.",
+      "keywords": "로그인, doXmind 계정"
+    },
+    "register": {
+      "title": "가입하기 - doXmind",
+      "description": "무료 doXmind 계정을 만드세요.",
+      "keywords": "가입, 계정 만들기"
+    },
+    "dashboard": {
+      "title": "대시보드 - doXmind",
+      "description": "사용량 통계를 확인하고 계정을 관리하세요.",
+      "keywords": "대시보드, 사용량, 계정, 통계"
     }
   }
 }

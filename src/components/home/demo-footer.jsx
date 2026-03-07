@@ -154,10 +154,10 @@ function LanguageSelector() {
 
   const filtered = search
     ? languages.filter(
-        (l) =>
-          l.label.toLowerCase().includes(search.toLowerCase()) ||
-          (l.sub && l.sub.toLowerCase().includes(search.toLowerCase())),
-      )
+      (l) =>
+        l.label.toLowerCase().includes(search.toLowerCase()) ||
+        (l.sub && l.sub.toLowerCase().includes(search.toLowerCase())),
+    )
     : languages;
 
   const handleSelect = useCallback((code) => {
@@ -200,11 +200,10 @@ function LanguageSelector() {
     <div ref={wrapperRef} className="relative">
       {/* Pull-up panel */}
       <div
-        className={`absolute bottom-full right-0 mb-2 w-[280px] origin-bottom rounded-2xl border border-white/[0.08] bg-[#0c0f18] shadow-2xl transition-all duration-200 ${
-          open
+        className={`absolute bottom-full right-0 mb-2 w-[280px] origin-bottom rounded-2xl border border-white/[0.08] bg-[#0c0f18] shadow-2xl transition-all duration-200 ${open
             ? "pointer-events-auto scale-100 opacity-100 translate-y-0"
             : "pointer-events-none scale-95 opacity-0 translate-y-2"
-        }`}
+          }`}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 pt-4 pb-3">
@@ -232,9 +231,8 @@ function LanguageSelector() {
             <button
               key={lang.code}
               onClick={() => handleSelect(lang.code)}
-              className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-white/[0.06] ${
-                lang.code === selected ? "bg-white/[0.04]" : ""
-              }`}
+              className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-white/[0.06] ${lang.code === selected ? "bg-white/[0.04]" : ""
+                }`}
             >
               <p className="text-[14px] font-medium text-white">
                 {lang.label}
@@ -282,11 +280,10 @@ function LanguageSelector() {
       {/* Trigger button — pill style */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[13px] transition-colors duration-200 ${
-          open
+        className={`flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[13px] transition-colors duration-200 ${open
             ? "border-white/15 bg-white/[0.08] text-white/70"
             : "border-white/[0.08] bg-white/[0.04] text-white/50 hover:border-white/15 hover:text-white/70"
-        }`}
+          }`}
       >
         <GlobeIcon />
         <span className="font-medium text-white/70">{current?.label}</span>
@@ -310,7 +307,7 @@ export function DemoFooter() {
         { label: t('footer.columns.product.aiChat'), href: "/guide#chat" },
         { label: t('footer.columns.product.knowledgeBase'), href: "/guide#knowledge-base" },
         { label: t('footer.columns.product.presentationMode'), href: "/guide#presentation" },
-        { label: t('footer.columns.product.download'), href: "https://beta.doxmind.com/", external: true },
+        { label: t('footer.columns.product.download'), href: "https://app.doxmind.com/", external: true },
       ],
     },
     {
@@ -319,7 +316,7 @@ export function DemoFooter() {
         { label: t('footer.columns.resources.guide'), href: "/guide" },
         { label: t('footer.columns.resources.helpCenter'), href: "/guide#getting-started" },
         { label: t('footer.columns.resources.changelog'), href: "/changelog" },
-        { label: t('footer.columns.resources.getStarted'), href: "https://beta.doxmind.com/", external: true },
+        { label: t('footer.columns.resources.getStarted'), href: "https://app.doxmind.com/", external: true },
       ],
     },
     {

@@ -4,10 +4,14 @@
     "about": "About",
     "guide": "Guide",
     "changelog": "Changelog",
+    "team": "Team",
     "privacy": "Privacy",
     "features": "Features",
     "search": "Search",
-    "logIn": "Log in"
+    "logIn": "Log in",
+    "dashboard": "Dashboard",
+    "signUp": "Sign up",
+    "logOut": "Log out"
   },
   "footer": {
     "columns": {
@@ -68,6 +72,7 @@
       "page-home": { "label": "Home", "description": "Main landing page", "keywords": "home landing main start" },
       "page-about": { "label": "About", "description": "Our vision and values", "keywords": "about vision values team mission" },
       "page-guide": { "label": "Help & Feature Guide", "description": "Learn how to use doXmind", "keywords": "guide help features documentation docs" },
+      "page-team": { "label": "Team", "description": "Meet the doXmind team", "keywords": "team members people founders CEO CTO CMO" },
       "page-changelog": { "label": "Changelog", "description": "Release notes and version history", "keywords": "changelog releases updates version what's new patch notes" },
       "getting-started": { "label": "Getting Started", "description": "Create your first document and learn the layout", "keywords": "getting started setup onboarding tour create document" },
       "home-dashboard": { "label": "Home Dashboard", "description": "Search, recent files, favorites, and file management", "keywords": "dashboard home recent favorites files search" },
@@ -84,7 +89,8 @@
       "customization": { "label": "Customization", "description": "Typography, themes, editor width, and spellcheck", "keywords": "customization settings theme font typography dark mode spellcheck" },
       "sharing": { "label": "Sharing", "description": "Share documents via read-only links", "keywords": "sharing share link publish read-only" },
       "shortcuts": { "label": "Keyboard Shortcuts", "description": "Full keyboard shortcut reference", "keywords": "keyboard shortcuts hotkey keybinding ctrl" },
-      "action-login": { "label": "Log in to doXmind", "description": "Open the doXmind editor", "keywords": "login log in sign in open app editor try" }
+      "action-login": { "label": "Log in to doXmind", "description": "Open the doXmind editor", "keywords": "login log in sign in open app editor try" },
+      "page-dashboard": { "label": "Dashboard", "description": "View your usage and account overview", "keywords": "dashboard usage account statistics tokens cost" }
     }
   },
   "cookiePreferences": {
@@ -126,10 +132,30 @@
       "description": "Follow the evolution of doXmind. Every improvement, new feature, and fix — tracked and documented.",
       "keywords": "changelog, release notes, updates, new features, version history, doXmind updates"
     },
+    "team": {
+      "title": "Team - doXmind | Meet the People Behind doXmind",
+      "description": "Meet the team building doXmind — an AI-powered writing platform designed to serve every writer.",
+      "keywords": "doXmind team, founders, CEO, CTO, CMO, AI writing team"
+    },
     "cookiesPrivacy": {
       "title": "Cookies & Privacy Policy - doXmind",
       "description": "Learn about how doXmind collects, uses, and protects your personal information and how we use cookies.",
       "keywords": "privacy policy, cookies, data protection, personal information, GDPR"
+    },
+    "login": {
+      "title": "Log In - doXmind",
+      "description": "Sign in to your doXmind account to access your dashboard.",
+      "keywords": "login, sign in, doXmind account"
+    },
+    "register": {
+      "title": "Sign Up - doXmind",
+      "description": "Create a free doXmind account and start using the AI-powered editor.",
+      "keywords": "sign up, register, create account"
+    },
+    "dashboard": {
+      "title": "Dashboard - doXmind",
+      "description": "View your usage statistics and manage your account.",
+      "keywords": "dashboard, usage, account, statistics"
     }
   }
 }

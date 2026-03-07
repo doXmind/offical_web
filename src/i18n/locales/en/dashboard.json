@@ -1,0 +1,47 @@
+{
+  "heading": "Dashboard",
+  "welcome": "Welcome back, {{name}}",
+  "account": {
+    "title": "Account",
+    "email": "Email",
+    "username": "Username",
+    "editProfile": "Edit Profile",
+    "goToEditor": "Open Editor",
+    "memberSince": "Member since {{date}}"
+  },
+  "usage": {
+    "title": "Usage",
+    "subtitle": "Your usage over the last {{days}} days",
+    "totalTokens": "Total Tokens",
+    "totalCost": "Total Cost",
+    "totalRequests": "Requests",
+    "period": "Period",
+    "days": "{{count}} days",
+    "inputTokens": "Input",
+    "outputTokens": "Output",
+    "tokens": "Tokens",
+    "model": "Model",
+    "cost": "Cost",
+    "requests": "Requests",
+    "noData": "No usage data for this period",
+    "free": "Free"
+  },
+  "activity": {
+    "title": "Activity",
+    "noData": "No activity data for this period",
+    "totalLabel": "total {{metric}}",
+    "metrics": {
+      "ai_requests": "AI Requests",
+      "tokens": "Tokens",
+      "characters": "Characters"
+    },
+    "stats": {
+      "avg": "Daily Avg",
+      "peak": "Peak",
+      "activeDays": "Active Days"
+    }
+  },
+  "loading": "Loading...",
+  "error": "Failed to load data.",
+  "retry": "Try again"
+}

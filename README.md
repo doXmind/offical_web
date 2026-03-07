@@ -88,5 +88,5 @@ docs/
 ## Links
 
 - Website: [doxmind.com](https://doxmind.com)
-- App: [beta.doxmind.com](https://beta.doxmind.com)
+- App: [app.doxmind.com](https://app.doxmind.com)
 - Documentation: [docs.doxmind.com](https://docs.doxmind.com)

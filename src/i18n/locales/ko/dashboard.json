@@ -1,0 +1,47 @@
+{
+  "heading": "대시보드",
+  "welcome": "다시 오신 것을 환영합니다, {{name}}",
+  "account": {
+    "title": "계정",
+    "email": "이메일",
+    "username": "사용자 이름",
+    "editProfile": "프로필 편집",
+    "goToEditor": "에디터 열기",
+    "memberSince": "{{date}}부터 이용"
+  },
+  "usage": {
+    "title": "사용량",
+    "subtitle": "최근 {{days}}일간의 사용 현황",
+    "totalTokens": "총 토큰",
+    "totalCost": "총 비용",
+    "totalRequests": "요청 수",
+    "period": "기간",
+    "days": "{{count}}일",
+    "inputTokens": "입력",
+    "outputTokens": "출력",
+    "tokens": "토큰",
+    "model": "모델",
+    "cost": "비용",
+    "requests": "요청",
+    "noData": "해당 기간의 데이터가 없습니다",
+    "free": "무료"
+  },
+  "activity": {
+    "title": "활동",
+    "noData": "해당 기간의 활동 데이터가 없습니다",
+    "totalLabel": "총 {{metric}}",
+    "metrics": {
+      "ai_requests": "AI 요청",
+      "tokens": "토큰",
+      "characters": "글자 수"
+    },
+    "stats": {
+      "avg": "일 평균",
+      "peak": "최대",
+      "activeDays": "활동일"
+    }
+  },
+  "loading": "로딩 중...",
+  "error": "데이터를 불러오지 못했습니다.",
+  "retry": "다시 시도"
+}

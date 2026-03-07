@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import { useInView, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { MockSidebar } from "./mock-sidebar";
 import { MockEditorArea } from "./mock-editor-area";
@@ -6,9 +8,16 @@ import { MockStatusBar } from "./mock-status-bar";
 
 export function MockEditorShowcase() {
   const { t } = useTranslation('mock');
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+  const prefersReduced = useReducedMotion();
+
+  // If user prefers reduced motion, show everything immediately
+  const inView = isInView || prefersReduced;
 
   return (
     <div
+      ref={containerRef}
       className="overflow-hidden rounded-2xl bg-[hsl(228,14%,7%)]"
       style={{
         boxShadow: [
@@ -41,13 +50,13 @@ export function MockEditorShowcase() {
 
       {/* Three-panel layout */}
       <div className="flex h-[700px]">
-        <MockSidebar />
-        <MockEditorArea />
-        <MockChatPanel />
+        <MockSidebar inView={inView} />
+        <MockEditorArea inView={inView} />
+        <MockChatPanel inView={inView} />
       </div>
 
       {/* Status bar */}
-      <MockStatusBar />
+      <MockStatusBar inView={inView} />
     </div>
   );
 }

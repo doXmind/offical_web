@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import { Sparkles, CheckCircle, Paperclip, ArrowUp, FileText, Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export function MockChatPanel() {
+export function MockChatPanel({ inView = false }) {
   const { t } = useTranslation('mock');
 
   return (
@@ -9,7 +10,7 @@ export function MockChatPanel() {
       className="flex h-full w-[280px] shrink-0 flex-col"
       style={{ background: "rgba(255,255,255,0.02)" }}
     >
-      {/* Header */}
+      {/* Header — static */}
       <div
         className="flex items-center gap-2 px-4 py-2.5"
         style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
@@ -26,30 +27,52 @@ export function MockChatPanel() {
 
       {/* Messages */}
       <div className="flex-1 space-y-3.5 overflow-hidden px-4 py-4">
-        {/* User message */}
-        <div className="flex justify-end">
+        {/* User message — delay 2.5s, slide from right */}
+        <motion.div
+          initial={{ opacity: 0, x: 20, y: 4 }}
+          animate={inView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 20, y: 4 }}
+          transition={{ duration: 0.35, delay: 2.5, ease: "easeOut" }}
+          className="flex justify-end"
+        >
           <div
             className="max-w-[85%] rounded-2xl rounded-br-md px-3.5 py-2.5 text-[13px] text-white/80"
             style={{ background: "rgba(96,165,250,0.1)" }}
           >
             {t('chat.userMessage')}
           </div>
-        </div>
+        </motion.div>
 
         {/* Tool steps */}
         <div className="space-y-1.5 px-1">
-          <div className="flex items-center gap-2 text-[11px] text-white/40">
+          {/* Step 1 — delay 2.8s */}
+          <motion.div
+            initial={{ opacity: 0, y: 4 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 4 }}
+            transition={{ duration: 0.3, delay: 2.8 }}
+            className="flex items-center gap-2 text-[11px] text-white/40"
+          >
             <CheckCircle className="h-3 w-3 text-green-400/70" />
             <span>{t('chat.analyzingDocument')}</span>
-          </div>
-          <div className="flex items-center gap-2 text-[11px] text-white/40">
+          </motion.div>
+          {/* Step 2 — delay 3.0s */}
+          <motion.div
+            initial={{ opacity: 0, y: 4 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 4 }}
+            transition={{ duration: 0.3, delay: 3.0 }}
+            className="flex items-center gap-2 text-[11px] text-white/40"
+          >
             <CheckCircle className="h-3 w-3 text-green-400/70" />
             <span>{t('chat.editingIntroduction')}</span>
-          </div>
+          </motion.div>
         </div>
 
-        {/* AI response */}
-        <div className="max-w-[90%]">
+        {/* AI response — delay 3.3s, slide from left */}
+        <motion.div
+          initial={{ opacity: 0, x: -12, y: 4 }}
+          animate={inView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -12, y: 4 }}
+          transition={{ duration: 0.4, delay: 3.3, ease: "easeOut" }}
+          className="max-w-[90%]"
+        >
           <div
             className="rounded-2xl rounded-bl-md px-3.5 py-2.5 text-[13px] leading-relaxed text-white/70"
             style={{ background: "rgba(255,255,255,0.04)" }}
@@ -64,30 +87,40 @@ export function MockChatPanel() {
               <li>{t('chat.tightenedLanguage')}</li>
             </ul>
           </div>
-          <div
+          {/* "Review changes" badge — delay 3.6s, pop in */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.25, delay: 3.6, ease: [0.175, 0.885, 0.32, 1.275] }}
             className="mt-2 inline-flex items-center rounded-md px-2.5 py-1 text-[11px] font-medium text-amber-400/80"
             style={{ background: "rgba(251,191,36,0.08)" }}
           >
             {t('chat.reviewChanges')}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Suggestion chips */}
+        {/* Suggestion chips — delay 4.2s, staggered */}
         <div className="flex flex-wrap gap-1.5 pt-1">
-          {[t('chat.summarizeDoc'), t('chat.brainstormIdeas'), t('chat.fixGrammar')].map((label) => (
-            <span
+          {[t('chat.summarizeDoc'), t('chat.brainstormIdeas'), t('chat.fixGrammar')].map((label, i) => (
+            <motion.span
               key={label}
+              initial={{ opacity: 0, y: 4 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 4 }}
+              transition={{ duration: 0.25, delay: 4.2 + i * 0.1 }}
               className="rounded-full px-2.5 py-1 text-[11px] text-white/35"
               style={{ border: "1px solid rgba(255,255,255,0.07)" }}
             >
               {label}
-            </span>
+            </motion.span>
           ))}
         </div>
       </div>
 
-      {/* Knowledge Base */}
-      <div
+      {/* Knowledge Base — delay 4.5s */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.3, delay: 4.5 }}
         className="px-3 py-2.5"
         style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
       >
@@ -109,7 +142,12 @@ export function MockChatPanel() {
                 className="mt-0.5 h-1 w-full overflow-hidden rounded-full"
                 style={{ background: "rgba(255,255,255,0.06)" }}
               >
-                <div className="h-full w-[65%] rounded-full bg-blue-400/60" />
+                <motion.div
+                  className="h-full rounded-full bg-blue-400/60"
+                  initial={{ width: "0%" }}
+                  animate={inView ? { width: "65%" } : { width: "0%" }}
+                  transition={{ duration: 0.8, delay: 4.5, ease: "easeOut" }}
+                />
               </div>
             </div>
             <Loader2 className="h-3 w-3 shrink-0 animate-spin text-blue-400/50" />
@@ -123,9 +161,9 @@ export function MockChatPanel() {
             <CheckCircle className="ml-auto h-3 w-3 shrink-0 text-green-400/70" />
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Input bar */}
+      {/* Input bar — static */}
       <div
         className="px-3 py-2.5"
         style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}

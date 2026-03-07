@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "badge": "Our Team",
+    "heading": "The People Behind doXmind",
+    "subtitle": "We believe AI should serve every writer. Our team is building the tools to make that happen."
+  },
+  "members": {
+    "steve": {
+      "name": "Steve",
+      "role": "CEO",
+      "quote": "Great writing tools should feel invisible — the AI works for you, not the other way around."
+    },
+    "rickie": {
+      "name": "Rickie",
+      "role": "CTO",
+      "quote": "We're building the technology that turns complex AI into a seamless writing experience."
+    },
+    "cassie": {
+      "name": "Cassie",
+      "role": "CMO",
+      "quote": "Every writer deserves access to AI that truly understands their craft."
+    }
+  },
+  "cta": {
+    "heading": "Join Us on the Journey",
+    "subtitle": "Experience how AI can transform your writing workflow."
+  }
+}

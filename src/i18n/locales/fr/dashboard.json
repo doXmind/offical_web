@@ -1,0 +1,47 @@
+{
+  "heading": "Tableau de bord",
+  "welcome": "Bon retour, {{name}}",
+  "account": {
+    "title": "Compte",
+    "email": "E-mail",
+    "username": "Nom d'utilisateur",
+    "editProfile": "Modifier le profil",
+    "goToEditor": "Ouvrir l'éditeur",
+    "memberSince": "Membre depuis {{date}}"
+  },
+  "usage": {
+    "title": "Utilisation",
+    "subtitle": "Votre utilisation des {{days}} derniers jours",
+    "totalTokens": "Tokens totaux",
+    "totalCost": "Coût total",
+    "totalRequests": "Requêtes",
+    "period": "Période",
+    "days": "{{count}} jours",
+    "inputTokens": "Entrée",
+    "outputTokens": "Sortie",
+    "tokens": "Tokens",
+    "model": "Modèle",
+    "cost": "Coût",
+    "requests": "Requêtes",
+    "noData": "Aucune donnée pour cette période",
+    "free": "Gratuit"
+  },
+  "activity": {
+    "title": "Activité",
+    "noData": "Aucune donnée d'activité pour cette période",
+    "totalLabel": "total {{metric}}",
+    "metrics": {
+      "ai_requests": "Requêtes IA",
+      "tokens": "Tokens",
+      "characters": "Caractères"
+    },
+    "stats": {
+      "avg": "Moy. jour",
+      "peak": "Max",
+      "activeDays": "Jours actifs"
+    }
+  },
+  "loading": "Chargement...",
+  "error": "Échec du chargement.",
+  "retry": "Réessayer"
+}

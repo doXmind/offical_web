@@ -16,9 +16,13 @@ const LOCALE_MAP = {
 const SEO_KEY_MAP = {
   '/': 'home',
   '/about': 'about',
+  '/team': 'team',
   '/guide': 'guide',
   '/changelog': 'changelog',
   '/cookies-privacy': 'cookiesPrivacy',
+  '/login': 'login',
+  '/register': 'register',
+  '/dashboard': 'dashboard',
 };
 
 // JSON-LD Structured Data for Organization
@@ -73,6 +77,7 @@ const softwareSchema = {
 // Page-specific WebPage schema types
 const PAGE_SCHEMA_TYPES = {
   '/about': 'AboutPage',
+  '/team': 'AboutPage',
   '/guide': 'WebPage',
   '/changelog': 'WebPage',
   '/cookies-privacy': 'WebPage',

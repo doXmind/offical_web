@@ -1,0 +1,47 @@
+{
+  "heading": "控制台",
+  "welcome": "欢迎回来，{{name}}",
+  "account": {
+    "title": "账户",
+    "email": "邮箱",
+    "username": "用户名",
+    "editProfile": "编辑资料",
+    "goToEditor": "打开编辑器",
+    "memberSince": "注册于 {{date}}"
+  },
+  "usage": {
+    "title": "用量统计",
+    "subtitle": "过去 {{days}} 天的使用情况",
+    "totalTokens": "总 Token 数",
+    "totalCost": "总费用",
+    "totalRequests": "请求次数",
+    "period": "时间段",
+    "days": "{{count}} 天",
+    "inputTokens": "输入",
+    "outputTokens": "输出",
+    "tokens": "Token",
+    "model": "模型",
+    "cost": "费用",
+    "requests": "请求",
+    "noData": "该时间段暂无使用数据",
+    "free": "免费"
+  },
+  "activity": {
+    "title": "活跃度",
+    "noData": "该时间段暂无活动数据",
+    "totalLabel": "总 {{metric}}",
+    "metrics": {
+      "ai_requests": "AI 请求",
+      "tokens": "Token",
+      "characters": "字符"
+    },
+    "stats": {
+      "avg": "日均",
+      "peak": "峰值",
+      "activeDays": "活跃天数"
+    }
+  },
+  "loading": "加载中...",
+  "error": "加载失败。",
+  "retry": "重试"
+}

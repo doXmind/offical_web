@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   Check,
   Wand2,
@@ -13,9 +14,12 @@ import {
   ListChecks,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useTypingReveal } from "../../hooks/useTypingReveal";
 
-export function MockEditorArea() {
+export function MockEditorArea({ inView = false }) {
   const { t } = useTranslation('mock');
+  const ghostText = t('editor.autocompleteGhost');
+  const revealedGhost = useTypingReveal(ghostText, inView, 2000, 35);
 
   return (
     <div
@@ -23,18 +27,31 @@ export function MockEditorArea() {
       style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}
     >
       <div className="h-full overflow-y-auto px-10 py-8">
-        {/* H1 Title */}
-        <h1 className="mb-4 text-[26px] font-semibold leading-tight text-white/95 tracking-[-0.02em]">
+        {/* H1 Title — delay 0.2s */}
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="mb-4 text-[26px] font-semibold leading-tight text-white/95 tracking-[-0.02em]"
+        >
           {t('editor.title')}
-        </h1>
+        </motion.h1>
 
-        {/* Body paragraph */}
-        <p className="mb-6 text-[14px] leading-[1.7] text-white/60">
+        {/* Body paragraph — delay 0.5s */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="mb-6 text-[14px] leading-[1.7] text-white/60"
+        >
           {t('editor.bodyP1')}{" "}
           <span className="relative">
             <span className="rounded bg-blue-500/15 px-0.5 text-white/80">{t('editor.compelling')}</span>
-            {/* Bubble toolbar floating above */}
-            <span
+            {/* Bubble toolbar — delay 0.8s, pop in */}
+            <motion.span
+              initial={{ opacity: 0, scale: 0.85, y: 4 }}
+              animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.85, y: 4 }}
+              transition={{ duration: 0.3, delay: 0.8, ease: [0.175, 0.885, 0.32, 1.275] }}
               className="absolute -top-9 left-1/2 z-10 flex -translate-x-1/2 items-center gap-0.5 rounded-lg px-1.5 py-1"
               style={{
                 background: "rgba(30,32,42,0.95)",
@@ -66,54 +83,85 @@ export function MockEditorArea() {
               <span className="flex h-6 w-6 items-center justify-center rounded text-blue-400">
                 <Wand2 className="h-3.5 w-3.5" />
               </span>
-            </span>
+            </motion.span>
           </span>{" "}
           {t('editor.bodyP1End')}
-        </p>
+        </motion.p>
 
-        {/* H2: Key Features */}
-        <h2 className="mb-3 mt-6 text-lg font-semibold text-white/90 tracking-[-0.01em]">
+        {/* H2: Key Features — delay 1.0s */}
+        <motion.h2
+          initial={{ opacity: 0, y: 8 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+          transition={{ duration: 0.4, delay: 1.0, ease: "easeOut" }}
+          className="mb-3 mt-6 text-lg font-semibold text-white/90 tracking-[-0.01em]"
+        >
           {t('editor.keyFeatures')}
-        </h2>
+        </motion.h2>
 
-        {/* Task list */}
+        {/* Task list — staggered from 1.2s */}
         <div className="mb-5 space-y-2 text-[14px]">
-          <label className="flex items-center gap-3">
+          {/* Task 1 — checked, delay 1.2s */}
+          <motion.label
+            initial={{ opacity: 0, x: -6 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -6 }}
+            transition={{ duration: 0.3, delay: 1.2, ease: "easeOut" }}
+            className="flex items-center gap-3"
+          >
             <span className="flex h-[16px] w-[16px] items-center justify-center rounded-[4px] bg-blue-500/80">
               <Check className="h-3 w-3 text-white" />
             </span>
             <span className="text-white/35 line-through">
               {t('editor.feature1')}
             </span>
-          </label>
-          <label className="flex items-center gap-3">
+          </motion.label>
+          {/* Task 2 — checked, delay 1.35s */}
+          <motion.label
+            initial={{ opacity: 0, x: -6 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -6 }}
+            transition={{ duration: 0.3, delay: 1.35, ease: "easeOut" }}
+            className="flex items-center gap-3"
+          >
             <span className="flex h-[16px] w-[16px] items-center justify-center rounded-[4px] bg-blue-500/80">
               <Check className="h-3 w-3 text-white" />
             </span>
             <span className="text-white/35 line-through">
               {t('editor.feature2')}
             </span>
-          </label>
-          <label className="flex items-center gap-3">
+          </motion.label>
+          {/* Task 3 — unchecked, delay 1.5s */}
+          <motion.label
+            initial={{ opacity: 0, x: -6 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -6 }}
+            transition={{ duration: 0.3, delay: 1.5, ease: "easeOut" }}
+            className="flex items-center gap-3"
+          >
             <span
               className="h-[16px] w-[16px] rounded-[4px]"
               style={{ border: "1.5px solid rgba(255,255,255,0.15)" }}
             />
             <span className="text-white/70">{t('editor.feature3')}</span>
-          </label>
+          </motion.label>
         </div>
 
-        {/* Autocomplete ghost text */}
-        <p className="mb-5 mt-7 text-[14px] leading-[1.7]">
+        {/* Autocomplete ghost text — delay 1.8s for line, 2.0s for typing */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.4, delay: 1.8 }}
+          className="mb-5 mt-7 text-[14px] leading-[1.7]"
+        >
           <span className="text-white/70">{t('editor.autocompleteVisible')}</span>
           <span className="relative mx-0.5 inline-block h-5 w-[1.5px] animate-pulse bg-blue-400 align-middle" />
           <span className="text-white/20">
-            {t('editor.autocompleteGhost')}
+            {revealedGhost}
           </span>
-        </p>
+        </motion.p>
 
-        {/* Diff section */}
-        <div
+        {/* Diff section — delay 3.8s, expand from height 0 */}
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={inView ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
+          transition={{ duration: 0.5, delay: 3.8, ease: "easeOut" }}
           className="mb-5 overflow-hidden rounded-lg"
           style={{ border: "1px solid rgba(255,255,255,0.06)" }}
         >
@@ -152,9 +200,9 @@ export function MockEditorArea() {
               {t('editor.reject')}
             </span>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Block select with drag handle menu */}
+        {/* Block select with drag handle menu — static (below fold) */}
         <div className="relative mb-5">
           <div
             className="rounded-lg px-3 py-2.5 text-[14px] leading-relaxed text-white/75"
@@ -205,7 +253,7 @@ export function MockEditorArea() {
         {/* Spacer for handle menu */}
         <div className="h-14" />
 
-        {/* Slash command */}
+        {/* Slash command — static (below fold) */}
         <div className="relative mb-5">
           <p className="text-[14px] leading-relaxed text-white/70">
             <span className="text-white/30">/</span>
@@ -254,12 +302,12 @@ export function MockEditorArea() {
         {/* Spacer for slash dropdown */}
         <div className="h-36" />
 
-        {/* H2: Implementation */}
+        {/* H2: Implementation — static (below fold) */}
         <h2 className="mb-3 mt-6 text-lg font-semibold text-white/90 tracking-[-0.01em]">
           {t('editor.implementation')}
         </h2>
 
-        {/* Code block */}
+        {/* Code block — static (below fold) */}
         <div
           className="mb-5 overflow-hidden rounded-xl"
           style={{

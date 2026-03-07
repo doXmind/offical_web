@@ -2,82 +2,10 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Search,
-  ArrowRight,
-  ArrowUp,
-  Layout,
-  Home,
-  Type,
-  Sparkles,
-  Zap,
-  MessageSquare,
-  GitCompare,
-  BookOpen,
-  FolderOpen,
-  Presentation,
-  List,
-  Settings,
-  Share2,
-  Keyboard,
-  Info,
-  FileText,
-  X,
-  CornerDownLeft,
-} from "lucide-react";
+import { ArrowUp, X, CornerDownLeft } from "lucide-react";
+import { buildSearchIndex, scoreMatch, getSnippet } from "../../utils/search-index";
 
-/* ── Static entry definitions (id → icon, type, path) ── */
-const ENTRY_DEFS = [
-  // Pages
-  { id: "page-home", type: "page", path: "/", icon: Home },
-  { id: "page-about", type: "page", path: "/about", icon: Info },
-  { id: "page-guide", type: "page", path: "/guide", icon: FileText },
-  { id: "page-changelog", type: "page", path: "/changelog", icon: List },
-
-  // Guide sections
-  { id: "getting-started", type: "section", path: "/guide#getting-started", icon: Layout },
-  { id: "home-dashboard", type: "section", path: "/guide#home-dashboard", icon: Home },
-  { id: "editor", type: "section", path: "/guide#editor", icon: Type },
-  { id: "quick-edit", type: "section", path: "/guide#quick-edit", icon: Sparkles },
-  { id: "autocomplete", type: "section", path: "/guide#autocomplete", icon: Zap },
-  { id: "chat", type: "section", path: "/guide#chat", icon: MessageSquare },
-  { id: "diff-review", type: "section", path: "/guide#diff-review", icon: GitCompare },
-  { id: "knowledge-base", type: "section", path: "/guide#knowledge-base", icon: BookOpen },
-  { id: "search-nav", type: "section", path: "/guide#search", icon: Search },
-  { id: "documents", type: "section", path: "/guide#documents", icon: FolderOpen },
-  { id: "presentation", type: "section", path: "/guide#presentation", icon: Presentation },
-  { id: "outline", type: "section", path: "/guide#outline", icon: List },
-  { id: "customization", type: "section", path: "/guide#customization", icon: Settings },
-  { id: "sharing", type: "section", path: "/guide#sharing", icon: Share2 },
-  { id: "shortcuts", type: "section", path: "/guide#shortcuts", icon: Keyboard },
-
-  // Quick actions
-  { id: "action-login", type: "action", path: "https://beta.doxmind.com/", icon: ArrowRight },
-];
-
-/* ── Fuzzy match scoring ── */
-function scoreMatch(entry, query) {
-  const q = query.toLowerCase();
-  const label = entry.label.toLowerCase();
-  const desc = entry.description.toLowerCase();
-  const keywords = entry.keywords.toLowerCase();
-
-  if (label === q) return 100;
-  if (label.startsWith(q)) return 90;
-  if (label.includes(q)) return 70;
-  if (keywords.includes(q)) return 50;
-  if (desc.includes(q)) return 30;
-
-  const words = q.split(/\s+/);
-  const allText = `${label} ${keywords} ${desc}`;
-  const matched = words.filter((w) => allText.includes(w));
-  if (matched.length === words.length) return 40;
-  if (matched.length > 0) return 20 * (matched.length / words.length);
-
-  return 0;
-}
-
-const TYPE_ORDER = ["page", "action", "section"];
+const TYPE_ORDER = ["page", "action", "content", "changelog"];
 
 /* ── Component ── */
 export default function GlobalSearch({ open, onClose }) {
@@ -87,37 +15,48 @@ export default function GlobalSearch({ open, onClose }) {
   const listRef = useRef(null);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { t: tGuide } = useTranslation("guide");
+  const { t: tHome } = useTranslation("home");
+  const { t: tAbout } = useTranslation("about");
+  const { t: tChangelog } = useTranslation("changelog");
+  const { t: tTeam } = useTranslation("team");
 
   const hasQuery = query.trim().length > 0;
 
-  // Build translated entries from i18n
-  const entries = useMemo(
-    () =>
-      ENTRY_DEFS.map((def) => ({
-        ...def,
-        label: t(`globalSearch.entries.${def.id}.label`),
-        description: t(`globalSearch.entries.${def.id}.description`),
-        keywords: t(`globalSearch.entries.${def.id}.keywords`),
-      })),
-    [t]
+  // Helper that translates from any namespace
+  const tNs = useCallback(
+    (ns, key, opts) => {
+      const translators = { guide: tGuide, home: tHome, about: tAbout, changelog: tChangelog, team: tTeam };
+      return translators[ns]?.(key, opts) ?? key;
+    },
+    [tGuide, tHome, tAbout, tChangelog, tTeam]
   );
+
+  // Build full-text search index from all i18n content
+  const entries = useMemo(() => buildSearchIndex(t, tNs), [t, tNs]);
 
   const typeLabels = useMemo(
     () => ({
       page: t("globalSearch.groups.pages"),
-      section: t("globalSearch.groups.features"),
+      content: t("globalSearch.groups.features"),
       action: t("globalSearch.groups.actions"),
+      changelog: t("globalSearch.groups.pages"),
     }),
     [t]
   );
 
-  // Filter results
+  // Filter & score results
   const results = useMemo(() => {
     if (!hasQuery) return [];
     return entries
-      .map((entry) => ({ ...entry, score: scoreMatch(entry, query) }))
+      .map((entry) => ({
+        ...entry,
+        score: scoreMatch(entry, query),
+        snippet: getSnippet(entry, query),
+      }))
       .filter((e) => e.score > 0)
-      .sort((a, b) => b.score - a.score);
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 20);
   }, [query, hasQuery, entries]);
 
   // Group by type
@@ -254,14 +193,13 @@ export default function GlobalSearch({ open, onClose }) {
               >
                 <X className="h-[18px] w-[18px]" />
               </button>
-              <a
-                href="https://beta.doxmind.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/login"
+                onClick={onClose}
                 className="inline-flex items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] px-5 py-1.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/[0.08] hover:text-white"
               >
                 {t("nav.logIn")}
-              </a>
+              </Link>
             </div>
           </header>
 
@@ -282,11 +220,10 @@ export default function GlobalSearch({ open, onClose }) {
                   spellCheck={false}
                 />
                 <button
-                  className={`absolute right-0 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-200 ${
-                    hasQuery
+                  className={`absolute right-0 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-200 ${hasQuery
                       ? "border-white/20 bg-white/[0.08] text-white hover:bg-white/[0.14]"
                       : "border-white/[0.06] bg-white/[0.03] text-white/20"
-                  }`}
+                    }`}
                   onClick={() => {
                     if (flatResults[selectedIndex]) handleSelect(flatResults[selectedIndex]);
                   }}
@@ -302,7 +239,7 @@ export default function GlobalSearch({ open, onClose }) {
                 {hasQuery && (
                   <motion.div
                     ref={listRef}
-                    className="mt-4 max-h-[min(48vh,440px)] overflow-y-auto overscroll-contain rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-xl"
+                    className="mt-4 max-h-[min(60vh,540px)] overflow-y-auto overscroll-contain rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-xl"
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 4 }}
@@ -325,38 +262,42 @@ export default function GlobalSearch({ open, onClose }) {
                               const idx = flatIndex++;
                               const isSelected = idx === selectedIndex;
                               const Icon = entry.icon;
+                              const showSnippet = entry.snippet && entry.type !== "page" && entry.type !== "action";
 
                               return (
                                 <button
                                   key={entry.id}
                                   data-selected={isSelected}
-                                  className={`group flex w-full items-center gap-4 px-5 py-3 text-left transition-colors duration-75 ${
-                                    isSelected ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
-                                  }`}
+                                  className={`group flex w-full items-center gap-4 px-5 py-3 text-left transition-colors duration-75 ${isSelected ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
+                                    }`}
                                   onClick={() => handleSelect(entry)}
                                   onMouseEnter={() => setSelectedIndex(idx)}
                                   role="option"
                                   aria-selected={isSelected}
                                 >
                                   <div
-                                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-colors duration-75 ${
-                                      isSelected
+                                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-colors duration-75 ${isSelected
                                         ? "bg-white/[0.10] text-white"
                                         : "bg-white/[0.04] text-white/40"
-                                    }`}
+                                      }`}
                                   >
                                     <Icon className="h-[18px] w-[18px]" />
                                   </div>
                                   <div className="min-w-0 flex-1">
+                                    {/* Breadcrumb */}
+                                    {entry.breadcrumb && (
+                                      <p className="truncate text-[11px] text-white/20 mb-0.5">
+                                        {entry.breadcrumb}
+                                      </p>
+                                    )}
                                     <p
-                                      className={`truncate text-[15px] transition-colors duration-75 ${
-                                        isSelected ? "text-white font-medium" : "text-white/70"
-                                      }`}
+                                      className={`truncate text-[15px] transition-colors duration-75 ${isSelected ? "text-white font-medium" : "text-white/70"
+                                        }`}
                                     >
                                       {entry.label}
                                     </p>
                                     <p className="truncate text-[12px] text-white/25">
-                                      {entry.description}
+                                      {showSnippet ? entry.snippet : entry.description}
                                     </p>
                                   </div>
                                   {isSelected && (

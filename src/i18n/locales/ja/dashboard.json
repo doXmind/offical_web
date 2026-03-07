@@ -1,0 +1,47 @@
+{
+  "heading": "ダッシュボード",
+  "welcome": "おかえりなさい、{{name}}",
+  "account": {
+    "title": "アカウント",
+    "email": "メール",
+    "username": "ユーザー名",
+    "editProfile": "プロフィール編集",
+    "goToEditor": "エディターを開く",
+    "memberSince": "{{date}} から利用"
+  },
+  "usage": {
+    "title": "使用状況",
+    "subtitle": "過去 {{days}} 日間の使用状況",
+    "totalTokens": "トークン合計",
+    "totalCost": "合計コスト",
+    "totalRequests": "リクエスト数",
+    "period": "期間",
+    "days": "{{count}} 日間",
+    "inputTokens": "入力",
+    "outputTokens": "出力",
+    "tokens": "トークン",
+    "model": "モデル",
+    "cost": "コスト",
+    "requests": "リクエスト",
+    "noData": "この期間のデータはありません",
+    "free": "無料"
+  },
+  "activity": {
+    "title": "アクティビティ",
+    "noData": "この期間のアクティビティデータはありません",
+    "totalLabel": "合計 {{metric}}",
+    "metrics": {
+      "ai_requests": "AIリクエスト",
+      "tokens": "トークン",
+      "characters": "文字数"
+    },
+    "stats": {
+      "avg": "日平均",
+      "peak": "最大",
+      "activeDays": "アクティブ日数"
+    }
+  },
+  "loading": "読み込み中...",
+  "error": "データの読み込みに失敗しました。",
+  "retry": "再試行"
+}

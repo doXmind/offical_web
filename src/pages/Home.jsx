@@ -50,7 +50,7 @@ const Home = () => {
             {/* Two CTAs side by side */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="https://beta.doxmind.com/"
+                href="https://app.doxmind.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"
@@ -124,7 +124,7 @@ const Home = () => {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://beta.doxmind.com/"
+              href="https://app.doxmind.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"

@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "badge": "Notre equipe",
+    "heading": "Les personnes derriere doXmind",
+    "subtitle": "Nous croyons que l'IA devrait servir chaque ecrivain. Notre equipe construit les outils pour y parvenir."
+  },
+  "members": {
+    "steve": {
+      "name": "Steve",
+      "role": "CEO",
+      "quote": "Les meilleurs outils d'ecriture doivent etre invisibles — l'IA travaille pour vous, pas l'inverse."
+    },
+    "rickie": {
+      "name": "Rickie",
+      "role": "CTO",
+      "quote": "Nous construisons la technologie qui transforme l'IA complexe en une experience d'ecriture fluide."
+    },
+    "cassie": {
+      "name": "Cassie",
+      "role": "CMO",
+      "quote": "Chaque ecrivain merite un acces a une IA qui comprend vraiment son art."
+    }
+  },
+  "cta": {
+    "heading": "Rejoignez-nous dans l'aventure",
+    "subtitle": "Decouvrez comment l'IA peut transformer votre flux d'ecriture."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "heading": "Panel de control",
+  "welcome": "Bienvenido de nuevo, {{name}}",
+  "account": {
+    "title": "Cuenta",
+    "email": "Correo",
+    "username": "Usuario",
+    "editProfile": "Editar perfil",
+    "goToEditor": "Abrir editor",
+    "memberSince": "Miembro desde {{date}}"
+  },
+  "usage": {
+    "title": "Uso",
+    "subtitle": "Tu uso en los últimos {{days}} días",
+    "totalTokens": "Tokens totales",
+    "totalCost": "Costo total",
+    "totalRequests": "Solicitudes",
+    "period": "Período",
+    "days": "{{count}} días",
+    "inputTokens": "Entrada",
+    "outputTokens": "Salida",
+    "tokens": "Tokens",
+    "model": "Modelo",
+    "cost": "Costo",
+    "requests": "Solicitudes",
+    "noData": "Sin datos para este período",
+    "free": "Gratis"
+  },
+  "activity": {
+    "title": "Actividad",
+    "noData": "Sin datos de actividad para este período",
+    "totalLabel": "total {{metric}}",
+    "metrics": {
+      "ai_requests": "Solicitudes IA",
+      "tokens": "Tokens",
+      "characters": "Caracteres"
+    },
+    "stats": {
+      "avg": "Prom. diario",
+      "peak": "Máximo",
+      "activeDays": "Días activos"
+    }
+  },
+  "loading": "Cargando...",
+  "error": "Error al cargar los datos.",
+  "retry": "Reintentar"
+}

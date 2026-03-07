@@ -4,10 +4,14 @@
     "about": "Acerca de",
     "guide": "Guía",
     "changelog": "Registro de cambios",
+    "team": "Equipo",
     "privacy": "Privacidad",
     "features": "Funciones",
     "search": "Buscar",
-    "logIn": "Iniciar sesión"
+    "logIn": "Iniciar sesión",
+    "dashboard": "Panel",
+    "signUp": "Registrarse",
+    "logOut": "Cerrar sesion"
   },
   "footer": {
     "columns": {
@@ -68,6 +72,7 @@
       "page-home": { "label": "Inicio", "description": "Pagina principal", "keywords": "inicio principal comienzo home" },
       "page-about": { "label": "Acerca de", "description": "Nuestra vision y valores", "keywords": "acerca vision valores equipo mision about" },
       "page-guide": { "label": "Guia de ayuda y funciones", "description": "Aprende a usar doXmind", "keywords": "guia ayuda funciones documentacion guide help" },
+      "page-team": { "label": "Equipo", "description": "Conoce al equipo de doXmind", "keywords": "equipo miembros fundadores CEO CTO CMO team" },
       "page-changelog": { "label": "Registro de cambios", "description": "Notas de version e historial", "keywords": "registro cambios versiones actualizaciones novedades changelog" },
       "getting-started": { "label": "Primeros pasos", "description": "Crea tu primer documento y aprende el diseno", "keywords": "primeros pasos configuracion tutorial crear documento getting started" },
       "home-dashboard": { "label": "Panel de inicio", "description": "Busqueda, archivos recientes, favoritos y gestion", "keywords": "panel inicio recientes favoritos archivos busqueda dashboard" },
@@ -84,7 +89,8 @@
       "customization": { "label": "Personalizacion", "description": "Tipografia, temas, ancho del editor y corrector ortografico", "keywords": "personalizacion ajustes tema fuente tipografia modo oscuro corrector customization" },
       "sharing": { "label": "Compartir", "description": "Comparte documentos con enlaces de solo lectura", "keywords": "compartir enlace publicar solo lectura sharing" },
       "shortcuts": { "label": "Atajos de teclado", "description": "Referencia completa de atajos de teclado", "keywords": "teclado atajos tecla rapida combinacion ctrl shortcuts" },
-      "action-login": { "label": "Iniciar sesion en doXmind", "description": "Abrir el editor doXmind", "keywords": "iniciar sesion registrarse abrir app editor probar login" }
+      "action-login": { "label": "Iniciar sesion en doXmind", "description": "Abrir el editor doXmind", "keywords": "iniciar sesion registrarse abrir app editor probar login" },
+      "page-dashboard": { "label": "Panel", "description": "Ver uso y resumen de cuenta", "keywords": "panel uso cuenta estadisticas tokens costo dashboard" }
     }
   },
   "cookiePreferences": {
@@ -126,10 +132,30 @@
       "description": "Sigue la evolución de doXmind. Cada mejora, nueva funcionalidad y corrección — registrada y documentada.",
       "keywords": "registro de cambios, notas de versión, actualizaciones, nuevas funcionalidades, historial de versiones, actualizaciones de doXmind"
     },
+    "team": {
+      "title": "Equipo - doXmind | Las personas detras de doXmind",
+      "description": "Conoce al equipo que construye doXmind — una plataforma de escritura con IA disenada para servir a cada escritor.",
+      "keywords": "equipo doXmind, fundadores, CEO, CTO, CMO, equipo escritura IA"
+    },
     "cookiesPrivacy": {
       "title": "Política de cookies y privacidad - doXmind",
       "description": "Conoce cómo doXmind recopila, utiliza y protege tu información personal y cómo utilizamos las cookies.",
       "keywords": "política de privacidad, cookies, protección de datos, información personal, RGPD"
+    },
+    "login": {
+      "title": "Iniciar sesion - doXmind",
+      "description": "Inicia sesion en tu cuenta doXmind.",
+      "keywords": "iniciar sesion, cuenta doXmind"
+    },
+    "register": {
+      "title": "Registrarse - doXmind",
+      "description": "Crea una cuenta doXmind gratuita.",
+      "keywords": "registrarse, crear cuenta"
+    },
+    "dashboard": {
+      "title": "Panel - doXmind",
+      "description": "Consulta tus estadisticas de uso y gestiona tu cuenta.",
+      "keywords": "panel, uso, cuenta, estadisticas"
     }
   }
 }

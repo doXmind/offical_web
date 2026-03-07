@@ -4,10 +4,14 @@
     "about": "A propos",
     "guide": "Guide",
     "changelog": "Journal des modifications",
+    "team": "Equipe",
     "privacy": "Confidentialite",
     "features": "Fonctionnalites",
     "search": "Rechercher",
-    "logIn": "Se connecter"
+    "logIn": "Se connecter",
+    "dashboard": "Tableau de bord",
+    "signUp": "S'inscrire",
+    "logOut": "Se deconnecter"
   },
   "footer": {
     "columns": {
@@ -68,6 +72,7 @@
       "page-home": { "label": "Accueil", "description": "Page d'accueil", "keywords": "accueil principal debut home" },
       "page-about": { "label": "A propos", "description": "Notre vision et nos valeurs", "keywords": "a propos vision valeurs equipe mission about" },
       "page-guide": { "label": "Aide et guide des fonctionnalites", "description": "Apprenez a utiliser doXmind", "keywords": "guide aide fonctionnalites documentation guide help" },
+      "page-team": { "label": "Equipe", "description": "Decouvrez l'equipe doXmind", "keywords": "equipe membres fondateurs CEO CTO CMO team" },
       "page-changelog": { "label": "Journal des modifications", "description": "Notes de version et historique", "keywords": "journal modifications versions mises a jour nouveautes changelog" },
       "getting-started": { "label": "Premiers pas", "description": "Creez votre premier document et decouvrez l'interface", "keywords": "premiers pas configuration tutoriel creer document getting started" },
       "home-dashboard": { "label": "Tableau de bord", "description": "Recherche, fichiers recents, favoris et gestion de fichiers", "keywords": "tableau de bord accueil recents favoris fichiers recherche dashboard" },
@@ -84,7 +89,8 @@
       "customization": { "label": "Personnalisation", "description": "Typographie, themes, largeur de l'editeur et correcteur", "keywords": "personnalisation parametres theme police typographie mode sombre correcteur customization" },
       "sharing": { "label": "Partage", "description": "Partagez des documents via des liens en lecture seule", "keywords": "partage lien publier lecture seule sharing" },
       "shortcuts": { "label": "Raccourcis clavier", "description": "Reference complete des raccourcis clavier", "keywords": "clavier raccourcis touche rapide combinaison ctrl shortcuts" },
-      "action-login": { "label": "Se connecter a doXmind", "description": "Ouvrir l'editeur doXmind", "keywords": "connexion se connecter inscription ouvrir app editeur essayer login" }
+      "action-login": { "label": "Se connecter a doXmind", "description": "Ouvrir l'editeur doXmind", "keywords": "connexion se connecter inscription ouvrir app editeur essayer login" },
+      "page-dashboard": { "label": "Tableau de bord", "description": "Voir l'utilisation et le compte", "keywords": "tableau bord utilisation compte statistiques tokens cout dashboard" }
     }
   },
   "cookiePreferences": {
@@ -126,10 +132,30 @@
       "description": "Suivez l'evolution de doXmind. Chaque amelioration, nouvelle fonctionnalite et correctif — suivis et documentes.",
       "keywords": "journal des modifications, notes de version, mises a jour, nouvelles fonctionnalites, historique des versions, mises a jour doXmind"
     },
+    "team": {
+      "title": "Equipe - doXmind | Les personnes derriere doXmind",
+      "description": "Decouvrez l'equipe qui construit doXmind — une plateforme d'ecriture propulsee par l'IA au service de chaque ecrivain.",
+      "keywords": "equipe doXmind, fondateurs, CEO, CTO, CMO, equipe ecriture IA"
+    },
     "cookiesPrivacy": {
       "title": "Politique de cookies et de confidentialite - doXmind",
       "description": "Decouvrez comment doXmind collecte, utilise et protege vos informations personnelles et comment nous utilisons les cookies.",
       "keywords": "politique de confidentialite, cookies, protection des donnees, informations personnelles, RGPD"
+    },
+    "login": {
+      "title": "Connexion - doXmind",
+      "description": "Connectez-vous a votre compte doXmind.",
+      "keywords": "connexion, se connecter, compte doXmind"
+    },
+    "register": {
+      "title": "Inscription - doXmind",
+      "description": "Creez un compte doXmind gratuit.",
+      "keywords": "inscription, creer un compte"
+    },
+    "dashboard": {
+      "title": "Tableau de bord - doXmind",
+      "description": "Consultez vos statistiques d'utilisation.",
+      "keywords": "tableau de bord, utilisation, compte, statistiques"
     }
   }
 }

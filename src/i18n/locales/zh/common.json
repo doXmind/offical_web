@@ -4,10 +4,14 @@
     "about": "关于",
     "guide": "指南",
     "changelog": "更新日志",
+    "team": "团队",
     "privacy": "隐私",
     "features": "功能",
     "search": "搜索",
-    "logIn": "登录"
+    "logIn": "登录",
+    "dashboard": "控制台",
+    "signUp": "注册",
+    "logOut": "退出登录"
   },
   "footer": {
     "columns": {
@@ -68,6 +72,7 @@
       "page-home": { "label": "首页", "description": "主登陆页面", "keywords": "首页 主页 开始 home" },
       "page-about": { "label": "关于", "description": "我们的愿景和价值观", "keywords": "关于 愿景 价值观 团队 使命 about" },
       "page-guide": { "label": "帮助与功能指南", "description": "了解如何使用 doXmind", "keywords": "指南 帮助 功能 文档 guide help" },
+      "page-team": { "label": "团队", "description": "认识 doXmind 团队", "keywords": "团队 成员 创始人 CEO CTO CMO team" },
       "page-changelog": { "label": "更新日志", "description": "版本发布说明和更新历史", "keywords": "更新日志 发布 版本 更新 changelog" },
       "getting-started": { "label": "入门指南", "description": "创建您的第一个文档并了解界面布局", "keywords": "入门 设置 引导 创建文档 getting started" },
       "home-dashboard": { "label": "主页仪表盘", "description": "搜索、最近文件、收藏和文件管理", "keywords": "仪表盘 主页 最近 收藏 文件 搜索 dashboard" },
@@ -84,7 +89,8 @@
       "customization": { "label": "自定义设置", "description": "字体、主题、编辑器宽度和拼写检查", "keywords": "自定义 设置 主题 字体 排版 深色模式 拼写检查 customization" },
       "sharing": { "label": "分享", "description": "通过只读链接分享文档", "keywords": "分享 链接 发布 只读 sharing" },
       "shortcuts": { "label": "键盘快捷键", "description": "完整的键盘快捷键参考", "keywords": "键盘 快捷键 热键 按键 Ctrl shortcuts" },
-      "action-login": { "label": "登录 doXmind", "description": "打开 doXmind 编辑器", "keywords": "登录 注册 打开 应用 编辑器 试用 login" }
+      "action-login": { "label": "登录 doXmind", "description": "打开 doXmind 编辑器", "keywords": "登录 注册 打开 应用 编辑器 试用 login" },
+      "page-dashboard": { "label": "控制台", "description": "查看用量和账户概览", "keywords": "控制台 用量 账户 统计 token 费用 dashboard" }
     }
   },
   "cookiePreferences": {
@@ -126,10 +132,30 @@
       "description": "关注 doXmind 的持续进化。每一项改进、新功能和修复 — 均已追踪和记录。",
       "keywords": "更新日志, 发布说明, 更新, 新功能, 版本历史, doXmind 更新"
     },
+    "team": {
+      "title": "团队 - doXmind | 认识 doXmind 背后的人",
+      "description": "认识正在构建 doXmind 的团队——一个旨在服务每一位文字工作者的 AI 写作平台。",
+      "keywords": "doXmind 团队, 创始人, CEO, CTO, CMO, AI 写作团队"
+    },
     "cookiesPrivacy": {
       "title": "Cookie 与隐私政策 - doXmind",
       "description": "了解 doXmind 如何收集、使用和保护您的个人信息，以及我们如何使用 Cookie。",
       "keywords": "隐私政策, Cookie, 数据保护, 个人信息, GDPR"
+    },
+    "login": {
+      "title": "登录 - doXmind",
+      "description": "登录您的 doXmind 账户，访问控制台。",
+      "keywords": "登录, doXmind 账户"
+    },
+    "register": {
+      "title": "注册 - doXmind",
+      "description": "免费创建 doXmind 账户，开始使用 AI 编辑器。",
+      "keywords": "注册, 创建账户"
+    },
+    "dashboard": {
+      "title": "控制台 - doXmind",
+      "description": "查看用量统计，管理账户。",
+      "keywords": "控制台, 用量, 账户, 统计"
     }
   }
 }

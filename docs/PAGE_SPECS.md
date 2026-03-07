@@ -25,7 +25,7 @@
   - 颜色: gray-400
 - **Beta Badge**: 脉动动画白色徽章 (bg-white/10)
 - **CTA按钮组**:
-  - Primary: "Try doXmind" (bg-white text-black) → https://beta.doxmind.com/
+  - Primary: "Try doXmind" (bg-white text-black) → https://app.doxmind.com/
   - Secondary: "View User Guide" (border border-white/20)
 - **背景**: 纯黑
 - **演示视频**: 自动播放循环的打字动画演示
@@ -101,7 +101,7 @@
 #### 1.8 CTA Section
 - **标题**: "Try doXmind Today"
 - **副标题**: "Start writing with AI assistance. No installation required."
-- **CTA按钮**: "Launch App" (大号白色按钮 bg-white text-black) → https://beta.doxmind.com/
+- **CTA按钮**: "Launch App" (大号白色按钮 bg-white text-black) → https://app.doxmind.com/
 - **补充文字**: "Beta Available Now"
 
 #### 1.9 Footer
@@ -309,7 +309,7 @@
 
 #### 5.5 底部CTA
 - 引导用户启动应用体验功能
-- "Launch App" 按钮链接到 https://beta.doxmind.com/
+- "Launch App" 按钮链接到 https://app.doxmind.com/
 
 ### 设计要求
 - **极简风格**: 纯黑白配色，无彩色点缀
