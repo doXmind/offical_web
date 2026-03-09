@@ -17,7 +17,7 @@ import { DemoFooter } from '../components/home/demo-footer';
 export default function Dashboard() {
   const { t } = useTranslation('dashboard');
   const { user } = useAuth();
-  const { refreshWithRetry } = useBilling();
+  const { credits, refreshWithRetry } = useBilling();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [period, setPeriod] = useState(30);
@@ -110,7 +110,7 @@ export default function Dashboard() {
           )}
 
           {usage && !error && (
-            <ActivityChart data={daily?.days} period={period} onPeriodChange={setPeriod} />
+            <ActivityChart data={daily?.days} period={period} onPeriodChange={setPeriod} credits={credits} />
           )}
         </div>
       </div>

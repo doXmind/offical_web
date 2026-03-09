@@ -30,6 +30,7 @@
     "title": "활동",
     "noData": "해당 기간의 활동 데이터가 없습니다",
     "totalLabel": "총 {{metric}}",
+    "used": "사용됨",
     "metrics": {
       "ai_requests": "AI 요청",
       "tokens": "AI 사용량",

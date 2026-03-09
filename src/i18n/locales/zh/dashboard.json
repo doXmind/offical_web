@@ -30,6 +30,7 @@
     "title": "活跃度",
     "noData": "该时间段暂无活动数据",
     "totalLabel": "总 {{metric}}",
+    "used": "已使用",
     "metrics": {
       "ai_requests": "AI 请求",
       "tokens": "AI 用量",

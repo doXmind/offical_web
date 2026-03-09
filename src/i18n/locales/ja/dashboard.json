@@ -30,6 +30,7 @@
     "title": "アクティビティ",
     "noData": "この期間のアクティビティデータはありません",
     "totalLabel": "合計 {{metric}}",
+    "used": "使用済み",
     "metrics": {
       "ai_requests": "AIリクエスト",
       "tokens": "AI使用量",

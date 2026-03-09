@@ -30,6 +30,7 @@
     "title": "Activité",
     "noData": "Aucune donnée d'activité pour cette période",
     "totalLabel": "total {{metric}}",
+    "used": "utilisé",
     "metrics": {
       "ai_requests": "Requêtes IA",
       "tokens": "Utilisation IA",
