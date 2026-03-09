@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import {
   AreaChart,
   Area,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -11,7 +13,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-const METRICS = ['ai_requests', 'tokens', 'characters'];
+const METRICS = ['tokens', 'characters'];
 
 function formatTick(value) {
   if (value >= 1_000_000) return (value / 1_000_000).toFixed(1) + 'M';
@@ -31,7 +33,6 @@ function formatDate(dateStr, period) {
 }
 
 const GRADIENT_COLORS = {
-  ai_requests: { stroke: '#818cf8', fill: 'indigo' },
   tokens: { stroke: '#a78bfa', fill: 'violet' },
   characters: { stroke: '#67e8f9', fill: 'cyan' },
 };
@@ -73,7 +74,7 @@ const PERIOD_OPTIONS = [7, 30, 90];
 
 export default function ActivityChart({ data, period, onPeriodChange }) {
   const { t } = useTranslation('dashboard');
-  const [metric, setMetric] = useState('ai_requests');
+  const [metric, setMetric] = useState('tokens');
 
   const chartData = useMemo(() => {
     if (!data?.length) return [];
@@ -183,58 +184,103 @@ export default function ActivityChart({ data, period, onPeriodChange }) {
       {/* Chart */}
       <div className="px-2 pb-4" style={{ height: 240 }}>
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={chartData} margin={{ top: 4, right: 12, left: 0, bottom: 0 }}>
-            <defs>
-              <linearGradient id={`grad-${metric}`} x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor={colors.stroke} stopOpacity={0.25} />
-                <stop offset="100%" stopColor={colors.stroke} stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="rgba(255,255,255,0.03)"
-              vertical={false}
-            />
-            <XAxis
-              dataKey="date"
-              tickFormatter={(v) => formatDate(v, period)}
-              tick={{ fill: 'rgba(255,255,255,0.2)', fontSize: 11 }}
-              axisLine={{ stroke: 'rgba(255,255,255,0.04)' }}
-              tickLine={false}
-              interval={period <= 7 ? 0 : period <= 30 ? 4 : 13}
-              dy={8}
-            />
-            <YAxis
-              tickFormatter={formatTick}
-              tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }}
-              axisLine={false}
-              tickLine={false}
-              width={44}
-            />
-            <Tooltip
-              content={<CustomTooltip t={t} metric={metric} />}
-              cursor={{
-                stroke: 'rgba(255,255,255,0.06)',
-                strokeWidth: 1,
-              }}
-            />
-            <Area
-              type="monotone"
-              dataKey={metric}
-              stroke={colors.stroke}
-              strokeWidth={2}
-              fill={`url(#grad-${metric})`}
-              animationDuration={600}
-              animationEasing="ease-out"
-              dot={false}
-              activeDot={{
-                r: 4,
-                stroke: colors.stroke,
-                strokeWidth: 2,
-                fill: '#0a0a0f',
-              }}
-            />
-          </AreaChart>
+          {period <= 7 ? (
+            <BarChart data={chartData} margin={{ top: 4, right: 12, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id={`bar-grad-${metric}`} x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor={colors.stroke} stopOpacity={0.8} />
+                  <stop offset="100%" stopColor={colors.stroke} stopOpacity={0.3} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="rgba(255,255,255,0.03)"
+                vertical={false}
+              />
+              <XAxis
+                dataKey="date"
+                tickFormatter={(v) => formatDate(v, period)}
+                tick={{ fill: 'rgba(255,255,255,0.2)', fontSize: 11 }}
+                axisLine={{ stroke: 'rgba(255,255,255,0.04)' }}
+                tickLine={false}
+                interval={0}
+                dy={8}
+              />
+              <YAxis
+                tickFormatter={formatTick}
+                tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+                width={44}
+              />
+              <Tooltip
+                content={<CustomTooltip t={t} metric={metric} />}
+                cursor={{ fill: 'rgba(255,255,255,0.03)' }}
+              />
+              <Bar
+                dataKey={metric}
+                fill={`url(#bar-grad-${metric})`}
+                stroke={colors.stroke}
+                strokeWidth={1}
+                radius={[4, 4, 0, 0]}
+                animationDuration={600}
+                animationEasing="ease-out"
+              />
+            </BarChart>
+          ) : (
+            <AreaChart data={chartData} margin={{ top: 4, right: 12, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id={`grad-${metric}`} x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor={colors.stroke} stopOpacity={0.25} />
+                  <stop offset="100%" stopColor={colors.stroke} stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="rgba(255,255,255,0.03)"
+                vertical={false}
+              />
+              <XAxis
+                dataKey="date"
+                tickFormatter={(v) => formatDate(v, period)}
+                tick={{ fill: 'rgba(255,255,255,0.2)', fontSize: 11 }}
+                axisLine={{ stroke: 'rgba(255,255,255,0.04)' }}
+                tickLine={false}
+                interval={period <= 30 ? 4 : 13}
+                dy={8}
+              />
+              <YAxis
+                tickFormatter={formatTick}
+                tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+                width={44}
+              />
+              <Tooltip
+                content={<CustomTooltip t={t} metric={metric} />}
+                cursor={{
+                  stroke: 'rgba(255,255,255,0.06)',
+                  strokeWidth: 1,
+                }}
+              />
+              <Area
+                type="monotone"
+                dataKey={metric}
+                stroke={colors.stroke}
+                strokeWidth={2}
+                fill={`url(#grad-${metric})`}
+                animationDuration={600}
+                animationEasing="ease-out"
+                dot={false}
+                activeDot={{
+                  r: 4,
+                  stroke: colors.stroke,
+                  strokeWidth: 2,
+                  fill: '#0a0a0f',
+                }}
+              />
+            </AreaChart>
+          )}
         </ResponsiveContainer>
       </div>
     </motion.div>
