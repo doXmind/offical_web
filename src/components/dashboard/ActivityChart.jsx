@@ -21,10 +21,6 @@ function formatTick(value) {
   return value;
 }
 
-function formatPctTick(value) {
-  return value.toFixed(1) + '%';
-}
-
 function formatDate(dateStr, period) {
   const d = new Date(dateStr + 'T00:00:00');
   if (period <= 7) {
@@ -38,7 +34,7 @@ const GRADIENT_COLORS = {
   characters: { stroke: '#67e8f9', fill: 'cyan' },
 };
 
-function CustomTooltip({ active, payload, label, t, metric, isPercentage }) {
+function CustomTooltip({ active, payload, label, t, metric, hideValue }) {
   if (!active || !payload?.length) return null;
 
   const d = new Date(label + 'T00:00:00');
@@ -48,15 +44,19 @@ function CustomTooltip({ active, payload, label, t, metric, isPercentage }) {
     day: 'numeric',
   });
 
+  if (hideValue) {
+    return (
+      <div className="rounded-xl border border-white/[0.08] bg-[#12121a]/95 backdrop-blur-xl px-4 py-3 shadow-2xl">
+        <p className="text-xs text-white/50">{dateLabel}</p>
+      </div>
+    );
+  }
+
   const value = payload[0]?.value ?? 0;
   let formatted;
-  if (isPercentage) {
-    formatted = value.toFixed(2) + '%';
-  } else {
-    if (value >= 1_000_000) formatted = (value / 1_000_000).toFixed(1) + 'M';
-    else if (value >= 1_000) formatted = (value / 1_000).toFixed(1) + 'K';
-    else formatted = value.toLocaleString();
-  }
+  if (value >= 1_000_000) formatted = (value / 1_000_000).toFixed(1) + 'M';
+  else if (value >= 1_000) formatted = (value / 1_000).toFixed(1) + 'K';
+  else formatted = value.toLocaleString();
 
   return (
     <div className="rounded-xl border border-white/[0.08] bg-[#12121a]/95 backdrop-blur-xl px-4 py-3 shadow-2xl">
@@ -77,49 +77,34 @@ export default function ActivityChart({ data, period, onPeriodChange, credits })
   const { t } = useTranslation('dashboard');
   const [metric, setMetric] = useState('tokens');
 
-  // Whether current metric should display as percentage
-  const isPercentage = metric === 'tokens' && credits && credits.limit > 0;
-
-  // Chart data key — use pct_tokens for percentage mode, otherwise raw metric
-  const dataKey = isPercentage ? 'pct_tokens' : metric;
+  // Whether to use percentage mode (tokens + credits available)
+  const isPctMode = metric === 'tokens' && credits && credits.limit > 0;
 
   const chartData = useMemo(() => {
     if (!data?.length) return [];
     return data.map((d) => ({
       ...d,
       displayDate: formatDate(d.date, period),
-      pct_tokens:
-        credits && credits.limit > 0
-          ? (d.tokens / credits.limit) * 100
-          : 0,
     }));
-  }, [data, period, credits]);
+  }, [data, period]);
 
   const colors = GRADIENT_COLORS[metric];
 
-  // Overall used percentage from credits
+  // Overall used percentage from billing credits
   const usedPct = useMemo(() => {
     if (!credits || credits.limit <= 0) return 0;
-    return ((credits.limit - credits.remaining) / credits.limit) * 100;
+    return Math.round(((credits.limit - credits.remaining) / credits.limit) * 100);
   }, [credits]);
 
-  // Calculate summary stats
+  // Calculate summary stats (only used for characters mode)
   const stats = useMemo(() => {
     if (!data?.length) return { total: 0, avg: 0, max: 0, activeDays: 0 };
     const values = data.map((d) => d[metric]);
     const total = values.reduce((a, b) => a + b, 0);
     const max = Math.max(...values);
     const activeDays = values.filter((v) => v > 0).length;
-
-    if (isPercentage) {
-      const pctValues = data.map((d) => (d.tokens / credits.limit) * 100);
-      const pctAvg = pctValues.reduce((a, b) => a + b, 0) / pctValues.length;
-      const pctMax = Math.max(...pctValues);
-      return { total, avg: pctAvg, max: pctMax, activeDays };
-    }
-
     return { total, avg: Math.round(total / data.length), max, activeDays };
-  }, [data, metric, isPercentage, credits]);
+  }, [data, metric]);
 
   if (!data?.length) {
     return (
@@ -128,8 +113,6 @@ export default function ActivityChart({ data, period, onPeriodChange, credits })
       </div>
     );
   }
-
-  const yTickFormatter = isPercentage ? formatPctTick : formatTick;
 
   return (
     <motion.div
@@ -147,12 +130,12 @@ export default function ActivityChart({ data, period, onPeriodChange, credits })
             </h3>
             <div className="flex items-center gap-4 mt-2">
               <span className="text-2xl font-semibold text-white tabular-nums">
-                {isPercentage
-                  ? `${Math.round(usedPct)}%`
+                {isPctMode
+                  ? `${usedPct}%`
                   : formatTick(stats.total)}
               </span>
               <span className="text-xs text-white/20">
-                {isPercentage
+                {isPctMode
                   ? t('activity.used')
                   : t('activity.totalLabel', { metric: t(`activity.metrics.${metric}`) })}
               </span>
@@ -197,32 +180,21 @@ export default function ActivityChart({ data, period, onPeriodChange, credits })
         </div>
       </div>
 
-      {/* Stats row */}
-      <div className="grid grid-cols-3 gap-px mx-5 mb-4 mt-2 rounded-lg overflow-hidden border border-white/[0.04]">
-        {[
-          {
-            label: t('activity.stats.avg'),
-            value: isPercentage
-              ? `${stats.avg.toFixed(2)}%`
-              : formatTick(stats.avg),
-          },
-          {
-            label: t('activity.stats.peak'),
-            value: isPercentage
-              ? `${stats.max.toFixed(2)}%`
-              : formatTick(stats.max),
-          },
-          {
-            label: t('activity.stats.activeDays'),
-            value: `${stats.activeDays}/${data.length}`,
-          },
-        ].map((s) => (
-          <div key={s.label} className="bg-white/[0.02] px-3 py-2.5 text-center">
-            <p className="text-[11px] text-white/20 mb-0.5">{s.label}</p>
-            <p className="text-sm font-medium text-white/60 tabular-nums">{s.value}</p>
-          </div>
-        ))}
-      </div>
+      {/* Stats row — only for characters (absolute values); hidden for tokens/pct mode */}
+      {!isPctMode && (
+        <div className="grid grid-cols-3 gap-px mx-5 mb-4 mt-2 rounded-lg overflow-hidden border border-white/[0.04]">
+          {[
+            { label: t('activity.stats.avg'), value: formatTick(stats.avg) },
+            { label: t('activity.stats.peak'), value: formatTick(stats.max) },
+            { label: t('activity.stats.activeDays'), value: `${stats.activeDays}/${data.length}` },
+          ].map((s) => (
+            <div key={s.label} className="bg-white/[0.02] px-3 py-2.5 text-center">
+              <p className="text-[11px] text-white/20 mb-0.5">{s.label}</p>
+              <p className="text-sm font-medium text-white/60 tabular-nums">{s.value}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Chart */}
       <div className="px-2 pb-4" style={{ height: 240 }}>
@@ -249,19 +221,22 @@ export default function ActivityChart({ data, period, onPeriodChange, credits })
                 interval={0}
                 dy={8}
               />
-              <YAxis
-                tickFormatter={yTickFormatter}
-                tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }}
-                axisLine={false}
-                tickLine={false}
-                width={44}
-              />
+              {/* Hide Y-axis in pct mode (like doxmind-mini); show for characters */}
+              {!isPctMode && (
+                <YAxis
+                  tickFormatter={formatTick}
+                  tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }}
+                  axisLine={false}
+                  tickLine={false}
+                  width={44}
+                />
+              )}
               <Tooltip
-                content={<CustomTooltip t={t} metric={metric} isPercentage={isPercentage} />}
+                content={<CustomTooltip t={t} metric={metric} hideValue={isPctMode} />}
                 cursor={{ fill: 'rgba(255,255,255,0.03)' }}
               />
               <Bar
-                dataKey={dataKey}
+                dataKey={metric}
                 fill={`url(#bar-grad-${metric})`}
                 stroke={colors.stroke}
                 strokeWidth={1}
@@ -292,15 +267,18 @@ export default function ActivityChart({ data, period, onPeriodChange, credits })
                 interval={period <= 30 ? 4 : 13}
                 dy={8}
               />
-              <YAxis
-                tickFormatter={yTickFormatter}
-                tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }}
-                axisLine={false}
-                tickLine={false}
-                width={44}
-              />
+              {/* Hide Y-axis in pct mode */}
+              {!isPctMode && (
+                <YAxis
+                  tickFormatter={formatTick}
+                  tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }}
+                  axisLine={false}
+                  tickLine={false}
+                  width={44}
+                />
+              )}
               <Tooltip
-                content={<CustomTooltip t={t} metric={metric} isPercentage={isPercentage} />}
+                content={<CustomTooltip t={t} metric={metric} hideValue={isPctMode} />}
                 cursor={{
                   stroke: 'rgba(255,255,255,0.06)',
                   strokeWidth: 1,
@@ -308,7 +286,7 @@ export default function ActivityChart({ data, period, onPeriodChange, credits })
               />
               <Area
                 type="monotone"
-                dataKey={dataKey}
+                dataKey={metric}
                 stroke={colors.stroke}
                 strokeWidth={2}
                 fill={`url(#grad-${metric})`}
