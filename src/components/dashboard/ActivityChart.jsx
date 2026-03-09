@@ -69,7 +69,9 @@ function CustomTooltip({ active, payload, label, t, metric }) {
   );
 }
 
-export default function ActivityChart({ data, period }) {
+const PERIOD_OPTIONS = [7, 30, 90];
+
+export default function ActivityChart({ data, period, onPeriodChange }) {
   const { t } = useTranslation('dashboard');
   const [metric, setMetric] = useState('ai_requests');
 
@@ -109,23 +111,45 @@ export default function ActivityChart({ data, period }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.25, ease: [0.23, 1, 0.32, 1] }}
     >
-      {/* Header with metric selector */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-5 pt-5 pb-2">
-        <div>
-          <h3 className="text-sm font-medium text-white/70">
-            {t('activity.title')}
-          </h3>
-          <div className="flex items-center gap-4 mt-2">
-            <span className="text-2xl font-semibold text-white tabular-nums">
-              {(metric === 'tokens' || metric === 'characters') ? formatTick(stats.total) : stats.total.toLocaleString()}
-            </span>
-            <span className="text-xs text-white/20">
-              {t('activity.totalLabel', { metric: t(`activity.metrics.${metric}`) })}
-            </span>
+      {/* Header */}
+      <div className="px-5 pt-5 pb-2 space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h3 className="text-sm font-medium text-white/70">
+              {t('activity.title')}
+            </h3>
+            <div className="flex items-center gap-4 mt-2">
+              <span className="text-2xl font-semibold text-white tabular-nums">
+                {(metric === 'tokens' || metric === 'characters') ? formatTick(stats.total) : stats.total.toLocaleString()}
+              </span>
+              <span className="text-xs text-white/20">
+                {t('activity.totalLabel', { metric: t(`activity.metrics.${metric}`) })}
+              </span>
+            </div>
           </div>
+
+          {/* Period selector */}
+          {onPeriodChange && (
+            <div className="flex items-center gap-1 rounded-lg border border-white/[0.06] bg-white/[0.02] p-1">
+              {PERIOD_OPTIONS.map((days) => (
+                <button
+                  key={days}
+                  onClick={() => onPeriodChange(days)}
+                  className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                    period === days
+                      ? 'bg-white/[0.08] text-white'
+                      : 'text-white/30 hover:text-white/50'
+                  }`}
+                >
+                  {t('usage.days', { count: days })}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        <div className="flex items-center gap-1 rounded-lg border border-white/[0.06] bg-white/[0.02] p-1">
+        {/* Metric selector */}
+        <div className="flex items-center gap-1 rounded-lg border border-white/[0.06] bg-white/[0.02] p-1 w-fit">
           {METRICS.map((m) => (
             <button
               key={m}

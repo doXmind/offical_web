@@ -1,0 +1,85 @@
+{
+  "plan": {
+    "title": "Your Plan",
+    "free": "Free",
+    "pro": "Pro",
+    "max": "Max"
+  },
+  "status": {
+    "active": "Active",
+    "pastDue": "Past Due",
+    "canceled": "Canceled"
+  },
+  "credits": {
+    "title": "AI Credits",
+    "remaining": "{{percent}}% remaining",
+    "resetOn": "Resets on {{date}}",
+    "exhausted": "Credits exhausted"
+  },
+  "storage": {
+    "title": "Storage",
+    "used": "{{percent}}% used"
+  },
+  "renewsOn": "Renews on {{date}}",
+  "actions": {
+    "upgrade": "Upgrade Plan",
+    "choosePlan": "Choose Plan",
+    "manageSub": "Manage Subscription",
+    "upgradeNow": "Upgrade Now"
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Pick the plan that fits your workflow",
+    "month": "/mo",
+    "popular": "Popular",
+    "earlyBird": "Early Bird",
+    "earlyBirdDesc": "{{count}} early bird spots left at ${{price}}/mo",
+    "currentPlan": "Current Plan",
+    "upgrade": "Upgrade",
+    "descriptions": {
+      "free": "For personal use and exploration.",
+      "pro": "For regular writers and professionals.",
+      "max": "For power users and teams."
+    },
+    "features": {
+      "free": [
+        "All AI features",
+        "Chat, inline edit, autocomplete",
+        "Knowledge base & web search",
+        "100 MB storage",
+        "PDF / DOCX / Markdown export"
+      ],
+      "pro": [
+        "Everything in Free",
+        "5x more AI usage",
+        "500 MB storage",
+        "14 premium themes",
+        "Exclusive avatar frames",
+        "Priority support"
+      ],
+      "max": [
+        "Everything in Pro",
+        "15x more AI usage",
+        "2 GB storage",
+        "Animated avatar frames",
+        "Early access to new features"
+      ]
+    }
+  },
+  "banner": {
+    "paymentFailed": "Payment failed. Please update your payment method.",
+    "creditsExhausted": "You've used all your AI credits for this period."
+  },
+  "success": {
+    "title": "Payment Successful!",
+    "processing": "Processing...",
+    "processingDesc": "Your subscription is being activated...",
+    "desc": "Welcome to {{plan}}! Your credits have been updated.",
+    "creditsAvailable": "credits available",
+    "dismiss": "Got it"
+  },
+  "errors": {
+    "portalFailed": "Failed to open billing portal",
+    "checkoutFailed": "Failed to start checkout"
+  }
+}

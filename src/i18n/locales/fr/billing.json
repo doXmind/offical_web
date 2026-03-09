@@ -1,0 +1,85 @@
+{
+  "plan": {
+    "title": "Votre plan",
+    "free": "Gratuit",
+    "pro": "Pro",
+    "max": "Max"
+  },
+  "status": {
+    "active": "Actif",
+    "pastDue": "En retard",
+    "canceled": "Annulé"
+  },
+  "credits": {
+    "title": "Crédits IA",
+    "remaining": "{{percent}}% restant",
+    "resetOn": "Réinitialisation le {{date}}",
+    "exhausted": "Crédits épuisés"
+  },
+  "storage": {
+    "title": "Stockage",
+    "used": "{{percent}}% utilisé"
+  },
+  "renewsOn": "Renouvellement le {{date}}",
+  "actions": {
+    "upgrade": "Changer de plan",
+    "choosePlan": "Choisir un plan",
+    "manageSub": "Gérer l'abonnement",
+    "upgradeNow": "Mettre à niveau"
+  },
+  "pricing": {
+    "title": "Choisissez votre plan",
+    "subtitle": "Trouvez le plan adapté à vos besoins",
+    "month": "/mois",
+    "popular": "Populaire",
+    "earlyBird": "Offre Early Bird",
+    "earlyBirdDesc": "{{count}} places early bird restantes à {{price}}$/mois",
+    "currentPlan": "Plan actuel",
+    "upgrade": "Mettre à niveau",
+    "descriptions": {
+      "free": "Pour un usage personnel et la découverte.",
+      "pro": "Pour les rédacteurs réguliers et les professionnels.",
+      "max": "Pour les utilisateurs avancés et les équipes."
+    },
+    "features": {
+      "free": [
+        "Toutes les fonctionnalités IA",
+        "Chat, édition en ligne, autocomplétion",
+        "Base de connaissances et recherche web",
+        "100 Mo de stockage",
+        "Export PDF / DOCX / Markdown"
+      ],
+      "pro": [
+        "Tout ce qui est dans Gratuit",
+        "5x plus d'utilisation IA",
+        "500 Mo de stockage",
+        "14 thèmes premium",
+        "Cadres d'avatar exclusifs",
+        "Support prioritaire"
+      ],
+      "max": [
+        "Tout ce qui est dans Pro",
+        "15x plus d'utilisation IA",
+        "2 Go de stockage",
+        "Cadres d'avatar animés",
+        "Accès anticipé aux nouvelles fonctionnalités"
+      ]
+    }
+  },
+  "banner": {
+    "paymentFailed": "Échec du paiement. Veuillez mettre à jour votre moyen de paiement.",
+    "creditsExhausted": "Vous avez utilisé tous vos crédits IA pour cette période."
+  },
+  "success": {
+    "title": "Paiement réussi !",
+    "processing": "Traitement...",
+    "processingDesc": "Votre abonnement est en cours d'activation...",
+    "desc": "Bienvenue dans {{plan}} ! Vos crédits ont été mis à jour.",
+    "creditsAvailable": "crédits disponibles",
+    "dismiss": "Compris"
+  },
+  "errors": {
+    "portalFailed": "Impossible d'ouvrir le portail de facturation",
+    "checkoutFailed": "Impossible de lancer le paiement"
+  }
+}

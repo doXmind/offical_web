@@ -32,7 +32,7 @@
     "totalLabel": "총 {{metric}}",
     "metrics": {
       "ai_requests": "AI 요청",
-      "tokens": "토큰",
+      "tokens": "AI 사용량",
       "characters": "글자 수"
     },
     "stats": {

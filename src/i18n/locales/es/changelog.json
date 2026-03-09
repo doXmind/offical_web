@@ -17,94 +17,166 @@
     "fixed": "Corregido"
   },
   "releases": {
-    "v0_6": {
-      "title": "Presentación y pulido",
-      "summary": "Presenta tus documentos como elegantes diapositivas, además de una página de inicio rediseñada, un centro de ayuda dedicado y mejoras del modo oscuro en toda la aplicación.",
+    "v1_0": {
+      "title": "Suscripciones y Premium",
+      "summary": "Presentamos planes de pago, temas premium, marcos de avatar y un panel de uso — además de un nuevo dominio oficial.",
       "added": [
-        "Modo Presentación — vista de diapositivas a pantalla completa que divide documentos por delimitador, con navegación por teclado y deslizamiento",
-        "Página de marketing — página de demostración rediseñada como landing de marketing con soporte de color de texto en línea",
-        "Página de ayuda — nuevo centro de ayuda con ajustes de tipografía (fuente, interlineado, etc.) sincronizados entre el editor y el modo presentación",
-        "Esquema en documento compartido — barra lateral de esquema en la vista de documento compartido con barras de desplazamiento que se ocultan automáticamente",
-        "Mejoras del modo oscuro — refinamientos globales del tema oscuro para una experiencia visual más consistente"
+        "Planes de suscripción — elige entre Gratis, Pro o Max con pago en línea fácil",
+        "Créditos de IA — controla tu uso de IA con un saldo de créditos claro y límites de almacenamiento por plan",
+        "Temas premium — desbloquea 8 hermosos temas de color como Oro Champán y Bruma Lavanda",
+        "Marcos de avatar — marcos de perfil animados para suscriptores Pro y Max",
+        "Panel de uso — gráficos visuales que muestran tu uso de IA y créditos restantes",
+        "Modo pensamiento — la IA dedica más tiempo a razonar solicitudes complejas para dar mejores respuestas",
+        "Regenerar y editar chat — reintenta respuestas de IA, o edita y reenvía tus mensajes anteriores"
+      ],
+      "improved": [
+        "Búsqueda web más rápida y económica, impulsada por Google",
+        "Nueva dirección oficial: app.doxmind.com",
+        "El panel de actividad ahora muestra caracteres escritos en lugar de conteo de ediciones"
       ],
       "fixed": [
-        "Problema de desplazamiento en el panel de inicio causado por un diseño FlexBox incorrecto",
-        "Estados de hover en submenús desplegables que no respondían correctamente",
-        "Compatibilidad del certificado SSL autofirmado de Heroku Redis en el limitador de velocidad"
+        "Suscripción que no se activa después del pago en algunos casos",
+        "Gráfico de uso mostrando números incorrectos",
+        "Ediciones de IA aplicadas a veces en la parte incorrecta del documento"
+      ]
+    },
+    "v0_9": {
+      "title": "Multilingüe, registro por email y social",
+      "summary": "Interfaz completa en chino e inglés, registro por correo electrónico, funciones sociales como seguimiento y notificaciones, y un servidor en China.",
+      "added": [
+        "Interfaz multilingüe — soporte completo de chino e inglés en toda la aplicación",
+        "Registro por email — regístrate con email, verifica con un código y recupera tu contraseña",
+        "Sesiones más seguras — la sesión se mantiene activa más tiempo mientras protege tu cuenta",
+        "Funciones sociales — sigue a otros usuarios, recibe notificaciones en tiempo real y reacciona a documentos compartidos con emoji",
+        "Servidor en China — servidor dedicado en China para un acceso más rápido",
+        "Asistente IA en línea — ediciones rápidas de IA justo donde estás escribiendo"
+      ],
+      "improved": [
+        "Búsqueda de documentos más inteligente para el asistente IA",
+        "Mejores ventanas emergentes y paneles inferiores en móvil"
+      ]
+    },
+    "v0_8": {
+      "title": "Nuevo editor y temas",
+      "summary": "Un editor más rápido y potente con 8 hermosos temas, bloques editables con clic, seguimiento preciso de cambios y un asistente IA que funciona en todos tus documentos.",
+      "added": [
+        "Editor más rápido — mejorado para mejor rendimiento, escritura más fluida y guardado más confiable",
+        "8 temas para escritores — 4 claros y 4 oscuros para adaptarse a tu estado de ánimo, con cambio automático de modo oscuro",
+        "Bloques editables con clic — haz clic en imágenes, fórmulas o diagramas para editarlos en su lugar con una barra de herramientas práctica",
+        "Seguimiento preciso de cambios — ve exactamente qué palabras cambiaron con vista previa en vivo mientras la IA edita tu documento",
+        "IA multidocumento — haz preguntas al asistente IA sobre todos tus documentos a la vez",
+        "Desglose de uso de IA — ve cuánta IA usas en chat, autocompletado, edición y más",
+        "Simplificación IA de diapositivas — condensa automáticamente documentos largos en diapositivas de presentación concisas"
+      ],
+      "improved": [
+        "Edición IA más inteligente con cambios más precisos y específicos",
+        "Más opciones de modelos de IA para elegir"
+      ]
+    },
+    "v0_7": {
+      "title": "Hub comunitario",
+      "summary": "Descubre y comparte documentos en un nuevo feed comunitario, con comentarios, marcadores, perfiles de usuario, recomendaciones y soporte de diagramas.",
+      "added": [
+        "Página comunitaria — navega, comenta, guarda en marcadores y remezcla documentos compartidos por otros",
+        "Perfiles de usuario — páginas personales con biografía, enlaces sociales y tus documentos publicados",
+        "Recomendaciones Para ti — sugerencias de documentos personalizadas según tus intereses",
+        "Feed rediseñado — un feed moderno y animado con pestañas de tendencias, recientes y recomendaciones",
+        "Soporte de diagramas — crea diagramas de flujo, diagramas de secuencia y más directamente en tus documentos",
+        "Compartir carpetas — comparte una carpeta completa de documentos con un solo enlace",
+        "Editar después de publicar — actualiza el título, descripción y etiquetas de documentos compartidos en cualquier momento"
+      ],
+      "improved": [
+        "Servidores más rápidos y confiables con mejor tiempo de actividad",
+        "Los documentos cargan más rápido con carga inteligente bajo demanda"
+      ]
+    },
+    "v0_6": {
+      "title": "Modo presentación",
+      "summary": "Presenta tus documentos como presentaciones a pantalla completa, con un nuevo centro de ayuda y mejoras del modo oscuro.",
+      "added": [
+        "Modo presentación — convierte cualquier documento en una presentación a pantalla completa con navegación por teclado y deslizamiento",
+        "Nueva página de inicio — una página rediseñada que muestra las funciones de doXmind",
+        "Centro de ayuda — conoce todas las funciones con ajustes personalizables de fuente y diseño",
+        "Índice de documento compartido — una barra lateral de tabla de contenidos al leer documentos compartidos",
+        "Mejoras del modo oscuro — un tema oscuro más fluido y consistente en toda la aplicación"
+      ],
+      "fixed": [
+        "Panel de inicio que no se desplaza correctamente en algunas pantallas",
+        "Menús desplegables que no se resaltan al pasar el cursor",
+        "Problemas de conexión con algunas configuraciones de servidor"
       ]
     },
     "v0_5": {
       "title": "Editor de bloques e incorporación",
-      "summary": "Una experiencia de edición más rica e intuitiva con controles de bloque estilo Notion, un recorrido interactivo de incorporación para nuevos usuarios y controles tipográficos detallados.",
+      "summary": "Una experiencia de edición más rica con bloques arrastrables, un recorrido de bienvenida interactivo y fuentes personalizables.",
       "added": [
-        "Controles de bloque estilo Notion — controles de arrastre para bloques, controles de fila y columna para tablas, y un diseño de encabezado unificado",
-        "Recorrido interactivo de incorporación — guía paso a paso que presenta las funciones clave a los nuevos usuarios",
-        "Ajustes de tipografía — familia de fuente, tamaño e interlineado configurables para un entorno de escritura personalizado",
-        "Sistema de papelera — eliminación temporal de archivos a una papelera recuperable en lugar de eliminación permanente",
-        "Carga de imágenes a S3 — las imágenes ahora se suben a almacenamiento de objetos S3 para un alojamiento fiable",
-        "Bloques de editor enriquecido — nuevos tipos de bloque incluyendo líneas horizontales, destacados y más",
-        "Paneles redimensionables y modo enfoque — arrastra para redimensionar paneles laterales, más un modo de escritura libre de distracciones",
-        "Renovación del diseño — lenguaje visual actualizado en toda la aplicación"
+        "Bloques arrastrables — agarra y reordena cualquier bloque, con controles de filas y columnas para tablas",
+        "Recorrido de bienvenida — una guía interactiva paso a paso para nuevos usuarios",
+        "Fuentes personalizables — elige tu fuente, tamaño e interlineado preferidos",
+        "Papelera — los archivos eliminados van a una papelera recuperable en lugar de eliminarse permanentemente",
+        "Alojamiento de imágenes en la nube — las imágenes ahora se almacenan de forma fiable en la nube",
+        "Nuevos bloques de contenido — cuadros de llamada, separadores y más para enriquecer tus documentos",
+        "Paneles redimensionables y modo enfoque — arrastra para redimensionar barras laterales, más un modo de escritura sin distracciones",
+        "Renovación visual — aspecto y sensación actualizados en toda la aplicación"
       ],
       "improved": [
-        "Fortalecimiento del backend — mejoras de seguridad y estabilidad en la infraestructura del servidor"
+        "Mejor estabilidad y seguridad del servidor"
       ]
     },
     "v0_4": {
-      "title": "Inteligencia del editor y organización de archivos",
-      "summary": "Un editor más inteligente impulsado por RAG agéntico, una experiencia de revisión de diferencias rediseñada, organización por carpetas, soporte matemático y modos de autocompletado adaptativos.",
+      "title": "Editor inteligente y organización de archivos",
+      "summary": "IA que responde preguntas sobre todos tus documentos, organización por carpetas, soporte de fórmulas matemáticas y autocompletado inteligente.",
       "added": [
-        "Agente KB (RAG agéntico) — un nuevo agente de Base de conocimiento que realiza preguntas y respuestas inteligentes entre documentos y recuperación de información",
-        "Rediseño de revisión de diferencias — interfaz de revisión inspirada en Apple HIG con navegación por bloques y resaltado de enfoque",
-        "Sistema de carpetas — carpetas de un nivel con ordenación por arrastrar y soltar, operaciones de selección múltiple y categorización de archivos",
-        "Soporte matemático — menús de fórmulas matemáticas en línea y a nivel de bloque con reglas de entrada LaTeX mejoradas",
-        "Autocompletado adaptativo — tres modos de completado (corto, largo y adaptativo) con ensamblaje de contexto potenciado por RAG",
-        "Enrutamiento de archivos basado en URL — navegación de archivos mediante rutas URL, arrastrar y soltar entre páginas, y correcciones de fiabilidad en el guardado del editor"
+        "IA multidocumento — haz preguntas y obtén respuestas extraídas de todos tus archivos",
+        "Revisión de cambios mejorada — navega y acepta o rechaza fácilmente los cambios sugeridos por la IA uno por uno",
+        "Carpetas — organiza tus archivos en carpetas con arrastrar y soltar",
+        "Fórmulas matemáticas — escribe ecuaciones en línea y en bloque con LaTeX",
+        "Autocompletado inteligente — tres modos (rápido, detallado y adaptativo) que sugieren texto mientras escribes",
+        "Enlaces de archivos compartibles — cada archivo tiene su propia URL para compartir y guardar en marcadores fácilmente"
       ],
       "improved": [
-        "Reemplazo de insert_text por navegación de precisión a nivel de párrafo y retroalimentación de edición estructurada",
-        "Extracción de biblioteca modular de componentes Chat a partir de componentes de IA monolíticos",
-        "Formateo de toda la base de código con Prettier y ordenación de clases Tailwind"
+        "Edición de texto IA más precisa",
+        "Experiencia de chat más fluida y rápida",
+        "Interfaz más limpia y consistente"
       ]
     },
     "v0_3": {
       "title": "Seguridad, móvil y panel de inicio",
-      "summary": "Trae tu propia clave API, un nuevo panel de inicio, soporte de edición móvil y un refuerzo significativo de la autenticación.",
+      "summary": "Usa tu propia clave de IA, un nuevo panel de inicio, edición móvil y seguridad de cuenta más fuerte.",
       "added": [
-        "Trae tu propia clave (BYOK) — gestiona tus propias claves API con almacenamiento cifrado, validación y medidas de seguridad",
-        "Panel de inicio — una nueva experiencia de inicio con enrutamiento según autenticación, menús desplegables con portales y efectos de texto animados",
-        "Editor móvil — cambio de modo de edición adaptable, navegación de esquema con scroll-spy y mejora de la experiencia de renombrar archivos",
-        "Refuerzo de autenticación — mejoras integrales de seguridad en todo el flujo de autenticación"
+        "Trae tu propia clave API — usa la clave de tu proveedor de IA para acceder a modelos personalizados",
+        "Panel de inicio — una nueva página de inicio que muestra todos tus archivos recientes de un vistazo",
+        "Edición móvil — edita documentos en tu teléfono con un diseño adaptable y navegación por índice",
+        "Seguridad más fuerte — protección de inicio de sesión y sesión mejorada"
       ],
       "improved": [
-        "Descomposición de módulos monolíticos, eliminación de código no utilizado y mejora de la mantenibilidad general"
+        "Rendimiento más rápido"
       ]
     },
     "v0_2": {
-      "title": "Infraestructura de la plataforma",
-      "summary": "Capacidades fundacionales de la plataforma — soporte de archivos de datos, un modo de demostración para mostrar el producto y un sistema adecuado de migración de base de datos.",
+      "title": "Fundamentos de la plataforma",
+      "summary": "Sube archivos de datos, prueba el producto en modo demo y actualizaciones fiables entre bastidores.",
       "added": [
-        "Archivos de datos y ejecución de código — sube archivos de datos y ejecuta código directamente en la plataforma",
-        "Modo demostración — respuestas de IA simuladas para demostraciones y recorridos del producto",
-        "Sistema de migración Alembic — marco de migración de base de datos estructurado para una evolución fiable del esquema"
+        "Subida de archivos de datos — sube archivos CSV, Excel y JSON para analizar con IA",
+        "Modo demo — prueba las funciones de IA sin registrarte",
+        "Actualizaciones fiables — un nuevo sistema para garantizar lanzamientos de funciones sin problemas"
       ]
     },
     "v0_1": {
-      "title": "Búsqueda y renovación de RAG",
-      "summary": "Los cimientos de doXmind — un motor de búsqueda híbrido que combina recuperación por palabras clave y vectores, embeddings en paralelo y la primera iteración del sistema de habilidades.",
+      "title": "Búsqueda inteligente",
+      "summary": "Los cimientos de doXmind — búsqueda potente que combina palabras clave e IA, herramientas de escritura y archivos favoritos.",
       "added": [
-        "Búsqueda híbrida (fusión RRF) — motor de búsqueda que combina recuperación por palabras clave y vectores con puntuación de Reciprocal Rank Fusion",
-        "Búsqueda híbrida en base de conocimiento — la misma potente recuperación híbrida aplicada a tus documentos subidos",
-        "Embedding por lotes en paralelo — la vectorización se ejecuta en lotes paralelos con lógica de reintentos automática",
-        "Compresión de historial — compresión del historial del chat con deduplicación por hash de contenido para reducir el uso de tokens",
-        "Sistema de habilidades — arquitectura de habilidades reorganizada con una nueva habilidad de búsqueda de casos legales",
-        "Resúmenes de archivos y favoritos — genera resúmenes para archivos y marca los importantes como favoritos",
-        "Seguimiento de uso de tokens — monitoriza el consumo de tokens por conversación con eliminación temporal de mensajes",
-        "Evaluación de búsqueda — scripts de evaluación de relevancia offline para pruebas continuas de calidad de búsqueda"
+        "Búsqueda potente — encuentra cualquier cosa al instante con búsqueda combinada de palabras clave e IA",
+        "Busca en tus documentos — la misma búsqueda potente funciona en todos tus archivos subidos",
+        "Indexación más rápida — los documentos se indexan en paralelo para búsqueda casi instantánea",
+        "Memoria de chat más inteligente — conversaciones más largas sin perder contexto ni ralentizarse",
+        "Herramientas de escritura — ayudas de redacción integradas incluyendo búsqueda de casos legales",
+        "Resúmenes de archivos y favoritos — genera resúmenes automáticamente y marca archivos importantes",
+        "Seguimiento de uso — monitoriza tu uso de IA por conversación"
       ],
       "improved": [
-        "Soporte de fuentes CJK en exportaciones PDF para documentos en chino, japonés y coreano",
-        "Definiciones refinadas de tipos de resultados de búsqueda para un mejor manejo posterior"
+        "Mejor exportación PDF para documentos en chino, japonés y coreano",
+        "Resultados de búsqueda más precisos"
       ]
     }
   }

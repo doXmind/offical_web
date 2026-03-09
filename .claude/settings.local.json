@@ -50,7 +50,9 @@
       "Bash(git checkout:*)",
       "WebFetch(domain:github.com)",
       "Bash(npm uninstall:*)",
-      "Bash(npx puppeteer:*)"
+      "Bash(npx puppeteer:*)",
+      "WebFetch(domain:doxmind.com)",
+      "Bash(gh api:*)"
     ],
     "deny": [],
     "ask": []

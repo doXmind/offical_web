@@ -1,0 +1,85 @@
+{
+  "plan": {
+    "title": "あなたのプラン",
+    "free": "無料",
+    "pro": "Pro",
+    "max": "Max"
+  },
+  "status": {
+    "active": "有効",
+    "pastDue": "支払い遅延",
+    "canceled": "キャンセル済み"
+  },
+  "credits": {
+    "title": "AIクレジット",
+    "remaining": "残り {{percent}}%",
+    "resetOn": "{{date}} にリセット",
+    "exhausted": "クレジットを使い切りました"
+  },
+  "storage": {
+    "title": "ストレージ",
+    "used": "{{percent}}% 使用中"
+  },
+  "renewsOn": "{{date}} に更新",
+  "actions": {
+    "upgrade": "プランをアップグレード",
+    "choosePlan": "プランを選択",
+    "manageSub": "サブスクリプション管理",
+    "upgradeNow": "今すぐアップグレード"
+  },
+  "pricing": {
+    "title": "プランを選択",
+    "subtitle": "あなたに合ったプランを見つけましょう",
+    "month": "/月",
+    "popular": "人気",
+    "earlyBird": "早期割引",
+    "earlyBirdDesc": "早期割引残り {{count}} 枠（${{price}}/月）",
+    "currentPlan": "現在のプラン",
+    "upgrade": "アップグレード",
+    "descriptions": {
+      "free": "個人利用や探索に最適。",
+      "pro": "日常的なライターやプロフェッショナル向け。",
+      "max": "パワーユーザーやチーム向け。"
+    },
+    "features": {
+      "free": [
+        "すべてのAI機能",
+        "チャット、インライン編集、自動補完",
+        "ナレッジベースとウェブ検索",
+        "100 MBストレージ",
+        "PDF / DOCX / Markdownエクスポート"
+      ],
+      "pro": [
+        "無料版のすべて",
+        "5倍のAI使用量",
+        "500 MBストレージ",
+        "14のプレミアムテーマ",
+        "限定アバターフレーム",
+        "優先サポート"
+      ],
+      "max": [
+        "Pro版のすべて",
+        "15倍のAI使用量",
+        "2 GBストレージ",
+        "アニメーションアバターフレーム",
+        "新機能への早期アクセス"
+      ]
+    }
+  },
+  "banner": {
+    "paymentFailed": "お支払いに失敗しました。お支払い方法を更新してください。",
+    "creditsExhausted": "今期のAIクレジットをすべて使い切りました。"
+  },
+  "success": {
+    "title": "お支払い完了！",
+    "processing": "処理中...",
+    "processingDesc": "サブスクリプションを有効化しています...",
+    "desc": "{{plan}}へようこそ！クレジットが更新されました。",
+    "creditsAvailable": "利用可能なクレジット",
+    "dismiss": "了解"
+  },
+  "errors": {
+    "portalFailed": "請求ポータルを開けませんでした",
+    "checkoutFailed": "チェックアウトを開始できませんでした"
+  }
+}

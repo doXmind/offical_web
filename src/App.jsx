@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Sidebar from './components/layout/Sidebar';
 import GlobalSearch from './components/search/GlobalSearch';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { BillingProvider } from './contexts/BillingContext';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { getAccessToken } from './api/client';
 
@@ -195,28 +196,30 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <ScrollToTop />
-        <Header sidebarOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} onSearchOpen={openSearch} />
-        <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-        <GlobalSearch open={searchOpen} onClose={closeSearch} />
-        <div className={`transition-[margin] duration-300 ease-out ${sidebarOpen ? 'lg:ml-56' : ''}`}>
-          <Suspense fallback={<div className="min-h-screen" />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/guide" element={<Guide />} />
-              <Route path="/changelog" element={<Changelog />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/cookies-privacy" element={<CookiesPrivacy />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/auth/callback" element={<Login />} />
-              <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </div>
+        <BillingProvider>
+          <ScrollToTop />
+          <Header sidebarOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} onSearchOpen={openSearch} />
+          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+          <GlobalSearch open={searchOpen} onClose={closeSearch} />
+          <div className={`transition-[margin] duration-300 ease-out ${sidebarOpen ? 'lg:ml-56' : ''}`}>
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/guide" element={<Guide />} />
+                <Route path="/changelog" element={<Changelog />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/cookies-privacy" element={<CookiesPrivacy />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/auth/callback" element={<Login />} />
+                <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </div>
+        </BillingProvider>
       </AuthProvider>
     </Router>
   );

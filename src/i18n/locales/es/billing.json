@@ -1,0 +1,85 @@
+{
+  "plan": {
+    "title": "Tu plan",
+    "free": "Gratis",
+    "pro": "Pro",
+    "max": "Max"
+  },
+  "status": {
+    "active": "Activo",
+    "pastDue": "Vencido",
+    "canceled": "Cancelado"
+  },
+  "credits": {
+    "title": "Créditos IA",
+    "remaining": "{{percent}}% restante",
+    "resetOn": "Se restablece el {{date}}",
+    "exhausted": "Créditos agotados"
+  },
+  "storage": {
+    "title": "Almacenamiento",
+    "used": "{{percent}}% usado"
+  },
+  "renewsOn": "Se renueva el {{date}}",
+  "actions": {
+    "upgrade": "Mejorar plan",
+    "choosePlan": "Elegir plan",
+    "manageSub": "Gestionar suscripción",
+    "upgradeNow": "Mejorar ahora"
+  },
+  "pricing": {
+    "title": "Elige tu plan",
+    "subtitle": "Encuentra el plan que mejor se adapte a ti",
+    "month": "/mes",
+    "popular": "Popular",
+    "earlyBird": "Early Bird",
+    "earlyBirdDesc": "{{count}} plazas early bird restantes a ${{price}}/mes",
+    "currentPlan": "Plan actual",
+    "upgrade": "Mejorar",
+    "descriptions": {
+      "free": "Para uso personal y exploración.",
+      "pro": "Para escritores regulares y profesionales.",
+      "max": "Para usuarios avanzados y equipos."
+    },
+    "features": {
+      "free": [
+        "Todas las funciones de IA",
+        "Chat, edición en línea, autocompletado",
+        "Base de conocimientos y búsqueda web",
+        "100 MB de almacenamiento",
+        "Exportación PDF / DOCX / Markdown"
+      ],
+      "pro": [
+        "Todo lo de Gratis",
+        "5x más uso de IA",
+        "500 MB de almacenamiento",
+        "14 temas premium",
+        "Marcos de avatar exclusivos",
+        "Soporte prioritario"
+      ],
+      "max": [
+        "Todo lo de Pro",
+        "15x más uso de IA",
+        "2 GB de almacenamiento",
+        "Marcos de avatar animados",
+        "Acceso anticipado a nuevas funciones"
+      ]
+    }
+  },
+  "banner": {
+    "paymentFailed": "Error en el pago. Actualiza tu método de pago.",
+    "creditsExhausted": "Has usado todos tus créditos de IA en este período."
+  },
+  "success": {
+    "title": "¡Pago exitoso!",
+    "processing": "Procesando...",
+    "processingDesc": "Tu suscripción se está activando...",
+    "desc": "¡Bienvenido a {{plan}}! Tus créditos han sido actualizados.",
+    "creditsAvailable": "créditos disponibles",
+    "dismiss": "Entendido"
+  },
+  "errors": {
+    "portalFailed": "No se pudo abrir el portal de facturación",
+    "checkoutFailed": "No se pudo iniciar el pago"
+  }
+}

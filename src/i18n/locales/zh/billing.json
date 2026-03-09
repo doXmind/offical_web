@@ -1,0 +1,85 @@
+{
+  "plan": {
+    "title": "你的计划",
+    "free": "免费版",
+    "pro": "专业版",
+    "max": "旗舰版"
+  },
+  "status": {
+    "active": "活跃",
+    "pastDue": "逾期",
+    "canceled": "已取消"
+  },
+  "credits": {
+    "title": "AI 额度",
+    "remaining": "剩余 {{percent}}%",
+    "resetOn": "{{date}} 重置",
+    "exhausted": "额度已用尽"
+  },
+  "storage": {
+    "title": "存储空间",
+    "used": "已使用 {{percent}}%"
+  },
+  "renewsOn": "{{date}} 续费",
+  "actions": {
+    "upgrade": "升级计划",
+    "choosePlan": "选择计划",
+    "manageSub": "管理订阅",
+    "upgradeNow": "立即升级"
+  },
+  "pricing": {
+    "title": "选择你的计划",
+    "subtitle": "选择最适合你的方案",
+    "month": "/月",
+    "popular": "热门",
+    "earlyBird": "早鸟优惠",
+    "earlyBirdDesc": "还剩 {{count}} 个早鸟名额，仅 ${{price}}/月",
+    "currentPlan": "当前计划",
+    "upgrade": "升级",
+    "descriptions": {
+      "free": "适合个人使用和探索。",
+      "pro": "适合日常写作者和专业人士。",
+      "max": "适合重度用户和团队。"
+    },
+    "features": {
+      "free": [
+        "所有 AI 功能",
+        "对话、行内编辑、自动补全",
+        "知识库与网络搜索",
+        "100 MB 存储空间",
+        "PDF / DOCX / Markdown 导出"
+      ],
+      "pro": [
+        "包含免费版所有功能",
+        "5 倍 AI 使用量",
+        "500 MB 存储空间",
+        "14 款高级主题",
+        "专属头像框",
+        "优先支持"
+      ],
+      "max": [
+        "包含专业版所有功能",
+        "15 倍 AI 使用量",
+        "2 GB 存储空间",
+        "动态头像框",
+        "抢先体验新功能"
+      ]
+    }
+  },
+  "banner": {
+    "paymentFailed": "付款失败，请更新你的支付方式。",
+    "creditsExhausted": "本期 AI 额度已用完。"
+  },
+  "success": {
+    "title": "付款成功！",
+    "processing": "处理中...",
+    "processingDesc": "正在激活你的订阅...",
+    "desc": "欢迎使用 {{plan}}！你的额度已更新。",
+    "creditsAvailable": "可用额度",
+    "dismiss": "知道了"
+  },
+  "errors": {
+    "portalFailed": "无法打开账单管理页面",
+    "checkoutFailed": "无法开始结账"
+  }
+}

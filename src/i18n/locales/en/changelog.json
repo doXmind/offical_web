@@ -17,94 +17,166 @@
     "fixed": "Fixed"
   },
   "releases": {
-    "v0_6": {
-      "title": "Presentation & Polish",
-      "summary": "Present your documents as beautiful slide decks, plus a redesigned landing page, a dedicated help center, and dark mode refinements across the board.",
+    "v1_0": {
+      "title": "Subscriptions & Premium",
+      "summary": "Introducing paid plans, premium themes, avatar frames, and a usage dashboard — plus a new official domain.",
       "added": [
-        "Presentation Mode — full-screen slide view that splits documents by delimiter, with keyboard and swipe navigation",
-        "Marketing Landing Page — redesigned demo page as a proper marketing landing with inline text color support",
-        "Help Page — new help center with typography settings (font, line height, etc.) that sync across the editor and presentation mode",
-        "Shared Document Outline — outline sidebar in the shared document view with auto-hiding scrollbars",
-        "Dark Mode enhancements — global dark theme refinements for a more consistent visual experience"
+        "Subscription Plans — choose from Free, Pro, or Max with easy online payment",
+        "AI Credits — track your AI usage with a clear credit balance and storage limits per plan",
+        "Premium Themes — unlock 8 beautiful color themes like Champagne Gold and Lavender Mist",
+        "Avatar Frames — animated profile frames for Pro and Max subscribers",
+        "Usage Dashboard — visual charts showing your AI usage and remaining credits",
+        "Thinking Mode — AI takes extra time to reason through complex requests for better answers",
+        "Chat Regenerate & Edit — retry AI responses, or edit and resend your previous messages"
+      ],
+      "improved": [
+        "Faster, more affordable web search powered by Google",
+        "New official address: app.doxmind.com",
+        "Activity dashboard now tracks characters written instead of edit count"
       ],
       "fixed": [
-        "Home dashboard scrolling issue caused by incorrect FlexBox layout",
-        "Dropdown sub-menu hover states not responding correctly",
-        "Heroku Redis self-signed SSL certificate compatibility in the rate limiter"
+        "Subscription not activating after payment in some cases",
+        "Usage chart showing incorrect numbers",
+        "AI edits sometimes applied to the wrong part of the document"
+      ]
+    },
+    "v0_9": {
+      "title": "Multilingual, Email Signup & Social",
+      "summary": "Full Chinese and English interface, email registration, social features like follows and notifications, and a China server for faster access.",
+      "added": [
+        "Multilingual Interface — full Chinese and English support across the entire app",
+        "Email Registration — sign up with email, verify with a code, and recover your password",
+        "More Secure Sessions — login stays active longer while keeping your account safe",
+        "Social Features — follow other users, get real-time notifications, and react to shared documents with emoji",
+        "China Server — dedicated server in China for faster access",
+        "Inline AI Assistant — quick AI edits right where you're writing"
+      ],
+      "improved": [
+        "Smarter document search for the AI assistant",
+        "Better mobile popups and bottom sheets"
+      ]
+    },
+    "v0_8": {
+      "title": "New Editor & Themes",
+      "summary": "A faster, more powerful editor with 8 beautiful themes, click-to-edit blocks, precise change tracking, and an AI assistant that works across all your documents.",
+      "added": [
+        "Faster Editor Engine — upgraded for better performance, smoother typing, and more reliable saving",
+        "8 Writer Themes — 4 light and 4 dark themes to match your mood, with automatic dark mode switching",
+        "Click-to-Edit Blocks — click on images, formulas, or diagrams to edit them in place with a handy toolbar",
+        "Precise Change Tracking — see exactly which words changed with live preview as AI edits your document",
+        "Cross-Document AI — ask the AI assistant questions across all your documents at once",
+        "AI Usage Breakdown — see how much AI you're using across chat, autocomplete, editing, and more",
+        "AI Slide Simplification — automatically condense long documents into concise presentation slides"
+      ],
+      "improved": [
+        "Smarter AI editing that makes more precise, targeted changes",
+        "More AI model options to choose from"
+      ]
+    },
+    "v0_7": {
+      "title": "Community Hub",
+      "summary": "Discover and share documents in a new community feed, with comments, bookmarks, user profiles, personalized recommendations, and diagram support.",
+      "added": [
+        "Community Page — browse, comment on, bookmark, and remix documents shared by others",
+        "User Profiles — personal pages with bio, social links, and your published documents",
+        "For You Recommendations — personalized document suggestions based on your interests",
+        "Redesigned Feed — a modern, animated feed with tabs for trending, latest, and recommendations",
+        "Diagram Support — create flowcharts, sequence diagrams, and more directly in your documents",
+        "Folder Sharing — share an entire folder of documents with a single link",
+        "Edit After Publishing — update the title, description, and tags of shared documents anytime"
+      ],
+      "improved": [
+        "Faster, more reliable servers with better uptime",
+        "Documents load faster with smart on-demand loading"
+      ]
+    },
+    "v0_6": {
+      "title": "Presentation Mode",
+      "summary": "Present your documents as full-screen slideshows, plus a new help center and dark mode improvements.",
+      "added": [
+        "Presentation Mode — turn any document into a full-screen slideshow with keyboard and swipe navigation",
+        "New Landing Page — a redesigned homepage showcasing doXmind's features",
+        "Help Center — learn about all features with customizable font and layout settings",
+        "Shared Document Outline — a table of contents sidebar when reading shared documents",
+        "Dark Mode Improvements — smoother, more consistent dark theme across the app"
+      ],
+      "fixed": [
+        "Dashboard not scrolling properly on some screens",
+        "Dropdown menus not highlighting on hover",
+        "Connection issues with some server configurations"
       ]
     },
     "v0_5": {
       "title": "Block Editor & Onboarding",
-      "summary": "A richer, more intuitive editing experience with Notion-style block handles, an interactive onboarding tour for new users, and fine-grained typography controls.",
+      "summary": "A richer editing experience with drag-and-drop blocks, an interactive welcome tour, and customizable fonts.",
       "added": [
-        "Notion-style Block Handles — drag handles for blocks, row and column controls for tables, and a unified header layout",
-        "Interactive Onboarding Tour — step-by-step guided walkthrough that introduces key features to new users",
-        "Typography Settings — configurable font family, size, and line height for a personalized writing environment",
-        "Trash System — soft-delete files to a recoverable trash bin instead of permanent deletion",
-        "S3 Image Upload — images are now uploaded to S3 object storage for reliable hosting",
-        "Rich Editor Blocks — new block types including horizontal rules, callouts, and more",
-        "Resizable Panels & Focus Mode — drag to resize side panels, plus a distraction-free focus writing mode",
-        "Design Refresh — updated visual language across the entire application"
+        "Drag-and-Drop Blocks — grab and reorder any block, plus row and column controls for tables",
+        "Welcome Tour — an interactive step-by-step guide for new users",
+        "Custom Fonts — choose your preferred font, size, and line spacing",
+        "Trash Bin — deleted files go to a recoverable trash instead of being permanently removed",
+        "Cloud Image Hosting — images are now stored reliably in the cloud",
+        "New Content Blocks — callout boxes, dividers, and more to enrich your documents",
+        "Resizable Panels & Focus Mode — drag to resize sidebars, plus a distraction-free writing mode",
+        "Visual Refresh — updated look and feel across the entire app"
       ],
       "improved": [
-        "Backend hardening — security and stability improvements across server infrastructure"
+        "Better server stability and security"
       ]
     },
     "v0_4": {
-      "title": "Editor Intelligence & File Organization",
-      "summary": "A smarter editor powered by agentic RAG, a redesigned diff review experience, folder organization, math support, and adaptive autocomplete modes.",
+      "title": "Smart Editor & File Organization",
+      "summary": "AI that answers questions across all your documents, folder organization, math formula support, and smart autocomplete.",
       "added": [
-        "KB Agent (Agentic RAG) — a new Knowledge Base agent that performs intelligent cross-document Q&A and retrieval",
-        "Diff Review Redesign — Apple HIG-inspired review interface with hunk navigation and focus highlighting",
-        "Folder System — single-level folders with drag-and-drop sorting, multi-select operations, and file categorization",
-        "Math Support — inline and block-level math formula menus with improved LaTeX input rules",
-        "Adaptive Autocomplete — three completion modes (short, long, and adaptive) with RAG-powered context assembly",
-        "URL-based File Routing — file navigation via URL paths, cross-page drag-and-drop, and editor save reliability fixes"
+        "Ask AI Across Documents — ask questions and get answers that draw from all your files",
+        "Improved Change Review — easily navigate and approve or reject AI-suggested changes one by one",
+        "Folders — organize your files into folders with drag-and-drop",
+        "Math Formulas — write inline and block-level math equations with LaTeX",
+        "Smart Autocomplete — three modes (quick, detailed, and adaptive) that suggest text as you write",
+        "Shareable File Links — each file has its own URL for easy sharing and bookmarking"
       ],
       "improved": [
-        "Replaced insert_text with paragraph-level precision navigation and structured editing feedback",
-        "Extracted modular Chat component library from monolithic AI components",
-        "Codebase-wide formatting with Prettier and Tailwind class sorting"
+        "More precise AI text editing",
+        "Smoother, faster chat experience",
+        "Cleaner, more consistent interface"
       ]
     },
     "v0_3": {
       "title": "Security, Mobile & Dashboard",
-      "summary": "Bring your own API key, a brand-new home dashboard, mobile editing support, and significant authentication hardening.",
+      "summary": "Use your own AI key, a new home dashboard, mobile editing, and stronger account security.",
       "added": [
-        "Bring Your Own Key (BYOK) — manage your own API keys with encrypted storage, validation, and security safeguards",
-        "Home Dashboard — a new landing experience with auth-aware routing, portal dropdown menus, and animated text effects",
-        "Mobile Editor — responsive editing mode switching, scroll-spy outline navigation, and improved file rename UX",
-        "Auth Hardening — comprehensive security improvements across the authentication flow"
+        "Bring Your Own API Key — use your own AI provider key for custom model access",
+        "Home Dashboard — a new home page showing all your recent files at a glance",
+        "Mobile Editing — edit documents on your phone with a responsive layout and outline navigation",
+        "Stronger Security — improved login and session protection"
       ],
       "improved": [
-        "Decomposed monolithic modules, removed unused code, and improved overall maintainability"
+        "Cleaner codebase for faster performance"
       ]
     },
     "v0_2": {
-      "title": "Platform Infrastructure",
-      "summary": "Foundational platform capabilities — data file support, a demo mode for showcasing the product, and a proper database migration system.",
+      "title": "Platform Foundation",
+      "summary": "Upload data files, try the product in demo mode, and reliable behind-the-scenes updates.",
       "added": [
-        "Data Files & Code Execution — upload data files and run code against them directly in the platform",
-        "Demo Mode — simulated AI responses for product demonstrations and walkthroughs",
-        "Alembic Migration System — structured database migration framework for reliable schema evolution"
+        "Data File Upload — upload CSV, Excel, and JSON files to analyze with AI",
+        "Demo Mode — try out AI features without signing up",
+        "Reliable Updates — a new system to ensure smooth feature rollouts"
       ]
     },
     "v0_1": {
-      "title": "Search & RAG Overhaul",
-      "summary": "The foundation of doXmind — a hybrid search engine combining keyword and vector retrieval, parallel embeddings, and the first iteration of the skills system.",
+      "title": "Intelligent Search",
+      "summary": "The foundation of doXmind — powerful search combining keyword and AI-powered matching, writing skills, and file favorites.",
       "added": [
-        "Hybrid Search (RRF Fusion) — search engine combining keyword and vector retrieval with Reciprocal Rank Fusion scoring",
-        "Knowledge Base Hybrid Search — the same powerful hybrid retrieval applied to your uploaded documents",
-        "Parallel Batch Embedding — vectorization runs in parallel batches with automatic retry logic",
-        "History Compression — chat history compression with content-hash deduplication to reduce token usage",
-        "Skills System — reorganized skill architecture with a new legal case search skill",
-        "File Summaries & Favorites — generate summaries for files and mark important ones as favorites",
-        "Token Usage Tracking — monitor token consumption per conversation with soft-delete for messages",
-        "Search Evaluation — offline relevance evaluation scripts for continuous search quality testing"
+        "Powerful Search — find anything instantly with combined keyword and AI-powered search",
+        "Search Your Documents — the same powerful search works across all your uploaded files",
+        "Faster Indexing — documents are indexed in parallel for near-instant searchability",
+        "Smarter Chat Memory — longer conversations without losing context or slowing down",
+        "Writing Skills — built-in writing aids including legal case lookup",
+        "File Summaries & Favorites — auto-generate file summaries and mark important files",
+        "Usage Tracking — monitor your AI usage per conversation"
       ],
       "improved": [
-        "CJK font support in PDF exports for Chinese, Japanese, and Korean documents",
-        "Refined search result type definitions for better downstream handling"
+        "Better PDF export for Chinese, Japanese, and Korean documents",
+        "More accurate search results"
       ]
     }
   }

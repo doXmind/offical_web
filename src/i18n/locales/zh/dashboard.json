@@ -32,7 +32,7 @@
     "totalLabel": "总 {{metric}}",
     "metrics": {
       "ai_requests": "AI 请求",
-      "tokens": "Token",
+      "tokens": "AI 用量",
       "characters": "字符"
     },
     "stats": {

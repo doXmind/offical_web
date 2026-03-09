@@ -1,4 +1,8 @@
 export const releases = [
+  { version: "1.0", date: "2026-03-08", highlight: true, categories: ["added", "improved", "fixed"] },
+  { version: "0.9", date: "2026-03-03", highlight: false, categories: ["added", "improved"] },
+  { version: "0.8", date: "2026-02-27", highlight: false, categories: ["added", "improved"] },
+  { version: "0.7", date: "2026-02-20", highlight: false, categories: ["added", "improved"] },
   { version: "0.6", date: "2026-02-13", highlight: false, categories: ["added", "fixed"] },
   { version: "0.5", date: "2026-02-12", highlight: false, categories: ["added", "improved"] },
   { version: "0.4", date: "2026-02-10", highlight: true, categories: ["added", "improved"] },

@@ -2,7 +2,7 @@
   "titleBar": "Document de demo — doXmind",
 
   "chat": {
-    "aiAssistant": "Assistant IA",
+    "aiAssistant": "doXmind AI",
     "demo": "Demo",
     "userMessage": "Rendre l'introduction plus percutante et corriger les erreurs de grammaire",
     "analyzingDocument": "Analyse du document",
@@ -200,7 +200,7 @@
   },
 
   "miniChat": {
-    "aiAssistant": "Assistant IA",
+    "aiAssistant": "doXmind AI",
     "demo": "Démo",
     "userMessage": "Rendre l'introduction plus percutante et corriger les erreurs de grammaire",
     "analyzingDocument": "Analyse du document",

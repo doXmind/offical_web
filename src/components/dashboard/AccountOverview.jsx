@@ -2,9 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { getAccessToken } from '../../api/client';
+import { useBilling } from '../../contexts/BillingContext';
 
 export default function AccountOverview({ user }) {
   const { t } = useTranslation('dashboard');
+  const { t: tBilling } = useTranslation('billing');
+  const { plan } = useBilling();
 
   function openEditor() {
     const token = getAccessToken();
@@ -41,9 +44,16 @@ export default function AccountOverview({ user }) {
 
       {/* Info */}
       <div className="flex-1 min-w-0">
-        <h2 className="text-lg font-semibold text-white truncate">
-          {user.username || user.email}
-        </h2>
+        <div className="flex items-center gap-2">
+          <h2 className="text-lg font-semibold text-white truncate">
+            {user.username || user.email}
+          </h2>
+          {plan && (
+            <span className="rounded-full px-2 py-0.5 text-[10px] font-medium bg-white/[0.06] text-white/50 uppercase tracking-wider shrink-0">
+              {tBilling(`plan.${plan}`)}
+            </span>
+          )}
+        </div>
         <p className="text-sm text-white/40 truncate">{user.email}</p>
         {memberDate && (
           <p className="text-xs text-white/20 mt-1">

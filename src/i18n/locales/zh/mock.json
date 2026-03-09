@@ -2,7 +2,7 @@
   "titleBar": "演示文档 — doXmind",
 
   "chat": {
-    "aiAssistant": "AI 助手",
+    "aiAssistant": "doXmind AI",
     "demo": "演示",
     "userMessage": "让引言更引人入胜并修正语法问题",
     "analyzingDocument": "正在分析文档",
@@ -200,7 +200,7 @@
   },
 
   "miniChat": {
-    "aiAssistant": "AI 助手",
+    "aiAssistant": "doXmind AI",
     "demo": "演示",
     "userMessage": "让引言更引人入胜并修正语法问题",
     "analyzingDocument": "正在分析文档",
