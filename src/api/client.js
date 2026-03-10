@@ -1,4 +1,5 @@
-const API_BASE = import.meta.env.VITE_API_BASE || '';
+import { getApiBase } from '../config/region';
+
 const TOKEN_KEY = 'doxmind_access_token';
 
 let accessToken = null;
@@ -74,7 +75,7 @@ async function refreshAccessToken() {
   if (refreshPromise) return refreshPromise;
 
   refreshPromise = (async () => {
-    const res = await fetch(`${API_BASE}/api/auth/refresh`, {
+    const res = await fetch(`${getApiBase()}/api/auth/refresh`, {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -98,7 +99,8 @@ async function refreshAccessToken() {
 }
 
 export async function apiClient(endpoint, options = {}) {
-  const url = `${API_BASE}${endpoint}`;
+  const apiBase = getApiBase();
+  const url = `${apiBase}${endpoint}`;
   const headers = { ...options.headers };
 
   if (!(options.body instanceof FormData)) {

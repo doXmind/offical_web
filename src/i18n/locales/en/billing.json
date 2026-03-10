@@ -66,6 +66,11 @@
       ]
     }
   },
+  "planFeatures": {
+    "free": ["All AI features", "100 MB storage", "PDF / DOCX / Markdown export", "Knowledge base & web search"],
+    "pro": ["5x more AI usage", "500 MB storage", "14 premium themes", "Priority support"],
+    "max": ["15x more AI usage", "2 GB storage", "Animated avatar frames", "Early access to new features"]
+  },
   "banner": {
     "paymentFailed": "Payment failed. Please update your payment method.",
     "creditsExhausted": "You've used all your AI credits for this period."

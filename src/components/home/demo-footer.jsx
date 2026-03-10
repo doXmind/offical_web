@@ -2,6 +2,8 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import CookiePreferences from "../ui/CookiePreferences";
+import { getAppBase, getRegion, isCnRegion } from "../../config/region";
+import { useRegion } from "../../contexts/RegionContext";
 
 /* ── SVG icon components ── */
 
@@ -293,6 +295,34 @@ function LanguageSelector() {
   );
 }
 
+/* ── Region switcher ── */
+
+function RegionSwitcher() {
+  const { t } = useTranslation();
+  const { switchRegion } = useRegion();
+  const currentIsCn = isCnRegion();
+
+  function handleSwitch() {
+    switchRegion(currentIsCn ? 'global' : 'cn');
+  }
+
+  return (
+    <button
+      onClick={handleSwitch}
+      className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 text-[13px] text-white/50 transition-colors duration-200 hover:border-white/15 hover:text-white/70"
+      title={currentIsCn ? t('region.switcher.global') : t('region.switcher.cn')}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      <span className="font-medium text-white/70">
+        {currentIsCn ? t('region.switcher.cn') : t('region.switcher.global')}
+      </span>
+    </button>
+  );
+}
+
 /* ── Main footer component ── */
 
 export function DemoFooter() {
@@ -307,7 +337,7 @@ export function DemoFooter() {
         { label: t('footer.columns.product.aiChat'), href: "/guide#chat" },
         { label: t('footer.columns.product.knowledgeBase'), href: "/guide#knowledge-base" },
         { label: t('footer.columns.product.presentationMode'), href: "/guide#presentation" },
-        { label: t('footer.columns.product.download'), href: "https://app.doxmind.com/", external: true },
+        { label: t('footer.columns.product.download'), href: `${getAppBase()}/`, external: true },
       ],
     },
     {
@@ -316,7 +346,7 @@ export function DemoFooter() {
         { label: t('footer.columns.resources.guide'), href: "/guide" },
         { label: t('footer.columns.resources.helpCenter'), href: "/guide#getting-started" },
         { label: t('footer.columns.resources.changelog'), href: "/changelog" },
-        { label: t('footer.columns.resources.getStarted'), href: "https://app.doxmind.com/", external: true },
+        { label: t('footer.columns.resources.getStarted'), href: `${getAppBase()}/`, external: true },
       ],
     },
     {
@@ -391,8 +421,11 @@ export function DemoFooter() {
             </button>
           </div>
 
-          {/* Language selector */}
-          <LanguageSelector />
+          {/* Region + Language selectors */}
+          <div className="flex items-center gap-3">
+            <RegionSwitcher />
+            <LanguageSelector />
+          </div>
         </div>
       </div>
       <CookiePreferences open={cookieModalOpen} onClose={() => setCookieModalOpen(false)} />

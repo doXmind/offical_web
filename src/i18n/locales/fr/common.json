@@ -113,6 +113,18 @@
     },
     "done": "Terminer"
   },
+  "region": {
+    "banner": {
+      "suggestCn": "Il semble que vous soyez en Chine. Passez à notre site chinois pour une expérience plus rapide.",
+      "suggestGlobal": "Vous êtes sur le site chinois. Passez au site global pour l'expérience standard.",
+      "switch": "Changer",
+      "dismiss": "Fermer"
+    },
+    "switcher": {
+      "cn": "Chine",
+      "global": "Global"
+    }
+  },
   "seo": {
     "home": {
       "title": "doXmind - Editeur de bureau natif IA pour l'analyse de donnees",

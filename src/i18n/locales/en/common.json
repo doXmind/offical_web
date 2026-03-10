@@ -113,6 +113,18 @@
     },
     "done": "Done"
   },
+  "region": {
+    "banner": {
+      "suggestCn": "It looks like you're in China. Switch to our China site for a faster experience.",
+      "suggestGlobal": "You're on the China site. Switch to the global site for the standard experience.",
+      "switch": "Switch",
+      "dismiss": "Dismiss"
+    },
+    "switcher": {
+      "cn": "China",
+      "global": "Global"
+    }
+  },
   "seo": {
     "home": {
       "title": "doXmind - AI-Native Desktop Editor for Data Analysis",

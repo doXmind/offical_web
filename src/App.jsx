@@ -6,8 +6,11 @@ import Sidebar from './components/layout/Sidebar';
 import GlobalSearch from './components/search/GlobalSearch';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { BillingProvider } from './contexts/BillingContext';
+import { RegionProvider, useRegion } from './contexts/RegionContext';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { getAccessToken } from './api/client';
+import { getAppBase, isCnRegion } from './config/region';
+import RegionBanner from './components/ui/RegionBanner';
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
@@ -95,8 +98,8 @@ function UserMenu() {
               setOpen(false);
               const token = getAccessToken();
               const url = token
-                ? `https://app.doxmind.com/auth/callback?token=${encodeURIComponent(token)}`
-                : 'https://app.doxmind.com/';
+                ? `${getAppBase()}/auth/callback?token=${encodeURIComponent(token)}`
+                : `${getAppBase()}/`;
               window.open(url, '_blank', 'noopener,noreferrer');
             }}
             className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-sm text-white/60 hover:text-white hover:bg-white/[0.04] transition-colors"
@@ -117,6 +120,26 @@ function UserMenu() {
         </div>
       )}
     </div>
+  );
+}
+
+function HeaderRegionSwitcher() {
+  const { t } = useTranslation();
+  const { switchRegion } = useRegion();
+  const currentIsCn = isCnRegion();
+
+  return (
+    <button
+      onClick={() => switchRegion(currentIsCn ? 'global' : 'cn')}
+      className="flex items-center gap-1.5 rounded-md px-2 py-1 text-[12px] text-white/40 transition-colors hover:bg-white/[0.06] hover:text-white/70"
+      title={currentIsCn ? t('region.switcher.global') : t('region.switcher.cn')}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      <span className="font-medium">{currentIsCn ? t('region.switcher.cn') : t('region.switcher.global')}</span>
+    </button>
   );
 }
 
@@ -149,6 +172,7 @@ function Header({ sidebarOpen, onToggle, onSearchOpen }) {
           </button>
         </div>
         <div className="flex items-center gap-5">
+          <HeaderRegionSwitcher />
           <button
             onClick={onSearchOpen}
             className="flex items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
@@ -195,32 +219,35 @@ function App() {
 
   return (
     <Router>
-      <AuthProvider>
-        <BillingProvider>
-          <ScrollToTop />
-          <Header sidebarOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} onSearchOpen={openSearch} />
-          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-          <GlobalSearch open={searchOpen} onClose={closeSearch} />
-          <div className={`transition-[margin] duration-300 ease-out ${sidebarOpen ? 'lg:ml-56' : ''}`}>
-            <Suspense fallback={<div className="min-h-screen" />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/team" element={<Team />} />
-                <Route path="/guide" element={<Guide />} />
-                <Route path="/changelog" element={<Changelog />} />
-                <Route path="/careers" element={<Careers />} />
-                <Route path="/cookies-privacy" element={<CookiesPrivacy />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/auth/callback" element={<Login />} />
-                <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </div>
-        </BillingProvider>
-      </AuthProvider>
+      <RegionProvider>
+        <AuthProvider>
+          <BillingProvider>
+            <ScrollToTop />
+            <RegionBanner />
+            <Header sidebarOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} onSearchOpen={openSearch} />
+            <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+            <GlobalSearch open={searchOpen} onClose={closeSearch} />
+            <div className={`transition-[margin] duration-300 ease-out ${sidebarOpen ? 'lg:ml-56' : ''}`}>
+              <Suspense fallback={<div className="min-h-screen" />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/team" element={<Team />} />
+                  <Route path="/guide" element={<Guide />} />
+                  <Route path="/changelog" element={<Changelog />} />
+                  <Route path="/careers" element={<Careers />} />
+                  <Route path="/cookies-privacy" element={<CookiesPrivacy />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/auth/callback" element={<Login />} />
+                  <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </div>
+          </BillingProvider>
+        </AuthProvider>
+      </RegionProvider>
     </Router>
   );
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import SEO from "../components/seo/SEO";
+import { getAppBase } from "../config/region";
 import { ChevronGrid } from "../components/home/chevron-grid";
 import { DemoFooter } from "../components/home/demo-footer";
 
@@ -245,7 +246,7 @@ export default function CookiesPrivacy() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://app.doxmind.com/"
+              href={`${getAppBase()}/`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"

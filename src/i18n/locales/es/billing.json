@@ -66,6 +66,11 @@
       ]
     }
   },
+  "planFeatures": {
+    "free": ["Todas las funciones de IA", "100 MB de almacenamiento", "Exportación PDF / DOCX / Markdown", "Base de conocimientos y búsqueda web"],
+    "pro": ["5x más uso de IA", "500 MB de almacenamiento", "14 temas premium", "Soporte prioritario"],
+    "max": ["15x más uso de IA", "2 GB de almacenamiento", "Marcos de avatar animados", "Acceso anticipado a nuevas funciones"]
+  },
   "banner": {
     "paymentFailed": "Error en el pago. Actualiza tu método de pago.",
     "creditsExhausted": "Has usado todos tus créditos de IA en este período."

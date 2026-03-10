@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Quote } from 'lucide-react';
 import SEO from '../components/seo/SEO';
+import { getAppBase } from '../config/region';
 import { ChevronGrid } from '../components/home/chevron-grid';
 import { DemoFooter } from '../components/home/demo-footer';
 
@@ -224,7 +225,7 @@ function CTASection() {
 
       <div className="relative z-10 flex flex-wrap items-center justify-center gap-3">
         <a
-          href="https://app.doxmind.com/"
+          href={`${getAppBase()}/`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"

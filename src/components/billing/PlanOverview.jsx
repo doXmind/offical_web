@@ -23,26 +23,7 @@ const STATUS_STYLES = {
   canceled: 'bg-red-500/10 text-red-400',
 };
 
-const PLAN_FEATURES = {
-  free: ['freeFeature1', 'freeFeature2', 'freeFeature3', 'freeFeature4'],
-  pro: ['proFeature1', 'proFeature2', 'proFeature3', 'proFeature4'],
-  max: ['maxFeature1', 'maxFeature2', 'maxFeature3', 'maxFeature4'],
-};
-
-const FEATURE_LABELS = {
-  freeFeature1: 'All AI features',
-  freeFeature2: '100 MB storage',
-  freeFeature3: 'PDF / DOCX / Markdown export',
-  freeFeature4: 'Knowledge base & web search',
-  proFeature1: '5x more AI usage',
-  proFeature2: '500 MB storage',
-  proFeature3: '14 premium themes',
-  proFeature4: 'Priority support',
-  maxFeature1: '15x more AI usage',
-  maxFeature2: '2 GB storage',
-  maxFeature3: 'Animated avatar frames',
-  maxFeature4: 'Early access to new features',
-};
+const PLAN_KEYS = ['free', 'pro', 'max'];
 
 export default function PlanOverview() {
   const { t } = useTranslation('billing');
@@ -177,12 +158,12 @@ export default function PlanOverview() {
       )}
 
       {/* Plan features */}
-      {PLAN_FEATURES[plan] && (
+      {PLAN_KEYS.includes(plan) && (
         <ul className="space-y-1.5">
-          {PLAN_FEATURES[plan].map((key) => (
-            <li key={key} className="flex items-center gap-2 text-sm text-white/50">
+          {t(`planFeatures.${plan}`, { returnObjects: true }).map((label, i) => (
+            <li key={i} className="flex items-center gap-2 text-sm text-white/50">
               <Check className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
-              {FEATURE_LABELS[key]}
+              {label}
             </li>
           ))}
         </ul>

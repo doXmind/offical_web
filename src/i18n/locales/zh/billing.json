@@ -66,6 +66,11 @@
       ]
     }
   },
+  "planFeatures": {
+    "free": ["所有 AI 功能", "100 MB 存储空间", "PDF / DOCX / Markdown 导出", "知识库与网络搜索"],
+    "pro": ["5 倍 AI 使用量", "500 MB 存储空间", "14 款高级主题", "优先支持"],
+    "max": ["15 倍 AI 使用量", "2 GB 存储空间", "动态头像框", "抢先体验新功能"]
+  },
   "banner": {
     "paymentFailed": "付款失败，请更新你的支付方式。",
     "creditsExhausted": "本期 AI 额度已用完。"

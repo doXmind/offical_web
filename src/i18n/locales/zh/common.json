@@ -113,6 +113,18 @@
     },
     "done": "完成"
   },
+  "region": {
+    "banner": {
+      "suggestCn": "检测到您位于中国大陆，切换到中国站点以获得更快的体验。",
+      "suggestGlobal": "您当前在中国站点。切换到全球站点以获得标准体验。",
+      "switch": "切换",
+      "dismiss": "关闭"
+    },
+    "switcher": {
+      "cn": "中国",
+      "global": "全球"
+    }
+  },
   "seo": {
     "home": {
       "title": "doXmind - AI 原生桌面编辑器，助力数据分析",

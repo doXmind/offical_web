@@ -19,8 +19,15 @@ export default defineConfig({
     host: true,
     port: 3000,
     proxy: {
+      '/cn/api': {
+        target: 'https://cn.api.doxmind.com',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/cn/, ''),
+        cookieDomainRewrite: { '*': '' },
+      },
       '/api': {
-        target: 'https://api.doxmind.com',
+        target: process.env.VITE_API_TARGET || 'https://api.doxmind.com',
         changeOrigin: true,
         secure: true,
         cookieDomainRewrite: { '*': '' },

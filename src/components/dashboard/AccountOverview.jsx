@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { getAccessToken } from '../../api/client';
+import { getAppBase } from '../../config/region';
 import { useBilling } from '../../contexts/BillingContext';
 
 export default function AccountOverview({ user }) {
@@ -12,8 +13,8 @@ export default function AccountOverview({ user }) {
   function openEditor() {
     const token = getAccessToken();
     const url = token
-      ? `https://app.doxmind.com/auth/callback?token=${encodeURIComponent(token)}`
-      : 'https://app.doxmind.com/';
+      ? `${getAppBase()}/auth/callback?token=${encodeURIComponent(token)}`
+      : `${getAppBase()}/`;
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 

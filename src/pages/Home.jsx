@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import SEO from '../components/seo/SEO';
+import { getAppBase } from '../config/region';
 import { MockEditorShowcase } from '../components/home/mock-editor-showcase';
 import { FeatureHighlights } from '../components/home/feature-highlights';
 import { WorkflowShowcase } from '../components/home/workflow-showcase';
@@ -50,7 +51,7 @@ const Home = () => {
             {/* Two CTAs side by side */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="https://app.doxmind.com/"
+                href={`${getAppBase()}/`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"
@@ -124,7 +125,7 @@ const Home = () => {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://app.doxmind.com/"
+              href={`${getAppBase()}/`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"
