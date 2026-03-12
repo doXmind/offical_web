@@ -16,6 +16,7 @@ import enAuth from './locales/en/auth.json';
 import enDashboard from './locales/en/dashboard.json';
 import enCareers from './locales/en/careers.json';
 import enBilling from './locales/en/billing.json';
+import enCompare from './locales/en/compare.json';
 
 // Chinese
 import zhCommon from './locales/zh/common.json';
@@ -31,6 +32,7 @@ import zhAuth from './locales/zh/auth.json';
 import zhDashboard from './locales/zh/dashboard.json';
 import zhCareers from './locales/zh/careers.json';
 import zhBilling from './locales/zh/billing.json';
+import zhCompare from './locales/zh/compare.json';
 
 // French
 import frCommon from './locales/fr/common.json';
@@ -46,6 +48,7 @@ import frAuth from './locales/fr/auth.json';
 import frDashboard from './locales/fr/dashboard.json';
 import frCareers from './locales/fr/careers.json';
 import frBilling from './locales/fr/billing.json';
+import frCompare from './locales/fr/compare.json';
 
 // Japanese
 import jaCommon from './locales/ja/common.json';
@@ -61,6 +64,7 @@ import jaAuth from './locales/ja/auth.json';
 import jaDashboard from './locales/ja/dashboard.json';
 import jaCareers from './locales/ja/careers.json';
 import jaBilling from './locales/ja/billing.json';
+import jaCompare from './locales/ja/compare.json';
 
 // Korean
 import koCommon from './locales/ko/common.json';
@@ -76,6 +80,7 @@ import koAuth from './locales/ko/auth.json';
 import koDashboard from './locales/ko/dashboard.json';
 import koCareers from './locales/ko/careers.json';
 import koBilling from './locales/ko/billing.json';
+import koCompare from './locales/ko/compare.json';
 
 // Spanish
 import esCommon from './locales/es/common.json';
@@ -91,22 +96,23 @@ import esAuth from './locales/es/auth.json';
 import esDashboard from './locales/es/dashboard.json';
 import esCareers from './locales/es/careers.json';
 import esBilling from './locales/es/billing.json';
+import esCompare from './locales/es/compare.json';
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
-      en: { common: enCommon, home: enHome, about: enAbout, team: enTeam, guide: enGuide, privacy: enPrivacy, notfound: enNotfound, changelog: enChangelog, mock: enMock, auth: enAuth, dashboard: enDashboard, careers: enCareers, billing: enBilling },
-      zh: { common: zhCommon, home: zhHome, about: zhAbout, team: zhTeam, guide: zhGuide, privacy: zhPrivacy, notfound: zhNotfound, changelog: zhChangelog, mock: zhMock, auth: zhAuth, dashboard: zhDashboard, careers: zhCareers, billing: zhBilling },
-      fr: { common: frCommon, home: frHome, about: frAbout, team: frTeam, guide: frGuide, privacy: frPrivacy, notfound: frNotfound, changelog: frChangelog, mock: frMock, auth: frAuth, dashboard: frDashboard, careers: frCareers, billing: frBilling },
-      ja: { common: jaCommon, home: jaHome, about: jaAbout, team: jaTeam, guide: jaGuide, privacy: jaPrivacy, notfound: jaNotfound, changelog: jaChangelog, mock: jaMock, auth: jaAuth, dashboard: jaDashboard, careers: jaCareers, billing: jaBilling },
-      ko: { common: koCommon, home: koHome, about: koAbout, team: koTeam, guide: koGuide, privacy: koPrivacy, notfound: koNotfound, changelog: koChangelog, mock: koMock, auth: koAuth, dashboard: koDashboard, careers: koCareers, billing: koBilling },
-      es: { common: esCommon, home: esHome, about: esAbout, team: esTeam, guide: esGuide, privacy: esPrivacy, notfound: esNotfound, changelog: esChangelog, mock: esMock, auth: esAuth, dashboard: esDashboard, careers: esCareers, billing: esBilling },
+      en: { common: enCommon, home: enHome, about: enAbout, team: enTeam, guide: enGuide, privacy: enPrivacy, notfound: enNotfound, changelog: enChangelog, mock: enMock, auth: enAuth, dashboard: enDashboard, careers: enCareers, billing: enBilling, compare: enCompare },
+      zh: { common: zhCommon, home: zhHome, about: zhAbout, team: zhTeam, guide: zhGuide, privacy: zhPrivacy, notfound: zhNotfound, changelog: zhChangelog, mock: zhMock, auth: zhAuth, dashboard: zhDashboard, careers: zhCareers, billing: zhBilling, compare: zhCompare },
+      fr: { common: frCommon, home: frHome, about: frAbout, team: frTeam, guide: frGuide, privacy: frPrivacy, notfound: frNotfound, changelog: frChangelog, mock: frMock, auth: frAuth, dashboard: frDashboard, careers: frCareers, billing: frBilling, compare: frCompare },
+      ja: { common: jaCommon, home: jaHome, about: jaAbout, team: jaTeam, guide: jaGuide, privacy: jaPrivacy, notfound: jaNotfound, changelog: jaChangelog, mock: jaMock, auth: jaAuth, dashboard: jaDashboard, careers: jaCareers, billing: jaBilling, compare: jaCompare },
+      ko: { common: koCommon, home: koHome, about: koAbout, team: koTeam, guide: koGuide, privacy: koPrivacy, notfound: koNotfound, changelog: koChangelog, mock: koMock, auth: koAuth, dashboard: koDashboard, careers: koCareers, billing: koBilling, compare: koCompare },
+      es: { common: esCommon, home: esHome, about: esAbout, team: esTeam, guide: esGuide, privacy: esPrivacy, notfound: esNotfound, changelog: esChangelog, mock: esMock, auth: esAuth, dashboard: esDashboard, careers: esCareers, billing: esBilling, compare: esCompare },
     },
     fallbackLng: 'en',
     defaultNS: 'common',
-    ns: ['common', 'home', 'about', 'team', 'guide', 'privacy', 'notfound', 'changelog', 'mock', 'auth', 'dashboard', 'careers', 'billing'],
+    ns: ['common', 'home', 'about', 'team', 'guide', 'privacy', 'notfound', 'changelog', 'mock', 'auth', 'dashboard', 'careers', 'billing', 'compare'],
     interpolation: {
       escapeValue: false,
     },

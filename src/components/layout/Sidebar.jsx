@@ -13,6 +13,7 @@ export default function Sidebar({ open, onClose }) {
     { path: "/about", label: t('nav.about') },
     { path: "/team", label: t('nav.team') },
     { path: "/careers", label: t('nav.careers') },
+    { path: "/compare", label: t('nav.compare') },
     { path: "/guide", label: t('nav.guide') },
     { path: "/changelog", label: t('nav.changelog') },
     ...(isAuthenticated ? [{ path: "/dashboard", label: t('nav.dashboard') }] : []),

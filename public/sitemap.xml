@@ -19,6 +19,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://doxmind.com/compare</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://doxmind.com/guide</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>

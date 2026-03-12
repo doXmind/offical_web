@@ -1,0 +1,159 @@
+{
+  "hero": {
+    "badge": "Compare",
+    "heading": "doXmind vs Notion vs Google Docs",
+    "subtitle": "See how an AI-native editor compares to traditional document tools."
+  },
+  "overview": {
+    "heading": "Three tools, three philosophies",
+    "subtitle": "Each product excels in different areas. Here is an honest look at what each one does best.",
+    "doxmind": {
+      "label": "doXmind",
+      "tagline": "AI-native writing editor",
+      "points": [
+        "Agent-level AI built into every layer of the editor",
+        "Knowledge base with agentic search — AI cites your sources",
+        "From rough draft to polished presentation in one tool",
+        "Thinking mode with visible chain-of-thought reasoning"
+      ]
+    },
+    "notion": {
+      "label": "Notion",
+      "tagline": "Workspace + wiki + project management",
+      "points": [
+        "Powerful database views and project management",
+        "Flexible workspace with pages, wikis, and boards",
+        "Large ecosystem of templates and integrations",
+        "AI add-on available ($20/mo), non-agent level"
+      ]
+    },
+    "googleDocs": {
+      "label": "Google Docs",
+      "tagline": "Collaborative word processor",
+      "points": [
+        "Best-in-class real-time collaboration",
+        "Deeply integrated with Google Workspace ecosystem",
+        "Familiar interface with broad adoption",
+        "Gemini AI available as workspace add-on"
+      ]
+    }
+  },
+  "table": {
+    "heading": "Feature-by-feature comparison",
+    "subtitle": "A detailed look at how each tool handles writing, AI, knowledge management, and more.",
+    "feature": "Feature",
+    "categories": {
+      "aiWriting": "AI Writing & Editing",
+      "knowledge": "Knowledge & Research",
+      "dataStructure": "Data & Structure",
+      "presentationOutput": "Presentation & Output"
+    },
+    "features": {
+      "aiChat": {
+        "name": "AI Chat Assistant",
+        "doxmind": "Built-in, document-aware, agent-level",
+        "notion": "Add-on ($20/mo), non-agent",
+        "googleDocs": "Gemini (Workspace add-on)"
+      },
+      "aiThinking": {
+        "name": "AI Thinking Mode",
+        "doxmind": "Visible chain-of-thought reasoning",
+        "notion": "Not available",
+        "googleDocs": "Not available"
+      },
+      "aiAutocomplete": {
+        "name": "AI Autocomplete",
+        "doxmind": "Inline ghost text, context-aware",
+        "notion": "Limited suggestions",
+        "googleDocs": "Smart Compose (basic)"
+      },
+      "inlineDiff": {
+        "name": "Inline Diff Review",
+        "doxmind": "Accept/reject each AI change",
+        "notion": "Not available",
+        "googleDocs": "Suggest mode (different paradigm)"
+      },
+      "writingReview": {
+        "name": "AI Writing Review",
+        "doxmind": "Grammar, clarity, tone & engagement",
+        "notion": "Not available",
+        "googleDocs": "Basic grammar only"
+      },
+      "knowledgeBase": {
+        "name": "Knowledge Base",
+        "doxmind": "Upload docs, AI cites your sources",
+        "notion": "Not available",
+        "googleDocs": "Not available"
+      },
+      "kbAgent": {
+        "name": "KB Agent",
+        "doxmind": "Cross-doc search & synthesis",
+        "notion": "Not available",
+        "googleDocs": "Not available"
+      },
+      "semanticSearch": {
+        "name": "Semantic Search",
+        "doxmind": "Meaning-based, not keyword-based",
+        "notion": "Keyword search only",
+        "googleDocs": "Keyword search only"
+      },
+      "databaseBlocks": {
+        "name": "Database Blocks",
+        "doxmind": "Table, board, gallery & list views",
+        "notion": "Table, board, gallery, list, timeline & calendar",
+        "googleDocs": "Not available (use Sheets)"
+      },
+      "csvAnalysis": {
+        "name": "CSV Upload + AI Analysis",
+        "doxmind": "Auto-visualization & insights",
+        "notion": "Not available",
+        "googleDocs": "Not available (use Sheets)"
+      },
+      "inlineComments": {
+        "name": "Inline Comments",
+        "doxmind": "Threaded discussions",
+        "notion": "Threaded discussions",
+        "googleDocs": "Threaded discussions"
+      },
+      "presentationMode": {
+        "name": "Presentation Mode",
+        "doxmind": "One-click from any document",
+        "notion": "Not available",
+        "googleDocs": "Not available (use Slides)"
+      },
+      "exportFormats": {
+        "name": "Export Formats",
+        "doxmind": "PDF, DOCX, Markdown",
+        "notion": "PDF, Markdown, CSV",
+        "googleDocs": "PDF, DOCX, ODT & more"
+      },
+      "realtimeCollab": {
+        "name": "Real-time Collaboration",
+        "doxmind": "Coming soon",
+        "notion": "Supported",
+        "googleDocs": "Best-in-class"
+      }
+    },
+    "disclaimer": "Information based on publicly available features as of March 2026. Features may vary by plan."
+  },
+  "advantages": {
+    "heading": "What makes doXmind different",
+    "subtitle": "Capabilities you won't find in Notion or Google Docs.",
+    "thinkingAI": {
+      "title": "AI that thinks with you",
+      "description": "doXmind's AI shows its reasoning step-by-step. Review every AI edit as an inline diff — accept or reject changes with a single click. Chat about your document with an agent-level AI that truly understands context."
+    },
+    "knowledgePowered": {
+      "title": "Your knowledge, AI-powered",
+      "description": "Upload research papers, style guides, and reference documents. The KB Agent searches across all your materials, synthesizes answers, and cites sources with relevance scores. Your AI is grounded in your knowledge."
+    },
+    "dataToPresentation": {
+      "title": "From data to presentation",
+      "description": "Drop a CSV and get instant AI-powered visualizations. Write your analysis in the same document. Then present it full-screen — no switching between apps. One seamless workflow from raw data to polished slides."
+    }
+  },
+  "cta": {
+    "heading": "Ready to try a smarter editor?",
+    "subtitle": "Start writing with AI for free. No credit card required."
+  }
+}

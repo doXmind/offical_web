@@ -1,7 +1,7 @@
 {
   "name": "doXmind",
   "short_name": "doXmind",
-  "description": "AI-Native Desktop Editor for Data Analysis and Document Creation",
+  "description": "AI-Native Writing Editor for Docs, Notes & Knowledge Management",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

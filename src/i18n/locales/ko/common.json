@@ -12,7 +12,8 @@
     "dashboard": "대시보드",
     "signUp": "가입하기",
     "logOut": "로그아웃",
-    "careers": "채용"
+    "careers": "채용",
+    "compare": "Compare"
   },
   "footer": {
     "columns": {
@@ -22,6 +23,7 @@
         "aiChat": "AI 채팅",
         "knowledgeBase": "지식 베이스",
         "presentationMode": "프레젠테이션 모드",
+        "compare": "Compare",
         "download": "다운로드"
       },
       "resources": {
@@ -82,7 +84,7 @@
       "autocomplete": { "label": "AI 자동완성", "description": "입력 시 고스트 텍스트 제안 표시", "keywords": "자동완성 제안 고스트텍스트 Tab 완성 AI autocomplete" },
       "chat": { "label": "AI 채팅", "description": "문서에 대해 AI와 대화", "keywords": "채팅 AI 대화 브레인스토밍 음성 이미지 chat" },
       "diff-review": { "label": "차이 검토", "description": "AI 편집의 시각적 차이 비교 (승인/거부)", "keywords": "차이 검토 승인 거부 변경 버전 diff review" },
-      "knowledge-base": { "label": "지식 베이스", "description": "참고 문서 업로드로 AI 답변 강화", "keywords": "지식베이스 업로드 PDF 참고 연구 RAG knowledge base" },
+      "knowledge-base": { "label": "지식 베이스", "description": "참고 문서 업로드로 AI 답변 강화", "keywords": "지식베이스 업로드 PDF 참고 연구 agentic search knowledge base" },
       "search-nav": { "label": "검색 및 탐색", "description": "시맨틱 검색, 찾기 및 바꾸기, 명령 팔레트", "keywords": "검색 찾기 바꾸기 명령팔레트 탐색 시맨틱 search" },
       "documents": { "label": "문서 관리", "description": "폴더, 버전, 가져오기, 내보내기, 템플릿", "keywords": "문서 폴더 버전 가져오기 내보내기 템플릿 정리 document" },
       "presentation": { "label": "프레젠테이션 모드", "description": "문서를 슬라이드쇼로 변환", "keywords": "프레젠테이션 슬라이드쇼 슬라이드 발표 F5 presentation" },
@@ -175,6 +177,11 @@
       "title": "채용 - doXmind | 팀에 합류하세요",
       "description": "doXmind 팀에 합류하여 AI 글쓰기의 미래를 함께 만들어보세요. 마케팅, 영업, 엔지니어링 포지션 채용 중.",
       "keywords": "채용, 일자리, 채용중, doXmind 채용, 마케팅, 영업, ML 엔지니어, AI 스타트업"
+    },
+    "compare": {
+      "title": "doXmind vs Notion vs Google Docs - AI-Native Editor Comparison",
+      "description": "Compare doXmind with Notion and Google Docs. See how an AI-native writing editor with built-in knowledge base, thinking mode, and data analysis stacks up.",
+      "keywords": "Notion alternative, doXmind vs Notion, Google Docs alternative, AI writing editor comparison, best AI editor, writing tool comparison"
     }
   }
 }

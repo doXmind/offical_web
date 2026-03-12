@@ -12,7 +12,8 @@
     "dashboard": "Tableau de bord",
     "signUp": "S'inscrire",
     "logOut": "Se deconnecter",
-    "careers": "Carrieres"
+    "careers": "Carrieres",
+    "compare": "Compare"
   },
   "footer": {
     "columns": {
@@ -22,6 +23,7 @@
         "aiChat": "Chat IA",
         "knowledgeBase": "Base de connaissances",
         "presentationMode": "Mode presentation",
+        "compare": "Compare",
         "download": "Telecharger"
       },
       "resources": {
@@ -82,7 +84,7 @@
       "autocomplete": { "label": "Autocompletion IA", "description": "Suggestions en texte fantome lors de la saisie", "keywords": "autocompletion suggestion texte fantome tab completer IA autocomplete" },
       "chat": { "label": "Chat IA", "description": "Discutez avec l'IA de votre document", "keywords": "chat IA conversation brainstorming voix image chat" },
       "diff-review": { "label": "Revue des differences", "description": "Differences visuelles des modifications IA avec accepter/rejeter", "keywords": "differences revue accepter rejeter modifications version diff review" },
-      "knowledge-base": { "label": "Base de connaissances", "description": "Telechargez des documents de reference pour des reponses IA", "keywords": "base connaissances telecharger pdf reference recherche rag knowledge base" },
+      "knowledge-base": { "label": "Base de connaissances", "description": "Telechargez des documents de reference pour des reponses IA", "keywords": "base connaissances telecharger pdf reference recherche agentic search knowledge base" },
       "search-nav": { "label": "Recherche et navigation", "description": "Recherche semantique, rechercher et remplacer, palette de commandes", "keywords": "recherche trouver remplacer palette commandes navigation semantique search" },
       "documents": { "label": "Gestion de documents", "description": "Dossiers, versions, importer, exporter et modeles", "keywords": "document dossier version importer exporter modele organiser document" },
       "presentation": { "label": "Mode presentation", "description": "Transformez votre document en diaporama", "keywords": "presentation diaporama diapositives presenter f5 presentation" },
@@ -175,6 +177,11 @@
       "title": "Carrieres - doXmind | Rejoignez notre equipe",
       "description": "Rejoignez l'equipe doXmind et construisez l'avenir de l'ecriture avec IA. Nous recrutons en marketing, ventes et ingenierie.",
       "keywords": "carrieres, emploi, recrutement, postes doXmind, marketing, ventes, ingenieur ML, startup IA"
+    },
+    "compare": {
+      "title": "doXmind vs Notion vs Google Docs - AI-Native Editor Comparison",
+      "description": "Compare doXmind with Notion and Google Docs. See how an AI-native writing editor with built-in knowledge base, thinking mode, and data analysis stacks up.",
+      "keywords": "Notion alternative, doXmind vs Notion, Google Docs alternative, AI writing editor comparison, best AI editor, writing tool comparison"
     }
   }
 }

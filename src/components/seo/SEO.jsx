@@ -24,6 +24,7 @@ const SEO_KEY_MAP = {
   '/login': 'login',
   '/register': 'register',
   '/dashboard': 'dashboard',
+  '/compare': 'compare',
 };
 
 // JSON-LD Structured Data for Organization
@@ -33,7 +34,7 @@ const organizationSchema = {
   name: 'doXmind',
   url: SITE_URL,
   logo: `${SITE_URL}/logo.svg`,
-  description: 'AI-Native Desktop Editor for Data Analysis and Document Creation',
+  description: 'AI-Native Writing Editor for Docs, Notes & Knowledge Management',
   sameAs: [
     'https://twitter.com/doxmind',
     'https://github.com/doxmind',
@@ -46,7 +47,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'doXmind',
   url: SITE_URL,
-  description: 'AI-powered desktop editor with multi-agent system, interactive visualizations, and automated data analysis.',
+  description: 'AI-native writing editor with built-in AI for docs, notes, and knowledge management. A smarter alternative to Notion.',
 };
 
 // JSON-LD Structured Data for SoftwareApplication
@@ -56,7 +57,7 @@ const softwareSchema = {
   name: 'doXmind',
   applicationCategory: 'ProductivityApplication',
   operatingSystem: 'Windows, macOS, Linux, Web',
-  description: 'AI-native desktop editor with multi-agent system for data analysis and document creation.',
+  description: 'AI-native writing editor with agent-level AI, knowledge base, and presentation mode. Write, think, and organize smarter.',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -67,7 +68,7 @@ const softwareSchema = {
     'AI Chat Assistant powered by Claude',
     'Quick Edit with one-click AI transformations',
     'AI Autocomplete while writing',
-    'Knowledge Base with RAG semantic search',
+    'Knowledge Base with agentic search',
     'Full Markdown editor support',
     'Version history with diff view',
     'Multi-language translation',
@@ -83,6 +84,7 @@ const PAGE_SCHEMA_TYPES = {
   '/changelog': 'WebPage',
   '/careers': 'WebPage',
   '/cookies-privacy': 'WebPage',
+  '/compare': 'WebPage',
 };
 
 function getWebPageSchema(path, title, description, canonicalUrl) {

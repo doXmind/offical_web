@@ -12,7 +12,8 @@
     "dashboard": "Dashboard",
     "signUp": "Sign up",
     "logOut": "Log out",
-    "careers": "Careers"
+    "careers": "Careers",
+    "compare": "Compare"
   },
   "footer": {
     "columns": {
@@ -22,6 +23,7 @@
         "aiChat": "AI Chat",
         "knowledgeBase": "Knowledge Base",
         "presentationMode": "Presentation Mode",
+        "compare": "Compare",
         "download": "Download"
       },
       "resources": {
@@ -82,7 +84,7 @@
       "autocomplete": { "label": "AI Autocomplete", "description": "Ghost text suggestions as you type", "keywords": "autocomplete suggestion ghost text tab complete ai" },
       "chat": { "label": "AI Chat", "description": "Converse with AI about your document", "keywords": "chat ai conversation brainstorm voice image" },
       "diff-review": { "label": "Diff Review", "description": "Visual diff for AI edits with accept/reject", "keywords": "diff review accept reject changes version" },
-      "knowledge-base": { "label": "Knowledge Base", "description": "Upload reference documents for AI-powered answers", "keywords": "knowledge base upload pdf reference research rag" },
+      "knowledge-base": { "label": "Knowledge Base", "description": "Upload reference documents for AI-powered answers", "keywords": "knowledge base upload pdf reference research agentic search" },
       "search-nav": { "label": "Search & Navigation", "description": "Semantic search, find & replace, command palette", "keywords": "search find replace command palette navigation semantic" },
       "documents": { "label": "Document Management", "description": "Folders, versions, import, export, and templates", "keywords": "document folder version import export template organize" },
       "presentation": { "label": "Presentation Mode", "description": "Turn your document into a slideshow", "keywords": "presentation slideshow slides present f5" },
@@ -127,9 +129,9 @@
   },
   "seo": {
     "home": {
-      "title": "doXmind - AI-Native Desktop Editor for Data Analysis",
-      "description": "Transform your data workflow with doXmind's AI-powered desktop editor. Features multi-agent system, interactive visualizations, and automated data analysis.",
-      "keywords": "AI editor, desktop editor, data analysis, data visualization, multi-agent AI, document editor, productivity tool"
+      "title": "doXmind - AI-Native Writing Editor",
+      "description": "doXmind is an AI-native writing editor for docs, notes, and knowledge management. Write, think, and organize with built-in AI — a smarter alternative to Notion.",
+      "keywords": "AI writing editor, AI native editor, Notion alternative, document editor, note-taking, knowledge management, AI writing assistant, productivity tool"
     },
     "about": {
       "title": "About - doXmind | AI-Powered Writing Platform",
@@ -175,6 +177,11 @@
       "title": "Careers - doXmind | Join Our Team",
       "description": "Join the doXmind team and help build the future of AI-powered writing. We're hiring for marketing, sales, and engineering roles.",
       "keywords": "careers, jobs, hiring, doXmind jobs, marketing, sales, ML engineer, AI startup"
+    },
+    "compare": {
+      "title": "doXmind vs Notion vs Google Docs - AI-Native Editor Comparison",
+      "description": "Compare doXmind with Notion and Google Docs. See how an AI-native writing editor with built-in knowledge base, thinking mode, and data analysis stacks up.",
+      "keywords": "Notion alternative, doXmind vs Notion, Google Docs alternative, AI writing editor comparison, best AI editor, writing tool comparison"
     }
   }
 }

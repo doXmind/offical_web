@@ -12,7 +12,8 @@
     "dashboard": "ダッシュボード",
     "signUp": "新規登録",
     "logOut": "ログアウト",
-    "careers": "採用情報"
+    "careers": "採用情報",
+    "compare": "Compare"
   },
   "footer": {
     "columns": {
@@ -22,6 +23,7 @@
         "aiChat": "AIチャット",
         "knowledgeBase": "ナレッジベース",
         "presentationMode": "プレゼンテーションモード",
+        "compare": "Compare",
         "download": "ダウンロード"
       },
       "resources": {
@@ -82,7 +84,7 @@
       "autocomplete": { "label": "AIオートコンプリート", "description": "入力中にゴーストテキストで候補を表示", "keywords": "オートコンプリート 候補 ゴーストテキスト Tab 補完 AI autocomplete" },
       "chat": { "label": "AIチャット", "description": "ドキュメントについてAIと会話", "keywords": "チャット AI 会話 ブレインストーム 音声 画像 chat" },
       "diff-review": { "label": "差分レビュー", "description": "AI編集の視覚的差分表示（承認/却下）", "keywords": "差分 レビュー 承認 却下 変更 バージョン diff review" },
-      "knowledge-base": { "label": "ナレッジベース", "description": "参考資料をアップロードしてAI回答を強化", "keywords": "ナレッジベース アップロード PDF 参考 研究 RAG knowledge base" },
+      "knowledge-base": { "label": "ナレッジベース", "description": "参考資料をアップロードしてAI回答を強化", "keywords": "ナレッジベース アップロード PDF 参考 研究 agentic search knowledge base" },
       "search-nav": { "label": "検索＆ナビゲーション", "description": "セマンティック検索、検索と置換、コマンドパレット", "keywords": "検索 検索 置換 コマンドパレット ナビゲーション セマンティック search" },
       "documents": { "label": "ドキュメント管理", "description": "フォルダ、バージョン、インポート、エクスポート、テンプレート", "keywords": "ドキュメント フォルダ バージョン インポート エクスポート テンプレート 整理 document" },
       "presentation": { "label": "プレゼンテーションモード", "description": "ドキュメントをスライドショーに変換", "keywords": "プレゼンテーション スライドショー スライド 発表 F5 presentation" },
@@ -175,6 +177,11 @@
       "title": "採用情報 - doXmind | チームに参加",
       "description": "doXmindチームに参加し、AIライティングの未来を一緒に作りましょう。マーケティング、セールス、エンジニアリング職を募集中。",
       "keywords": "採用, 求人, 募集, doXmind求人, マーケティング, セールス, MLエンジニア, AIスタートアップ"
+    },
+    "compare": {
+      "title": "doXmind vs Notion vs Google Docs - AI-Native Editor Comparison",
+      "description": "Compare doXmind with Notion and Google Docs. See how an AI-native writing editor with built-in knowledge base, thinking mode, and data analysis stacks up.",
+      "keywords": "Notion alternative, doXmind vs Notion, Google Docs alternative, AI writing editor comparison, best AI editor, writing tool comparison"
     }
   }
 }

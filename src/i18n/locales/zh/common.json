@@ -12,7 +12,8 @@
     "dashboard": "控制台",
     "signUp": "注册",
     "logOut": "退出登录",
-    "careers": "招聘"
+    "careers": "招聘",
+    "compare": "对比"
   },
   "footer": {
     "columns": {
@@ -22,6 +23,7 @@
         "aiChat": "AI 对话",
         "knowledgeBase": "知识库",
         "presentationMode": "演示模式",
+        "compare": "对比",
         "download": "下载"
       },
       "resources": {
@@ -82,7 +84,7 @@
       "autocomplete": { "label": "AI 自动补全", "description": "输入时显示的幽灵文本建议", "keywords": "自动补全 建议 幽灵文本 tab 补全 AI autocomplete" },
       "chat": { "label": "AI 对话", "description": "与 AI 对话讨论您的文档", "keywords": "对话 AI 聊天 头脑风暴 语音 图片 chat" },
       "diff-review": { "label": "差异审查", "description": "AI 编辑的可视化差异对比，支持接受/拒绝", "keywords": "差异 审查 接受 拒绝 修改 版本 diff review" },
-      "knowledge-base": { "label": "知识库", "description": "上传参考文档以获取 AI 驱动的回答", "keywords": "知识库 上传 PDF 参考 研究 RAG knowledge base" },
+      "knowledge-base": { "label": "知识库", "description": "上传参考文档以获取 AI 驱动的回答", "keywords": "知识库 上传 PDF 参考 研究 agentic search knowledge base" },
       "search-nav": { "label": "搜索与导航", "description": "语义搜索、查找替换、命令面板", "keywords": "搜索 查找 替换 命令面板 导航 语义 search" },
       "documents": { "label": "文档管理", "description": "文件夹、版本历史、导入、导出和模板", "keywords": "文档 文件夹 版本 导入 导出 模板 组织 document" },
       "presentation": { "label": "演示模式", "description": "将文档转化为幻灯片", "keywords": "演示 幻灯片 展示 F5 presentation" },
@@ -127,9 +129,9 @@
   },
   "seo": {
     "home": {
-      "title": "doXmind - AI 原生桌面编辑器，助力数据分析",
-      "description": "使用 doXmind 的 AI 驱动桌面编辑器，革新您的数据工作流。具备多智能体系统、交互式可视化和自动化数据分析功能。",
-      "keywords": "AI 编辑器, 桌面编辑器, 数据分析, 数据可视化, 多智能体 AI, 文档编辑器, 生产力工具"
+      "title": "doXmind - AI 原生写作编辑器",
+      "description": "doXmind 是一款 AI 原生写作编辑器，专为文档、笔记和知识管理打造。内置 AI 助你写作、思考与整理，更智能的 Notion 替代方案。",
+      "keywords": "AI 写作编辑器, AI 原生编辑器, Notion 替代, 文档编辑器, 笔记工具, 知识管理, AI 写作助手, 生产力工具"
     },
     "about": {
       "title": "关于 - doXmind | AI 驱动的写作平台",
@@ -175,6 +177,11 @@
       "title": "招聘 - doXmind | 加入我们",
       "description": "加入 doXmind 团队，一起打造 AI 写作的未来。我们正在招聘市场营销、销售和工程岗位。",
       "keywords": "招聘, 工作, 职位, doXmind 招聘, 市场营销, 销售, 机器学习工程师, AI 创业公司"
+    },
+    "compare": {
+      "title": "doXmind vs Notion vs Google Docs - AI 原生编辑器对比",
+      "description": "对比 doXmind 与 Notion、Google Docs。了解内置知识库、思维模式和数据分析的 AI 原生写作编辑器有何不同。",
+      "keywords": "Notion 替代品, doXmind vs Notion, Google Docs 替代品, AI 写作编辑器对比, 最佳 AI 编辑器, 写作工具对比"
     }
   }
 }
