@@ -17,6 +17,34 @@
     "fixed": "Fixed"
   },
   "releases": {
+    "v1_1": {
+      "title": "Database Blocks & Rich Content",
+      "summary": "Notion-style databases, inline comments, multi-column layouts, web bookmarks, page links, cover images, and improved editor experience.",
+      "added": [
+        "Database Blocks — create structured databases with table, board, gallery, and list views, custom properties, and CSV export",
+        "Inline Comments — highlight text to leave comments, with resolve and unresolve support",
+        "Multi-Column Layouts — arrange content in 2, 3, or 4 columns for flexible page designs",
+        "Web Bookmarks — embed links with automatic title, description, and thumbnail previews",
+        "Page Links — link between pages with live title sync that stays up to date",
+        "Cover Images — add cover images to pages from a preset gallery, file upload, or URL",
+        "Chat @Mentions — mention documents and data files directly in chat for quick context",
+        "Breadcrumb Navigation — always see where you are in your folder and page hierarchy",
+        "Avatar Upload — upload a profile photo that doesn't count against your storage quota"
+      ],
+      "improved": [
+        "Smarter editor menus that stay within the screen on all devices",
+        "Mobile long-press context menu and compact image toolbar",
+        "Smoother scroll-past-end and auto-scroll during inline AI edits",
+        "Unified share links (/s/) for cleaner, shorter URLs",
+        "Real-time cross-page sync for bookmarks, forks, and reactions",
+        "PDF and DOCX export now includes title pages and cover images"
+      ],
+      "fixed": [
+        "Login redirect loops caused by stale authentication cookies",
+        "AI buttons and social features incorrectly shown to logged-out visitors",
+        "Security hardening for image downloads and bookmark previews"
+      ]
+    },
     "v1_0": {
       "title": "Subscriptions & Premium",
       "summary": "Introducing paid plans, premium themes, avatar frames, and a usage dashboard — plus a new official domain.",

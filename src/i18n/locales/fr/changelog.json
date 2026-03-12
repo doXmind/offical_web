@@ -17,6 +17,34 @@
     "fixed": "Corrections"
   },
   "releases": {
+    "v1_1": {
+      "title": "Blocs base de donnees et contenu riche",
+      "summary": "Bases de donnees style Notion, commentaires en ligne, mises en page multi-colonnes, signets web, liens entre pages, images de couverture et experience editeur amelioree.",
+      "added": [
+        "Blocs base de donnees — creez des bases de donnees structurees avec des vues tableau, kanban, galerie et liste, des proprietes personnalisees et l'export CSV",
+        "Commentaires en ligne — surlignez du texte pour laisser des commentaires, avec support de resolution et reouverture",
+        "Mises en page multi-colonnes — disposez le contenu en 2, 3 ou 4 colonnes pour des designs de pages flexibles",
+        "Signets web — integrez des liens avec apercu automatique du titre, de la description et de la miniature",
+        "Liens entre pages — liez les pages entre elles avec synchronisation automatique des titres",
+        "Images de couverture — ajoutez des images de couverture depuis une galerie predefinie, un fichier ou une URL",
+        "Mentions dans le chat — mentionnez des documents et fichiers de donnees directement dans le chat pour un contexte rapide",
+        "Navigation fil d'Ariane — voyez toujours ou vous etes dans votre hierarchie de dossiers et de pages",
+        "Telechargement d'avatar — telechargez une photo de profil qui ne compte pas dans votre quota de stockage"
+      ],
+      "improved": [
+        "Menus d'editeur plus intelligents qui restent dans l'ecran sur tous les appareils",
+        "Menu contextuel par appui long sur mobile et barre d'outils image compacte",
+        "Defilement passe-fin et defilement automatique plus fluides pendant les editions IA en ligne",
+        "Liens de partage unifies (/s/) pour des URL plus propres et plus courtes",
+        "Synchronisation en temps reel entre pages pour les favoris, forks et reactions",
+        "L'export PDF et DOCX inclut desormais des pages de titre et des images de couverture"
+      ],
+      "fixed": [
+        "Boucles de redirection de connexion causees par des cookies d'authentification expires",
+        "Boutons IA et fonctionnalites sociales affiches incorrectement aux visiteurs deconnectes",
+        "Renforcement de la securite pour les telechargements d'images et les apercu de signets"
+      ]
+    },
     "v1_0": {
       "title": "Abonnements et Premium",
       "summary": "Decouvrez les forfaits payants, les themes premium, les cadres d'avatar et un tableau de bord d'utilisation — ainsi qu'un nouveau domaine officiel.",

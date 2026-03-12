@@ -17,6 +17,34 @@
     "fixed": "Corregido"
   },
   "releases": {
+    "v1_1": {
+      "title": "Bloques de base de datos y contenido enriquecido",
+      "summary": "Bases de datos estilo Notion, comentarios en linea, disenos multicolumna, marcadores web, enlaces entre paginas, imagenes de portada y mejor experiencia de editor.",
+      "added": [
+        "Bloques de base de datos — crea bases de datos estructuradas con vistas de tabla, tablero, galeria y lista, propiedades personalizadas y exportacion CSV",
+        "Comentarios en linea — resalta texto para dejar comentarios, con soporte para resolver y reabrir",
+        "Disenos multicolumna — organiza el contenido en 2, 3 o 4 columnas para disenos de pagina flexibles",
+        "Marcadores web — incrusta enlaces con vista previa automatica de titulo, descripcion y miniatura",
+        "Enlaces entre paginas — enlaza paginas entre si con sincronizacion de titulo en tiempo real",
+        "Imagenes de portada — anade imagenes de portada desde una galeria predefinida, subida de archivo o URL",
+        "Menciones en chat — menciona documentos y archivos de datos directamente en el chat para contexto rapido",
+        "Navegacion por migas de pan — ve siempre donde estas en tu jerarquia de carpetas y paginas",
+        "Subida de avatar — sube una foto de perfil que no cuenta contra tu cuota de almacenamiento"
+      ],
+      "improved": [
+        "Menus de editor mas inteligentes que permanecen dentro de la pantalla en todos los dispositivos",
+        "Menu contextual de pulsacion larga en movil y barra de herramientas de imagen compacta",
+        "Desplazamiento mas fluido y auto-scroll durante las ediciones IA en linea",
+        "Enlaces de compartir unificados (/s/) para URLs mas limpias y cortas",
+        "Sincronizacion en tiempo real entre paginas para marcadores, bifurcaciones y reacciones",
+        "La exportacion PDF y DOCX ahora incluye paginas de titulo e imagenes de portada"
+      ],
+      "fixed": [
+        "Bucles de redireccion de inicio de sesion causados por cookies de autenticacion caducadas",
+        "Botones de IA y funciones sociales mostrados incorrectamente a visitantes no autenticados",
+        "Refuerzo de seguridad para descargas de imagenes y vistas previas de marcadores"
+      ]
+    },
     "v1_0": {
       "title": "Suscripciones y Premium",
       "summary": "Presentamos planes de pago, temas premium, marcos de avatar y un panel de uso — además de un nuevo dominio oficial.",
