@@ -337,6 +337,72 @@
     "askFollowUp": "Ask a follow-up..."
   },
 
+  "miniThinking": {
+    "aiAssistant": "doXmind AI",
+    "thinkingBadge": "Thinking",
+    "userMessage": "What's the best data structure for a real-time collaborative editor?",
+    "thinkingLabel": "Thinking...",
+    "thought1": "Considering CRDTs vs OT algorithms...",
+    "thought2": "CRDTs are better for P2P; OT suits client-server...",
+    "thought3": "Tree-based CRDTs like Yjs handle rich text well...",
+    "thoughtDuration": "Thought for 12s",
+    "tool1": "Searching knowledge base",
+    "tool2": "Reading distributed-systems.pdf",
+    "aiResponse": "For a real-time collaborative editor, I'd recommend a tree-based CRDT like Yjs. It handles concurrent edits without a central server, supports rich text, and scales well.",
+    "askAnything": "Ask AI anything..."
+  },
+
+  "miniComment": {
+    "heading": "Project Overview",
+    "textBefore": "Our goal is to ",
+    "highlighted": "streamline the development process",
+    "textAfter": " and reduce time-to-market for new features by Q3.",
+    "paragraph2": "The team will focus on improving CI/CD pipelines, automating testing, and establishing clear review workflows.",
+    "commenterName": "Alex",
+    "commenterTime": "2m ago",
+    "commentBody": "Can we add specific metrics here? What does \"streamline\" mean in terms of time saved?",
+    "replyCount": "1 reply",
+    "resolve": "Resolve",
+    "reply": "Reply"
+  },
+
+  "miniDatabase": {
+    "title": "Project Tracker",
+    "viewTable": "Table",
+    "viewBoard": "Board",
+    "viewGallery": "Gallery",
+    "viewList": "List",
+    "colName": "Name",
+    "colStatus": "Status",
+    "colPriority": "Priority",
+    "row1Name": "Product Roadmap",
+    "row1Status": "In Progress",
+    "row1Priority": "High",
+    "row2Name": "Design System",
+    "row2Status": "Review",
+    "row2Priority": "Medium",
+    "row3Name": "User Research",
+    "row3Status": "Todo",
+    "row3Priority": "Low",
+    "newRow": "New",
+    "rowCount": "3 rows"
+  },
+
+  "miniDataAnalysis": {
+    "aiAssistant": "doXmind AI",
+    "userMessage": "Analyze this sales data and show me the quarterly trends",
+    "fileName": "sales-data-2025.csv",
+    "fileSize": "2.4 MB",
+    "tool1": "Reading sales-data-2025.csv",
+    "tool2": "Analyzing 1,234 rows × 8 columns",
+    "tool3": "Generating visualization",
+    "aiSummary": "Q4 revenue hit $2.1M — a 29% jump from Q3. Here's the quarterly breakdown:",
+    "chartTitle": "Revenue by Quarter",
+    "metric1": "+29% Q4 growth",
+    "metric2": "$6.2M total revenue",
+    "askAnything": "Ask AI anything..."
+  },
+
   "miniPresent": {
     "title": "AI-Powered Writing",
     "byline": "By John Doe · 2025",

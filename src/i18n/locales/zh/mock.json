@@ -337,6 +337,72 @@
     "askFollowUp": "追问..."
   },
 
+  "miniThinking": {
+    "aiAssistant": "doXmind AI",
+    "thinkingBadge": "思考中",
+    "userMessage": "实时协作编辑器最适合用什么数据结构？",
+    "thinkingLabel": "思考中...",
+    "thought1": "对比 CRDT 和 OT 算法...",
+    "thought2": "CRDT 更适合 P2P；OT 适合客户端-服务器架构...",
+    "thought3": "基于树的 CRDT（如 Yjs）能很好地处理富文本...",
+    "thoughtDuration": "思考用时 12 秒",
+    "tool1": "搜索知识库",
+    "tool2": "阅读 distributed-systems.pdf",
+    "aiResponse": "对于实时协作编辑器，我推荐使用基于树的 CRDT（如 Yjs）。它无需中心服务器即可处理并发编辑，原生支持富文本，且具有良好的扩展性。",
+    "askAnything": "向 AI 提问..."
+  },
+
+  "miniComment": {
+    "heading": "项目概述",
+    "textBefore": "我们的目标是",
+    "highlighted": "优化开发流程",
+    "textAfter": "，并在第三季度前缩短新功能的上线周期。",
+    "paragraph2": "团队将专注于改进 CI/CD 流水线、自动化测试以及建立清晰的代码审查流程。",
+    "commenterName": "Alex",
+    "commenterTime": "2 分钟前",
+    "commentBody": "这里能否加上具体指标？「优化」具体指节省多少时间？",
+    "replyCount": "1 条回复",
+    "resolve": "标记解决",
+    "reply": "回复"
+  },
+
+  "miniDatabase": {
+    "title": "项目追踪器",
+    "viewTable": "表格",
+    "viewBoard": "看板",
+    "viewGallery": "画廊",
+    "viewList": "列表",
+    "colName": "名称",
+    "colStatus": "状态",
+    "colPriority": "优先级",
+    "row1Name": "产品路线图",
+    "row1Status": "进行中",
+    "row1Priority": "高",
+    "row2Name": "设计系统",
+    "row2Status": "审核中",
+    "row2Priority": "中",
+    "row3Name": "用户研究",
+    "row3Status": "待办",
+    "row3Priority": "低",
+    "newRow": "新建",
+    "rowCount": "3 行"
+  },
+
+  "miniDataAnalysis": {
+    "aiAssistant": "doXmind AI",
+    "userMessage": "分析这份销售数据，展示季度趋势",
+    "fileName": "sales-data-2025.csv",
+    "fileSize": "2.4 MB",
+    "tool1": "读取 sales-data-2025.csv",
+    "tool2": "分析 1,234 行 × 8 列数据",
+    "tool3": "生成可视化图表",
+    "aiSummary": "Q4 营收达到 210 万美元——比 Q3 增长 29%。以下是季度概览：",
+    "chartTitle": "季度营收",
+    "metric1": "+29% Q4 增长",
+    "metric2": "620 万美元总营收",
+    "askAnything": "向 AI 提问..."
+  },
+
   "miniPresent": {
     "title": "AI 驱动的写作",
     "byline": "作者 John Doe · 2025",

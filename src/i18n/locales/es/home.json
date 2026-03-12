@@ -1,6 +1,6 @@
 {
   "hero": {
-    "subtitle": "Escribe, edita y perfecciona tus ideas con doXmind AI integrado en cada rincón del editor."
+    "subtitle": "El editor que piensa contigo — no solo por ti."
   },
   "features": {
     "heading": "Todo lo que necesitas para escribir",
@@ -36,6 +36,22 @@
     "writingReview": {
       "title": "Revisión de escritura con IA",
       "description": "Obtén retroalimentación completa sobre gramática, claridad, tono y engagement. Revisa las sugerencias categorizadas una por una o acéptalas todas a la vez. Cada sugerencia muestra el texto original, la mejora y el porqué."
+    },
+    "thinkingMode": {
+      "title": "IA que piensa antes de responder",
+      "description": "Para preguntas complejas, la IA entra en modo pensamiento — razonando paso a paso antes de responder. Observa el proceso de pensamiento en tiempo real y obtén respuestas más profundas y precisas."
+    },
+    "inlineComments": {
+      "title": "Colabora con comentarios en línea",
+      "description": "Resalta cualquier texto para iniciar una conversación. Deja comentarios, responde en hilos y resuelve discusiones cuando termines. Cada comentario permanece anclado al pasaje exacto que referencia."
+    },
+    "databaseBlocks": {
+      "title": "Datos estructurados, dentro de tus documentos",
+      "description": "Agrega bases de datos a cualquier página con vistas de tabla, tablero, galería y lista. Define propiedades personalizadas, filtra y ordena tus datos, y exporta a CSV — todo sin salir del editor."
+    },
+    "dataAnalysis": {
+      "title": "Sube un CSV, obtén insights al instante",
+      "description": "Sube cualquier archivo de datos y deja que la IA haga el trabajo pesado. Lee tus datos, detecta tendencias y genera visualizaciones — convirtiendo hojas de cálculo en insights accionables en segundos."
     }
   },
   "workflow": {

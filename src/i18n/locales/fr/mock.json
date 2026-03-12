@@ -337,6 +337,72 @@
     "askFollowUp": "Poser une question de suivi..."
   },
 
+  "miniThinking": {
+    "aiAssistant": "doXmind AI",
+    "thinkingBadge": "Réflexion",
+    "userMessage": "Quelle est la meilleure structure de données pour un éditeur collaboratif en temps réel ?",
+    "thinkingLabel": "Réflexion...",
+    "thought1": "Comparaison des algorithmes CRDT vs OT...",
+    "thought2": "Les CRDT conviennent mieux au P2P ; l'OT au client-serveur...",
+    "thought3": "Les CRDT arborescents comme Yjs gèrent bien le texte enrichi...",
+    "thoughtDuration": "A réfléchi pendant 12s",
+    "tool1": "Recherche dans la base de connaissances",
+    "tool2": "Lecture de distributed-systems.pdf",
+    "aiResponse": "Pour un éditeur collaboratif en temps réel, je recommande un CRDT arborescent comme Yjs. Il gère les éditions simultanées sans serveur central, supporte le texte enrichi et s'adapte à grande échelle.",
+    "askAnything": "Posez une question..."
+  },
+
+  "miniComment": {
+    "heading": "Aperçu du projet",
+    "textBefore": "Notre objectif est de ",
+    "highlighted": "rationaliser le processus de développement",
+    "textAfter": " et de réduire le délai de mise sur le marché des nouvelles fonctionnalités d'ici le T3.",
+    "paragraph2": "L'équipe se concentrera sur l'amélioration des pipelines CI/CD, l'automatisation des tests et l'établissement de workflows de revue clairs.",
+    "commenterName": "Alex",
+    "commenterTime": "il y a 2m",
+    "commentBody": "Peut-on ajouter des métriques spécifiques ici ? Que signifie « rationaliser » en termes de temps gagné ?",
+    "replyCount": "1 réponse",
+    "resolve": "Résoudre",
+    "reply": "Répondre"
+  },
+
+  "miniDatabase": {
+    "title": "Suivi de projet",
+    "viewTable": "Tableau",
+    "viewBoard": "Kanban",
+    "viewGallery": "Galerie",
+    "viewList": "Liste",
+    "colName": "Nom",
+    "colStatus": "Statut",
+    "colPriority": "Priorité",
+    "row1Name": "Feuille de route produit",
+    "row1Status": "En cours",
+    "row1Priority": "Haute",
+    "row2Name": "Design system",
+    "row2Status": "En revue",
+    "row2Priority": "Moyenne",
+    "row3Name": "Recherche utilisateur",
+    "row3Status": "À faire",
+    "row3Priority": "Basse",
+    "newRow": "Nouveau",
+    "rowCount": "3 lignes"
+  },
+
+  "miniDataAnalysis": {
+    "aiAssistant": "doXmind AI",
+    "userMessage": "Analyse ces données de ventes et montre-moi les tendances trimestrielles",
+    "fileName": "sales-data-2025.csv",
+    "fileSize": "2,4 Mo",
+    "tool1": "Lecture de sales-data-2025.csv",
+    "tool2": "Analyse de 1 234 lignes × 8 colonnes",
+    "tool3": "Génération de la visualisation",
+    "aiSummary": "Le CA du T4 a atteint 2,1 M$ — un bond de 29 % par rapport au T3. Voici le détail trimestriel :",
+    "chartTitle": "Revenus par trimestre",
+    "metric1": "+29 % croissance T4",
+    "metric2": "6,2 M$ CA total",
+    "askAnything": "Posez une question..."
+  },
+
   "miniPresent": {
     "title": "Écriture assistée par l'IA",
     "byline": "Par John Doe · 2025",

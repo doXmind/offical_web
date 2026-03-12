@@ -25,6 +25,14 @@ import {
   CaseSensitive,
   WholeWord,
   Regex,
+  Brain,
+  Table2,
+  Columns3,
+  LayoutGrid,
+  Plus,
+  MessageSquare,
+  TrendingUp,
+  FileSpreadsheet,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -692,6 +700,364 @@ function MiniReviewMock({ inView = false }) {
   );
 }
 
+/* ── New v1.1 mini mocks ── */
+
+function MiniThinkingMock({ inView = false }) {
+  const { t } = useTranslation('mock');
+
+  return (
+    <div className="flex flex-col">
+      {/* Header */}
+      <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
+        <Sparkles className="h-4 w-4 text-primary" />
+        <span className="text-sm font-semibold text-foreground">{t('miniThinking.aiAssistant')}</span>
+        <span className="rounded-full bg-purple-500/10 px-2 py-0.5 text-[10px] font-medium text-purple-600 dark:text-purple-400">
+          {t('miniThinking.thinkingBadge')}
+        </span>
+      </div>
+      <div className="space-y-3 px-4 py-4">
+        {/* User message — slide from right */}
+        <Reveal inView={inView} delay={0.2} x={20} y={4}>
+          <div className="flex justify-end">
+            <div className="max-w-[80%] rounded-2xl rounded-br-md bg-primary/10 px-3.5 py-2.5 text-[13px] text-foreground">
+              {t('miniThinking.userMessage')}
+            </div>
+          </div>
+        </Reveal>
+        {/* Thinking block */}
+        <div className="max-w-[90%]">
+          <Reveal inView={inView} delay={0.5} y={4}>
+            <div className="mb-1.5 flex items-center gap-1.5">
+              <Brain className="h-3.5 w-3.5 animate-pulse text-purple-500" />
+              <span className="text-[11px] font-medium text-purple-500">{t('miniThinking.thinkingLabel')}</span>
+            </div>
+          </Reveal>
+          <div className="space-y-1 rounded-r-md border-l-2 border-purple-500/30 bg-purple-500/5 px-3 py-2">
+            {[0.65, 0.8, 0.95].map((delay, i) => (
+              <Reveal key={i} inView={inView} delay={delay} y={4} duration={0.3}>
+                <p className="text-[12px] italic text-muted-foreground">
+                  {t(`miniThinking.thought${i + 1}`)}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal inView={inView} delay={1.1} y={4}>
+            <span className="mt-1 inline-block text-[10px] text-muted-foreground">
+              {t('miniThinking.thoughtDuration')}
+            </span>
+          </Reveal>
+        </div>
+        {/* Tool calls — staggered fade */}
+        <div className="space-y-1.5 px-1">
+          <Reveal inView={inView} delay={1.3} y={4} duration={0.3}>
+            <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+              <CheckCircle className="h-3 w-3 text-green-500" />
+              <span>{t('miniThinking.tool1')}</span>
+            </div>
+          </Reveal>
+          <Reveal inView={inView} delay={1.45} y={4} duration={0.3}>
+            <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+              <CheckCircle className="h-3 w-3 text-green-500" />
+              <span>{t('miniThinking.tool2')}</span>
+            </div>
+          </Reveal>
+        </div>
+        {/* AI response — slide from left */}
+        <Reveal inView={inView} delay={1.6} x={-12} y={4}>
+          <div className="max-w-[90%] rounded-2xl rounded-bl-md bg-muted px-3.5 py-2.5 text-[13px] leading-relaxed text-foreground">
+            {t('miniThinking.aiResponse')}
+          </div>
+        </Reveal>
+      </div>
+      {/* Input bar — static */}
+      <div className="border-t border-border px-3 py-2.5">
+        <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2">
+          <span className="flex-1 text-[13px] text-muted-foreground/50">{t('miniThinking.askAnything')}</span>
+          <Paperclip className="h-3.5 w-3.5 text-muted-foreground/40" />
+          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/10">
+            <ArrowUp className="h-3.5 w-3.5 text-primary" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MiniCommentMock({ inView = false }) {
+  const { t } = useTranslation('mock');
+
+  return (
+    <div className="flex flex-col gap-3 px-5 py-5 sm:flex-row">
+      {/* Text passage */}
+      <div className="min-w-0 flex-[7]">
+        <Reveal inView={inView} delay={0.2}>
+          <h4 className="mb-2 text-base font-bold text-foreground">{t('miniComment.heading')}</h4>
+          <p className="text-[13px] leading-relaxed text-foreground">
+            {t('miniComment.textBefore')}
+            <motion.span
+              initial={{ backgroundColor: "rgba(245, 158, 11, 0)" }}
+              animate={inView ? { backgroundColor: "rgba(245, 158, 11, 0.2)" } : { backgroundColor: "rgba(245, 158, 11, 0)" }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="border-b-2 border-amber-400/60 px-0.5"
+            >
+              {t('miniComment.highlighted')}
+            </motion.span>
+            {t('miniComment.textAfter')}
+          </p>
+        </Reveal>
+        <Reveal inView={inView} delay={0.5}>
+          <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
+            {t('miniComment.paragraph2')}
+          </p>
+        </Reveal>
+      </div>
+      {/* Comment card — slide from right */}
+      <Reveal inView={inView} delay={0.85} x={12} y={0} className="flex-[3]">
+        <div className="rounded-lg border border-amber-400/30 bg-amber-500/5 p-3">
+          <div className="mb-2 flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20 text-[10px] font-medium text-primary">
+              A
+            </span>
+            <span className="text-[11px] font-medium text-foreground">{t('miniComment.commenterName')}</span>
+            <span className="text-[10px] text-muted-foreground">{t('miniComment.commenterTime')}</span>
+          </div>
+          <p className="text-[12px] leading-relaxed text-foreground">
+            {t('miniComment.commentBody')}
+          </p>
+          <Reveal inView={inView} delay={1.1} y={4}>
+            <div className="mt-2 flex items-center gap-1.5">
+              <MessageSquare className="h-3 w-3 text-primary" />
+              <span className="text-[10px] text-primary">{t('miniComment.replyCount')}</span>
+            </div>
+          </Reveal>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
+            transition={{ duration: 0.25, delay: 1.3, ease: [0.175, 0.885, 0.32, 1.275] }}
+            className="mt-2 flex gap-1.5"
+          >
+            <span className="inline-flex items-center rounded bg-green-500/10 px-2 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
+              {t('miniComment.resolve')}
+            </span>
+            <span className="inline-flex items-center rounded border border-border px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+              {t('miniComment.reply')}
+            </span>
+          </motion.div>
+        </div>
+      </Reveal>
+    </div>
+  );
+}
+
+function MiniDatabaseMock({ inView = false }) {
+  const { t } = useTranslation('mock');
+
+  const views = [
+    { icon: Table2, label: t('miniDatabase.viewTable'), active: true },
+    { icon: Columns3, label: t('miniDatabase.viewBoard'), active: false },
+    { icon: LayoutGrid, label: t('miniDatabase.viewGallery'), active: false },
+    { icon: List, label: t('miniDatabase.viewList'), active: false },
+  ];
+
+  const rows = [
+    { name: t('miniDatabase.row1Name'), status: t('miniDatabase.row1Status'), statusColor: "bg-green-500/10 text-green-600 dark:text-green-400", priority: t('miniDatabase.row1Priority'), priorityColor: "bg-orange-500/10 text-orange-600 dark:text-orange-400" },
+    { name: t('miniDatabase.row2Name'), status: t('miniDatabase.row2Status'), statusColor: "bg-blue-500/10 text-blue-600 dark:text-blue-400", priority: t('miniDatabase.row2Priority'), priorityColor: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400" },
+    { name: t('miniDatabase.row3Name'), status: t('miniDatabase.row3Status'), statusColor: "bg-zinc-500/10 text-zinc-500", priority: t('miniDatabase.row3Priority'), priorityColor: "bg-zinc-500/10 text-zinc-500" },
+  ];
+
+  return (
+    <div className="flex flex-col">
+      {/* Header */}
+      <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
+        <Table2 className="h-4 w-4 text-primary" />
+        <span className="text-sm font-semibold text-foreground">{t('miniDatabase.title')}</span>
+      </div>
+      {/* View tabs */}
+      <Reveal inView={inView} delay={0.2}>
+        <div className="flex gap-1 border-b border-border px-4 py-2">
+          {views.map((v, i) => (
+            <span
+              key={i}
+              className={`flex items-center gap-1 rounded-md px-2 py-1 text-[11px] font-medium ${
+                v.active
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground"
+              }`}
+            >
+              <v.icon className="h-3 w-3" />
+              {v.label}
+            </span>
+          ))}
+        </div>
+      </Reveal>
+      {/* Table header */}
+      <Reveal inView={inView} delay={0.4}>
+        <div className="flex items-center border-b border-border px-4 py-2">
+          <span className="flex-[3] text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{t('miniDatabase.colName')}</span>
+          <span className="flex-[2] text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{t('miniDatabase.colStatus')}</span>
+          <span className="flex-[1] text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{t('miniDatabase.colPriority')}</span>
+        </div>
+      </Reveal>
+      {/* Data rows — staggered from left */}
+      {rows.map((row, i) => (
+        <Reveal key={i} inView={inView} delay={0.6 + i * 0.15} x={-8} y={0} duration={0.3}>
+          <div className="flex items-center border-b border-border/50 px-4 py-2.5">
+            <span className="flex-[3] truncate text-[13px] text-foreground">{row.name}</span>
+            <span className="flex-[2]">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.2, delay: 1.1 + i * 0.1, ease: [0.175, 0.885, 0.32, 1.275] }}
+                className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-medium ${row.statusColor}`}
+              >
+                {row.status}
+              </motion.span>
+            </span>
+            <span className="flex-[1]">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.2, delay: 1.15 + i * 0.1, ease: [0.175, 0.885, 0.32, 1.275] }}
+                className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-medium ${row.priorityColor}`}
+              >
+                {row.priority}
+              </motion.span>
+            </span>
+          </div>
+        </Reveal>
+      ))}
+      {/* Bottom action bar */}
+      <Reveal inView={inView} delay={1.3}>
+        <div className="flex items-center px-4 py-2">
+          <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+            <Plus className="h-3 w-3" />
+            {t('miniDatabase.newRow')}
+          </span>
+          <span className="ml-auto text-[11px] text-muted-foreground">{t('miniDatabase.rowCount')}</span>
+        </div>
+      </Reveal>
+    </div>
+  );
+}
+
+function MiniDataAnalysisMock({ inView = false }) {
+  const { t } = useTranslation('mock');
+
+  const bars = [
+    { label: "Q1", height: "45%", color: "bg-blue-500" },
+    { label: "Q2", height: "62%", color: "bg-blue-500" },
+    { label: "Q3", height: "38%", color: "bg-blue-500" },
+    { label: "Q4", height: "80%", color: "bg-primary" },
+  ];
+
+  return (
+    <div className="flex flex-col">
+      {/* Header */}
+      <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
+        <Sparkles className="h-4 w-4 text-primary" />
+        <span className="text-sm font-semibold text-foreground">{t('miniDataAnalysis.aiAssistant')}</span>
+      </div>
+      <div className="space-y-3 px-4 py-4">
+        {/* User message with file attachment */}
+        <Reveal inView={inView} delay={0.2} x={20} y={4}>
+          <div className="flex justify-end">
+            <div className="max-w-[85%]">
+              <div className="rounded-2xl rounded-br-md bg-primary/10 px-3.5 py-2.5 text-[13px] text-foreground">
+                {t('miniDataAnalysis.userMessage')}
+              </div>
+              <div className="mt-1.5 flex items-center gap-2 rounded-lg bg-muted/60 px-2.5 py-1.5">
+                <FileSpreadsheet className="h-3.5 w-3.5 shrink-0 text-green-500" />
+                <span className="text-[11px] text-foreground">{t('miniDataAnalysis.fileName')}</span>
+                <span className="text-[10px] text-muted-foreground">{t('miniDataAnalysis.fileSize')}</span>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+        {/* Tool steps */}
+        <div className="space-y-1.5 px-1">
+          <Reveal inView={inView} delay={0.5} y={4} duration={0.3}>
+            <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+              <CheckCircle className="h-3 w-3 text-green-500" />
+              <span>{t('miniDataAnalysis.tool1')}</span>
+            </div>
+          </Reveal>
+          <Reveal inView={inView} delay={0.65} y={4} duration={0.3}>
+            <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+              <CheckCircle className="h-3 w-3 text-green-500" />
+              <span>{t('miniDataAnalysis.tool2')}</span>
+            </div>
+          </Reveal>
+          <Reveal inView={inView} delay={0.8} y={4} duration={0.3}>
+            <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+              <CheckCircle className="h-3 w-3 text-green-500" />
+              <span>{t('miniDataAnalysis.tool3')}</span>
+            </div>
+          </Reveal>
+        </div>
+        {/* AI response with chart */}
+        <Reveal inView={inView} delay={1.0} x={-12} y={4}>
+          <div className="max-w-[90%]">
+            <div className="rounded-2xl rounded-bl-md bg-muted px-3.5 py-2.5">
+              <p className="text-[13px] leading-relaxed text-foreground">{t('miniDataAnalysis.aiSummary')}</p>
+              {/* Mini bar chart */}
+              <div className="mt-3 rounded-lg border border-border/50 bg-background/50 p-3">
+                <div className="mb-2 flex items-center gap-1.5">
+                  <TrendingUp className="h-3 w-3 text-primary" />
+                  <span className="text-[10px] font-medium text-foreground">{t('miniDataAnalysis.chartTitle')}</span>
+                </div>
+                <div className="flex items-end gap-3 h-20">
+                  {bars.map((bar, i) => (
+                    <div key={i} className="flex flex-1 flex-col items-center gap-1 h-full">
+                      <div className="relative w-full flex-1">
+                        <motion.div
+                          className={`absolute bottom-0 left-0 right-0 rounded-t ${bar.color}`}
+                          initial={{ height: 0 }}
+                          animate={inView ? { height: bar.height } : { height: 0 }}
+                          transition={{ duration: 0.5, delay: 1.3 + i * 0.12, ease: "easeOut" }}
+                        />
+                      </div>
+                      <span className="text-[9px] text-muted-foreground">{bar.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Key metrics */}
+              <div className="mt-2 flex gap-2">
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
+                  transition={{ duration: 0.2, delay: 1.8, ease: [0.175, 0.885, 0.32, 1.275] }}
+                  className="rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400"
+                >
+                  {t('miniDataAnalysis.metric1')}
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
+                  transition={{ duration: 0.2, delay: 1.9, ease: [0.175, 0.885, 0.32, 1.275] }}
+                  className="rounded-full bg-blue-500/10 px-2 py-0.5 text-[10px] font-medium text-blue-600 dark:text-blue-400"
+                >
+                  {t('miniDataAnalysis.metric2')}
+                </motion.span>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+      {/* Input bar — static */}
+      <div className="border-t border-border px-3 py-2.5">
+        <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2">
+          <span className="flex-1 text-[13px] text-muted-foreground/50">{t('miniDataAnalysis.askAnything')}</span>
+          <Paperclip className="h-3.5 w-3.5 text-muted-foreground/40" />
+          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/10">
+            <ArrowUp className="h-3.5 w-3.5 text-primary" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ── Main export ── */
 
 export function FeatureHighlights() {
@@ -699,6 +1065,7 @@ export function FeatureHighlights() {
 
   return (
     <div className="space-y-20 lg:space-y-28">
+      {/* 1. AI Chat */}
       <FeatureRow
         title={t('features.aiPartner.title')}
         description={t('features.aiPartner.description')}
@@ -706,14 +1073,33 @@ export function FeatureHighlights() {
         <MiniChatMock />
       </FeatureRow>
 
+      {/* 2. AI Thinking Mode — NEW */}
+      <FeatureRow
+        title={t('features.thinkingMode.title')}
+        description={t('features.thinkingMode.description')}
+        reversed
+      >
+        <MiniThinkingMock />
+      </FeatureRow>
+
+      {/* 3. Editor Assistance */}
       <FeatureRow
         title={t('features.intelligentAssist.title')}
         description={t('features.intelligentAssist.description')}
-        reversed
       >
         <MiniEditorMock />
       </FeatureRow>
 
+      {/* 4. Inline Comments — NEW */}
+      <FeatureRow
+        title={t('features.inlineComments.title')}
+        description={t('features.inlineComments.description')}
+        reversed
+      >
+        <MiniCommentMock />
+      </FeatureRow>
+
+      {/* 5. Diff Review */}
       <FeatureRow
         title={t('features.reviewChanges.title')}
         description={t('features.reviewChanges.description')}
@@ -721,6 +1107,24 @@ export function FeatureHighlights() {
         <MiniDiffMock />
       </FeatureRow>
 
+      {/* 6. Database Blocks — NEW */}
+      <FeatureRow
+        title={t('features.databaseBlocks.title')}
+        description={t('features.databaseBlocks.description')}
+        reversed
+      >
+        <MiniDatabaseMock />
+      </FeatureRow>
+
+      {/* 7. Data Analysis — NEW */}
+      <FeatureRow
+        title={t('features.dataAnalysis.title')}
+        description={t('features.dataAnalysis.description')}
+      >
+        <MiniDataAnalysisMock />
+      </FeatureRow>
+
+      {/* 8. KB Upload */}
       <FeatureRow
         title={t('features.groundResearch.title')}
         description={t('features.groundResearch.description')}
@@ -729,6 +1133,7 @@ export function FeatureHighlights() {
         <MiniKBMock />
       </FeatureRow>
 
+      {/* 9. KB Agent */}
       <FeatureRow
         title={t('features.askKB.title')}
         description={t('features.askKB.description')}
@@ -736,6 +1141,7 @@ export function FeatureHighlights() {
         <MiniKBAgentMock />
       </FeatureRow>
 
+      {/* 10. Presentation */}
       <FeatureRow
         title={t('features.present.title')}
         description={t('features.present.description')}
@@ -744,6 +1150,7 @@ export function FeatureHighlights() {
         <MiniPresentationMock />
       </FeatureRow>
 
+      {/* 11. Semantic Search */}
       <FeatureRow
         title={t('features.semanticSearch.title')}
         description={t('features.semanticSearch.description')}
@@ -751,6 +1158,7 @@ export function FeatureHighlights() {
         <MiniSearchMock />
       </FeatureRow>
 
+      {/* 12. Writing Review */}
       <FeatureRow
         title={t('features.writingReview.title')}
         description={t('features.writingReview.description')}

@@ -337,6 +337,74 @@
     "askFollowUp": "フォローアップの質問..."
   },
 
+  "miniThinking": {
+    "aiAssistant": "doXmind AI",
+    "thinkingBadge": "思考中",
+    "userMessage": "リアルタイム共同編集エディタに最適なデータ構造は何ですか？",
+    "thinkingLabel": "思考中...",
+    "thought1": "CRDTとOTアルゴリズムを比較中...",
+    "thought2": "CRDTはP2P向き、OTはクライアント-サーバー向き...",
+    "thought3": "Yjsのようなツリーベースのスをは富テキストに対応...",
+    "thoughtDuration": "12秒間思考",
+    "tool1": "ナレッジベースを検索中",
+    "tool2": "distributed-systems.pdf を読み取り中",
+    "aiResponse": "リアルタイム共同編集エディタには、Yjsのようなツリーベースのスを推奨します。中央サーバーなしで同時編集を処理でき、リッチテキストをサポートし、スケーラビリティも優れています。",
+    "askAnything": "AIに何でも質問..."
+  },
+
+  "miniComment": {
+    "heading": "プロジェクト概要",
+    "textBefore": "私たちの目標は",
+    "highlighted": "開発プロセスを効率化",
+    "textAfter": "し、Q3までに新機能のリリース期間を短縮することです。",
+    "paragraph2": "チームはCI/CDパイプラインの改善、テストの自動化、明確なレビューワークフローの確立に注力します。",
+    "commenterName": "Alex",
+    "commenterTime": "2分前",
+    "commentBody": "ここに具体的な指標を追加できますか？「効率化」とは時間の節約にしてどのくらいですか？",
+    "replyCount": "1件の返信",
+    "resolve": "解決済みにする",
+    "reply": "返信"
+  },
+
+  "miniDatabase": {
+    "title": "プロジェクトトラッカー",
+    "viewTable": "テーブル",
+    "viewBoard": "ボード",
+    "viewGallery": "ギャラリー",
+    "viewList": "リスト",
+    "colName": "名前",
+    "colStatus": "ステータス",
+    "colPriority": "優先度",
+    "row1Name": "プロダクトロードマップ",
+    "row1Status": "進行中",
+    "row1Priority": "高",
+    "row2Name": "デザインシステム",
+    "row2Status": "レビュー中",
+    "row2Priority": "中",
+    "row3Name": "ユーザーリサーチ",
+    "row3Status": "未着手",
+    "row3Priority": "低",
+    "newRow": "新規",
+    "rowCount": "3行"
+  },
+
+  "miniDataAnalysis": {
+    "userMessage": "この売上データを分析して四半期ごとのトレンドを見せてください",
+    "fileName": "sales_2024.csv",
+    "fileSize": "2.4 MB · 15,000行",
+    "tool1": "CSVファイルを解析中...",
+    "tool2": "統計分析を実行中...",
+    "tool3": "チャートを生成中...",
+    "aiMessage": "四半期別の売上トレンドは以下の通りです：",
+    "chartTitle": "四半期別売上",
+    "bar1Label": "Q1",
+    "bar2Label": "Q2",
+    "bar3Label": "Q3",
+    "bar4Label": "Q4",
+    "metric1": "前年比+23%",
+    "metric2": "Q3が最高"
+  },
+
   "miniPresent": {
     "title": "AI搭載ライティング",
     "byline": "著者 John Doe · 2025",

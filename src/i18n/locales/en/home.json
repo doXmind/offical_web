@@ -1,6 +1,6 @@
 {
   "hero": {
-    "subtitle": "Write, edit, and refine your ideas with doXmind AI built into every corner of the editor."
+    "subtitle": "The editor that thinks with you — not just for you."
   },
   "features": {
     "heading": "Everything you need to write",
@@ -36,6 +36,22 @@
     "writingReview": {
       "title": "AI-powered writing review",
       "description": "Get comprehensive feedback on grammar, clarity, tone, and engagement. Review categorized suggestions one by one or accept them all at once. Every suggestion shows the original text, the improvement, and why."
+    },
+    "thinkingMode": {
+      "title": "AI that thinks before it answers",
+      "description": "For complex questions, the AI enters thinking mode — reasoning step by step before responding. Watch the thought process unfold in real time, then get a deeper, more accurate answer."
+    },
+    "inlineComments": {
+      "title": "Collaborate with inline comments",
+      "description": "Highlight any text to start a conversation. Leave comments, reply in threads, and resolve discussions when done. Every comment stays anchored to the exact passage it references."
+    },
+    "databaseBlocks": {
+      "title": "Structured data, right inside your docs",
+      "description": "Add databases to any page with table, board, gallery, and list views. Define custom properties, filter and sort your data, and export to CSV — all without leaving the editor."
+    },
+    "dataAnalysis": {
+      "title": "Drop a CSV, get instant insights",
+      "description": "Upload any data file and let AI do the heavy lifting. It reads your data, spots trends, and generates visualizations — turning raw spreadsheets into actionable insights in seconds."
     }
   },
   "workflow": {

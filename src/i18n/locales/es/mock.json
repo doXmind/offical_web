@@ -337,6 +337,72 @@
     "askFollowUp": "Hacer una pregunta de seguimiento..."
   },
 
+  "miniThinking": {
+    "aiAssistant": "doXmind AI",
+    "thinkingBadge": "Pensando",
+    "userMessage": "¿Cuál es la mejor estructura de datos para un editor colaborativo en tiempo real?",
+    "thinkingLabel": "Pensando...",
+    "thought1": "Comparando algoritmos CRDT vs OT...",
+    "thought2": "CRDT es mejor para P2P; OT para cliente-servidor...",
+    "thought3": "CRDTs basados en árbol como Yjs manejan bien el texto enriquecido...",
+    "thoughtDuration": "Pensó durante 12s",
+    "tool1": "Buscando en base de conocimiento",
+    "tool2": "Leyendo distributed-systems.pdf",
+    "aiResponse": "Para un editor colaborativo en tiempo real, recomiendo un CRDT basado en árbol como Yjs. Maneja ediciones concurrentes sin servidor central, soporta texto enriquecido y escala bien.",
+    "askAnything": "Pregunta lo que quieras..."
+  },
+
+  "miniComment": {
+    "heading": "Resumen del proyecto",
+    "textBefore": "Nuestro objetivo es ",
+    "highlighted": "optimizar el proceso de desarrollo",
+    "textAfter": " y reducir el tiempo de lanzamiento de nuevas funciones para el Q3.",
+    "paragraph2": "El equipo se centrará en mejorar los pipelines CI/CD, automatizar pruebas y establecer flujos de revisión claros.",
+    "commenterName": "Alex",
+    "commenterTime": "hace 2m",
+    "commentBody": "¿Podemos agregar métricas específicas aquí? ¿Qué significa \"optimizar\" en términos de tiempo ahorrado?",
+    "replyCount": "1 respuesta",
+    "resolve": "Resolver",
+    "reply": "Responder"
+  },
+
+  "miniDatabase": {
+    "title": "Seguimiento de proyectos",
+    "viewTable": "Tabla",
+    "viewBoard": "Tablero",
+    "viewGallery": "Galería",
+    "viewList": "Lista",
+    "colName": "Nombre",
+    "colStatus": "Estado",
+    "colPriority": "Prioridad",
+    "row1Name": "Hoja de ruta",
+    "row1Status": "En progreso",
+    "row1Priority": "Alta",
+    "row2Name": "Sistema de diseño",
+    "row2Status": "En revisión",
+    "row2Priority": "Media",
+    "row3Name": "Investigación de usuarios",
+    "row3Status": "Pendiente",
+    "row3Priority": "Baja",
+    "newRow": "Nuevo",
+    "rowCount": "3 filas"
+  },
+
+  "miniDataAnalysis": {
+    "aiAssistant": "doXmind AI",
+    "userMessage": "Analiza estos datos de ventas y muéstrame las tendencias trimestrales",
+    "fileName": "sales-data-2025.csv",
+    "fileSize": "2.4 MB",
+    "tool1": "Leyendo sales-data-2025.csv",
+    "tool2": "Analizando 1,234 filas × 8 columnas",
+    "tool3": "Generando visualización",
+    "aiSummary": "Los ingresos del Q4 alcanzaron $2.1M — un salto del 29% respecto al Q3. Aquí está el desglose trimestral:",
+    "chartTitle": "Ingresos por trimestre",
+    "metric1": "+29% crecimiento Q4",
+    "metric2": "$6.2M ingresos totales",
+    "askAnything": "Pregunta lo que quieras..."
+  },
+
   "miniPresent": {
     "title": "Escritura impulsada por IA",
     "byline": "Por John Doe · 2025",

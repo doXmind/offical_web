@@ -1,6 +1,6 @@
 {
   "hero": {
-    "subtitle": "Ecrivez, editez et affinez vos idees avec doXmind AI integre dans chaque recoin de l'editeur."
+    "subtitle": "L'éditeur qui pense avec vous — pas seulement pour vous."
   },
   "features": {
     "heading": "Tout ce dont vous avez besoin pour ecrire",
@@ -36,6 +36,22 @@
     "writingReview": {
       "title": "Revision d'ecriture propulsee par l'IA",
       "description": "Obtenez un retour complet sur la grammaire, la clarte, le ton et l'engagement. Examinez les suggestions categorizees une par une ou acceptez-les toutes en une fois. Chaque suggestion montre le texte original, l'amelioration et la raison."
+    },
+    "thinkingMode": {
+      "title": "Une IA qui reflechit avant de repondre",
+      "description": "Pour les questions complexes, l'IA entre en mode reflexion — raisonnant etape par etape avant de repondre. Observez le processus de pensee en temps reel, puis obtenez une reponse plus approfondie et precise."
+    },
+    "inlineComments": {
+      "title": "Collaborez avec des commentaires en ligne",
+      "description": "Surlignez n'importe quel texte pour demarrer une conversation. Laissez des commentaires, repondez dans les fils et resolvez les discussions une fois terminees. Chaque commentaire reste ancre au passage exact qu'il reference."
+    },
+    "databaseBlocks": {
+      "title": "Donnees structurees, directement dans vos documents",
+      "description": "Ajoutez des bases de donnees a n'importe quelle page avec des vues tableau, kanban, galerie et liste. Definissez des proprietes personnalisees, filtrez et triez vos donnees, et exportez en CSV — sans quitter l'editeur."
+    },
+    "dataAnalysis": {
+      "title": "Deposez un CSV, obtenez des insights instantanement",
+      "description": "Telechargez n'importe quel fichier de donnees et laissez l'IA faire le gros du travail. Elle lit vos donnees, detecte les tendances et genere des visualisations — transformant des tableurs bruts en insights exploitables en quelques secondes."
     }
   },
   "workflow": {
