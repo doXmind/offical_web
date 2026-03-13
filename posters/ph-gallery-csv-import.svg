@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1270 760" width="1270" height="760">
+  <defs>
+    <style>
+      .light { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 300; }
+      .regular { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 400; }
+      .medium { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; }
+      .bold { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 800; }
+    </style>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="4" stdDeviation="16" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadow-sm" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="8" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1270" height="760" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="635" y="52" text-anchor="middle" class="bold" font-size="30" fill="#111827" letter-spacing="-1">CSV Database Import</text>
+
+  <!-- App Window -->
+  <g transform="translate(55, 80)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1160" height="580" rx="12" fill="#1C1C1E"/>
+
+    <!-- Titlebar -->
+    <rect x="0" y="0" width="1160" height="40" rx="12" fill="#28282C"/>
+    <rect x="0" y="12" width="1160" height="28" fill="#28282C"/>
+    <circle cx="20" cy="20" r="5.5" fill="#ff5f57"/>
+    <circle cx="40" cy="20" r="5.5" fill="#febc2e"/>
+    <circle cx="60" cy="20" r="5.5" fill="#28c840"/>
+
+    <!-- === LEFT: New Database Dialog === -->
+    <g transform="translate(30, 56)">
+      <!-- Dialog header -->
+      <rect x="0" y="0" width="520" height="320" rx="10" fill="#242428" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+      <!-- New Database title -->
+      <g transform="translate(16, 16)">
+        <rect x="0" y="0" width="22" height="22" rx="4" fill="rgba(255,255,255,0.04)"/>
+        <text x="7" y="15" class="regular" font-size="12" fill="#636366">+</text>
+        <text x="32" y="16" class="bold" font-size="15" fill="#F2F2F7">New Database</text>
+      </g>
+
+      <!-- Options -->
+      <g transform="translate(16, 56)">
+        <!-- New empty data source -->
+        <g transform="translate(0, 0)">
+          <text x="24" y="14" class="medium" font-size="13" fill="#E5E5EA">New empty data source</text>
+          <text x="24" y="30" class="regular" font-size="11" fill="#636366">Start from scratch with a blank database</text>
+          <text x="4" y="16" class="regular" font-size="14" fill="#48484A">+</text>
+        </g>
+
+        <!-- Import CSV - highlighted -->
+        <g transform="translate(0, 50)">
+          <rect x="-8" y="-8" width="496" height="44" rx="8" fill="#D4A54A" opacity="0.06"/>
+          <rect x="-8" y="-8" width="496" height="44" rx="8" fill="none" stroke="#D4A54A" stroke-width="1" opacity="0.2"/>
+          <text x="24" y="14" class="medium" font-size="13" fill="#D4A54A">Import CSV</text>
+          <text x="24" y="30" class="regular" font-size="11" fill="#636366">Create a database from a CSV file</text>
+          <!-- Upload icon -->
+          <line x1="8" y1="20" x2="8" y2="10" stroke="#D4A54A" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M4,14 L8,10 L12,14" stroke="#D4A54A" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+
+      <!-- Templates section -->
+      <g transform="translate(16, 170)">
+        <text x="0" y="0" class="medium" font-size="11" fill="#636366" letter-spacing="0.5">Templates</text>
+
+        <!-- Template items -->
+        <g transform="translate(0, 18)">
+          <circle cx="8" cy="8" r="7" fill="#5EC28A" opacity="0.15"/>
+          <text x="8" y="12" text-anchor="middle" class="regular" font-size="8" fill="#5EC28A">✓</text>
+          <text x="22" y="12" class="medium" font-size="12" fill="#E5E5EA">Tasks Tracker</text>
+          <text x="22" y="26" class="regular" font-size="10" fill="#636366">Track tasks with status, priority, and due dates</text>
+        </g>
+
+        <g transform="translate(0, 54)">
+          <rect x="1" y="1" width="14" height="14" rx="3" fill="#8B8EC8" opacity="0.15"/>
+          <text x="8" y="12" text-anchor="middle" class="regular" font-size="8" fill="#8B8EC8">P</text>
+          <text x="22" y="12" class="medium" font-size="12" fill="#E5E5EA">Projects</text>
+          <text x="22" y="26" class="regular" font-size="10" fill="#636366">Manage projects with timelines and categories</text>
+        </g>
+
+        <g transform="translate(0, 90)">
+          <rect x="1" y="1" width="14" height="14" rx="3" fill="#D4A54A" opacity="0.15"/>
+          <text x="8" y="12" text-anchor="middle" class="regular" font-size="8" fill="#D4A54A">R</text>
+          <text x="22" y="12" class="medium" font-size="12" fill="#E5E5EA">Reading List</text>
+          <text x="22" y="26" class="regular" font-size="10" fill="#636366">Track books with ratings and reading status</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- === RIGHT SIDE: Loaded CSV Table + AI Chat === -->
+
+    <!-- Database title -->
+    <g transform="translate(580, 56)">
+      <text x="0" y="16" class="bold" font-size="17" fill="#F2F2F7">customers</text>
+
+      <!-- Table View pill -->
+      <rect x="0" y="28" width="84" height="24" rx="6" fill="#D4A54A" opacity="0.12"/>
+      <text x="16" y="44" class="medium" font-size="11" fill="#D4A54A">Table View</text>
+      <text x="94" y="44" class="regular" font-size="14" fill="#48484A">+</text>
+
+      <!-- Toolbar -->
+      <text x="0" y="72" class="regular" font-size="11" fill="#636366">Filter</text>
+      <text x="48" y="72" class="regular" font-size="11" fill="#636366">Sort</text>
+      <text x="340" y="72" class="regular" font-size="11" fill="#636366">Analyze with AI</text>
+      <text x="442" y="72" class="regular" font-size="11" fill="#636366">Properties</text>
+      <line x1="0" y1="82" x2="550" y2="82" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </g>
+
+    <!-- CSV Table -->
+    <g transform="translate(580, 148)">
+      <!-- Header row -->
+      <rect x="0" y="0" width="550" height="26" fill="rgba(255,255,255,0.03)"/>
+      <text x="8" y="17" class="medium" font-size="9" fill="#636366">#</text>
+      <text x="30" y="17" class="medium" font-size="9" fill="#636366">customer_id</text>
+      <line x1="132" y1="0" x2="132" y2="26" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <text x="142" y="17" class="medium" font-size="9" fill="#636366">first_name</text>
+      <line x1="236" y1="0" x2="236" y2="26" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <text x="246" y="17" class="medium" font-size="9" fill="#636366">last_name</text>
+      <line x1="340" y1="0" x2="340" y2="26" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <text x="350" y="17" class="medium" font-size="9" fill="#636366">email</text>
+      <line x1="0" y1="26" x2="550" y2="26" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+      <!-- Row 1 -->
+      <text x="8" y="44" class="regular" font-size="10" fill="#48484A">1</text>
+      <text x="30" y="44" class="regular" font-size="10" fill="#8E8E93">CUST-00001</text>
+      <text x="142" y="44" class="regular" font-size="10" fill="#8E8E93">Jason</text>
+      <text x="246" y="44" class="regular" font-size="10" fill="#8E8E93">Kennedy</text>
+      <text x="350" y="44" class="regular" font-size="10" fill="#7ABADC">sherrywood@exampl...</text>
+      <line x1="0" y1="52" x2="550" y2="52" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+      <!-- Row 2 -->
+      <text x="8" y="70" class="regular" font-size="10" fill="#48484A">2</text>
+      <text x="30" y="70" class="regular" font-size="10" fill="#8E8E93">CUST-00002</text>
+      <text x="142" y="70" class="regular" font-size="10" fill="#8E8E93">Timothy</text>
+      <text x="246" y="70" class="regular" font-size="10" fill="#8E8E93">Collins</text>
+      <text x="350" y="70" class="regular" font-size="10" fill="#7ABADC">ymccullough@exam...</text>
+      <line x1="0" y1="78" x2="550" y2="78" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+      <!-- Row 3 -->
+      <text x="8" y="96" class="regular" font-size="10" fill="#48484A">3</text>
+      <text x="30" y="96" class="regular" font-size="10" fill="#8E8E93">CUST-00003</text>
+      <text x="142" y="96" class="regular" font-size="10" fill="#8E8E93">Ann</text>
+      <text x="246" y="96" class="regular" font-size="10" fill="#8E8E93">Martinez</text>
+      <text x="350" y="96" class="regular" font-size="10" fill="#7ABADC">leechristine@exampl...</text>
+      <line x1="0" y1="104" x2="550" y2="104" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+      <!-- Row 4 -->
+      <text x="8" y="122" class="regular" font-size="10" fill="#48484A">4</text>
+      <text x="30" y="122" class="regular" font-size="10" fill="#8E8E93">CUST-00004</text>
+      <text x="142" y="122" class="regular" font-size="10" fill="#8E8E93">Patrick</text>
+      <text x="246" y="122" class="regular" font-size="10" fill="#8E8E93">Davis</text>
+      <text x="350" y="122" class="regular" font-size="10" fill="#7ABADC">weaverjustin@examp...</text>
+      <line x1="0" y1="130" x2="550" y2="130" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+      <!-- Row 5 -->
+      <text x="8" y="148" class="regular" font-size="10" fill="#48484A">5</text>
+      <text x="30" y="148" class="regular" font-size="10" fill="#8E8E93">CUST-00005</text>
+      <text x="142" y="148" class="regular" font-size="10" fill="#8E8E93">Karen</text>
+      <text x="246" y="148" class="regular" font-size="10" fill="#8E8E93">Cruz</text>
+      <text x="350" y="148" class="regular" font-size="10" fill="#7ABADC">adamslucas@exampl...</text>
+      <line x1="0" y1="156" x2="550" y2="156" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+      <!-- Row 6 -->
+      <text x="8" y="174" class="regular" font-size="10" fill="#48484A">6</text>
+      <text x="30" y="174" class="regular" font-size="10" fill="#8E8E93">CUST-00006</text>
+      <text x="142" y="174" class="regular" font-size="10" fill="#8E8E93">Brian</text>
+      <text x="246" y="174" class="regular" font-size="10" fill="#8E8E93">Weeks</text>
+      <text x="350" y="174" class="regular" font-size="10" fill="#7ABADC">carla65@example.net</text>
+      <line x1="0" y1="182" x2="550" y2="182" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+      <!-- Row 7 -->
+      <text x="8" y="200" class="regular" font-size="10" fill="#48484A">7</text>
+      <text x="30" y="200" class="regular" font-size="10" fill="#8E8E93">CUST-00007</text>
+      <text x="142" y="200" class="regular" font-size="10" fill="#8E8E93">Susan</text>
+      <text x="246" y="200" class="regular" font-size="10" fill="#8E8E93">Murphy</text>
+      <text x="350" y="200" class="regular" font-size="10" fill="#7ABADC">deborahsmith@exam...</text>
+    </g>
+
+    <!-- Footer -->
+    <text x="580" y="566" class="regular" font-size="10" fill="#48484A">1 min read</text>
+
+    <!-- Floating metadata card (bottom-right) -->
+    <g transform="translate(740, 400)" filter="url(#shadow-sm)">
+      <rect x="0" y="0" width="380" height="150" rx="10" fill="#2C2C30" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+      <!-- Card header -->
+      <g transform="translate(14, 16)">
+        <rect x="0" y="0" width="20" height="20" rx="4" fill="rgba(255,255,255,0.04)"/>
+        <text x="10" y="14" text-anchor="middle" class="regular" font-size="10" fill="#636366">T</text>
+        <text x="28" y="14" class="medium" font-size="12" fill="#AEAEB2">customers</text>
+        <text x="100" y="14" class="regular" font-size="11" fill="#48484A">v</text>
+        <!-- Close button -->
+        <text x="336" y="14" class="regular" font-size="14" fill="#48484A">×</text>
+      </g>
+
+      <!-- Metadata content -->
+      <g transform="translate(14, 48)">
+        <text x="0" y="0" class="regular" font-size="11" fill="#8E8E93">customers (500 rows)</text>
+        <text x="0" y="20" class="regular" font-size="10" fill="#636366">Columns: customer_id, first_name, last_name, email,</text>
+        <text x="0" y="34" class="regular" font-size="10" fill="#636366">phone, street_address, city, state, zip_code, country,</text>
+        <text x="0" y="48" class="regular" font-size="10" fill="#636366">registration_date, loyalty_points, customer_segment,</text>
+        <text x="0" y="62" class="regular" font-size="10" fill="#636366">preferred_contact...</text>
+      </g>
+
+      <!-- User message at bottom of card -->
+      <g transform="translate(14, 118)">
+        <text x="0" y="12" class="medium" font-size="12" fill="#AEAEB2">please analyze this database</text>
+      </g>
+    </g>
+  </g>
+</svg>

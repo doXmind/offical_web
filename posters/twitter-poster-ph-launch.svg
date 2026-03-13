@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <style>
+      .light { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 300; }
+      .bold { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 900; }
+      .medium { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 600; }
+    </style>
+    <radialGradient id="burst" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#4c1d95" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Bold blue background -->
+  <rect width="1200" height="675" fill="#0f172a"/>
+
+  <!-- Dramatic color shapes -->
+  <!-- Large blue circle -->
+  <circle cx="600" cy="280" r="400" fill="#1e3a5f" opacity="0.3"/>
+  <!-- Purple accent -->
+  <circle cx="350" cy="150" r="250" fill="#2e1065" opacity="0.25"/>
+  <!-- Teal accent bottom-right -->
+  <circle cx="1000" cy="550" r="200" fill="#0d3b3b" opacity="0.2"/>
+  <!-- Radial burst -->
+  <rect width="1200" height="675" fill="url(#burst)"/>
+
+  <!-- Logo (top-left) -->
+  <g transform="translate(70, 50)">
+    <path d="M3 0 Q0 0 0 3 L0 16 L20 20 L16 0 Z" fill="#FFFFFF"/>
+    <path d="M24 0 L20 20 L40 16 L40 3 Q40 0 37 0 Z" fill="#FFFFFF"/>
+    <path d="M0 24 L20 20 L16 40 L3 40 Q0 40 0 37 Z" fill="#FFFFFF"/>
+    <path d="M20 20 L40 24 L40 37 Q40 40 37 40 L24 40 Z" fill="#FFFFFF"/>
+    <text x="52" y="30" fill="#FFFFFF" font-size="24" letter-spacing="-1">
+      <tspan class="light">do</tspan><tspan class="bold">X</tspan><tspan class="light">mind</tspan>
+    </text>
+  </g>
+
+  <!-- Massive X-icon as art centerpiece -->
+  <g transform="translate(420, 60)">
+    <path d="M27 0 Q0 0 0 27 L0 144 L180 180 L144 0 Z" fill="#FFFFFF" opacity="0.95"/>
+    <path d="M216 0 L180 180 L360 144 L360 27 Q360 0 333 0 Z" fill="#FFFFFF" opacity="0.95"/>
+    <path d="M0 216 L180 180 L144 360 L27 360 Q0 360 0 333 Z" fill="#FFFFFF" opacity="0.95"/>
+    <path d="M180 180 L360 216 L360 333 Q360 360 333 360 L216 360 Z" fill="#FFFFFF" opacity="0.95"/>
+  </g>
+
+  <!-- Feature chips — scattered around the logo like constellation -->
+  <!-- Top-left chip -->
+  <g transform="translate(80, 190)">
+    <rect x="0" y="0" width="155" height="40" rx="20" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+    <circle cx="22" cy="20" r="5" fill="#8b5cf6" opacity="0.6"/>
+    <text x="38" y="25" class="medium" font-size="13" fill="#a78bfa">Thinking Mode</text>
+  </g>
+
+  <!-- Left chip -->
+  <g transform="translate(115, 310)">
+    <rect x="0" y="0" width="125" height="40" rx="20" fill="rgba(20,184,166,0.12)" stroke="rgba(20,184,166,0.25)" stroke-width="1"/>
+    <circle cx="22" cy="20" r="5" fill="#14b8a6" opacity="0.6"/>
+    <text x="38" y="25" class="medium" font-size="13" fill="#5eead4">KB Agent</text>
+  </g>
+
+  <!-- Bottom-left chip -->
+  <g transform="translate(140, 440)">
+    <rect x="0" y="0" width="140" height="40" rx="20" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+    <circle cx="22" cy="20" r="5" fill="#f59e0b" opacity="0.6"/>
+    <text x="38" y="25" class="medium" font-size="13" fill="#fbbf24">Comments</text>
+  </g>
+
+  <!-- Top-right chip -->
+  <g transform="translate(870, 160)">
+    <rect x="0" y="0" width="135" height="40" rx="20" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+    <circle cx="22" cy="20" r="5" fill="#3b82f6" opacity="0.6"/>
+    <text x="38" y="25" class="medium" font-size="13" fill="#60a5fa">Database</text>
+  </g>
+
+  <!-- Right chip -->
+  <g transform="translate(900, 310)">
+    <rect x="0" y="0" width="160" height="40" rx="20" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+    <circle cx="22" cy="20" r="5" fill="#22c55e" opacity="0.6"/>
+    <text x="38" y="25" class="medium" font-size="13" fill="#86efac">Presentations</text>
+  </g>
+
+  <!-- Bottom-right chip -->
+  <g transform="translate(840, 440)">
+    <rect x="0" y="0" width="125" height="40" rx="20" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.25)" stroke-width="1"/>
+    <circle cx="22" cy="20" r="5" fill="#ec4899" opacity="0.6"/>
+    <text x="38" y="25" class="medium" font-size="13" fill="#f9a8d4">Themes</text>
+  </g>
+
+  <!-- Think. Write. Publish. — large, bottom center -->
+  <text x="600" y="535" text-anchor="middle" font-size="52" fill="#FFFFFF" letter-spacing="-2">
+    <tspan class="bold">Think.</tspan><tspan class="light"> Write. </tspan><tspan class="bold">Publish.</tspan>
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="575" text-anchor="middle" class="light" font-size="18" fill="rgba(255,255,255,0.35)">The AI editor that reasons with you.</text>
+
+  <!-- Footer -->
+  <text x="600" y="645" text-anchor="middle" class="light" font-size="14" fill="rgba(255,255,255,0.2)" letter-spacing="2">DOXMIND.COM</text>
+</svg>

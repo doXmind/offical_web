@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1270 760" width="1270" height="760">
+  <defs>
+    <style>
+      .light { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 300; }
+      .regular { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 400; }
+      .medium { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; }
+      .bold { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 800; }
+    </style>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="4" stdDeviation="16" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1270" height="760" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="635" y="52" text-anchor="middle" class="bold" font-size="30" fill="#111827" letter-spacing="-1">AI Chart Editing</text>
+
+  <!-- App Window -->
+  <g transform="translate(75, 80)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1120" height="580" rx="12" fill="#1C1C1E"/>
+    <rect x="0" y="0" width="1120" height="36" rx="12" fill="#28282C"/>
+    <rect x="0" y="12" width="1120" height="24" fill="#28282C"/>
+    <circle cx="18" cy="18" r="4.5" fill="#ff5f57"/>
+    <circle cx="34" cy="18" r="4.5" fill="#febc2e"/>
+    <circle cx="50" cy="18" r="4.5" fill="#28c840"/>
+
+    <!-- Chart title -->
+    <text x="410" y="74" class="bold" font-size="17" fill="#AEAEB2">Major Indices Performance (Feb 25, 2026)</text>
+
+    <!-- ===== BAR CHART (Before) - Left side ===== -->
+    <g transform="translate(60, 90)">
+      <text x="220" y="14" text-anchor="middle" class="medium" font-size="10" fill="#48484A" letter-spacing="1">BEFORE</text>
+
+      <!-- Y-axis -->
+      <text x="32" y="46" text-anchor="end" class="regular" font-size="9" fill="#48484A">1.4</text>
+      <text x="32" y="82" text-anchor="end" class="regular" font-size="9" fill="#48484A">1.0</text>
+      <text x="32" y="118" text-anchor="end" class="regular" font-size="9" fill="#48484A">0.6</text>
+      <text x="32" y="154" text-anchor="end" class="regular" font-size="9" fill="#48484A">0.2</text>
+      <line x1="40" y1="36" x2="40" y2="160" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <line x1="40" y1="160" x2="420" y2="160" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+      <!-- Bars -->
+      <rect x="80" y="90" width="70" height="70" rx="3" fill="#6b7280" opacity="0.5"/>
+      <rect x="190" y="64" width="70" height="96" rx="3" fill="#6b7280" opacity="0.5"/>
+      <rect x="300" y="92" width="70" height="68" rx="3" fill="#6b7280" opacity="0.5"/>
+
+      <!-- X labels -->
+      <text x="115" y="180" text-anchor="middle" class="regular" font-size="10" fill="#48484A">Dow Jones</text>
+      <text x="225" y="180" text-anchor="middle" class="regular" font-size="10" fill="#48484A">NASDAQ</text>
+      <text x="335" y="180" text-anchor="middle" class="regular" font-size="10" fill="#48484A">S&amp;P 500</text>
+    </g>
+
+    <!-- Arrow indicator -->
+    <g transform="translate(530, 190)">
+      <path d="M0,0 L40,0" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M34,-5 L40,0 L34,5" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- ===== LINE CHART (After) - Right side ===== -->
+    <g transform="translate(610, 90)">
+      <text x="220" y="14" text-anchor="middle" class="medium" font-size="10" fill="#10b981" letter-spacing="1">AFTER</text>
+
+      <!-- Y-axis -->
+      <text x="32" y="46" text-anchor="end" class="regular" font-size="9" fill="#48484A">1.4</text>
+      <text x="32" y="82" text-anchor="end" class="regular" font-size="9" fill="#48484A">1.0</text>
+      <text x="32" y="118" text-anchor="end" class="regular" font-size="9" fill="#48484A">0.6</text>
+      <text x="32" y="154" text-anchor="end" class="regular" font-size="9" fill="#48484A">0.2</text>
+      <line x1="40" y1="36" x2="40" y2="160" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <line x1="40" y1="160" x2="420" y2="160" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+      <!-- Dark blue chart area -->
+      <rect x="40" y="36" width="380" height="124" rx="4" fill="#1A2A3A" opacity="0.5"/>
+
+      <!-- Line -->
+      <polyline points="115,90 225,64 335,92" stroke="#e5e7eb" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="115" cy="90" r="4" fill="#e5e7eb"/>
+      <circle cx="225" cy="64" r="4" fill="#e5e7eb"/>
+      <circle cx="335" cy="92" r="4" fill="#e5e7eb"/>
+
+      <!-- X labels -->
+      <text x="115" y="180" text-anchor="middle" class="regular" font-size="10" fill="#48484A">Dow Jones</text>
+      <text x="225" y="180" text-anchor="middle" class="regular" font-size="10" fill="#48484A">NASDAQ</text>
+      <text x="335" y="180" text-anchor="middle" class="regular" font-size="10" fill="#48484A">S&amp;P 500</text>
+    </g>
+
+    <!-- AI response card -->
+    <g transform="translate(260, 350)">
+      <rect x="0" y="0" width="600" height="54" rx="10" fill="#2C2C30" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="18" y="24" class="regular" font-size="13" fill="#AEAEB2">Done! Changed the chart from a bar chart to a line chart by replacing</text>
+      <text x="18" y="42" class="regular" font-size="11" fill="#636366">1 pending changes</text>
+      <rect x="130" y="30" width="48" height="20" rx="5" fill="rgba(255,255,255,0.08)" stroke="#3A3A3C" stroke-width="1"/>
+      <text x="154" y="44" text-anchor="middle" class="medium" font-size="10" fill="#AEAEB2">Keep</text>
+      <text x="196" y="44" class="regular" font-size="10" fill="#636366">Undo</text>
+      <text x="236" y="44" class="regular" font-size="10" fill="#636366">Try again</text>
+    </g>
+
+    <!-- Inline AI bar -->
+    <g transform="translate(60, 440)">
+      <g transform="translate(0, 6) scale(0.38)">
+        <path d="M3 0 Q0 0 0 3 L0 16 L20 20 L16 0 Z" fill="#8E8E93"/>
+        <path d="M24 0 L20 20 L40 16 L40 3 Q40 0 37 0 Z" fill="#8E8E93"/>
+        <path d="M0 24 L20 20 L16 40 L3 40 Q0 40 0 37 Z" fill="#8E8E93"/>
+        <path d="M20 20 L40 24 L40 37 Q40 40 37 40 L24 40 Z" fill="#8E8E93"/>
+      </g>
+      <rect x="24" y="0" width="400" height="32" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <text x="38" y="20" class="regular" font-size="13" fill="#8E8E93">change to line chart</text>
+      <text x="408" y="20" class="regular" font-size="14" fill="#3A3A3C">×</text>
+    </g>
+  </g>
+</svg>
+
+

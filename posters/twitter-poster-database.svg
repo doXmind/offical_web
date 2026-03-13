@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <style>
+      .light { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 300; }
+      .bold { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 900; }
+      .medium { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Deep blue background -->
+  <rect width="1200" height="675" fill="#0c1e3d"/>
+
+  <!-- Decorative shapes -->
+  <circle cx="1100" cy="600" r="300" fill="#122b52" opacity="0.6"/>
+  <rect x="-80" y="-80" width="350" height="350" rx="60" fill="#0f2847" opacity="0.5" transform="rotate(20, 95, 95)"/>
+  <circle cx="650" cy="-100" r="180" fill="#153060" opacity="0.35"/>
+
+  <!-- Logo -->
+  <g transform="translate(70, 55)">
+    <path d="M3 0 Q0 0 0 3 L0 16 L20 20 L16 0 Z" fill="#FFFFFF"/>
+    <path d="M24 0 L20 20 L40 16 L40 3 Q40 0 37 0 Z" fill="#FFFFFF"/>
+    <path d="M0 24 L20 20 L16 40 L3 40 Q0 40 0 37 Z" fill="#FFFFFF"/>
+    <path d="M20 20 L40 24 L40 37 Q40 40 37 40 L24 40 Z" fill="#FFFFFF"/>
+    <text x="52" y="30" fill="#FFFFFF" font-size="24" letter-spacing="-1">
+      <tspan class="light">do</tspan><tspan class="bold">X</tspan><tspan class="light">mind</tspan>
+    </text>
+  </g>
+
+  <!-- Headline -->
+  <text x="70" y="185" class="bold" font-size="56" fill="#FFFFFF" letter-spacing="-3">Database</text>
+  <text x="70" y="250" class="bold" font-size="56" fill="#FFFFFF" letter-spacing="-3">Blocks.</text>
+
+  <!-- View mode tabs -->
+  <g transform="translate(70, 290)">
+    <rect x="0" y="0" width="72" height="34" rx="8" fill="#3b82f6" opacity="0.2"/>
+    <text x="36" y="22" class="medium" font-size="14" fill="#60a5fa" text-anchor="middle">Table</text>
+    <text x="100" y="22" class="light" font-size="14" fill="rgba(255,255,255,0.3)">Board</text>
+    <text x="162" y="22" class="light" font-size="14" fill="rgba(255,255,255,0.3)">Gallery</text>
+    <text x="232" y="22" class="light" font-size="14" fill="rgba(255,255,255,0.3)">List</text>
+  </g>
+
+  <!-- Oversized database table as art piece -->
+  <g transform="translate(420, 30)">
+    <!-- Table container — large, bold -->
+    <rect x="0" y="0" width="740" height="610" rx="24" fill="#091729" stroke="rgba(59,130,246,0.15)" stroke-width="2"/>
+    <!-- Blue top accent -->
+    <rect x="0" y="0" width="740" height="4" rx="2" fill="#3b82f6" opacity="0.7"/>
+
+    <!-- Column headers — bold, large -->
+    <rect x="2" y="4" width="736" height="56" rx="0" fill="#0a1d38"/>
+    <text x="40" y="38" class="medium" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="2">NAME</text>
+    <text x="310" y="38" class="medium" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="2">STATUS</text>
+    <text x="500" y="38" class="medium" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="2">PRIORITY</text>
+    <text x="640" y="38" class="medium" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="2">DUE</text>
+    <line x1="0" y1="60" x2="740" y2="60" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+    <!-- Row 1 -->
+    <g transform="translate(0, 60)">
+      <rect x="2" y="0" width="736" height="75" fill="transparent"/>
+      <text x="40" y="44" class="light" font-size="17" fill="rgba(255,255,255,0.85)">Product launch campaign</text>
+      <!-- Status pill: Done -->
+      <rect x="300" y="22" width="72" height="30" rx="15" fill="#052e16" stroke="#166534" stroke-width="1"/>
+      <text x="336" y="42" class="medium" font-size="12" fill="#22c55e" text-anchor="middle">Done</text>
+      <!-- Priority pill: High -->
+      <rect x="492" y="22" width="62" height="30" rx="15" fill="#2a0a0a" stroke="#7f1d1d" stroke-width="1"/>
+      <text x="523" y="42" class="medium" font-size="12" fill="#ef4444" text-anchor="middle">High</text>
+      <text x="640" y="44" class="light" font-size="15" fill="rgba(255,255,255,0.35)">Mar 10</text>
+      <line x1="30" y1="75" x2="710" y2="75" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </g>
+
+    <!-- Row 2 -->
+    <g transform="translate(0, 135)">
+      <rect x="2" y="0" width="736" height="75" fill="transparent"/>
+      <text x="40" y="44" class="light" font-size="17" fill="rgba(255,255,255,0.85)">User research interviews</text>
+      <rect x="300" y="22" width="72" height="30" rx="15" fill="#0a0a2e" stroke="#1e1b4b" stroke-width="1"/>
+      <text x="336" y="42" class="medium" font-size="12" fill="#818cf8" text-anchor="middle">Active</text>
+      <rect x="492" y="22" width="82" height="30" rx="15" fill="#2a1f0a" stroke="#78350f" stroke-width="1"/>
+      <text x="533" y="42" class="medium" font-size="12" fill="#f59e0b" text-anchor="middle">Medium</text>
+      <text x="640" y="44" class="light" font-size="15" fill="rgba(255,255,255,0.35)">Mar 15</text>
+      <line x1="30" y1="75" x2="710" y2="75" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </g>
+
+    <!-- Row 3 -->
+    <g transform="translate(0, 210)">
+      <rect x="2" y="0" width="736" height="75" fill="transparent"/>
+      <text x="40" y="44" class="light" font-size="17" fill="rgba(255,255,255,0.85)">Design system update</text>
+      <rect x="300" y="22" width="82" height="30" rx="15" fill="#1a1505" stroke="#78350f" stroke-width="1"/>
+      <text x="341" y="42" class="medium" font-size="12" fill="#fbbf24" text-anchor="middle">Pending</text>
+      <rect x="492" y="22" width="62" height="30" rx="15" fill="#2a0a0a" stroke="#7f1d1d" stroke-width="1"/>
+      <text x="523" y="42" class="medium" font-size="12" fill="#ef4444" text-anchor="middle">High</text>
+      <text x="640" y="44" class="light" font-size="15" fill="rgba(255,255,255,0.35)">Mar 18</text>
+      <line x1="30" y1="75" x2="710" y2="75" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </g>
+
+    <!-- Row 4 -->
+    <g transform="translate(0, 285)">
+      <rect x="2" y="0" width="736" height="75" fill="transparent"/>
+      <text x="40" y="44" class="light" font-size="17" fill="rgba(255,255,255,0.85)">API documentation</text>
+      <rect x="300" y="22" width="72" height="30" rx="15" fill="#0a0a2e" stroke="#1e1b4b" stroke-width="1"/>
+      <text x="336" y="42" class="medium" font-size="12" fill="#818cf8" text-anchor="middle">Active</text>
+      <rect x="492" y="22" width="56" height="30" rx="15" fill="#052e16" stroke="#166534" stroke-width="1"/>
+      <text x="520" y="42" class="medium" font-size="12" fill="#22c55e" text-anchor="middle">Low</text>
+      <text x="640" y="44" class="light" font-size="15" fill="rgba(255,255,255,0.35)">Mar 20</text>
+      <line x1="30" y1="75" x2="710" y2="75" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </g>
+
+    <!-- Row 5 -->
+    <g transform="translate(0, 360)">
+      <rect x="2" y="0" width="736" height="75" fill="transparent"/>
+      <text x="40" y="44" class="light" font-size="17" fill="rgba(255,255,255,0.85)">Performance benchmarks</text>
+      <rect x="300" y="22" width="72" height="30" rx="15" fill="#052e16" stroke="#166534" stroke-width="1"/>
+      <text x="336" y="42" class="medium" font-size="12" fill="#22c55e" text-anchor="middle">Done</text>
+      <rect x="492" y="22" width="82" height="30" rx="15" fill="#2a1f0a" stroke="#78350f" stroke-width="1"/>
+      <text x="533" y="42" class="medium" font-size="12" fill="#f59e0b" text-anchor="middle">Medium</text>
+      <text x="640" y="44" class="light" font-size="15" fill="rgba(255,255,255,0.35)">Mar 8</text>
+      <line x1="30" y1="75" x2="710" y2="75" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </g>
+
+    <!-- Row 6 (fading) -->
+    <g transform="translate(0, 435)" opacity="0.45">
+      <text x="40" y="44" class="light" font-size="17" fill="rgba(255,255,255,0.85)">Content strategy plan</text>
+      <rect x="300" y="22" width="82" height="30" rx="15" fill="#1a1505" stroke="#78350f" stroke-width="1"/>
+      <text x="341" y="42" class="medium" font-size="12" fill="#fbbf24" text-anchor="middle">Pending</text>
+      <rect x="492" y="22" width="56" height="30" rx="15" fill="#052e16" stroke="#166534" stroke-width="1"/>
+      <text x="520" y="42" class="medium" font-size="12" fill="#22c55e" text-anchor="middle">Low</text>
+      <text x="640" y="44" class="light" font-size="15" fill="rgba(255,255,255,0.35)">Mar 25</text>
+    </g>
+
+    <!-- Row 7 (very faded) -->
+    <g transform="translate(0, 510)" opacity="0.2">
+      <text x="40" y="44" class="light" font-size="17" fill="rgba(255,255,255,0.85)">Mobile app wireframes</text>
+      <rect x="300" y="22" width="72" height="30" rx="15" fill="#0a0a2e" stroke="#1e1b4b" stroke-width="1"/>
+      <text x="336" y="42" class="medium" font-size="12" fill="#818cf8" text-anchor="middle">Active</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="620" class="light" font-size="20" fill="rgba(255,255,255,0.25)">doxmind.com</text>
+</svg>

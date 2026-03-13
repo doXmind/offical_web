@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1270 760" width="1270" height="760">
+  <defs>
+    <style>
+      .light { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 300; }
+      .regular { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 400; }
+      .medium { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; }
+      .bold { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 800; }
+    </style>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="4" stdDeviation="16" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1270" height="760" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="635" y="52" text-anchor="middle" class="bold" font-size="30" fill="#111827" letter-spacing="-1">Community Hub</text>
+
+  <!-- App Window -->
+  <g transform="translate(55, 80)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1160" height="580" rx="12" fill="#1C1C1E"/>
+    <rect x="0" y="0" width="1160" height="36" rx="12" fill="#28282C"/>
+    <rect x="0" y="12" width="1160" height="24" fill="#28282C"/>
+    <circle cx="18" cy="18" r="4.5" fill="#ff5f57"/>
+    <circle cx="34" cy="18" r="4.5" fill="#febc2e"/>
+    <circle cx="50" cy="18" r="4.5" fill="#28c840"/>
+
+    <!-- === LEFT: Feed === -->
+    <g transform="translate(30, 52)">
+      <!-- Search -->
+      <rect x="0" y="0" width="680" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <text x="14" y="22" class="regular" font-size="12" fill="#48484A">Search</text>
+
+      <!-- Tabs -->
+      <g transform="translate(0, 52)">
+        <text x="0" y="12" class="bold" font-size="13" fill="#E5E5EA">For You</text>
+        <line x1="0" y1="20" x2="50" y2="20" stroke="#FFFFFF" stroke-width="1.5"/>
+        <text x="72" y="12" class="regular" font-size="13" fill="#636366">Following</text>
+        <text x="154" y="12" class="regular" font-size="13" fill="#636366">Latest</text>
+        <text x="214" y="12" class="regular" font-size="13" fill="#636366">Popular</text>
+        <text x="286" y="12" class="regular" font-size="13" fill="#636366">Most Viewed</text>
+      </g>
+
+      <line x1="0" y1="82" x2="680" y2="82" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+      <!-- Article Card 1 -->
+      <g transform="translate(0, 98)">
+        <rect x="0" y="0" width="680" height="186" rx="10" fill="#242428" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+        <circle cx="24" cy="24" r="14" fill="#4a3728"/>
+        <text x="24" y="28" text-anchor="middle" class="medium" font-size="10" fill="#fff">RS</text>
+        <text x="46" y="22" class="medium" font-size="12" fill="#AEAEB2">Ruogu Sun</text>
+        <text x="120" y="22" class="regular" font-size="11" fill="#48484A">· 1d ago</text>
+        <text x="590" y="22" class="regular" font-size="11" fill="#48484A">10 min</text>
+
+        <text x="14" y="54" class="bold" font-size="15" fill="#E5E5EA">020_Propensity Score</text>
+        <text x="14" y="74" class="light" font-size="12" fill="#636366" font-style="italic">Previously</text>
+        <text x="14" y="92" class="regular" font-size="12" fill="#636366">RCT works because Treatment is randomly assigned such that the potential</text>
+        <text x="14" y="108" class="regular" font-size="12" fill="#636366">outcomes have no relationship with which...</text>
+
+        <!-- Tags -->
+        <rect x="14" y="122" width="108" height="22" rx="11" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="24" y="137" class="regular" font-size="10" fill="#636366">#statistical learning</text>
+        <rect x="130" y="122" width="100" height="22" rx="11" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="140" y="137" class="regular" font-size="10" fill="#636366">#causal inference</text>
+        <text x="550" y="137" class="regular" font-size="10" fill="#48484A">2.0k words</text>
+
+        <!-- Stats -->
+        <text x="14" y="168" class="regular" font-size="10" fill="#48484A">1 view  ·  0 forks  ·  0 comments</text>
+      </g>
+
+      <!-- Article Card 2 -->
+      <g transform="translate(0, 300)">
+        <rect x="0" y="0" width="680" height="186" rx="10" fill="#242428" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+        <circle cx="24" cy="24" r="14" fill="#4a3728"/>
+        <text x="24" y="28" text-anchor="middle" class="medium" font-size="10" fill="#fff">RS</text>
+        <text x="46" y="22" class="medium" font-size="12" fill="#AEAEB2">Ruogu Sun</text>
+        <text x="120" y="22" class="regular" font-size="11" fill="#48484A">· 2w ago</text>
+        <text x="590" y="22" class="regular" font-size="11" fill="#48484A">10 min</text>
+
+        <text x="14" y="54" class="bold" font-size="15" fill="#E5E5EA">010_Randomized Controlled Trial</text>
+        <text x="14" y="74" class="light" font-size="12" fill="#636366" font-style="italic">The whole project is for my study of Statistical Learning &amp; Causal Inference.</text>
+        <text x="14" y="92" class="regular" font-size="12" fill="#636366">Please let me know if you are also interested, we can discuss together.</text>
+
+        <rect x="14" y="122" width="52" height="22" rx="11" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="24" y="137" class="regular" font-size="10" fill="#636366">#notes</text>
+        <rect x="74" y="122" width="100" height="22" rx="11" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="84" y="137" class="regular" font-size="10" fill="#636366">#causal_inference</text>
+        <text x="550" y="137" class="regular" font-size="10" fill="#48484A">2.0k words</text>
+
+        <text x="14" y="168" class="regular" font-size="10" fill="#48484A">22 views  ·  1 fork  ·  1 comment</text>
+      </g>
+    </g>
+
+    <!-- === RIGHT: Sidebar === -->
+    <rect x="750" y="40" width="410" height="540" fill="#1C1C1E"/>
+    <line x1="750" y1="40" x2="750" y2="580" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+    <g transform="translate(774, 64)">
+      <text x="0" y="16" class="bold" font-size="16" fill="#E5E5EA">Community</text>
+      <text x="0" y="38" class="regular" font-size="12" fill="#636366">Discover, fork, and build on documents</text>
+      <text x="0" y="54" class="regular" font-size="12" fill="#636366">shared by writers.</text>
+
+      <line x1="0" y1="70" x2="360" y2="70" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+      <text x="0" y="92" class="regular" font-size="12" fill="#636366">124 documents published</text>
+
+      <text x="0" y="130" class="bold" font-size="14" fill="#AEAEB2">Popular Tags</text>
+
+      <!-- Tags grid - compact -->
+      <g transform="translate(0, 148)">
+        <rect x="0" y="0" width="78" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="10" y="17" class="regular" font-size="10" fill="#636366">investing 11</text>
+
+        <rect x="86" y="0" width="44" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="96" y="17" class="regular" font-size="10" fill="#636366">ai 10</text>
+
+        <rect x="138" y="0" width="62" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="148" y="17" class="regular" font-size="10" fill="#636366">career 10</text>
+
+        <rect x="208" y="0" width="68" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="218" y="17" class="regular" font-size="10" fill="#636366">finance 10</text>
+
+        <rect x="0" y="34" width="106" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="10" y="51" class="regular" font-size="10" fill="#636366">communication</text>
+
+        <rect x="114" y="34" width="80" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="124" y="51" class="regular" font-size="10" fill="#636366">education</text>
+
+        <rect x="202" y="34" width="74" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="212" y="51" class="regular" font-size="10" fill="#636366">learning</text>
+
+        <rect x="0" y="68" width="116" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="10" y="85" class="regular" font-size="10" fill="#636366">entrepreneurship</text>
+
+        <rect x="124" y="68" width="60" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="134" y="85" class="regular" font-size="10" fill="#636366">fitness</text>
+
+        <rect x="192" y="68" width="62" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="202" y="85" class="regular" font-size="10" fill="#636366">health</text>
+
+        <rect x="0" y="102" width="90" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="10" y="119" class="regular" font-size="10" fill="#636366">productivity</text>
+
+        <rect x="98" y="102" width="86" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="108" y="119" class="regular" font-size="10" fill="#636366">tech-trends</text>
+
+        <rect x="192" y="102" width="86" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="202" y="119" class="regular" font-size="10" fill="#636366">technology</text>
+
+        <rect x="0" y="136" width="82" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="10" y="153" class="regular" font-size="10" fill="#636366">side-hustle</text>
+
+        <rect x="90" y="136" width="74" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="100" y="153" class="regular" font-size="10" fill="#636366">soft-skills</text>
+
+        <rect x="172" y="136" width="72" height="26" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="182" y="153" class="regular" font-size="10" fill="#636366">wellness</text>
+      </g>
+    </g>
+  </g>
+</svg>
+
+

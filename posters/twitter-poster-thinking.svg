@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <style>
+      .light { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 300; }
+      .bold { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 900; }
+      .medium { font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Rich purple background -->
+  <rect width="1200" height="675" fill="#2e1065"/>
+
+  <!-- Large decorative shapes -->
+  <circle cx="200" cy="680" r="280" fill="#3b0764" opacity="0.6"/>
+  <circle cx="1100" cy="100" r="200" fill="#4c1d95" opacity="0.4"/>
+  <rect x="900" y="500" width="400" height="250" rx="50" fill="#3b0764" opacity="0.3" transform="rotate(12, 1100, 625)"/>
+
+  <!-- Logo -->
+  <g transform="translate(70, 55)">
+    <path d="M3 0 Q0 0 0 3 L0 16 L20 20 L16 0 Z" fill="#FFFFFF"/>
+    <path d="M24 0 L20 20 L40 16 L40 3 Q40 0 37 0 Z" fill="#FFFFFF"/>
+    <path d="M0 24 L20 20 L16 40 L3 40 Q0 40 0 37 Z" fill="#FFFFFF"/>
+    <path d="M20 20 L40 24 L40 37 Q40 40 37 40 L24 40 Z" fill="#FFFFFF"/>
+    <text x="52" y="30" fill="#FFFFFF" font-size="24" letter-spacing="-1">
+      <tspan class="light">do</tspan><tspan class="bold">X</tspan><tspan class="light">mind</tspan>
+    </text>
+  </g>
+
+  <!-- Headline -->
+  <text x="70" y="190" class="bold" font-size="56" fill="#FFFFFF" letter-spacing="-3">AI that shows</text>
+  <text x="70" y="255" class="bold" font-size="56" fill="#FFFFFF" letter-spacing="-3">its reasoning.</text>
+
+  <!-- Oversized chat bubble as art — takes up the right 55% -->
+  <g transform="translate(480, 80)">
+    <!-- Bubble shape (large rounded rect + tail) -->
+    <rect x="0" y="0" width="660" height="490" rx="28" fill="#1a0840" stroke="rgba(168,85,247,0.25)" stroke-width="2"/>
+    <!-- Speech tail -->
+    <polygon points="60,490 100,490 40,540" fill="#1a0840"/>
+    <line x1="60" y1="490" x2="40" y2="540" stroke="rgba(168,85,247,0.25)" stroke-width="2"/>
+    <line x1="40" y1="540" x2="100" y2="490" stroke="rgba(168,85,247,0.25)" stroke-width="2"/>
+
+    <!-- Bubble header -->
+    <circle cx="32" cy="32" r="8" fill="#a855f7" opacity="0.5"/>
+    <text x="52" y="38" class="medium" font-size="14" fill="rgba(255,255,255,0.5)">AI · Thinking</text>
+    <line x1="0" y1="60" x2="660" y2="60" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+    <!-- Reasoning step 1 — large block -->
+    <g transform="translate(24, 80)">
+      <rect x="0" y="0" width="612" height="85" rx="16" fill="#22104f"/>
+      <circle cx="32" cy="32" r="16" fill="#a855f7" opacity="0.15"/>
+      <text x="32" y="38" class="bold" font-size="16" fill="#a855f7" text-anchor="middle">1</text>
+      <text x="62" y="30" class="medium" font-size="16" fill="rgba(255,255,255,0.85)">Analyzing tone and clarity</text>
+      <text x="62" y="55" class="light" font-size="13" fill="rgba(255,255,255,0.35)">The paragraph uses passive voice and unclear references</text>
+      <!-- Completed check -->
+      <g transform="translate(572, 28)">
+        <path d="M-5,0 L-1.5,3.5 L5,-3.5" stroke="#a855f7" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Reasoning step 2 -->
+    <g transform="translate(24, 182)">
+      <rect x="0" y="0" width="612" height="85" rx="16" fill="#22104f"/>
+      <circle cx="32" cy="32" r="16" fill="#a855f7" opacity="0.15"/>
+      <text x="32" y="38" class="bold" font-size="16" fill="#a855f7" text-anchor="middle">2</text>
+      <text x="62" y="30" class="medium" font-size="16" fill="rgba(255,255,255,0.85)">Checking logical structure</text>
+      <text x="62" y="55" class="light" font-size="13" fill="rgba(255,255,255,0.35)">The argument flow could be strengthened by reordering</text>
+      <g transform="translate(572, 28)">
+        <path d="M-5,0 L-1.5,3.5 L5,-3.5" stroke="#a855f7" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Reasoning step 3 -->
+    <g transform="translate(24, 284)">
+      <rect x="0" y="0" width="612" height="85" rx="16" fill="#22104f"/>
+      <circle cx="32" cy="32" r="16" fill="#a855f7" opacity="0.15"/>
+      <text x="32" y="38" class="bold" font-size="16" fill="#a855f7" text-anchor="middle">3</text>
+      <text x="62" y="30" class="medium" font-size="16" fill="rgba(255,255,255,0.85)">Identifying improvements</text>
+      <text x="62" y="55" class="light" font-size="13" fill="rgba(255,255,255,0.35)">Found 3 areas: word choice, sentence length, transitions</text>
+      <g transform="translate(572, 28)">
+        <path d="M-5,0 L-1.5,3.5 L5,-3.5" stroke="#a855f7" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Reasoning step 4 (active, glowing) -->
+    <g transform="translate(24, 386)">
+      <rect x="0" y="0" width="612" height="85" rx="16" fill="#2a1260" stroke="#a855f7" stroke-width="1" stroke-opacity="0.3"/>
+      <circle cx="32" cy="32" r="16" fill="#a855f7" opacity="0.25"/>
+      <text x="32" y="38" class="bold" font-size="16" fill="#a855f7" text-anchor="middle">4</text>
+      <text x="62" y="30" class="medium" font-size="16" fill="#FFFFFF">Drafting revision...</text>
+      <!-- Progress bar -->
+      <rect x="62" y="50" width="200" height="6" rx="3" fill="#1a0840"/>
+      <rect x="62" y="50" width="120" height="6" rx="3" fill="#a855f7" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Bottom left subtext -->
+  <text x="70" y="400" class="light" font-size="17" fill="rgba(255,255,255,0.35)">See the logic, not just the output.</text>
+
+  <!-- Footer -->
+  <text x="70" y="620" class="light" font-size="20" fill="rgba(255,255,255,0.3)">doxmind.com</text>
+</svg>
