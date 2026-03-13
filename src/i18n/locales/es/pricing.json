@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "badge": "Precios",
+    "heading": "Precios simples y transparentes",
+    "subtitle": "Comienza gratis con todas las funciones de IA. Actualiza cuando necesites más potencia."
+  },
+  "section": {
+    "heading": "Elige el plan que se adapte a tu flujo de trabajo",
+    "subtitle": "Todos los planes incluyen funciones de IA completas. Actualiza para más uso, almacenamiento y beneficios premium."
+  },
+  "cta": {
+    "getStarted": "Comenzar gratis"
+  },
+  "faq": {
+    "heading": "Preguntas frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre nuestros planes y facturación.",
+    "items": [
+      {
+        "question": "¿Puedo usar doXmind gratis?",
+        "answer": "¡Sí! El plan gratuito incluye todas las funciones de IA principales: chat, edición en línea, autocompletado, base de conocimiento y búsqueda web. Perfecto para uso personal."
+      },
+      {
+        "question": "¿Qué pasa cuando se agotan mis créditos de IA?",
+        "answer": "Los créditos de IA se restablecen al inicio de cada ciclo de facturación. Si se agotan antes, puedes actualizar a un plan superior en cualquier momento."
+      },
+      {
+        "question": "¿Puedo cambiar o cancelar mi plan?",
+        "answer": "Por supuesto. Puedes actualizar, degradar o cancelar tu plan en cualquier momento desde tu panel de control. Los cambios toman efecto al inicio del siguiente ciclo."
+      },
+      {
+        "question": "¿Cómo funciona la facturación?",
+        "answer": "Usamos Stripe para una facturación segura. Los planes se facturan mensualmente. Puedes gestionar tu suscripción y ver facturas desde tu panel de control."
+      },
+      {
+        "question": "¿Qué es la oferta Early Bird?",
+        "answer": "Los primeros usuarios en actualizar a Pro obtienen una tarifa especial de $2.99/mes en lugar de $4.99/mes. Una vez que se agoten los cupos, se aplica el precio estándar."
+      }
+    ]
+  },
+  "bottomCta": {
+    "heading": "¿Listo para escribir de forma más inteligente?",
+    "subtitle": "Únete a miles de escritores que usan doXmind para crear mejor contenido con IA."
+  }
+}

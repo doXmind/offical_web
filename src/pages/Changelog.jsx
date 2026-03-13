@@ -189,14 +189,6 @@ export default function Changelog() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          {/* Pill badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5">
-            <History className="h-3.5 w-3.5 text-muted-foreground" />
-            <span className="text-xs font-medium text-muted-foreground">
-              {t('badge')}
-            </span>
-          </div>
-
           {/* Heading */}
           <h1 className="fluid-hero font-bold tracking-tight text-gradient">
             {t('heading')}

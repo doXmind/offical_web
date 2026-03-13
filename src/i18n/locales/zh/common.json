@@ -13,7 +13,8 @@
     "signUp": "注册",
     "logOut": "退出登录",
     "careers": "招聘",
-    "compare": "对比"
+    "compare": "对比",
+    "pricing": "定价"
   },
   "footer": {
     "columns": {
@@ -24,6 +25,7 @@
         "knowledgeBase": "知识库",
         "presentationMode": "演示模式",
         "compare": "对比",
+        "pricing": "定价",
         "download": "下载"
       },
       "resources": {
@@ -94,7 +96,8 @@
       "shortcuts": { "label": "键盘快捷键", "description": "完整的键盘快捷键参考", "keywords": "键盘 快捷键 热键 按键 Ctrl shortcuts" },
       "action-login": { "label": "登录 doXmind", "description": "打开 doXmind 编辑器", "keywords": "登录 注册 打开 应用 编辑器 试用 login" },
       "page-dashboard": { "label": "控制台", "description": "查看用量和账户概览", "keywords": "控制台 用量 账户 统计 token 费用 dashboard" },
-      "page-careers": { "label": "招聘", "description": "加入 doXmind 团队", "keywords": "招聘 工作 职位 市场营销 销售 机器学习 工程师 careers" }
+      "page-careers": { "label": "招聘", "description": "加入 doXmind 团队", "keywords": "招聘 工作 职位 市场营销 销售 机器学习 工程师 careers" },
+      "page-pricing": { "label": "定价", "description": "查看方案和定价", "keywords": "定价 方案 费用 价格 免费 专业 旗舰 升级 计费 pricing" }
     }
   },
   "cookiePreferences": {
@@ -182,6 +185,11 @@
       "title": "doXmind vs Notion vs Google Docs - AI 原生编辑器对比",
       "description": "对比 doXmind 与 Notion、Google Docs。了解内置知识库、思维模式和数据分析的 AI 原生写作编辑器有何不同。",
       "keywords": "Notion 替代品, doXmind vs Notion, Google Docs 替代品, AI 写作编辑器对比, 最佳 AI 编辑器, 写作工具对比"
+    },
+    "pricing": {
+      "title": "定价 - doXmind | 方案与定价",
+      "description": "查看 doXmind 定价方案。免费使用所有 AI 功能，或升级到专业版或旗舰版获取更多用量、存储和高级权益。",
+      "keywords": "doXmind 定价, 方案, 免费版, 专业版, AI 编辑器定价, 写作工具定价"
     }
   }
 }

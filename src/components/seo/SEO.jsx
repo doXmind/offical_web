@@ -25,6 +25,7 @@ const SEO_KEY_MAP = {
   '/register': 'register',
   '/dashboard': 'dashboard',
   '/compare': 'compare',
+  '/pricing': 'pricing',
 };
 
 // JSON-LD Structured Data for Organization
@@ -85,6 +86,7 @@ const PAGE_SCHEMA_TYPES = {
   '/careers': 'WebPage',
   '/cookies-privacy': 'WebPage',
   '/compare': 'WebPage',
+  '/pricing': 'WebPage',
 };
 
 function getWebPageSchema(path, title, description, canonicalUrl) {

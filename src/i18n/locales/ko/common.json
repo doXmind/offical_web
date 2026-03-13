@@ -13,7 +13,8 @@
     "signUp": "가입하기",
     "logOut": "로그아웃",
     "careers": "채용",
-    "compare": "Compare"
+    "compare": "Compare",
+    "pricing": "요금제"
   },
   "footer": {
     "columns": {
@@ -24,6 +25,7 @@
         "knowledgeBase": "지식 베이스",
         "presentationMode": "프레젠테이션 모드",
         "compare": "Compare",
+        "pricing": "요금제",
         "download": "다운로드"
       },
       "resources": {
@@ -94,7 +96,8 @@
       "shortcuts": { "label": "키보드 단축키", "description": "키보드 단축키 전체 목록", "keywords": "키보드 단축키 핫키 키바인딩 Ctrl shortcuts" },
       "action-login": { "label": "doXmind 로그인", "description": "doXmind 에디터 열기", "keywords": "로그인 가입 열기 앱 에디터 시도 login" },
       "page-dashboard": { "label": "대시보드", "description": "사용량 및 계정 개요 보기", "keywords": "대시보드 사용량 계정 통계 토큰 비용 dashboard" },
-      "page-careers": { "label": "채용", "description": "doXmind 팀에 합류하세요", "keywords": "채용 일자리 채용중 포지션 마케팅 영업 ML엔지니어 careers" }
+      "page-careers": { "label": "채용", "description": "doXmind 팀에 합류하세요", "keywords": "채용 일자리 채용중 포지션 마케팅 영업 ML엔지니어 careers" },
+      "page-pricing": { "label": "요금제", "description": "플랜 및 요금 보기", "keywords": "요금제 플랜 비용 가격 무료 프로 맥스 업그레이드 결제 pricing" }
     }
   },
   "cookiePreferences": {
@@ -182,6 +185,11 @@
       "title": "doXmind vs Notion vs Google Docs - AI-Native Editor Comparison",
       "description": "Compare doXmind with Notion and Google Docs. See how an AI-native writing editor with built-in knowledge base, thinking mode, and data analysis stacks up.",
       "keywords": "Notion alternative, doXmind vs Notion, Google Docs alternative, AI writing editor comparison, best AI editor, writing tool comparison"
+    },
+    "pricing": {
+      "title": "요금제 - doXmind | 플랜 및 요금",
+      "description": "doXmind 요금제를 확인하세요. 모든 AI 기능을 무료로 시작하거나 Pro 또는 Max로 업그레이드하여 더 많은 사용량, 저장 공간, 프리미엄 혜택을 누리세요.",
+      "keywords": "doXmind 요금제, 플랜, 무료 플랜, 프로 플랜, AI 에디터 요금, 글쓰기 도구 요금"
     }
   }
 }

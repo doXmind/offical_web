@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "badge": "Pricing",
+    "heading": "Simple, Transparent Pricing",
+    "subtitle": "Start for free with all AI features. Upgrade when you need more power."
+  },
+  "section": {
+    "heading": "Choose the plan that fits your workflow",
+    "subtitle": "All plans include full AI features. Upgrade for more usage, storage, and premium perks."
+  },
+  "cta": {
+    "getStarted": "Get Started Free"
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our plans and billing.",
+    "items": [
+      {
+        "question": "Can I use doXmind for free?",
+        "answer": "Yes! The Free plan includes all core AI features — chat, inline editing, autocomplete, knowledge base, and web search. It's perfect for personal use and exploration."
+      },
+      {
+        "question": "What happens when I run out of AI credits?",
+        "answer": "AI credits reset at the beginning of each billing cycle. If you run out before then, you can upgrade to a higher plan anytime for more credits."
+      },
+      {
+        "question": "Can I change or cancel my plan?",
+        "answer": "Absolutely. You can upgrade, downgrade, or cancel your plan anytime from your dashboard. Changes take effect at the start of your next billing cycle."
+      },
+      {
+        "question": "How does billing work?",
+        "answer": "We use Stripe for secure billing. Plans are billed monthly. You can manage your subscription, update payment methods, and view invoices from your dashboard."
+      },
+      {
+        "question": "What is the Early Bird offer?",
+        "answer": "The first users to upgrade to Pro get a special discounted rate of $2.99/mo instead of $4.99/mo. Once the early bird spots are gone, the standard price applies."
+      }
+    ]
+  },
+  "bottomCta": {
+    "heading": "Ready to write smarter?",
+    "subtitle": "Join thousands of writers using doXmind to create better content with AI."
+  }
+}

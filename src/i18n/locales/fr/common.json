@@ -13,7 +13,8 @@
     "signUp": "S'inscrire",
     "logOut": "Se deconnecter",
     "careers": "Carrieres",
-    "compare": "Compare"
+    "compare": "Compare",
+    "pricing": "Tarifs"
   },
   "footer": {
     "columns": {
@@ -24,6 +25,7 @@
         "knowledgeBase": "Base de connaissances",
         "presentationMode": "Mode presentation",
         "compare": "Compare",
+        "pricing": "Tarifs",
         "download": "Telecharger"
       },
       "resources": {
@@ -94,7 +96,8 @@
       "shortcuts": { "label": "Raccourcis clavier", "description": "Reference complete des raccourcis clavier", "keywords": "clavier raccourcis touche rapide combinaison ctrl shortcuts" },
       "action-login": { "label": "Se connecter a doXmind", "description": "Ouvrir l'editeur doXmind", "keywords": "connexion se connecter inscription ouvrir app editeur essayer login" },
       "page-dashboard": { "label": "Tableau de bord", "description": "Voir l'utilisation et le compte", "keywords": "tableau bord utilisation compte statistiques tokens cout dashboard" },
-      "page-careers": { "label": "Carrieres", "description": "Rejoindre l'equipe doXmind", "keywords": "carrieres emploi recrutement postes marketing ventes ingenieur ML careers" }
+      "page-careers": { "label": "Carrieres", "description": "Rejoindre l'equipe doXmind", "keywords": "carrieres emploi recrutement postes marketing ventes ingenieur ML careers" },
+      "page-pricing": { "label": "Tarifs", "description": "Voir les plans et tarifs", "keywords": "tarifs plans cout prix gratuit pro max upgrade facturation pricing" }
     }
   },
   "cookiePreferences": {
@@ -182,6 +185,11 @@
       "title": "doXmind vs Notion vs Google Docs - AI-Native Editor Comparison",
       "description": "Compare doXmind with Notion and Google Docs. See how an AI-native writing editor with built-in knowledge base, thinking mode, and data analysis stacks up.",
       "keywords": "Notion alternative, doXmind vs Notion, Google Docs alternative, AI writing editor comparison, best AI editor, writing tool comparison"
+    },
+    "pricing": {
+      "title": "Tarifs - doXmind | Plans et tarifs",
+      "description": "Decouvrez les tarifs doXmind. Commencez gratuitement avec toutes les fonctionnalites IA, ou passez a Pro ou Max pour plus d'utilisation, de stockage et d'avantages premium.",
+      "keywords": "tarifs doXmind, plans, plan gratuit, plan pro, tarifs editeur IA, tarifs outil d'ecriture"
     }
   }
 }

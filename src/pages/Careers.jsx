@@ -15,7 +15,6 @@ import {
   TrendingUp,
   Gem,
   Laptop,
-  Sparkles,
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { HeroBackground } from '../components/home/hero-background';
@@ -54,12 +53,6 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          {/* Pill badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span className="text-xs font-medium text-muted-foreground">{t('hero.badge')}</span>
-          </div>
-
           <h1 className="fluid-hero font-bold tracking-tight text-gradient">
             {t('hero.heading')}
           </h1>

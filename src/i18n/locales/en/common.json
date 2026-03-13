@@ -13,7 +13,8 @@
     "signUp": "Sign up",
     "logOut": "Log out",
     "careers": "Careers",
-    "compare": "Compare"
+    "compare": "Compare",
+    "pricing": "Pricing"
   },
   "footer": {
     "columns": {
@@ -24,6 +25,7 @@
         "knowledgeBase": "Knowledge Base",
         "presentationMode": "Presentation Mode",
         "compare": "Compare",
+        "pricing": "Pricing",
         "download": "Download"
       },
       "resources": {
@@ -94,7 +96,8 @@
       "shortcuts": { "label": "Keyboard Shortcuts", "description": "Full keyboard shortcut reference", "keywords": "keyboard shortcuts hotkey keybinding ctrl" },
       "action-login": { "label": "Log in to doXmind", "description": "Open the doXmind editor", "keywords": "login log in sign in open app editor try" },
       "page-dashboard": { "label": "Dashboard", "description": "View your usage and account overview", "keywords": "dashboard usage account statistics tokens cost" },
-      "page-careers": { "label": "Careers", "description": "Join the doXmind team", "keywords": "careers jobs hiring positions marketing sales ML engineer" }
+      "page-careers": { "label": "Careers", "description": "Join the doXmind team", "keywords": "careers jobs hiring positions marketing sales ML engineer" },
+      "page-pricing": { "label": "Pricing", "description": "View plans and pricing", "keywords": "pricing plans cost price free pro max upgrade billing" }
     }
   },
   "cookiePreferences": {
@@ -182,6 +185,11 @@
       "title": "doXmind vs Notion vs Google Docs - AI-Native Editor Comparison",
       "description": "Compare doXmind with Notion and Google Docs. See how an AI-native writing editor with built-in knowledge base, thinking mode, and data analysis stacks up.",
       "keywords": "Notion alternative, doXmind vs Notion, Google Docs alternative, AI writing editor comparison, best AI editor, writing tool comparison"
+    },
+    "pricing": {
+      "title": "Pricing - doXmind | Plans & Pricing",
+      "description": "See doXmind pricing plans. Start free with all AI features, or upgrade to Pro or Max for more usage, storage, and premium perks.",
+      "keywords": "doXmind pricing, plans, free plan, pro plan, AI editor pricing, writing tool pricing"
     }
   }
 }

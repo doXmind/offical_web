@@ -13,7 +13,8 @@
     "signUp": "Registrarse",
     "logOut": "Cerrar sesion",
     "careers": "Empleo",
-    "compare": "Compare"
+    "compare": "Compare",
+    "pricing": "Precios"
   },
   "footer": {
     "columns": {
@@ -24,6 +25,7 @@
         "knowledgeBase": "Base de conocimiento",
         "presentationMode": "Modo presentación",
         "compare": "Compare",
+        "pricing": "Precios",
         "download": "Descargar"
       },
       "resources": {
@@ -94,7 +96,8 @@
       "shortcuts": { "label": "Atajos de teclado", "description": "Referencia completa de atajos de teclado", "keywords": "teclado atajos tecla rapida combinacion ctrl shortcuts" },
       "action-login": { "label": "Iniciar sesion en doXmind", "description": "Abrir el editor doXmind", "keywords": "iniciar sesion registrarse abrir app editor probar login" },
       "page-dashboard": { "label": "Panel", "description": "Ver uso y resumen de cuenta", "keywords": "panel uso cuenta estadisticas tokens costo dashboard" },
-      "page-careers": { "label": "Empleo", "description": "Unete al equipo doXmind", "keywords": "empleo trabajo contratacion posiciones marketing ventas ingeniero ML careers" }
+      "page-careers": { "label": "Empleo", "description": "Unete al equipo doXmind", "keywords": "empleo trabajo contratacion posiciones marketing ventas ingeniero ML careers" },
+      "page-pricing": { "label": "Precios", "description": "Ver planes y precios", "keywords": "precios planes costo precio gratis pro max upgrade facturacion pricing" }
     }
   },
   "cookiePreferences": {
@@ -182,6 +185,11 @@
       "title": "doXmind vs Notion vs Google Docs - AI-Native Editor Comparison",
       "description": "Compare doXmind with Notion and Google Docs. See how an AI-native writing editor with built-in knowledge base, thinking mode, and data analysis stacks up.",
       "keywords": "Notion alternative, doXmind vs Notion, Google Docs alternative, AI writing editor comparison, best AI editor, writing tool comparison"
+    },
+    "pricing": {
+      "title": "Precios - doXmind | Planes y precios",
+      "description": "Consulta los planes de precios de doXmind. Comienza gratis con todas las funciones de IA, o actualiza a Pro o Max para mas uso, almacenamiento y beneficios premium.",
+      "keywords": "precios doXmind, planes, plan gratuito, plan pro, precios editor IA, precios herramienta de escritura"
     }
   }
 }

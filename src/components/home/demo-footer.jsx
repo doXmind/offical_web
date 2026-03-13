@@ -338,6 +338,7 @@ export function DemoFooter() {
         { label: t('footer.columns.product.knowledgeBase'), href: "/guide#knowledge-base" },
         { label: t('footer.columns.product.presentationMode'), href: "/guide#presentation" },
         { label: t('footer.columns.product.compare'), href: "/compare" },
+        { label: t('footer.columns.product.pricing'), href: "/pricing" },
         { label: t('footer.columns.product.download'), href: `${getAppBase()}/`, external: true },
       ],
     },

@@ -24,6 +24,7 @@ const Register = lazy(() => import('./pages/Register'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Careers = lazy(() => import('./pages/Careers'));
 const Compare = lazy(() => import('./pages/Compare'));
+const Pricing = lazy(() => import('./pages/Pricing'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -238,6 +239,7 @@ function App() {
                   <Route path="/changelog" element={<Changelog />} />
                   <Route path="/careers" element={<Careers />} />
                   <Route path="/compare" element={<Compare />} />
+                  <Route path="/pricing" element={<Pricing />} />
                   <Route path="/cookies-privacy" element={<CookiesPrivacy />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />

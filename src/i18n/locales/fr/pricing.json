@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "badge": "Tarifs",
+    "heading": "Des tarifs simples et transparents",
+    "subtitle": "Commencez gratuitement avec toutes les fonctionnalités IA. Passez à un plan supérieur quand vous en avez besoin."
+  },
+  "section": {
+    "heading": "Choisissez le plan adapté à votre usage",
+    "subtitle": "Tous les plans incluent les fonctionnalités IA complètes. Passez à un plan supérieur pour plus d'utilisation, de stockage et d'avantages premium."
+  },
+  "cta": {
+    "getStarted": "Commencer gratuitement"
+  },
+  "faq": {
+    "heading": "Questions fréquentes",
+    "subtitle": "Tout ce que vous devez savoir sur nos plans et la facturation.",
+    "items": [
+      {
+        "question": "Puis-je utiliser doXmind gratuitement ?",
+        "answer": "Oui ! Le plan gratuit inclut toutes les fonctionnalités IA principales — chat, édition en ligne, autocomplétion, base de connaissances et recherche web. Idéal pour un usage personnel."
+      },
+      {
+        "question": "Que se passe-t-il quand mes crédits IA sont épuisés ?",
+        "answer": "Les crédits IA sont réinitialisés au début de chaque cycle de facturation. Si vous les épuisez avant, vous pouvez passer à un plan supérieur à tout moment."
+      },
+      {
+        "question": "Puis-je modifier ou annuler mon plan ?",
+        "answer": "Absolument. Vous pouvez passer à un plan supérieur, inférieur ou annuler à tout moment depuis votre tableau de bord. Les modifications prennent effet au début du prochain cycle."
+      },
+      {
+        "question": "Comment fonctionne la facturation ?",
+        "answer": "Nous utilisons Stripe pour une facturation sécurisée. Les plans sont facturés mensuellement. Gérez votre abonnement et vos factures depuis votre tableau de bord."
+      },
+      {
+        "question": "Qu'est-ce que l'offre Early Bird ?",
+        "answer": "Les premiers utilisateurs à passer au plan Pro bénéficient d'un tarif spécial de 2,99 $/mois au lieu de 4,99 $/mois. Une fois les places épuisées, le tarif standard s'applique."
+      }
+    ]
+  },
+  "bottomCta": {
+    "heading": "Prêt à écrire plus intelligemment ?",
+    "subtitle": "Rejoignez des milliers d'écrivains qui utilisent doXmind pour créer du meilleur contenu avec l'IA."
+  }
+}
