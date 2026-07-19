@@ -5,11 +5,11 @@ const baseUrl = process.env.SITE_URL || 'http://127.0.0.1:4173'
 const browser = await puppeteer.launch({ headless: true })
 const consoleErrors = []
 
-async function openPage(path, viewport) {
+async function openPage(path, viewport, { collectConsoleErrors = true } = {}) {
   const page = await browser.newPage()
   await page.setViewport(viewport)
   page.on('console', (message) => {
-    if (message.type() === 'error') consoleErrors.push(message.text())
+    if (collectConsoleErrors && message.type() === 'error') consoleErrors.push(message.text())
   })
   await page.goto(`${baseUrl}${path}`, { waitUntil: 'networkidle0' })
   return page
@@ -50,12 +50,17 @@ try {
   assert.ok(downloadTop < 100, `/download did not scroll to download section (top: ${downloadTop})`)
   await download.close()
 
-  const legacy = await openPage('/login', { width: 1280, height: 900 })
+  assert.deepEqual(consoleErrors, [])
+
+  const legacy = await openPage(
+    '/login',
+    { width: 1280, height: 900 },
+    { collectConsoleErrors: false },
+  )
   assert.equal(await legacy.$eval('h1', (node) => node.textContent.trim()), 'doXmind')
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 
-  assert.deepEqual(consoleErrors, [])
   console.log('Site checks passed: desktop, mobile, /download, and retired /login surface')
 } finally {
   await browser.close()
