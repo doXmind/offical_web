@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 const SITE_URL = 'https://doxmind.com'
 const DOWNLOAD_URL = `${SITE_URL}/download`
 const IMAGE_URL = `${SITE_URL}/og-image.png`
+const APP_ICON_URL = `${SITE_URL}/doxmind-app-icon.png`
 
 const title = 'doXmind — Local Desktop IDE for Markdown, PDF & Excel'
 const description =
@@ -14,7 +15,7 @@ const structuredData = [
     '@type': 'Organization',
     name: 'doXmind',
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
+    logo: APP_ICON_URL,
     sameAs: ['https://github.com/doXmind'],
   },
   {
