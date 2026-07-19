@@ -36,6 +36,10 @@ try {
     await desktop.$$eval('.story-row .product-shot img', (nodes) => nodes.map((node) => node.getAttribute('src'))),
     ['/doxmind-editor.png', '/doxmind-pdf.png', '/doxmind-excel.png'],
   )
+  assert.match(
+    await desktop.$eval('.hero-product-shot img', (node) => node.getAttribute('srcset')),
+    /doxmind-editor@2x\.png 2x/,
+  )
   assert.equal((await desktop.$$('.desktop-preview')).length, 0)
 
   const bodyText = await desktop.$eval('body', (node) => node.innerText)

@@ -28,9 +28,18 @@ function Brand({ footer = false }) {
 }
 
 function ProductShot({ src, alt, hero = false }) {
+  const retinaSrc = src.replace(/\.png$/, '@2x.png')
+
   return (
     <div className={hero ? 'product-shot hero-product-shot' : 'product-shot'}>
-      <img src={src} alt={alt} loading={hero ? 'eager' : 'lazy'} />
+      <img
+        src={src}
+        srcSet={`${src} 1x, ${retinaSrc} 2x`}
+        width="1400"
+        height="900"
+        alt={alt}
+        loading={hero ? 'eager' : 'lazy'}
+      />
     </div>
   )
 }
