@@ -28,7 +28,15 @@ try {
     await desktop.$eval('[data-testid="mac-download"]', (node) => node.href),
     'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg',
   )
-  assert.equal(await desktop.$eval('.is-upcoming button', (node) => node.disabled), true)
+  assert.equal(
+    await desktop.$eval('.header-download', (node) => node.href),
+    'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg',
+  )
+  assert.deepEqual(
+    await desktop.$$eval('.story-row .product-shot img', (nodes) => nodes.map((node) => node.getAttribute('src'))),
+    ['/doxmind-editor.png', '/doxmind-pdf.png', '/doxmind-excel.png'],
+  )
+  assert.equal((await desktop.$$('.desktop-preview')).length, 0)
 
   const bodyText = await desktop.$eval('body', (node) => node.innerText)
   for (const removedSurface of ['Log in', 'Sign up', 'Launch App', 'Try for free', 'Pricing']) {
@@ -46,8 +54,15 @@ try {
 
   const download = await openPage('/download/', { width: 1280, height: 900 })
   await new Promise((resolve) => setTimeout(resolve, 350))
-  const downloadTop = await download.$eval('#download', (node) => node.getBoundingClientRect().top)
-  assert.ok(downloadTop < 100, `/download did not scroll to download section (top: ${downloadTop})`)
+  const downloadPosition = await download.$eval('#download', (node) => ({
+    top: node.getBoundingClientRect().top,
+    viewportHeight: window.innerHeight,
+    scrollY: window.scrollY,
+  }))
+  assert.ok(
+    downloadPosition.top < downloadPosition.viewportHeight && downloadPosition.scrollY > 1000,
+    `/download did not reveal the download section (${JSON.stringify(downloadPosition)})`,
+  )
   await download.close()
 
   assert.deepEqual(consoleErrors, [])
@@ -61,7 +76,7 @@ try {
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 
-  console.log('Site checks passed: desktop, mobile, /download, and retired /login surface')
+  console.log('Site checks passed: product imagery, desktop, mobile, /download, and retired /login surface')
 } finally {
   await browser.close()
 }
