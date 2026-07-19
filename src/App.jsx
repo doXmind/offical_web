@@ -6,7 +6,7 @@ export default function App() {
     if (window.location.pathname.replace(/\/+$/, '') !== '/download') return
 
     const frame = window.requestAnimationFrame(() => {
-      document.getElementById('download')?.scrollIntoView()
+      document.getElementById('download')?.scrollIntoView({ behavior: 'instant' })
     })
     return () => window.cancelAnimationFrame(frame)
   }, [])
