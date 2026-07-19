@@ -19,8 +19,11 @@ try {
   const desktop = await openPage('/', { width: 1440, height: 1000 })
   assert.match(await desktop.title(), /Local Desktop IDE/)
   const heroHeading = await desktop.$eval('h1', (node) => node.textContent)
-  assert.match(heroHeading, /Your documents\./)
-  assert.match(heroHeading, /On your computer\./)
+  assert.equal(heroHeading.trim(), 'doXmind')
+  assert.equal(
+    await desktop.$eval('.hero-app-icon', (node) => node.getAttribute('src')),
+    '/doxmind-app-icon.png',
+  )
   assert.equal(
     await desktop.$eval('[data-testid="mac-download"]', (node) => node.href),
     'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg',
@@ -41,14 +44,14 @@ try {
   await mobile.screenshot({ path: '/tmp/doxmind-website-mobile.png', fullPage: true })
   await mobile.close()
 
-  const download = await openPage('/download', { width: 1280, height: 900 })
+  const download = await openPage('/download/', { width: 1280, height: 900 })
   await new Promise((resolve) => setTimeout(resolve, 350))
   const downloadTop = await download.$eval('#download', (node) => node.getBoundingClientRect().top)
   assert.ok(downloadTop < 100, `/download did not scroll to download section (top: ${downloadTop})`)
   await download.close()
 
   const legacy = await openPage('/login', { width: 1280, height: 900 })
-  assert.equal(await legacy.$eval('h1', (node) => node.textContent.includes('Your documents')), true)
+  assert.equal(await legacy.$eval('h1', (node) => node.textContent.trim()), 'doXmind')
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 
