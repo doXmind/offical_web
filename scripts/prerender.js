@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = join(__dirname, '..', 'dist');
 
-const ROUTES = ['/', '/about', '/team', '/careers', '/compare', '/pricing', '/guide', '/changelog', '/cookies-privacy'];
+const ROUTES = ['/', '/download'];
 
 // Simple static file server for the dist directory
 function createStaticServer(distDir) {

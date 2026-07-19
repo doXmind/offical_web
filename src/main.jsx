@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
-import './i18n'
 import App from './App.jsx'
 import './index.css'
 
@@ -18,4 +17,4 @@ if (typeof requestIdleCallback !== 'undefined') {
   requestIdleCallback(() => document.dispatchEvent(new Event('prerender-ready')))
 } else {
   setTimeout(() => document.dispatchEvent(new Event('prerender-ready')), 200)
-} 
+}
