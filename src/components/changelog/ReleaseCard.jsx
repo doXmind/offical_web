@@ -6,7 +6,7 @@ import { formatDate } from "../../data/changelog";
 
 export function ReleaseCard({ release, index }) {
   const { t, i18n } = useTranslation('changelog');
-  const vKey = `v${release.version.replace('.', '_')}`;
+  const vKey = `v${release.version.replaceAll('.', '_')}`;
 
   return (
     <motion.article

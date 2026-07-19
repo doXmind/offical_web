@@ -5,6 +5,7 @@ import SEO from '../components/seo/SEO.jsx'
 const MAC_DOWNLOAD_URL =
   'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg'
 const RELEASES_URL = 'https://github.com/doXmind/releases/releases/latest'
+const LATEST_VERSION = '1.7.5'
 
 const reveal = {
   hidden: { opacity: 0, y: 20 },
@@ -170,7 +171,7 @@ function Home() {
               <DownloadSimple size={17} weight="bold" /> Download for macOS
             </a>
             <div className="download-details">
-              <span>Apple silicon · Latest stable release</span>
+              <span>Apple silicon · v{LATEST_VERSION}</span>
               <a href={RELEASES_URL} target="_blank" rel="noreferrer">
                 Release notes <ArrowUpRight size={13} weight="bold" />
               </a>

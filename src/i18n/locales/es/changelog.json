@@ -17,6 +17,19 @@
     "fixed": "Corregido"
   },
   "releases": {
+    "v1_7_5": {
+      "title": "Fidelidad de importación y refuerzo del escritorio",
+      "summary": "El Markdown creado externamente ahora se abre con total fidelidad: el tachado, las listas anidadas y los diagramas Mermaid se muestran correctamente, además de un protocolo de recursos restringido y una corrección de fiabilidad en Windows.",
+      "improved": [
+        "La carga de recursos locales ahora se limita a tus carpetas de espacio de trabajo, reforzando la protección frente a documentos maliciosos",
+        "Windows ahora usa un bloqueo real entre procesos durante la migración del sidecar, evitando corrupciones raras por migración simultánea"
+      ],
+      "fixed": [
+        "El tachado (~~texto~~) en archivos Markdown existentes se mostraba con tildes literales en lugar de tachado",
+        "Las listas anidadas con dos espacios se aplanaban al abrir Markdown externo, y podían guardarse aplanadas tras editar",
+        "Los bloques de código Mermaid se mostraban como código plano en lugar de diagramas al abrir archivos Markdown"
+      ]
+    },
     "v1_1": {
       "title": "Bloques de base de datos y contenido enriquecido",
       "summary": "Bases de datos estilo Notion, comentarios en linea, disenos multicolumna, marcadores web, enlaces entre paginas, imagenes de portada y mejor experiencia de editor.",

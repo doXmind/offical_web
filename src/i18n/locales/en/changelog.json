@@ -17,6 +17,19 @@
     "fixed": "Fixed"
   },
   "releases": {
+    "v1_7_5": {
+      "title": "Importer Fidelity & Desktop Hardening",
+      "summary": "Externally-authored Markdown now opens with full fidelity — strikethrough, nested lists, and Mermaid diagrams all render correctly — plus a locked-down asset protocol and a Windows reliability fix.",
+      "improved": [
+        "Local asset loading is now confined to your workspace folders, hardening the desktop shell against malicious documents",
+        "Windows now uses a real cross-process lock during sidecar migration, preventing rare concurrent-migration corruption"
+      ],
+      "fixed": [
+        "Strikethrough (~~text~~) in existing Markdown files rendered as literal tildes instead of struck-through text",
+        "Two-space nested lists were flattened into siblings when opening externally-authored Markdown — and could be saved back flat after editing",
+        "Mermaid code fences rendered as plain code blocks instead of diagrams when opening Markdown files"
+      ]
+    },
     "v1_1": {
       "title": "Database Blocks & Rich Content",
       "summary": "Notion-style databases, inline comments, multi-column layouts, web bookmarks, page links, cover images, and improved editor experience.",

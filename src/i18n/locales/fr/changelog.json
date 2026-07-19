@@ -17,6 +17,19 @@
     "fixed": "Corrections"
   },
   "releases": {
+    "v1_7_5": {
+      "title": "Fidélité d'import et renforcement du bureau",
+      "summary": "Les fichiers Markdown créés ailleurs s'ouvrent désormais avec une fidélité totale — texte barré, listes imbriquées et diagrammes Mermaid s'affichent correctement — avec en plus un protocole d'assets verrouillé et un correctif de fiabilité Windows.",
+      "improved": [
+        "Le chargement des ressources locales est désormais limité à vos dossiers d'espace de travail, renforçant la protection contre les documents malveillants",
+        "Windows utilise désormais un vrai verrou inter-processus pendant la migration du sidecar, évitant de rares corruptions par migration simultanée"
+      ],
+      "fixed": [
+        "Le texte barré (~~texte~~) des fichiers Markdown existants s'affichait avec les tildes littéraux au lieu d'être barré",
+        "Les listes imbriquées à deux espaces étaient aplaties à l'ouverture de Markdown externe — et pouvaient être réenregistrées ainsi après édition",
+        "Les blocs de code Mermaid s'affichaient comme du code brut au lieu de diagrammes à l'ouverture des fichiers Markdown"
+      ]
+    },
     "v1_1": {
       "title": "Blocs base de donnees et contenu riche",
       "summary": "Bases de donnees style Notion, commentaires en ligne, mises en page multi-colonnes, signets web, liens entre pages, images de couverture et experience editeur amelioree.",
