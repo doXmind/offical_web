@@ -1,4 +1,5 @@
 export const releases = [
+  { version: "1.7.8", date: "2026-07-20", highlight: true, categories: ["added", "fixed", "improved"] },
   { version: "1.7.7", date: "2026-07-20", highlight: true, categories: ["added", "improved"] },
   { version: "1.7.6", date: "2026-07-20", highlight: true, categories: ["added", "improved"] },
   { version: "1.7.5", date: "2026-07-19", highlight: true, categories: ["improved", "fixed"] },

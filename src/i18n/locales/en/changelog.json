@@ -17,6 +17,23 @@
     "fixed": "Fixed"
   },
   "releases": {
+    "v1_7_8": {
+      "title": "Editor Quality & Safety",
+      "summary": "A broad quality pass: opening a shared Markdown file can no longer run script, several data-loss bugs are fixed, and the portable .md is more faithful.",
+      "added": [
+        "CSV files open in the spreadsheet editor with formulas and formatting",
+        "Clipboard copy now yields real Markdown — lists, tables, quotes, math"
+      ],
+      "fixed": [
+        "Opening a downloaded Markdown file can no longer execute script; your file on disk is left untouched",
+        "Block-selection Backspace, file switching, HTML comments, and table operations no longer lose data",
+        "Page links, images, escaping, and Find/Replace now round-trip faithfully through the .md"
+      ],
+      "improved": [
+        "Slash-menu search ranks exact matches first and works across spaces",
+        "Table and layout columns are resizable; focus and Escape behave correctly"
+      ]
+    },
     "v1_7_7": {
       "title": "CSV Spreadsheets & Editor Polish",
       "summary": "CSV files open in the full spreadsheet editor with formulas and formatting, and the markdown editor gets Notion-grade slash-menu search.",

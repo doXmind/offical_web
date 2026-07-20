@@ -17,6 +17,23 @@
     "fixed": "Corregido"
   },
   "releases": {
+    "v1_7_8": {
+      "title": "Calidad y seguridad del editor",
+      "summary": "Abrir un Markdown compartido ya no ejecuta scripts, se corrigen varias pérdidas de datos y el .md es más fiel.",
+      "added": [
+        "Los archivos .csv se abren en el editor de hojas (fórmulas, formato)",
+        "Copiar produce Markdown real"
+      ],
+      "fixed": [
+        "Abrir un Markdown descargado ya no ejecuta scripts; el archivo en disco queda intacto",
+        "El borrado por selección de bloques, el cambio de archivo, los comentarios HTML y las operaciones de tabla ya no pierden datos",
+        "Enlaces de página, imágenes, escape y Buscar/Reemplazar fieles al .md"
+      ],
+      "improved": [
+        "La búsqueda del menú slash prioriza coincidencias exactas y admite espacios",
+        "Columnas de tabla y de diseño redimensionables; foco y Escape correctos"
+      ]
+    },
     "v1_7_7": {
       "title": "Hojas CSV y pulido del editor",
       "summary": "Los archivos CSV se abren en el editor de hojas de cálculo completo, y la búsqueda del menú slash alcanza el nivel de Notion.",

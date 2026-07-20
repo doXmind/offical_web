@@ -17,6 +17,23 @@
     "fixed": "Corrections"
   },
   "releases": {
+    "v1_7_8": {
+      "title": "Qualité et sécurité de l'éditeur",
+      "summary": "Ouvrir un Markdown partagé n'exécute plus de script, plusieurs pertes de données sont corrigées et le .md est plus fidèle.",
+      "added": [
+        "Les fichiers .csv s'ouvrent dans l'éditeur de feuilles (formules, mise en forme)",
+        "La copie produit du vrai Markdown"
+      ],
+      "fixed": [
+        "Ouvrir un Markdown téléchargé n'exécute plus de script ; le fichier sur disque reste intact",
+        "Suppression par sélection de blocs, changement de fichier, commentaires HTML et opérations de tableau ne perdent plus de données",
+        "Liens de page, images, échappement et Rechercher/Remplacer fidèles au .md"
+      ],
+      "improved": [
+        "La recherche du menu slash classe d'abord les correspondances exactes et accepte les espaces",
+        "Colonnes de tableau et de mise en page redimensionnables ; focus et Échap corrects"
+      ]
+    },
     "v1_7_7": {
       "title": "Feuilles CSV et raffinements de l'éditeur",
       "summary": "Les fichiers CSV s'ouvrent dans l'éditeur de feuilles de calcul complet, et la recherche du menu slash atteint le niveau de Notion.",
