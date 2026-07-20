@@ -17,6 +17,18 @@
     "fixed": "Fixed"
   },
   "releases": {
+    "v1_7_6": {
+      "title": "In-App Update Push",
+      "summary": "Updates now download silently and surface as a quiet 'Update ready' pill in the sidebar — one click restarts into the new version. Settings → About gains live update controls.",
+      "added": [
+        "Update ready pill — staged updates appear above the sidebar's Settings row; click to restart and apply",
+        "Live update controls in Settings → About: check, download progress, up-to-date and restart states"
+      ],
+      "improved": [
+        "Background update downloads no longer interrupt you with a modal dialog",
+        "Long file paths on the welcome screen's recent list are compacted (home as ~, deep paths middle-ellipsized)"
+      ]
+    },
     "v1_7_5": {
       "title": "Importer Fidelity & Desktop Hardening",
       "summary": "Externally-authored Markdown now opens with full fidelity — strikethrough, nested lists, and Mermaid diagrams all render correctly — plus a locked-down asset protocol and a Windows reliability fix.",

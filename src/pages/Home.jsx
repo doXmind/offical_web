@@ -5,7 +5,7 @@ import SEO from '../components/seo/SEO.jsx'
 const MAC_DOWNLOAD_URL =
   'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg'
 const RELEASES_URL = 'https://github.com/doXmind/releases/releases/latest'
-const LATEST_VERSION = '1.7.5'
+const LATEST_VERSION = '1.7.6'
 
 const reveal = {
   hidden: { opacity: 0, y: 20 },

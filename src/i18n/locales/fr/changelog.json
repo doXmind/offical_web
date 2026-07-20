@@ -17,6 +17,18 @@
     "fixed": "Corrections"
   },
   "releases": {
+    "v1_7_6": {
+      "title": "Notification de mise à jour intégrée",
+      "summary": "Les mises à jour se téléchargent désormais silencieusement et apparaissent comme une pastille discrète « Mise à jour prête » dans la barre latérale — un clic redémarre vers la nouvelle version. Réglages → À propos gagne des contrôles en direct.",
+      "added": [
+        "Pastille « Mise à jour prête » — au-dessus de la ligne Réglages de la barre latérale ; cliquez pour redémarrer et appliquer",
+        "Contrôles de mise à jour en direct dans Réglages → À propos : vérification, téléchargement, à jour, redémarrer pour appliquer"
+      ],
+      "improved": [
+        "Les téléchargements de mise à jour en arrière-plan n'interrompent plus avec une boîte de dialogue modale",
+        "Les longs chemins de la liste récente de l'écran d'accueil sont compactés (~ pour le dossier personnel, ellipse au milieu)"
+      ]
+    },
     "v1_7_5": {
       "title": "Fidélité d'import et renforcement du bureau",
       "summary": "Les fichiers Markdown créés ailleurs s'ouvrent désormais avec une fidélité totale — texte barré, listes imbriquées et diagrammes Mermaid s'affichent correctement — avec en plus un protocole d'assets verrouillé et un correctif de fiabilité Windows.",

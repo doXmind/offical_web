@@ -17,6 +17,18 @@
     "fixed": "Corregido"
   },
   "releases": {
+    "v1_7_6": {
+      "title": "Notificación de actualización integrada",
+      "summary": "Las actualizaciones ahora se descargan en silencio y aparecen como una discreta píldora «Actualización lista» en la barra lateral: un clic reinicia a la nueva versión. Ajustes → Acerca de gana controles en vivo.",
+      "added": [
+        "Píldora «Actualización lista» — sobre la fila Ajustes de la barra lateral; clic para reiniciar y aplicar",
+        "Controles de actualización en vivo en Ajustes → Acerca de: comprobación, descarga, al día, reiniciar para aplicar"
+      ],
+      "improved": [
+        "Las descargas de actualización en segundo plano ya no interrumpen con un diálogo modal",
+        "Las rutas largas en la lista de recientes de la pantalla de bienvenida se muestran compactas (~ para el home, elipsis central)"
+      ]
+    },
     "v1_7_5": {
       "title": "Fidelidad de importación y refuerzo del escritorio",
       "summary": "El Markdown creado externamente ahora se abre con total fidelidad: el tachado, las listas anidadas y los diagramas Mermaid se muestran correctamente, además de un protocolo de recursos restringido y una corrección de fiabilidad en Windows.",
