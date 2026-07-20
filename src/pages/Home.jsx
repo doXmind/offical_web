@@ -1,19 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import {
-  ArrowUpRight,
-  DownloadSimple,
-  GithubLogo,
-  Check,
-  Function,
-  Graph,
-  Table,
-  ListChecks,
-  Bookmark,
-  Sigma,
-  Code,
-  Quotes,
-} from '@phosphor-icons/react'
+import { ArrowUpRight, DownloadSimple, GithubLogo, Check } from '@phosphor-icons/react'
 import SEO from '../components/seo/SEO.jsx'
 
 const MAC_DOWNLOAD_URL =
@@ -58,18 +45,6 @@ function ProductShot({ src, alt }) {
     </div>
   )
 }
-
-const CAPABILITIES = [
-  { icon: Sigma, title: 'Math', body: 'Inline and block LaTeX, rendered with KaTeX as you type.' },
-  { icon: Graph, title: 'Mermaid', body: 'Flowcharts and diagrams from fenced code, live in the page.' },
-  { icon: Table, title: 'Tables', body: 'Resizable columns, structural edits, valid GFM on disk.' },
-  { icon: ListChecks, title: 'Task lists', body: 'Checkboxes, nesting, and callouts for structured notes.' },
-  { icon: Code, title: 'Code blocks', body: 'Syntax highlighting with a searchable language picker.' },
-  { icon: Function, title: 'Formulas', body: 'A real spreadsheet engine for .xlsx and .csv workbooks.' },
-  { icon: Bookmark, title: 'Web bookmarks', body: 'Paste a URL, get a clean card that lives in your file.' },
-  { icon: Quotes, title: 'Page links', body: 'Link and mention across documents, portable in the .md.' },
-  { icon: DownloadSimple, title: 'Auto-update', body: 'Quiet background updates with a one-click restart.' },
-]
 
 const LOCAL_POINTS = [
   { k: 'No account', v: 'Open and go', d: 'No sign-up, no login, no identity. Launch and start writing.' },
@@ -183,14 +158,11 @@ export default function Home() {
             <span className="eyebrow"><span className="dot" /> Local by design</span>
           </Reveal>
           <Reveal delay={0.05} as="h2">
-            One editor for the documents you work in every day — <em>and it never leaves your machine.</em>
+            One editor for the documents you work in every day.
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="chips">
-              {['Markdown', 'PDF', 'Excel', 'Math', 'Mermaid', 'Tables', 'Formulas', 'Portable files'].map((c) => (
-                <span className="chip" key={c}>{c}</span>
-              ))}
-            </div>
+          <Reveal delay={0.1} as="p">
+            Markdown, PDF and Excel — each a first-class citizen, each still a portable
+            file in a folder you control.
           </Reveal>
         </section>
 
@@ -206,9 +178,9 @@ export default function Home() {
                   stays in your own folder. Math, Mermaid, tables, callouts and code — all in a focused desktop workflow.
                 </p>
                 <ul className="feature-points">
-                  <li><Check size={16} weight="bold" /> Untouched blocks round-trip byte-for-byte on save</li>
+                  <li><Check size={16} weight="bold" /> KaTeX math, Mermaid diagrams, tables, callouts, task lists and highlighted code</li>
                   <li><Check size={16} weight="bold" /> Slash commands, drag handles, and a Notion-style bubble menu</li>
-                  <li><Check size={16} weight="bold" /> A hidden sidecar keeps rich state without touching your file</li>
+                  <li><Check size={16} weight="bold" /> Untouched blocks round-trip byte-for-byte; a hidden sidecar holds the rest</li>
                 </ul>
               </Reveal>
             </div>
@@ -287,27 +259,6 @@ export default function Home() {
               </div>
             </Reveal>
           </div>
-        </section>
-
-        {/* ─────────────  Capability grid  ───────────── */}
-        <section className="grid-section" aria-labelledby="cap-title">
-          <div className="grid-head">
-            <Reveal><span className="eyebrow"><span className="dot" /> Everything in one editor</span></Reveal>
-            <Reveal delay={0.06} as="h2" id="cap-title">
-              The blocks you actually write with — done well.
-            </Reveal>
-          </div>
-          <Reveal delay={0.08}>
-            <div className="cap-grid">
-              {CAPABILITIES.map(({ icon: Icon, title, body }) => (
-                <div className="cap" key={title}>
-                  <span className="cap-ico"><Icon size={26} weight="regular" /></span>
-                  <h4>{title}</h4>
-                  <p>{body}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
         </section>
 
         {/* ─────────────  Download  ───────────── */}
