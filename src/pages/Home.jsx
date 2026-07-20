@@ -1,197 +1,363 @@
-import { motion } from 'framer-motion'
-import { ArrowUpRight, DownloadSimple } from '@phosphor-icons/react'
+import { useEffect, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
+import {
+  ArrowUpRight,
+  DownloadSimple,
+  GithubLogo,
+  Check,
+  Function,
+  Graph,
+  Table,
+  ListChecks,
+  Bookmark,
+  Sigma,
+  Code,
+  Quotes,
+} from '@phosphor-icons/react'
 import SEO from '../components/seo/SEO.jsx'
 
 const MAC_DOWNLOAD_URL =
   'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg'
 const RELEASES_URL = 'https://github.com/doXmind/releases/releases/latest'
+const GITHUB_URL = 'https://github.com/doXmind'
+const DOCS_URL = 'https://docs.doxmind.com'
 const LATEST_VERSION = '1.7.8'
 
-const reveal = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-}
-
-const storyReveal = {
-  initial: { opacity: 0, y: 56 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.22 },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-}
-
-function Brand({ footer = false }) {
+function Brand() {
   return (
-    <span className={footer ? 'brand brand-footer' : 'brand'}>
-      <img src="/doxmind-app-icon.png" alt="" />
+    <span className="brand">
+      <img src="/doxmind-app-icon.png" alt="" width="27" height="27" />
       <span>doXmind</span>
     </span>
   )
 }
 
-function ProductShot({ src, alt, hero = false }) {
-  const retinaSrc = src.replace(/\.png$/, '@2x.png')
-
+/* A section that rises and fades in the first time it enters the viewport. */
+function Reveal({ children, className = '', delay = 0, as = 'div', ...rest }) {
+  const reduce = useReducedMotion()
+  const Tag = motion[as] || motion.div
   return (
-    <div className={hero ? 'product-shot hero-product-shot' : 'product-shot'}>
-      <img
-        src={src}
-        srcSet={`${src} 1x, ${retinaSrc} 2x`}
-        width="1400"
-        height="900"
-        alt={alt}
-        loading={hero ? 'eager' : 'lazy'}
-      />
+    <Tag
+      className={`reveal ${className}`.trim()}
+      initial={reduce ? false : { opacity: 0, y: 26 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      {...rest}
+    >
+      {children}
+    </Tag>
+  )
+}
+
+function ProductShot({ src, alt }) {
+  const retina = src.replace(/\.png$/, '@2x.png')
+  return (
+    <div className="frame">
+      <img src={src} srcSet={`${src} 1x, ${retina} 2x`} width="1400" height="900" alt={alt} loading="lazy" />
     </div>
   )
 }
 
-function Home() {
-  const canonicalPath = typeof window !== 'undefined' &&
+const CAPABILITIES = [
+  { icon: Sigma, title: 'Math', body: 'Inline and block LaTeX, rendered with KaTeX as you type.' },
+  { icon: Graph, title: 'Mermaid', body: 'Flowcharts and diagrams from fenced code, live in the page.' },
+  { icon: Table, title: 'Tables', body: 'Resizable columns, structural edits, valid GFM on disk.' },
+  { icon: ListChecks, title: 'Task lists', body: 'Checkboxes, nesting, and callouts for structured notes.' },
+  { icon: Code, title: 'Code blocks', body: 'Syntax highlighting with a searchable language picker.' },
+  { icon: Function, title: 'Formulas', body: 'A real spreadsheet engine for .xlsx and .csv workbooks.' },
+  { icon: Bookmark, title: 'Web bookmarks', body: 'Paste a URL, get a clean card that lives in your file.' },
+  { icon: Quotes, title: 'Page links', body: 'Link and mention across documents, portable in the .md.' },
+  { icon: DownloadSimple, title: 'Auto-update', body: 'Quiet background updates with a one-click restart.' },
+]
+
+const LOCAL_POINTS = [
+  { k: 'No account', v: 'Open and go', d: 'No sign-up, no login, no identity. Launch and start writing.' },
+  { k: 'No cloud sync', v: 'Nothing uploads', d: 'Your files never leave the machine. There is no server to leave to.' },
+  { k: 'No telemetry', v: 'Nothing watches', d: 'No analytics, no tracking, no phone-home. Fully offline.' },
+  { k: 'Source of truth', v: 'Your filesystem', d: 'Portable .md, .xlsx and .pdf on disk — yours to keep and move.' },
+]
+
+export default function Home() {
+  const [scrolled, setScrolled] = useState(false)
+  const canonicalPath =
+    typeof window !== 'undefined' &&
     window.location.pathname.replace(/\/+$/, '') === '/download'
-    ? '/download'
-    : '/'
+      ? '/download'
+      : '/'
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <div className="site-shell">
       <SEO path={canonicalPath} />
       <a className="skip-link" href="#main">Skip to content</a>
 
-      <header className="site-header">
+      <header className="site-header" data-scrolled={scrolled}>
         <a className="brand-link" href="/" aria-label="doXmind home"><Brand /></a>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#product">Product</a>
-          <a href="#local-first">Local by design</a>
-          <a href="https://docs.doxmind.com" target="_blank" rel="noreferrer">Docs</a>
-        </nav>
-        <a className="header-download" href={MAC_DOWNLOAD_URL}>Download</a>
+        <div className="header-actions">
+          <a className="header-ghost" href={GITHUB_URL} target="_blank" rel="noreferrer">
+            <GithubLogo size={16} weight="fill" /> GitHub
+          </a>
+          <a className="btn btn-sm btn-ink" href={MAC_DOWNLOAD_URL} data-testid="mac-download">Download</a>
+        </div>
       </header>
 
       <main id="main">
+        {/* ─────────────  Hero  ───────────── */}
         <section className="hero" aria-labelledby="hero-title">
-          <img className="hero-background" src="/mineral-hero-bg.webp" alt="" />
-          <motion.div
-            className="hero-copy"
-            initial="hidden"
-            animate="visible"
-            transition={{ staggerChildren: 0.08, delayChildren: 0.04 }}
-          >
+          <div className="hero-sky" aria-hidden="true" />
+          <div className="hero-inner">
             <motion.img
-              className="hero-app-icon"
+              className="hero-icon"
               src="/doxmind-app-icon.png"
-              alt="doXmind desktop app icon"
-              variants={reveal}
-              transition={{ duration: 0.5 }}
+              alt="doXmind app icon"
+              width="84"
+              height="84"
+              initial={{ opacity: 0, y: 12, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
-            <motion.h1 id="hero-title" variants={reveal} transition={{ duration: 0.58, ease: 'easeOut' }}>
+            <motion.h1
+              id="hero-title"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.06 }}
+            >
               doXmind
             </motion.h1>
-            <motion.p className="hero-lede" variants={reveal} transition={{ duration: 0.58 }}>
+            <motion.p
+              className="hero-lede"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.14 }}
+            >
               Your documents, on your computer.
             </motion.p>
-            <motion.p className="hero-description" variants={reveal} transition={{ duration: 0.58 }}>
+            <motion.p
+              className="hero-sub"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            >
               A fully local desktop IDE for Markdown, PDF, and Excel.
             </motion.p>
-            <motion.div className="hero-actions" variants={reveal} transition={{ duration: 0.5 }}>
-              <a className="button button-primary" href={MAC_DOWNLOAD_URL} data-testid="mac-download">
-                <DownloadSimple size={17} weight="bold" /> Download for macOS
+            <motion.div
+              className="hero-cta"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.28 }}
+            >
+              <a className="btn btn-lg btn-ink" href={MAC_DOWNLOAD_URL}>
+                <DownloadSimple size={18} weight="bold" /> Download for macOS
               </a>
             </motion.div>
-            <motion.p className="hero-meta" variants={reveal} transition={{ duration: 0.5 }}>
-              Apple silicon · No account required
+            <motion.p
+              className="hero-meta"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.36 }}
+            >
+              Apple silicon · Free · No account required
             </motion.p>
-          </motion.div>
+          </div>
 
           <motion.div
-            className="hero-preview"
-            initial={{ opacity: 0, y: 54, scale: 0.985 }}
+            className="hero-shot"
+            initial={{ opacity: 0, y: 56, scale: 0.985 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.95, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.95, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
-            <ProductShot
-              hero
-              src="/doxmind-editor.png"
-              alt="Markdown document open in the doXmind desktop editor"
-            />
+            <ProductShot src="/doxmind-editor.png" alt="A Markdown document open in the doXmind editor" />
           </motion.div>
         </section>
 
-        <section className="product-story" id="product" aria-label="Product capabilities">
-          <motion.article className="story-row story-row-image-first" {...storyReveal}>
-            <ProductShot
-              src="/doxmind-editor.png"
-              alt="A Markdown project edited in doXmind"
-            />
-            <div className="story-copy">
-              <span className="story-index">01 · Markdown</span>
-              <h3>Markdown<br />without lock-in.</h3>
-              <p>
-                Write with a rich editor while a portable .md file stays in your own folder.
-                Math, Mermaid, tables, and structured blocks remain part of a focused desktop workflow.
-              </p>
+        {/* ─────────────  Positioning strip  ───────────── */}
+        <section className="strip">
+          <Reveal>
+            <span className="eyebrow"><span className="dot" /> Local by design</span>
+          </Reveal>
+          <Reveal delay={0.05} as="h2">
+            One editor for the documents you work in every day — <em>and it never leaves your machine.</em>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="chips">
+              {['Markdown', 'PDF', 'Excel', 'Math', 'Mermaid', 'Tables', 'Formulas', 'Portable files'].map((c) => (
+                <span className="chip" key={c}>{c}</span>
+              ))}
             </div>
-          </motion.article>
-
-          <motion.article className="story-row story-row-copy-first" {...storyReveal}>
-            <div className="story-copy">
-              <span className="story-index">02 · PDF</span>
-              <h3>PDFs stay<br />original.</h3>
-              <p>
-                Read, annotate, and organize long documents without replacing the source PDF.
-                doXmind keeps its editing state beside the file—not on a remote server.
-              </p>
-            </div>
-            <ProductShot
-              src="/doxmind-pdf.png"
-              alt="A PDF document open in the doXmind annotation workspace"
-            />
-          </motion.article>
-
-          <motion.article className="story-row story-row-image-first" {...storyReveal}>
-            <ProductShot
-              src="/doxmind-excel.png"
-              alt="An Excel workbook open in the doXmind spreadsheet editor"
-            />
-            <div className="story-copy">
-              <span className="story-index">03 · Excel</span>
-              <h3>Real workbooks,<br />locally.</h3>
-              <p>
-                Edit .xlsx files with formulas, filters, autofill, formatting, and structural tools.
-                Your workbook remains the source of truth on disk.
-              </p>
-            </div>
-          </motion.article>
+          </Reveal>
         </section>
 
-        <section className="download-section" id="download">
-          <div className="download-panel" id="local-first">
-            <img className="download-app-icon" src="/doxmind-app-icon.png" alt="" />
-            <h2>Built local. Stays local.</h2>
-            <p>No account, cloud sync, or telemetry. Your filesystem stays the source of truth.</p>
-            <a className="button button-light" href={MAC_DOWNLOAD_URL}>
-              <DownloadSimple size={17} weight="bold" /> Download for macOS
-            </a>
-            <div className="download-details">
-              <span>Apple silicon · v{LATEST_VERSION}</span>
-              <a href={RELEASES_URL} target="_blank" rel="noreferrer">
-                Release notes <ArrowUpRight size={13} weight="bold" />
+        {/* ─────────────  Capability sections  ───────────── */}
+        <section className="features" id="product" aria-label="What doXmind does">
+          <div className="feature">
+            <div className="feature-copy">
+              <Reveal><span className="eyebrow">01 · Markdown</span></Reveal>
+              <Reveal delay={0.05} as="h3">Markdown without lock-in.</Reveal>
+              <Reveal delay={0.1}>
+                <p>
+                  Write in a rich editor while a portable <code style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>.md</code> file
+                  stays in your own folder. Math, Mermaid, tables, callouts and code — all in a focused desktop workflow.
+                </p>
+                <ul className="feature-points">
+                  <li><Check size={16} weight="bold" /> Untouched blocks round-trip byte-for-byte on save</li>
+                  <li><Check size={16} weight="bold" /> Slash commands, drag handles, and a Notion-style bubble menu</li>
+                  <li><Check size={16} weight="bold" /> A hidden sidecar keeps rich state without touching your file</li>
+                </ul>
+              </Reveal>
+            </div>
+            <Reveal delay={0.08} className="feature-visual">
+              <ProductShot src="/doxmind-editor.png" alt="A Markdown project edited in doXmind" />
+            </Reveal>
+          </div>
+
+          <div className="feature feature-reverse">
+            <div className="feature-copy">
+              <Reveal><span className="eyebrow">02 · PDF</span></Reveal>
+              <Reveal delay={0.05} as="h3">PDFs stay original.</Reveal>
+              <Reveal delay={0.1}>
+                <p>
+                  Read, annotate and organize long documents without replacing the source PDF. doXmind keeps its editing
+                  state beside the file — not on a remote server.
+                </p>
+                <ul className="feature-points">
+                  <li><Check size={16} weight="bold" /> Block-based annotation and edit surface</li>
+                  <li><Check size={16} weight="bold" /> The original PDF is never overwritten</li>
+                  <li><Check size={16} weight="bold" /> Editor state lives in a same-name hidden sidecar</li>
+                </ul>
+              </Reveal>
+            </div>
+            <Reveal delay={0.08} className="feature-visual">
+              <ProductShot src="/doxmind-pdf.png" alt="A PDF open in the doXmind annotation workspace" />
+            </Reveal>
+          </div>
+
+          <div className="feature">
+            <div className="feature-copy">
+              <Reveal><span className="eyebrow">03 · Excel</span></Reveal>
+              <Reveal delay={0.05} as="h3">Real workbooks, locally.</Reveal>
+              <Reveal delay={0.1}>
+                <p>
+                  Edit <code style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>.xlsx</code> and{' '}
+                  <code style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>.csv</code> with formulas, filters,
+                  autofill, formatting and structural tools. Your workbook stays the source of truth on disk.
+                </p>
+                <ul className="feature-points">
+                  <li><Check size={16} weight="bold" /> A real formula engine, not a viewer</li>
+                  <li><Check size={16} weight="bold" /> Row and column operations, filters and autofill</li>
+                  <li><Check size={16} weight="bold" /> CSV opens in the same grid and exports back to .xlsx</li>
+                </ul>
+              </Reveal>
+            </div>
+            <Reveal delay={0.08} className="feature-visual">
+              <ProductShot src="/doxmind-excel.png" alt="An Excel workbook open in the doXmind spreadsheet editor" />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ─────────────  Local-first dark section  ───────────── */}
+        <section className="local" id="local-first" aria-labelledby="local-title">
+          <div className="local-glow" aria-hidden="true" />
+          <div className="local-inner">
+            <Reveal><span className="eyebrow"><span className="dot" /> Privacy is the architecture</span></Reveal>
+            <Reveal delay={0.06} as="h2" id="local-title">
+              Built local. Runs offline. Nothing leaves your disk.
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="local-lede">
+                doXmind has no account, no cloud sync, no telemetry, and no AI runtime. It is a desktop app and a localhost
+                helper — the files in your own folders are the whole product.
+              </p>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <div className="local-grid">
+                {LOCAL_POINTS.map((p) => (
+                  <div className="local-cell" key={p.k}>
+                    <div className="k">{p.k}</div>
+                    <div className="v">{p.v}</div>
+                    <div className="d">{p.d}</div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ─────────────  Capability grid  ───────────── */}
+        <section className="grid-section" aria-labelledby="cap-title">
+          <div className="grid-head">
+            <Reveal><span className="eyebrow"><span className="dot" /> Everything in one editor</span></Reveal>
+            <Reveal delay={0.06} as="h2" id="cap-title">
+              The blocks you actually write with — done well.
+            </Reveal>
+          </div>
+          <Reveal delay={0.08}>
+            <div className="cap-grid">
+              {CAPABILITIES.map(({ icon: Icon, title, body }) => (
+                <div className="cap" key={title}>
+                  <span className="cap-ico"><Icon size={26} weight="regular" /></span>
+                  <h4>{title}</h4>
+                  <p>{body}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+
+        {/* ─────────────  Download  ───────────── */}
+        <section className="download" id="download">
+          <Reveal className="download-inner">
+            <div className="download-sky" aria-hidden="true" />
+            <img className="download-icon" src="/doxmind-app-icon.png" alt="" width="56" height="56" />
+            <h2>Keep your documents yours.</h2>
+            <p>Download doXmind for macOS and start editing in seconds — no account, no cloud, no catch.</p>
+            <div className="download-cta">
+              <a className="btn btn-lg btn-ink" href={MAC_DOWNLOAD_URL}>
+                <DownloadSimple size={18} weight="bold" /> Download for macOS
               </a>
             </div>
-          </div>
+            <div className="download-meta">
+              <span>Apple silicon · v{LATEST_VERSION}</span>
+              <span className="sep">·</span>
+              <a href={RELEASES_URL} target="_blank" rel="noreferrer">Release notes <ArrowUpRight size={12} weight="bold" style={{ display: 'inline', verticalAlign: '-1px' }} /></a>
+            </div>
+          </Reveal>
         </section>
       </main>
 
+      {/* ─────────────  Footer  ───────────── */}
       <footer className="site-footer">
-        <a href="/" aria-label="doXmind home"><Brand footer /></a>
-        <p>A fully local desktop IDE for Markdown, PDF, and Excel.</p>
-        <div className="footer-links">
-          <a href="https://docs.doxmind.com" target="_blank" rel="noreferrer">Docs</a>
-          <a href="https://github.com/doXmind/releases" target="_blank" rel="noreferrer">Releases</a>
-          <a href="#local-first">Privacy</a>
+        <div className="footer-top">
+          <div className="footer-brand">
+            <a href="/" aria-label="doXmind home"><Brand /></a>
+            <p>A fully local desktop IDE for Markdown, PDF and Excel. Your filesystem is the source of truth.</p>
+          </div>
+          <nav className="footer-links" aria-label="Footer">
+            <div className="footer-col">
+              <span className="h">Product</span>
+              <a href="#product">Features</a>
+              <a href="#local-first">Local by design</a>
+              <a href={RELEASES_URL} target="_blank" rel="noreferrer">Releases</a>
+            </div>
+            <div className="footer-col">
+              <span className="h">Resources</span>
+              <a href={DOCS_URL} target="_blank" rel="noreferrer">Docs</a>
+              <a href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a>
+              <a href={MAC_DOWNLOAD_URL}>Download</a>
+            </div>
+          </nav>
         </div>
-        <span className="copyright">© 2026 doXmind</span>
+        <div className="footer-bottom">
+          <span>© 2026 doXmind</span>
+          <span>Built local · Runs offline</span>
+        </div>
       </footer>
     </div>
   )
 }
-
-export default Home
