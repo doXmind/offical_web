@@ -17,6 +17,20 @@
     "fixed": "Corrections"
   },
   "releases": {
+    "v1_7_7": {
+      "title": "Feuilles CSV et raffinements de l'éditeur",
+      "summary": "Les fichiers CSV s'ouvrent dans l'éditeur de feuilles de calcul complet, et la recherche du menu slash atteint le niveau de Notion.",
+      "added": [
+        "Ouverture des .csv dans l'éditeur de feuilles — le CSV d'origine reste intact, l'export se télécharge en .xlsx",
+        "Association de fichiers CSV sur macOS et Windows"
+      ],
+      "improved": [
+        "La recherche du menu slash classe les résultats par pertinence et accepte les espaces",
+        "Les menus de blocs affichent les raccourcis macOS corrects (⌘D)",
+        "Les images en échec affichent un espace réservé avec remplacement en un clic",
+        "Le bloc base de données obsolète est entièrement supprimé (données existantes préservées)"
+      ]
+    },
     "v1_7_6": {
       "title": "Notification de mise à jour intégrée",
       "summary": "Les mises à jour se téléchargent désormais silencieusement et apparaissent comme une pastille discrète « Mise à jour prête » dans la barre latérale — un clic redémarre vers la nouvelle version. Réglages → À propos gagne des contrôles en direct.",

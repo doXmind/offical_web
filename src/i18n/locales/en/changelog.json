@@ -17,6 +17,20 @@
     "fixed": "Fixed"
   },
   "releases": {
+    "v1_7_7": {
+      "title": "CSV Spreadsheets & Editor Polish",
+      "summary": "CSV files open in the full spreadsheet editor with formulas and formatting, and the markdown editor gets Notion-grade slash-menu search.",
+      "added": [
+        "Open .csv files in the spreadsheet editor — edits persist beside the file, the original CSV stays untouched, and exports download as .xlsx",
+        "CSV file association on macOS and Windows"
+      ],
+      "improved": [
+        "Slash-menu search ranks results by match quality and keeps working across spaces (/2 columns, /link to page)",
+        "Block menus show platform-correct shortcuts on macOS (⌘D)",
+        "Broken images show a clean placeholder with one-click Replace",
+        "The deprecated database block is fully removed; legacy sidecar data is preserved untouched"
+      ]
+    },
     "v1_7_6": {
       "title": "In-App Update Push",
       "summary": "Updates now download silently and surface as a quiet 'Update ready' pill in the sidebar — one click restarts into the new version. Settings → About gains live update controls.",

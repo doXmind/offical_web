@@ -17,6 +17,20 @@
     "fixed": "Corregido"
   },
   "releases": {
+    "v1_7_7": {
+      "title": "Hojas CSV y pulido del editor",
+      "summary": "Los archivos CSV se abren en el editor de hojas de cálculo completo, y la búsqueda del menú slash alcanza el nivel de Notion.",
+      "added": [
+        "Abre archivos .csv en el editor de hojas — el CSV original queda intacto y la exportación se descarga como .xlsx",
+        "Asociación de archivos CSV en macOS y Windows"
+      ],
+      "improved": [
+        "La búsqueda del menú slash ordena por calidad de coincidencia y admite espacios",
+        "Los menús de bloques muestran atajos correctos en macOS (⌘D)",
+        "Las imágenes rotas muestran un marcador con reemplazo en un clic",
+        "Se elimina por completo el bloque de base de datos obsoleto (los datos existentes se conservan)"
+      ]
+    },
     "v1_7_6": {
       "title": "Notificación de actualización integrada",
       "summary": "Las actualizaciones ahora se descargan en silencio y aparecen como una discreta píldora «Actualización lista» en la barra lateral: un clic reinicia a la nueva versión. Ajustes → Acerca de gana controles en vivo.",
