@@ -320,12 +320,18 @@ img { max-width: 100%; display: block; }
   margin-top: 40px;
   padding: clamp(120px, 13vw, 176px) var(--edge);
   color: var(--on-night);
-  /* Ease into the dark from the white section above and back out to the mist
-     of the download below, so neither edge is a hard colour seam. */
+  /* Dark polished marble — the same mineral texture as the hero, under a heavy
+     wash so only a whisper of veining shows and white text stays legible. The
+     top ramps in from the white section above and the bottom out to the mist
+     of the download, so neither edge is a hard colour seam. */
   background:
     linear-gradient(180deg, #ffffff 0, rgba(255, 255, 255, 0) 150px),
     linear-gradient(0deg, var(--mist) 0, rgba(245, 247, 252, 0) 150px),
-    var(--night);
+    linear-gradient(180deg, rgba(9, 10, 13, 0.955), rgba(12, 14, 20, 0.93)),
+    url('/mineral-hero-bg.webp');
+  background-size: cover, cover, cover, 150%;
+  background-position: center, center, center, 66% 46%;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 .local-glow {
