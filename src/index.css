@@ -318,17 +318,22 @@ img { max-width: 100%; display: block; }
 .local {
   position: relative;
   margin-top: 40px;
-  padding: clamp(90px, 12vw, 150px) var(--edge);
+  padding: clamp(120px, 13vw, 176px) var(--edge);
   color: var(--on-night);
-  background: var(--night);
+  /* Ease into the dark from the white section above and back out to the mist
+     of the download below, so neither edge is a hard colour seam. */
+  background:
+    linear-gradient(180deg, #ffffff 0, rgba(255, 255, 255, 0) 150px),
+    linear-gradient(0deg, var(--mist) 0, rgba(245, 247, 252, 0) 150px),
+    var(--night);
   overflow: hidden;
 }
 .local-glow {
   position: absolute;
-  inset: auto -20% -60% -20%;
-  height: 90%;
+  inset: 0 -20% auto -20%;
+  height: 70%;
   z-index: 0;
-  background: radial-gradient(50% 60% at 50% 100%, rgba(79, 104, 255, 0.24), transparent 70%);
+  background: radial-gradient(46% 70% at 50% 42%, rgba(79, 104, 255, 0.18), transparent 72%);
   pointer-events: none;
 }
 .local-inner { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; }
@@ -381,8 +386,9 @@ img { max-width: 100%; display: block; }
 /* ─────────────────────────  Download CTA  ───────────────────────── */
 .download {
   padding: clamp(84px, 11vw, 132px) var(--edge);
-  background: var(--mist);
-  border-top: 1px solid var(--line);
+  /* Continues the mist the dark section fades into, then eases to white for
+     the footer. */
+  background: linear-gradient(180deg, var(--mist) 0%, var(--mist) 62%, #ffffff 100%);
 }
 .download-inner {
   position: relative;
