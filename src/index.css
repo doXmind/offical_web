@@ -317,29 +317,39 @@ img { max-width: 100%; display: block; }
 /* ─────────────────────────  Local-first dark section  ───────────────────────── */
 .local {
   position: relative;
-  margin-top: 40px;
-  padding: clamp(120px, 13vw, 176px) var(--edge);
+  margin-top: 0;
+  padding: clamp(128px, 14vw, 188px) var(--edge);
   color: var(--on-night);
-  /* Dark polished marble — the same mineral texture as the hero, under a heavy
-     wash so only a whisper of veining shows and white text stays legible. The
-     top ramps in from the white section above and the bottom out to the mist
-     of the download, so neither edge is a hard colour seam. */
-  background:
-    linear-gradient(180deg, #ffffff 0, rgba(255, 255, 255, 0) 150px),
-    linear-gradient(0deg, var(--mist) 0, rgba(245, 247, 252, 0) 150px),
-    linear-gradient(180deg, rgba(9, 10, 13, 0.955), rgba(12, 14, 20, 0.93)),
-    url('/mineral-hero-bg.webp');
-  background-size: cover, cover, cover, 150%;
-  background-position: center, center, center, 66% 46%;
-  background-repeat: no-repeat;
+  isolation: isolate;
   overflow: hidden;
+  /* Obsidian base with the seams painted over it (not over the marble), so the
+     white section above and the mist below dissolve into flat dark with no
+     texture mottling — the "light leak" bands are gone. */
+  background:
+    linear-gradient(180deg, #ffffff 0, rgba(255, 255, 255, 0) 132px),
+    linear-gradient(0deg, var(--mist) 0, rgba(245, 247, 252, 0) 120px),
+    #090a0f;
+}
+/* Dark polished marble: the frosted mineral inverted so its bright field turns
+   to obsidian and its veins turn luminous. Masked to the centre band so it
+   dissolves into solid dark before it reaches either seam. */
+.local::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('/mineral-hero-bg.webp') 50% 46% / cover no-repeat;
+  filter: invert(1) brightness(0.62) contrast(1.14) saturate(0.55) hue-rotate(200deg);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 20%, #000 80%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0, #000 20%, #000 80%, transparent 100%);
+  pointer-events: none;
 }
 .local-glow {
   position: absolute;
   inset: 0 -20% auto -20%;
-  height: 70%;
-  z-index: 0;
-  background: radial-gradient(46% 70% at 50% 42%, rgba(79, 104, 255, 0.18), transparent 72%);
+  height: 74%;
+  z-index: -1;
+  background: radial-gradient(48% 66% at 50% 34%, rgba(96, 118, 255, 0.14), transparent 70%);
   pointer-events: none;
 }
 .local-inner { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; }
