@@ -8,7 +8,7 @@ const MAC_DOWNLOAD_URL =
 const RELEASES_URL = 'https://github.com/doXmind/releases/releases/latest'
 const GITHUB_URL = 'https://github.com/doXmind'
 const DOCS_URL = 'https://docs.doxmind.com'
-const LATEST_VERSION = '1.7.8'
+const LATEST_VERSION = '1.8.0'
 
 function Brand() {
   return (
@@ -38,19 +38,18 @@ function Reveal({ children, className = '', delay = 0, as = 'div', ...rest }) {
 }
 
 function ProductShot({ src, alt }) {
-  const retina = src.replace(/\.png$/, '@2x.png')
   return (
     <div className="frame">
-      <img src={src} srcSet={`${src} 1x, ${retina} 2x`} width="1400" height="900" alt={alt} loading="lazy" />
+      <img src={src} width="1400" height="900" alt={alt} loading="lazy" />
     </div>
   )
 }
 
 const LOCAL_POINTS = [
   { k: 'No account', v: 'Open and go', d: 'No sign-up, no login, no identity. Launch and start writing.' },
-  { k: 'No cloud sync', v: 'Nothing uploads', d: 'Your files never leave the machine. There is no server to leave to.' },
-  { k: 'No telemetry', v: 'Nothing watches', d: 'No analytics, no tracking, no phone-home. Fully offline.' },
-  { k: 'Source of truth', v: 'Your filesystem', d: 'Portable .md, .xlsx and .pdf on disk — yours to keep and move.' },
+  { k: 'No cloud sync', v: 'Nothing uploads', d: 'Your files never leave the machine. There is no remote sync service.' },
+  { k: 'No telemetry', v: 'Nothing watches', d: 'No analytics and no tracking. Your work stays private and available offline.' },
+  { k: 'Source of truth', v: 'Your filesystem', d: 'Portable Markdown Pages and ordinary attachments on disk — yours to keep and move.' },
 ]
 
 export default function Home() {
@@ -120,7 +119,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             >
-              A fully local desktop IDE for Markdown, PDF, and Excel.
+              A fully local, Markdown-native knowledge workspace.
             </motion.p>
             <motion.div
               className="hero-cta"
@@ -148,7 +147,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.95, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
-            <ProductShot src="/doxmind-editor.png" alt="A Markdown document open in the doXmind editor" />
+            <ProductShot
+              src="/doxmind-overview.png"
+              alt="The doXmind workspace showing a Markdown Page with spreadsheet and PDF Attachments"
+            />
           </motion.div>
         </section>
 
@@ -158,11 +160,11 @@ export default function Home() {
             <span className="eyebrow"><span className="dot" /> Local by design</span>
           </Reveal>
           <Reveal delay={0.05} as="h2">
-            One editor for the documents you work in every day.
+            One editing surface: the Markdown Page.
           </Reveal>
           <Reveal delay={0.1} as="p">
-            Markdown, PDF and Excel — each a first-class citizen, each still a portable
-            file in a folder you control.
+            Write Pages in a rich editor. Keep PDF, spreadsheet and HTML files as
+            read-only Attachments in the same folder you already control.
           </Reveal>
         </section>
 
@@ -170,65 +172,70 @@ export default function Home() {
         <section className="features" id="product" aria-label="What doXmind does">
           <div className="feature">
             <div className="feature-copy">
-              <Reveal><span className="eyebrow">01 · Markdown</span></Reveal>
-              <Reveal delay={0.05} as="h3">Markdown without lock-in.</Reveal>
+              <Reveal><span className="eyebrow">01 · Page</span></Reveal>
+              <Reveal delay={0.05} as="h3">Rich writing, portable source.</Reveal>
               <Reveal delay={0.1}>
                 <p>
                   Write in a rich editor while a portable <code style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>.md</code> file
-                  stays in your own folder. Math, Mermaid, tables, callouts and code — all in a focused desktop workflow.
+                  stays in your own folder. The Page remains useful in any Markdown tool, even without doXmind.
                 </p>
                 <ul className="feature-points">
                   <li><Check size={16} weight="bold" /> KaTeX math, Mermaid diagrams, tables, callouts, task lists and highlighted code</li>
                   <li><Check size={16} weight="bold" /> Slash commands, drag handles, and a Notion-style bubble menu</li>
-                  <li><Check size={16} weight="bold" /> Untouched blocks round-trip byte-for-byte; a hidden sidecar holds the rest</li>
+                  <li><Check size={16} weight="bold" /> A hidden sidecar improves fidelity without replacing the Markdown source</li>
                 </ul>
               </Reveal>
             </div>
             <Reveal delay={0.08} className="feature-visual">
-              <ProductShot src="/doxmind-editor.png" alt="A Markdown project edited in doXmind" />
+              <ProductShot src="/doxmind-editor.png" alt="A Markdown Page open in the doXmind rich editor" />
             </Reveal>
           </div>
 
           <div className="feature feature-reverse">
             <div className="feature-copy">
-              <Reveal><span className="eyebrow">02 · PDF</span></Reveal>
-              <Reveal delay={0.05} as="h3">PDFs stay original.</Reveal>
+              <Reveal><span className="eyebrow">02 · Your folder</span></Reveal>
+              <Reveal delay={0.05} as="h3">A knowledge base you can leave with.</Reveal>
               <Reveal delay={0.1}>
                 <p>
-                  Read, annotate and organize long documents without replacing the source PDF. doXmind keeps its editing
-                  state beside the file — not on a remote server.
+                  Open a real folder and create Pages directly beside the files you already manage. Ordinary Markdown
+                  links remain visible in the source instead of becoming relationships trapped in a cloud database.
                 </p>
                 <ul className="feature-points">
-                  <li><Check size={16} weight="bold" /> Block-based annotation and edit surface</li>
-                  <li><Check size={16} weight="bold" /> The original PDF is never overwritten</li>
-                  <li><Check size={16} weight="bold" /> Editor state lives in a same-name hidden sidecar</li>
+                  <li><Check size={16} weight="bold" /> Real folders and filenames stay authoritative</li>
+                  <li><Check size={16} weight="bold" /> Pages stay readable in Obsidian, VS Code, Git and other Markdown tools</li>
+                  <li><Check size={16} weight="bold" /> Portable links are the foundation for the knowledge layer ahead</li>
                 </ul>
               </Reveal>
             </div>
             <Reveal delay={0.08} className="feature-visual">
-              <ProductShot src="/doxmind-pdf.png" alt="A PDF open in the doXmind annotation workspace" />
+              <ProductShot
+                src="/doxmind-overview.png"
+                alt="A local folder in doXmind with one Markdown Page and two read-only Attachments"
+              />
             </Reveal>
           </div>
 
           <div className="feature">
             <div className="feature-copy">
-              <Reveal><span className="eyebrow">03 · Excel</span></Reveal>
-              <Reveal delay={0.05} as="h3">Real workbooks, locally.</Reveal>
+              <Reveal><span className="eyebrow">03 · Attachments</span></Reveal>
+              <Reveal delay={0.05} as="h3">Reference files without rewriting them.</Reveal>
               <Reveal delay={0.1}>
                 <p>
-                  Edit <code style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>.xlsx</code> and{' '}
-                  <code style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>.csv</code> with formulas, filters,
-                  autofill, formatting and structural tools. Your workbook stays the source of truth on disk.
+                  PDF, spreadsheet and HTML files can live in the workspace as read-only Attachments. Open them in the
+                  system app or reveal them in Finder without turning doXmind into a second office suite.
                 </p>
                 <ul className="feature-points">
-                  <li><Check size={16} weight="bold" /> A real formula engine, not a viewer</li>
-                  <li><Check size={16} weight="bold" /> Row and column operations, filters and autofill</li>
-                  <li><Check size={16} weight="bold" /> CSV opens in the same grid and exports back to .xlsx</li>
+                  <li><Check size={16} weight="bold" /> The original Attachment is never silently rewritten</li>
+                  <li><Check size={16} weight="bold" /> Open Externally and Reveal keep file ownership clear</li>
+                  <li><Check size={16} weight="bold" /> Existing PDF and Excel edits retain a documented recovery path</li>
                 </ul>
               </Reveal>
             </div>
             <Reveal delay={0.08} className="feature-visual">
-              <ProductShot src="/doxmind-excel.png" alt="An Excel workbook open in the doXmind spreadsheet editor" />
+              <ProductShot
+                src="/doxmind-editor.png"
+                alt="A doXmind Page documenting how PDF and spreadsheet files remain read-only Attachments"
+              />
             </Reveal>
           </div>
         </section>
@@ -244,7 +251,7 @@ export default function Home() {
             <Reveal delay={0.1}>
               <p className="local-lede">
                 doXmind has no account, no cloud sync, no telemetry, and no AI runtime. It is a desktop app and a localhost
-                helper — the files in your own folders are the whole product.
+                helper — the files in your own folders remain the source of truth.
               </p>
             </Reveal>
             <Reveal delay={0.14}>
@@ -267,7 +274,7 @@ export default function Home() {
             <div className="download-sky" aria-hidden="true" />
             <img className="download-icon" src="/doxmind-app-icon.png" alt="" width="56" height="56" />
             <h2>Keep your documents yours.</h2>
-            <p>Download doXmind for macOS and start editing in seconds — no account, no cloud, no catch.</p>
+            <p>Download doXmind for macOS and start writing local Markdown Pages — no account, no cloud, no catch.</p>
             <div className="download-cta">
               <a className="btn btn-lg btn-ink" href={MAC_DOWNLOAD_URL}>
                 <DownloadSimple size={18} weight="bold" /> Download for macOS
@@ -287,7 +294,7 @@ export default function Home() {
         <div className="footer-top">
           <div className="footer-brand">
             <a href="/" aria-label="doXmind home"><Brand /></a>
-            <p>A fully local desktop IDE for Markdown, PDF and Excel. Your filesystem is the source of truth.</p>
+            <p>A fully local, Markdown-native knowledge workspace. Your filesystem is the source of truth.</p>
           </div>
           <nav className="footer-links" aria-label="Footer">
             <div className="footer-col">
