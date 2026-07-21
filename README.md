@@ -1,92 +1,52 @@
-# doXmind - AI-Powered Writing Assistant
+# doXmind website
 
-A minimalist marketing website for doXmind, an AI-powered writing assistant that helps you write better, faster.
+Marketing site for doXmind, a fully local, Markdown-native knowledge workspace.
 
-## About doXmind
+## Product boundary
 
-doXmind is a Markdown editor with:
-- **AI Autocomplete** - Smart suggestions as you type, press Tab to accept
-- **Quick Edit** - Select text and instantly fix grammar, improve, simplify, expand, or translate
-- **AI Chat Assistant** - Chat with Claude AI about your document
-- **Version History** - Track all changes with automatic snapshots
-- **Full Markdown Support** - Code blocks, tables, formatting toolbar
+- A Markdown Page is the only first-class editing surface.
+- PDF, spreadsheet, HTML, image, and other non-Markdown files are read-only Attachments.
+- The user's filesystem is the source of truth.
+- There is no account, cloud sync, telemetry, billing, or AI runtime.
+- Existing legacy PDF and Excel edits retain a documented recovery path; the website does not advertise those retired editors.
 
-## Tech Stack
+The current site serves the homepage at `/` and the same page scrolled to the download section at `/download/`. The download button uses the stable macOS URL:
 
-- **React 18** - UI framework
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Utility-first styling
-- **Framer Motion** - Animations
-- **Headless UI** - Accessible UI components
-- **Lucide React** - Icon library
+`https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg`
 
-## Design Language
+## Development
 
-Minimalist black and white design with:
-- Pure monochrome color palette (no accent colors)
-- Brand typography: "do**X**mind" (light + black weight contrast)
-- X-shaped logo icon
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18+)
-- npm or yarn
-
-### Installation
+Requires Node.js 22 or newer.
 
 ```sh
-git clone https://github.com/anthropics/doXmind-Web.git
-cd doXmind-Web
 npm install
-```
-
-### Development
-
-```sh
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view in browser.
-
-### Production Build
+Build and verify the production site:
 
 ```sh
 npm run build
-npm run preview
+npm run preview -- --host 127.0.0.1 --port 4173
+npm run test:site
 ```
 
-## Project Structure
+The browser check covers the 1.8 product boundary, structured data, current screenshots, desktop and mobile layout, scroll-revealed content, the stable download link, and the retired login surface.
 
-```
-src/
-  components/
-    layout/       # Header, Footer
-    ui/           # Reusable UI components
-    guide/        # User guide components
-  pages/          # Page components (Home, Features, Pricing, etc.)
-  core/           # Constants, utilities, theme
-  constants/      # Navigation data
-public/
-  logo.svg        # Main logo (white for dark backgrounds)
-  logo-light.svg  # Logo for light backgrounds
-  favicon.svg     # Browser favicon
-docs/
-  DESIGN_LANGUAGE.md  # Design system specification
-  PROGRESS.md         # Development progress tracking
-```
+## Current assets
 
-## Pages
+- `public/doxmind-overview.png` — local folder with one Page and read-only Attachments
+- `public/doxmind-editor.png` — Markdown Page editor
+- `public/og-image.png` — current social preview
 
-- **Home** - Hero, features overview, Quick Edit commands, CTA
-- **Features** - Detailed feature descriptions
-- **Pricing** - Beta access information
-- **Solutions** - Use cases for different writers
-- **Guide** - User documentation
+Retired PDF, spreadsheet, AI, and `@2x` marketing assets must not be reintroduced without an explicit product decision.
+
+## Release coordination
+
+Do not deploy a version-labelled website update before the matching GitHub release is public. For 1.8.0, publish the verified draft as `latest` first, then deploy this site and confirm that the stable DMG URL resolves to the 1.8.0 asset.
 
 ## Links
 
 - Website: [doxmind.com](https://doxmind.com)
-- App: [app.doxmind.com](https://app.doxmind.com)
 - Documentation: [docs.doxmind.com](https://docs.doxmind.com)
+- GitHub: [github.com/doXmind](https://github.com/doXmind)
