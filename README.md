@@ -8,7 +8,7 @@ Marketing site for doXmind, a fully local, Markdown-native knowledge workspace.
 - PDF, spreadsheet, HTML, image, and other non-Markdown files are read-only Attachments.
 - The user's filesystem is the source of truth.
 - There is no account, cloud sync, telemetry, billing, or AI runtime.
-- Existing legacy PDF and Excel edits retain a documented recovery path; the website does not advertise those retired editors.
+- Legacy PDF and Excel evidence stays preserved; eligible cases can use the documented, unverified recovery procedure. The website does not advertise those retired editors.
 
 The current site serves the homepage at `/` and the same page scrolled to the download section at `/download/`. The download button uses the stable macOS URL:
 

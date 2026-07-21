@@ -78,6 +78,7 @@ try {
     'A fully local, Markdown-native knowledge workspace.',
     'One editing surface: the Markdown Page.',
     'read-only Attachments',
+    'eligible cases can use an explicit, unverified recovery attempt',
     'v1.8.0',
   ]) {
     assert.equal(bodyText.includes(requiredSurface), true, `${requiredSurface} should appear`)
