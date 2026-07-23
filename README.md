@@ -5,6 +5,7 @@ Marketing site for doXmind, a fully local, Markdown-native knowledge workspace.
 ## Product boundary
 
 - A Markdown Page is the only first-class editing surface.
+- Page Blocks edit canonical Markdown directly, with semantic inline formatting and hierarchy-safe multi-Block operations.
 - PDF, spreadsheet, HTML, image, and other non-Markdown files are read-only Attachments.
 - The user's filesystem is the source of truth.
 - There is no account, cloud sync, telemetry, billing, or AI runtime.
@@ -31,7 +32,7 @@ npm run preview -- --host 127.0.0.1 --port 4173
 npm run test:site
 ```
 
-The browser check covers the 1.8 product boundary, structured data, current screenshots, desktop and mobile layout, scroll-revealed content, the stable download link, and the retired login surface.
+The browser check covers the 1.8.3 product boundary, current Block interaction copy, structured data, existing screenshots, desktop and mobile layout, scroll-revealed content, the stable download link, and the retired login surface.
 
 ## Current assets
 
@@ -43,7 +44,7 @@ Retired PDF, spreadsheet, AI, and `@2x` marketing assets must not be reintroduce
 
 ## Release coordination
 
-Do not deploy a version-labelled website update before the matching GitHub release is public. For 1.8.0, publish the verified draft as `latest` first, then deploy this site and confirm that the stable DMG URL resolves to the 1.8.0 asset.
+Do not deploy a version-labelled website update before the matching GitHub release is public. For 1.8.3, publish the verified release as `latest` first, then deploy this site and confirm that the stable DMG URL resolves to the 1.8.3 asset.
 
 ## Links
 

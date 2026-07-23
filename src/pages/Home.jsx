@@ -8,7 +8,7 @@ const MAC_DOWNLOAD_URL =
 const RELEASES_URL = 'https://github.com/doXmind/releases/releases/latest'
 const GITHUB_URL = 'https://github.com/doXmind'
 const DOCS_URL = 'https://docs.doxmind.com'
-const LATEST_VERSION = '1.8.0'
+const LATEST_VERSION = '1.8.3'
 
 function Brand() {
   return (
@@ -127,7 +127,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.28 }}
             >
-              <a className="btn btn-lg btn-ink" href={MAC_DOWNLOAD_URL}>
+              <a className="btn btn-lg btn-ink" href={MAC_DOWNLOAD_URL} data-testid="mac-download">
                 <DownloadSimple size={18} weight="bold" /> Download for macOS
               </a>
             </motion.div>
@@ -176,13 +176,15 @@ export default function Home() {
               <Reveal delay={0.05} as="h3">Rich writing, portable source.</Reveal>
               <Reveal delay={0.1}>
                 <p>
-                  Write in a rich editor while a portable <code style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>.md</code> file
-                  stays in your own folder. The Page remains useful in any Markdown tool, even without doXmind.
+                  Write through semantic Blocks while a portable <code style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>.md</code> file
+                  stays in your own folder. Every edit maps back to canonical Markdown, so the Page remains useful in
+                  any Markdown tool, even without doXmind.
                 </p>
                 <ul className="feature-points">
+                  <li><Check size={16} weight="bold" /> Semantic inline editing for emphasis, links, wiki links, code and local images</li>
+                  <li><Check size={16} weight="bold" /> Quiet hover controls, a searchable Block menu and a floating text-selection toolbar</li>
+                  <li><Check size={16} weight="bold" /> Contiguous multi-Block actions with hierarchy-safe nested-list movement</li>
                   <li><Check size={16} weight="bold" /> KaTeX math, Mermaid diagrams, tables, callouts, task lists and highlighted code</li>
-                  <li><Check size={16} weight="bold" /> Slash commands, drag handles, and a Notion-style bubble menu</li>
-                  <li><Check size={16} weight="bold" /> A hidden sidecar improves fidelity without replacing the Markdown source</li>
                 </ul>
               </Reveal>
             </div>
@@ -250,8 +252,8 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="local-lede">
-                doXmind has no account, no cloud sync, no telemetry, and no AI runtime. It is a desktop app and a localhost
-                helper — the files in your own folders remain the source of truth.
+                doXmind has no account, no cloud sync, no telemetry, and no AI runtime. The desktop app works directly
+                with the files in your own folders, which remain the source of truth.
               </p>
             </Reveal>
             <Reveal delay={0.14}>
@@ -276,7 +278,7 @@ export default function Home() {
             <h2>Keep your documents yours.</h2>
             <p>Download doXmind for macOS and start writing local Markdown Pages — no account, no cloud, no catch.</p>
             <div className="download-cta">
-              <a className="btn btn-lg btn-ink" href={MAC_DOWNLOAD_URL}>
+              <a className="btn btn-lg btn-ink" href={MAC_DOWNLOAD_URL} data-testid="mac-download">
                 <DownloadSimple size={18} weight="bold" /> Download for macOS
               </a>
             </div>
@@ -307,7 +309,7 @@ export default function Home() {
               <span className="h">Resources</span>
               <a href={DOCS_URL} target="_blank" rel="noreferrer">Docs</a>
               <a href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a>
-              <a href={MAC_DOWNLOAD_URL}>Download</a>
+              <a href={MAC_DOWNLOAD_URL} data-testid="mac-download">Download</a>
             </div>
           </nav>
         </div>

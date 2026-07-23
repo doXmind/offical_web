@@ -42,13 +42,13 @@ try {
     await desktop.$eval('.hero-icon', (node) => node.getAttribute('src')),
     '/doxmind-app-icon.png',
   )
-  assert.equal(
-    await desktop.$eval('[data-testid="mac-download"]', (node) => node.href),
-    'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg',
-  )
-  assert.equal(
-    await desktop.$eval('.site-header [data-testid="mac-download"]', (node) => node.href),
-    'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg',
+  const macDownloadUrl =
+    'https://github.com/doXmind/releases/releases/latest/download/doXmind-mac-arm64.dmg'
+  assert.deepEqual(
+    await desktop.$$eval('[data-testid="mac-download"]', (nodes) =>
+      nodes.map((node) => node.href),
+    ),
+    Array(4).fill(macDownloadUrl),
   )
   assert.deepEqual(
     await desktop.$$eval('.frame img', (nodes) => nodes.map((node) => node.getAttribute('src'))),
@@ -79,7 +79,12 @@ try {
     'One editing surface: the Markdown Page.',
     'read-only Attachments',
     'eligible cases can use an explicit, unverified recovery attempt',
-    'v1.8.0',
+    'Semantic inline editing',
+    'searchable Block menu',
+    'floating text-selection toolbar',
+    'Contiguous multi-Block actions',
+    'hierarchy-safe nested-list movement',
+    'v1.8.3',
   ]) {
     assert.equal(bodyText.includes(requiredSurface), true, `${requiredSurface} should appear`)
   }
@@ -92,12 +97,39 @@ try {
     'Block-based annotation and edit surface',
     'A real formula engine, not a viewer',
     'spreadsheet editor',
+    'Notion-style bubble menu',
   ]) {
     assert.equal(bodyText.includes(retiredClaim), false, `${retiredClaim} should not appear`)
   }
+  const metadataText = await desktop.$$eval(
+    'meta[name][content], meta[property][content]',
+    (nodes) => nodes.map((node) => node.getAttribute('content')).join('\n'),
+  )
+  const structuredData = await desktop.$$eval('script[type="application/ld+json"]', (nodes) =>
+    nodes.map((node) => JSON.parse(node.textContent)),
+  )
+  const productSurfaceText = [bodyText, metadataText, JSON.stringify(structuredData)]
+    .join('\n')
+    .toLowerCase()
+  for (const forbiddenArchitectureTerm of [
+    'sidecar',
+    'localhost helper',
+    'TipTap',
+    'ProseMirror',
+    'AI writing editor',
+    'AI native editor',
+    'PDF annotation',
+    'Excel workbook editing',
+  ]) {
+    assert.equal(
+      productSurfaceText.includes(forbiddenArchitectureTerm.toLowerCase()),
+      false,
+      `${forbiddenArchitectureTerm} should not appear in rendered copy, metadata, or structured data`,
+    )
+  }
 
-  const softwareSchema = await desktop.$$eval('script[type="application/ld+json"]', (nodes) =>
-    nodes.map((node) => JSON.parse(node.textContent)).find((schema) => schema['@type'] === 'SoftwareApplication'),
+  const softwareSchema = structuredData.find(
+    (schema) => schema['@type'] === 'SoftwareApplication',
   )
   assert.ok(softwareSchema)
   assert.ok(softwareSchema.featureList.includes('Read-only PDF, spreadsheet, and HTML Attachments'))
@@ -149,7 +181,7 @@ try {
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 
-  console.log('Site checks passed: 1.8 product boundary, imagery, desktop, mobile, /download, and retired /login surface')
+  console.log('Site checks passed: 1.8.3 product boundary, Block editing copy, imagery, desktop, mobile, /download, and retired /login surface')
 } finally {
   await browser.close()
 }
