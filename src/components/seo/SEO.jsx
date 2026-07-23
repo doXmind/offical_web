@@ -5,9 +5,9 @@ const DOWNLOAD_URL = `${SITE_URL}/download`
 const IMAGE_URL = `${SITE_URL}/og-image.png`
 const APP_ICON_URL = `${SITE_URL}/doxmind-app-icon.png`
 
-const title = 'doXmind — Local Desktop IDE for Markdown, PDF & Excel'
+const title = 'doXmind — Fully Local Markdown Knowledge Workspace'
 const description =
-  'A fully local desktop IDE for Markdown, PDF, and Excel. No account, cloud sync, telemetry, or AI runtime.'
+  'A fully local, Markdown-native knowledge workspace with portable Pages and read-only Attachments. No account, cloud sync, telemetry, or AI runtime.'
 
 const structuredData = [
   {
@@ -27,9 +27,10 @@ const structuredData = [
     description,
     downloadUrl: DOWNLOAD_URL,
     featureList: [
-      'Rich Markdown editing with portable files',
-      'PDF annotation and document tools',
-      'Excel workbook editing',
+      'Rich Markdown Pages backed by portable files',
+      'Real local folders and filesystem ownership',
+      'Read-only PDF, spreadsheet, and HTML Attachments',
+      'Portable Markdown links',
       'Fully local filesystem storage',
       'Offline desktop operation',
     ],
@@ -44,7 +45,7 @@ export default function SEO({ path = '/' }) {
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
-      <meta name="keywords" content="local document editor, desktop markdown editor, PDF editor, Excel editor, offline document IDE" />
+      <meta name="keywords" content="local knowledge workspace, desktop markdown editor, portable markdown, local files, offline notes" />
       <link rel="canonical" href={canonicalUrl} />
 
       <meta property="og:type" content="website" />
@@ -60,11 +61,9 @@ export default function SEO({ path = '/' }) {
       <meta name="twitter:image" content={IMAGE_URL} />
 
       {structuredData.map((schema) => (
-        <script
-          key={schema['@type']}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <script key={schema['@type']} type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
       ))}
     </Helmet>
   )
