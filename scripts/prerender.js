@@ -55,7 +55,10 @@ async function prerender() {
   await new Promise((resolve) => server.listen(port, resolve));
   console.log(`Static server running on http://localhost:${port}\n`);
 
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    ...(process.env.CI ? { args: ['--no-sandbox', '--disable-setuid-sandbox'] } : {}),
+  });
 
   for (const route of ROUTES) {
     const page = await browser.newPage();
