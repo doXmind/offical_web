@@ -8,7 +8,7 @@ const MAC_DOWNLOAD_URL =
 const RELEASES_URL = 'https://github.com/doXmind/releases/releases/latest'
 const GITHUB_URL = 'https://github.com/doXmind'
 const DOCS_URL = 'https://docs.doxmind.com'
-const LATEST_VERSION = '1.8.3'
+const LATEST_VERSION = '1.10.0'
 
 function Brand() {
   return (
