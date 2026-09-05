@@ -64,7 +64,7 @@ try {
     [
       'doXmind 1.11.0 in dark mode with a local workspace, linked notes, a table and tasks',
       'The searchable Insert block menu in the doXmind 1.11.0 dark editor',
-      'A local Markdown folder and the floating text-formatting toolbar in doXmind 1.11.0',
+      'A local Markdown note with a Reading List wiki link in doXmind 1.11.0',
       'A read-only PDF attachment in doXmind 1.11.0 with Open externally and Reveal in Finder actions',
     ],
   )
