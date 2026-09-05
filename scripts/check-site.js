@@ -37,7 +37,7 @@ try {
   const desktop = await openPage('/', { width: 1440, height: 1000 })
   assert.match(await desktop.title(), /Fully Local Markdown Knowledge Workspace/)
   const heroHeading = await desktop.$eval('h1', (node) => node.textContent)
-  assert.equal(heroHeading.trim(), 'Your ideas.On your terms.')
+  assert.equal(heroHeading.trim(), 'doXmind')
   assert.equal(
     await desktop.$eval('.brand img', (node) => node.getAttribute('src')),
     '/doxmind-app-icon.png',
@@ -48,7 +48,7 @@ try {
     await desktop.$$eval('[data-testid="mac-download"]', (nodes) =>
       nodes.map((node) => node.href),
     ),
-    Array(4).fill(macDownloadUrl),
+    Array(3).fill(macDownloadUrl),
   )
   assert.deepEqual(
     await desktop.$$eval('.frame img', (nodes) => nodes.map((node) => node.getAttribute('src'))),
@@ -77,10 +77,9 @@ try {
 
   const bodyText = await desktop.$eval('body', (node) => node.innerText)
   for (const requiredSurface of [
-    'Your ideas.', 'On your terms.', 'Everything stays yours.',
-    'A fully local, Markdown-native knowledge workspace.',
-    'read-only Attachments', 'searchable Block menu', 'floating text-selection toolbar',
-    'Their original files stay untouched.', 'v1.11.0',
+    'doXmind', 'A local Markdown workspace.',
+    'Write naturally.', 'Keep it yours.', 'Bring your references.',
+    'Originals stay untouched.', 'v1.11.0',
   ]) {
     assert.equal(bodyText.includes(requiredSurface), true, `${requiredSurface} should appear`)
   }
@@ -187,7 +186,7 @@ try {
     { width: 1280, height: 900 },
     { collectConsoleErrors: false },
   )
-  assert.equal(await legacy.$eval('h1', (node) => node.textContent.trim()), 'Your ideas.On your terms.')
+  assert.equal(await legacy.$eval('h1', (node) => node.textContent.trim()), 'doXmind')
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 

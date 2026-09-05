@@ -47,7 +47,7 @@ Retired PDF, spreadsheet, AI, and `@2x` marketing assets must not be reintroduce
 
 ## Visual direction
 
-The selected design uses a left-aligned two-line hero, restrained graphite light, black content sections, Geist typography, and large real product images. Navigation, file-format claims and the stable download URL retain the existing product boundary. Reduced-motion preferences disable reveals and smooth scrolling.
+The design uses a centered product-name hero, one-line introduction, restrained graphite light, black content sections, Geist typography, and large real product images. Each of the three feature sections contains one heading and one sentence; repeated ownership sections, small labels and decorative feature numbering are removed. Navigation, file-format claims and the stable download URL retain the existing product boundary. Reduced-motion preferences disable reveals and smooth scrolling.
 
 ## Release coordination
 
