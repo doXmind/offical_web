@@ -27,9 +27,9 @@ function Reveal({ children, className = '', as = 'div', ...rest }) {
   )
 }
 
-function ProductShot({ src, alt, priority = false }) {
-  return <div className="frame"><img src={src} width="1400" height={priority ? 700 : 900} alt={alt}
-    loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'} /></div>
+function ProductShot({ src, alt, priority = false, detail }) {
+  return <div className={detail ? `product-stage stage-${detail}` : undefined}><div className="frame"><img src={src} width="1400" height={priority ? 700 : 900} alt={alt}
+    loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'} /></div></div>
 }
 
 const FEATURES = [
@@ -96,7 +96,7 @@ export default function Home() {
                 <p>{feature.description}</p>
               </Reveal>
               <Reveal className="feature-visual">
-                <ProductShot src={`/doxmind-1.11.0-${feature.image}.png`} alt={feature.alt} />
+                <ProductShot src={`/doxmind-1.11.0-${feature.image}.png`} alt={feature.alt} detail={feature.image} />
               </Reveal>
             </div>
           ))}
