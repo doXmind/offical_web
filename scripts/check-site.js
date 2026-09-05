@@ -53,21 +53,23 @@ try {
   assert.deepEqual(
     await desktop.$$eval('.frame img', (nodes) => nodes.map((node) => node.getAttribute('src'))),
     [
-      '/doxmind-overview.png',
-      '/doxmind-editor.png',
-      '/doxmind-overview.png',
-      '/doxmind-editor.png',
+      '/doxmind-1.11.0-workspace.png',
+      '/doxmind-1.11.0-insert.png',
+      '/doxmind-1.11.0-writing.png',
+      '/doxmind-1.11.0-attachment.png',
     ],
   )
   assert.deepEqual(
     await desktop.$$eval('.frame img', (nodes) => nodes.map((node) => node.getAttribute('alt'))),
     [
-      'The doXmind workspace showing a Markdown Page with spreadsheet and PDF Attachments',
-      'A Markdown Page open in the doXmind rich editor',
-      'A local folder in doXmind with one Markdown Page and two read-only Attachments',
-      'A doXmind Page documenting how PDF and spreadsheet files remain read-only Attachments',
+      'doXmind 1.11.0 in dark mode with a local workspace, linked notes, a table and tasks',
+      'The searchable Insert block menu in the doXmind 1.11.0 dark editor',
+      'A local Markdown folder and the floating text-formatting toolbar in doXmind 1.11.0',
+      'A read-only PDF attachment in doXmind 1.11.0 with Open externally and Reveal in Finder actions',
     ],
   )
+  await revealScrolledContent(desktop)
+  await desktop.waitForFunction(() => [...document.querySelectorAll('.frame img')].every((image) => image.complete && image.naturalWidth > 0))
   assert.equal(
     await desktop.$$eval('.frame img', (nodes) => nodes.every((node) => node.complete && node.naturalWidth > 0)),
     true,
@@ -136,7 +138,6 @@ try {
   assert.equal(softwareSchema.featureList.includes('PDF annotation and document tools'), false)
   assert.equal(softwareSchema.featureList.includes('Excel workbook editing'), false)
 
-  await revealScrolledContent(desktop)
   const hiddenRevealSections = await desktop.$$eval('.reveal', (nodes) =>
     nodes
       .map((node) => ({

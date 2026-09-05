@@ -148,8 +148,8 @@ export default function Home() {
             transition={{ duration: 0.95, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
             <ProductShot
-              src="/doxmind-overview.png"
-              alt="The doXmind workspace showing a Markdown Page with spreadsheet and PDF Attachments"
+              src="/doxmind-1.11.0-workspace.png"
+              alt="doXmind 1.11.0 in dark mode with a local workspace, linked notes, a table and tasks"
             />
           </motion.div>
         </section>
@@ -189,7 +189,7 @@ export default function Home() {
               </Reveal>
             </div>
             <Reveal delay={0.08} className="feature-visual">
-              <ProductShot src="/doxmind-editor.png" alt="A Markdown Page open in the doXmind rich editor" />
+              <ProductShot src="/doxmind-1.11.0-insert.png" alt="The searchable Insert block menu in the doXmind 1.11.0 dark editor" />
             </Reveal>
           </div>
 
@@ -211,8 +211,8 @@ export default function Home() {
             </div>
             <Reveal delay={0.08} className="feature-visual">
               <ProductShot
-                src="/doxmind-overview.png"
-                alt="A local folder in doXmind with one Markdown Page and two read-only Attachments"
+                src="/doxmind-1.11.0-writing.png"
+                alt="A local Markdown folder and the floating text-formatting toolbar in doXmind 1.11.0"
               />
             </Reveal>
           </div>
@@ -235,8 +235,8 @@ export default function Home() {
             </div>
             <Reveal delay={0.08} className="feature-visual">
               <ProductShot
-                src="/doxmind-editor.png"
-                alt="A doXmind Page documenting how PDF and spreadsheet files remain read-only Attachments"
+                src="/doxmind-1.11.0-attachment.png"
+                alt="A read-only PDF attachment in doXmind 1.11.0 with Open externally and Reveal in Finder actions"
               />
             </Reveal>
           </div>
