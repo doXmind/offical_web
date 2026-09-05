@@ -37,9 +37,9 @@ try {
   const desktop = await openPage('/', { width: 1440, height: 1000 })
   assert.match(await desktop.title(), /Fully Local Markdown Knowledge Workspace/)
   const heroHeading = await desktop.$eval('h1', (node) => node.textContent)
-  assert.equal(heroHeading.trim(), 'doXmind')
+  assert.equal(heroHeading.trim(), 'Your ideas.On your terms.')
   assert.equal(
-    await desktop.$eval('.hero-icon', (node) => node.getAttribute('src')),
+    await desktop.$eval('.brand img', (node) => node.getAttribute('src')),
     '/doxmind-app-icon.png',
   )
   const macDownloadUrl =
@@ -53,7 +53,7 @@ try {
   assert.deepEqual(
     await desktop.$$eval('.frame img', (nodes) => nodes.map((node) => node.getAttribute('src'))),
     [
-      '/doxmind-1.11.0-workspace.png',
+      '/doxmind-1.11.0-workspace-wide.png',
       '/doxmind-1.11.0-insert.png',
       '/doxmind-1.11.0-writing.png',
       '/doxmind-1.11.0-attachment.png',
@@ -77,16 +77,10 @@ try {
 
   const bodyText = await desktop.$eval('body', (node) => node.innerText)
   for (const requiredSurface of [
+    'Your ideas.', 'On your terms.', 'Everything stays yours.',
     'A fully local, Markdown-native knowledge workspace.',
-    'One editing surface: the Markdown Page.',
-    'read-only Attachments',
-    'no recovery or migration interface is included',
-    'Semantic inline editing',
-    'searchable Block menu',
-    'floating text-selection toolbar',
-    'Contiguous multi-Block actions',
-    'hierarchy-safe nested-list movement',
-    'v1.11.0',
+    'read-only Attachments', 'searchable Block menu', 'floating text-selection toolbar',
+    'Their original files stay untouched.', 'v1.11.0',
   ]) {
     assert.equal(bodyText.includes(requiredSurface), true, `${requiredSurface} should appear`)
   }
@@ -147,7 +141,11 @@ try {
       .filter(({ opacity }) => !(Number.parseFloat(opacity) > 0.99)),
   )
   assert.deepEqual(hiddenRevealSections, [], 'all reveal sections should become visible while scrolling')
+  await desktop.screenshot({ path: '/tmp/doxmind-midnight-desktop-viewport.png' })
   await desktop.screenshot({ path: '/tmp/doxmind-website-desktop.png', fullPage: true })
+  await desktop.click('a[href="#product"]')
+  await desktop.waitForFunction(() => Math.abs(document.querySelector('#product').getBoundingClientRect().top - 90) < 2)
+  assert.ok(await desktop.$eval('.site-header', (node) => node.dataset.scrolled === 'true'))
   await desktop.close()
 
   const mobile = await openPage('/', { width: 390, height: 844, deviceScaleFactor: 1 })
@@ -157,6 +155,17 @@ try {
   await revealScrolledContent(mobile)
   await mobile.screenshot({ path: '/tmp/doxmind-website-mobile.png', fullPage: true })
   await mobile.close()
+
+  const reduced = await browser.newPage()
+  await reduced.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }])
+  await reduced.goto(baseUrl, { waitUntil: 'networkidle0' })
+  assert.equal(await reduced.$eval('html', (node) => getComputedStyle(node).scrollBehavior), 'auto')
+  assert.equal(await reduced.$eval('h1', (node) => getComputedStyle(node).opacity), '1')
+  await reduced.keyboard.press('Tab')
+  assert.equal(await reduced.evaluate(() => document.activeElement.textContent), 'Skip to content')
+  await reduced.keyboard.press('Enter')
+  assert.equal(await reduced.evaluate(() => location.hash), '#main')
+  await reduced.close()
 
   const download = await openPage('/download/', { width: 1280, height: 900 })
   await new Promise((resolve) => setTimeout(resolve, 350))
@@ -178,7 +187,7 @@ try {
     { width: 1280, height: 900 },
     { collectConsoleErrors: false },
   )
-  assert.equal(await legacy.$eval('h1', (node) => node.textContent.trim()), 'doXmind')
+  assert.equal(await legacy.$eval('h1', (node) => node.textContent.trim()), 'Your ideas.On your terms.')
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 

@@ -36,17 +36,24 @@ The browser check covers the 1.11.0 product boundary, current Block interaction 
 
 ## Current assets
 
-- `public/doxmind-1.11.0-workspace.png` — dark workspace with linked notes, a table and tasks
+- `public/doxmind-1.11.0-workspace-wide.png` — 1500 × 750 dark workspace capture from the signed 1.11.0 app
 - `public/doxmind-1.11.0-insert.png` — searchable Insert block menu
 - `public/doxmind-1.11.0-writing.png` — local folder and floating formatting toolbar
 - `public/doxmind-1.11.0-attachment.png` — actual read-only PDF attachment actions
+- `public/hero-atmosphere.png` — generated graphite/steel-blue light background for the selected dark design
 - `public/og-image.png` — current social preview
 
 Retired PDF, spreadsheet, AI, and `@2x` marketing assets must not be reintroduced without an explicit product decision.
 
+## Visual direction
+
+The selected design uses a left-aligned two-line hero, restrained graphite light, black content sections, Geist typography, and large real product images. Navigation, file-format claims and the stable download URL retain the existing product boundary. Reduced-motion preferences disable reveals and smooth scrolling.
+
 ## Release coordination
 
 Do not deploy a version-labelled website update before the matching GitHub release is public. For 1.11.0, publish the verified release as `latest` first, then deploy this site and confirm that the stable DMG URL resolves to the 1.11.0 asset.
+
+The production domain is served by AWS Amplify app `d351nqkrq9u4zw` (`us-east-1`), which automatically builds `main`. The repository also runs a GitHub Pages deployment. Verify the matching Amplify job and the actual `doxmind.com` response before reporting production completion.
 
 ## Links
 
