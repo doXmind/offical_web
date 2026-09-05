@@ -32,19 +32,21 @@ npm run preview -- --host 127.0.0.1 --port 4173
 npm run test:site
 ```
 
-The browser check covers the 1.8.3 product boundary, current Block interaction copy, structured data, existing screenshots, desktop and mobile layout, scroll-revealed content, the stable download link, and the retired login surface.
+The browser check covers the 1.11.0 product boundary, current Block interaction copy, structured data, existing screenshots, desktop and mobile layout, scroll-revealed content, the stable download link, and the retired login surface.
 
 ## Current assets
 
-- `public/doxmind-overview.png` — local folder with one Page and read-only Attachments
-- `public/doxmind-editor.png` — Markdown Page editor
+- `public/doxmind-1.11.0-workspace.png` — dark workspace with linked notes, a table and tasks
+- `public/doxmind-1.11.0-insert.png` — searchable Insert block menu
+- `public/doxmind-1.11.0-writing.png` — local folder and floating formatting toolbar
+- `public/doxmind-1.11.0-attachment.png` — actual read-only PDF attachment actions
 - `public/og-image.png` — current social preview
 
 Retired PDF, spreadsheet, AI, and `@2x` marketing assets must not be reintroduced without an explicit product decision.
 
 ## Release coordination
 
-Do not deploy a version-labelled website update before the matching GitHub release is public. For 1.8.3, publish the verified release as `latest` first, then deploy this site and confirm that the stable DMG URL resolves to the 1.8.3 asset.
+Do not deploy a version-labelled website update before the matching GitHub release is public. For 1.11.0, publish the verified release as `latest` first, then deploy this site and confirm that the stable DMG URL resolves to the 1.11.0 asset.
 
 ## Links
 
