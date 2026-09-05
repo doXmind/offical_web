@@ -84,7 +84,7 @@ try {
     'floating text-selection toolbar',
     'Contiguous multi-Block actions',
     'hierarchy-safe nested-list movement',
-    'v1.10.0',
+    'v1.11.0',
   ]) {
     assert.equal(bodyText.includes(requiredSurface), true, `${requiredSurface} should appear`)
   }
@@ -181,7 +181,7 @@ try {
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 
-  console.log('Site checks passed: 1.10.0 product boundary, Block editing copy, imagery, desktop, mobile, /download, and retired /login surface')
+  console.log('Site checks passed: 1.11.0 product boundary, Block editing copy, imagery, desktop, mobile, /download, and retired /login surface')
 } finally {
   await browser.close()
 }
