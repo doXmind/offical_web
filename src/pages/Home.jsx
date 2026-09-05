@@ -41,7 +41,7 @@ const FEATURES = [
   {
     title: 'Keep it yours.',
     description: 'Local files. Linked notes. Open them with any Markdown app.',
-    image: 'writing', alt: 'A local Markdown folder and the floating text-formatting toolbar in doXmind 1.11.0',
+    image: 'writing', alt: 'A local Markdown note with a Reading List wiki link in doXmind 1.11.0',
   },
   {
     title: 'Bring your references.',

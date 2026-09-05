@@ -39,3 +39,12 @@ final result: passed
 - Reviewed desktop hero, each feature crop and the full mobile page. Adjusted the insert crop to retain its heading and the attachment crop to keep its card inside the frame.
 - Hover motion is limited to devices supporting hover and respects reduced-motion preferences.
 - Production build and existing site checks passed after refinement.
+
+## Editorial layout revision
+
+- Revisited the live Codex reference, including its hero, alternating feature rows and lower sections.
+- Widened the content grid, reduced heading scale and set feature imagery to 16:9 with a one-to-two text/image ratio.
+- Removed double borders and hover movement. Isolated the complete insert menu, wiki-link passage and attachment card from the existing real screenshots using proportional image viewports.
+- Softened the existing photographic background and increased its luminance behind the dark product details.
+- Updated the writing-image alternative text and its existing check to describe the visible wiki link.
+- Verified each image viewport plus desktop/mobile layouts, production prerendering and existing site checks.
