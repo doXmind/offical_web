@@ -78,7 +78,7 @@ try {
     'A fully local, Markdown-native knowledge workspace.',
     'One editing surface: the Markdown Page.',
     'read-only Attachments',
-    'eligible cases can use an explicit, unverified recovery attempt',
+    'no recovery or migration interface is included',
     'Semantic inline editing',
     'searchable Block menu',
     'floating text-selection toolbar',
