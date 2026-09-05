@@ -78,13 +78,13 @@ try {
     'A fully local, Markdown-native knowledge workspace.',
     'One editing surface: the Markdown Page.',
     'read-only Attachments',
-    'eligible cases can use an explicit, unverified recovery attempt',
+    'no recovery or migration interface is included',
     'Semantic inline editing',
     'searchable Block menu',
     'floating text-selection toolbar',
     'Contiguous multi-Block actions',
     'hierarchy-safe nested-list movement',
-    'v1.10.0',
+    'v1.11.0',
   ]) {
     assert.equal(bodyText.includes(requiredSurface), true, `${requiredSurface} should appear`)
   }
@@ -181,7 +181,7 @@ try {
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 
-  console.log('Site checks passed: 1.10.0 product boundary, Block editing copy, imagery, desktop, mobile, /download, and retired /login surface')
+  console.log('Site checks passed: 1.11.0 product boundary, Block editing copy, imagery, desktop, mobile, /download, and retired /login surface')
 } finally {
   await browser.close()
 }

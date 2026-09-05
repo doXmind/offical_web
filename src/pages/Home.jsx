@@ -8,7 +8,7 @@ const MAC_DOWNLOAD_URL =
 const RELEASES_URL = 'https://github.com/doXmind/releases/releases/latest'
 const GITHUB_URL = 'https://github.com/doXmind'
 const DOCS_URL = 'https://docs.doxmind.com'
-const LATEST_VERSION = '1.10.0'
+const LATEST_VERSION = '1.11.0'
 
 function Brand() {
   return (
@@ -229,7 +229,7 @@ export default function Home() {
                 <ul className="feature-points">
                   <li><Check size={16} weight="bold" /> The original Attachment is never silently rewritten</li>
                   <li><Check size={16} weight="bold" /> Open Externally and Reveal keep file ownership clear</li>
-                  <li><Check size={16} weight="bold" /> Legacy PDF and Excel evidence stays preserved; eligible cases can use an explicit, unverified recovery attempt</li>
+                  <li><Check size={16} weight="bold" /> Legacy files remain untouched; no recovery or migration interface is included</li>
                 </ul>
               </Reveal>
             </div>
