@@ -30,3 +30,12 @@ User requested less small text and less repetitive copy, with the simplicity of 
 - Console errors: none.
 
 final result: passed
+
+## Presentation refinement
+
+- Follow-up request: more visual polish while preserving the concise copy and black palette.
+- Increased hero title and icon scale, refined button highlights, frame edges and shadows, and made the header transparent at the top.
+- Reused the existing atmosphere asset behind close-up views of the actual insert menu, formatting toolbar and attachment actions. No screenshot content was fabricated.
+- Reviewed desktop hero, each feature crop and the full mobile page. Adjusted the insert crop to retain its heading and the attachment crop to keep its card inside the frame.
+- Hover motion is limited to devices supporting hover and respects reduced-motion preferences.
+- Production build and existing site checks passed after refinement.
