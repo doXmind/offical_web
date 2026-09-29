@@ -79,7 +79,7 @@ try {
   for (const requiredSurface of [
     'doXmind', 'A local Markdown workspace.',
     'Write naturally.', 'Keep it yours.', 'Bring your references.',
-    'Originals stay untouched.', 'v1.11.0',
+    'Originals stay untouched.', 'v1.11.1',
   ]) {
     assert.equal(bodyText.includes(requiredSurface), true, `${requiredSurface} should appear`)
   }
@@ -190,7 +190,7 @@ try {
   assert.equal((await legacy.$$('input')).length, 0)
   await legacy.close()
 
-  console.log('Site checks passed: 1.11.0 product boundary, Block editing copy, imagery, desktop, mobile, /download, and retired /login surface')
+  console.log('Site checks passed: 1.11.1 product boundary, Block editing copy, imagery, desktop, mobile, /download, and retired /login surface')
 } finally {
   await browser.close()
 }

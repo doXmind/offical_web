@@ -7,7 +7,7 @@ const MAC_DOWNLOAD_URL = 'https://github.com/doXmind/releases/releases/latest/do
 const RELEASES_URL = 'https://github.com/doXmind/releases/releases/latest'
 const GITHUB_URL = 'https://github.com/doXmind'
 const DOCS_URL = 'https://docs.doxmind.com'
-const LATEST_VERSION = '1.11.0'
+const LATEST_VERSION = '1.11.1'
 
 function Brand() {
   return <span className="brand"><img src="/doxmind-app-icon.png" alt="" width="32" height="32" /><span>doXmind</span></span>
