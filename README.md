@@ -32,7 +32,7 @@ npm run preview -- --host 127.0.0.1 --port 4173
 npm run test:site
 ```
 
-The browser check covers the 1.11.0 product boundary, current Block interaction copy, structured data, existing screenshots, desktop and mobile layout, scroll-revealed content, the stable download link, and the retired login surface.
+The browser check covers the current 1.11.1 product boundary, Block interaction copy, structured data, existing screenshots, desktop and mobile layout, scroll-revealed content, the stable download link, and the retired login surface.
 
 ## Current assets
 
@@ -51,7 +51,7 @@ The design uses a centered product-name hero, one-line introduction, restrained 
 
 ## Release coordination
 
-Do not deploy a version-labelled website update before the matching GitHub release is public. For 1.11.0, publish the verified release as `latest` first, then deploy this site and confirm that the stable DMG URL resolves to the 1.11.0 asset.
+Do not deploy a version-labelled website update before the matching GitHub release is public. For 1.11.1, publish the verified release as `latest` first, then deploy this site and confirm that the stable DMG URL resolves to the 1.11.1 asset.
 
 The production domain is served by AWS Amplify app `d351nqkrq9u4zw` (`us-east-1`), which automatically builds `main`. The repository also runs a GitHub Pages deployment. Verify the matching Amplify job and the actual `doxmind.com` response before reporting production completion.
 
